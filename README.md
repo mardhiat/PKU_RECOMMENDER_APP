@@ -1,14 +1,8 @@
-# PKU_RECOMMENDER_APP
-
-A hybrid AI-powered dietary recommender system for individuals with **Phenylketonuria (PKU)**, combining collaborative and content-based filtering to provide personalized, health-conscious meal suggestions.
-
----
-
-## PKU Dietary Management & Meal Recommendation
+# PKU Dietary Management & Meal Recommendation
 
 A **Python + Streamlit app** for personalized PKU dietary management. Provides meal planning, nutrient tracking, and AI-powered food recommendations tailored to PKU patients.
 
----
+
 
 ## Features
 
@@ -18,7 +12,7 @@ A **Python + Streamlit app** for personalized PKU dietary management. Provides m
 - Generate **custom meal plans** with CSV export.  
 - Visualize nutrition data with **charts and graphs**.  
 
----
+
 
 ## Installation
 
