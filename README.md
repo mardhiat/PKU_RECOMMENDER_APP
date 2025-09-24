@@ -17,7 +17,7 @@ A **Python + Streamlit app** for personalized PKU dietary management. Provides m
 ## Installation
 
 ```bash
-git clone https://github.com/mardhiat/pku-dietary-management.git
+git clone https://github.com/mardhiat/pku-recommender-app.git
 cd pku-dietary-management
 python -m venv venv
 # On Windows:
