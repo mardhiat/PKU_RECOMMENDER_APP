@@ -1,0 +1,189 @@
+Meal,Serving Size (g),Ingredient,Weight (g),Ingredients #,Meal Type
+Ugali (Maize porridge),350,Low-protein flour,320,2,BS
+,,Water,30,,
+Plantain Fufu,350,Plantains,320,2,LD
+,,Water,30,,
+Cassava Fufu,350,Low-protein flour,320,2,LD
+,,Water,30,,
+Matoke (boiled green Bananas),350,Green Bananas,320,1,BS
+,,Water,30,,
+Sweet Potato Porridge,350,Sweet potatoes,320,1,BS
+,,Water,30,,
+Boiled Cassava,300,Cassava root,280,1,BS
+,,Salt,20,,
+Boiled Plantains,300,Plantains,280,1,BS
+,,Salt,20,,
+Roasted Corn,250,Corn,230,1,BS
+,,Salt,20,,
+Steamed Vegetables,300,Mixed vegetables,270,4,LD
+,,Olive oil,30,,
+Kachumbari (fresh salad),250,Tomatoes,120,4,BS
+,,Onions,50,,
+,,Cilantro,40,,
+,,Lemon juice,40,,
+Avocado Salad,250,Avocado,200,3,BS
+,,Tomato,30,,
+,,Onion,20,,
+Okra Stew (without meat),350,Okra,250,4,LD
+,,Tomatoes,50,,
+,,Onion,30,,
+,,Palm oil,20,,
+Pumpkin Leaves Stew,350,Pumpkin leaves,250,4,LD
+,,Tomatoes,50,,
+,,Onion,30,,
+,,Palm oil,20,,
+Baobab Leaf Stew ,350,Baobab leaves,250,3,LD
+,,Tomato,50,,
+,,Onion,50,,
+Coconut Rice,350,Rice,250,3,LD
+,,Coconut milk,70,,
+,,Water,30,,
+Fried Plantains,300,Plantains,270,2,LD
+,,Oil,30,,
+Sweet Potato Chips,200,Sweet potatoes,180,2,BS
+,,Oil,20,,
+Boiled Yam,300,Yam,280,1,BS
+,,Salt,20,,
+Boiled Sweet Potatoes,300,Sweet potatoes,280,1,BS
+,,Salt,20,,
+Baked Plantains,300,Plantains,280,2,LD
+,,Oil,20,,
+Boiled Cassava Leaves,350,Cassava leaves,300,2,LD
+,,Oil,50,,
+Tomato and Cucumber Salad,250,Tomatoes,120,3,LD
+,,Cucumbers,100,,
+,,Lemon juice,30,,
+Steamed Okra,300,Okra,270,2,LD
+,,Olive oil,30,,
+Pumpkin Porridge,350,Pumpkin,320,2,LD
+,,Water,30,,
+Fried Cassava,300,Cassava,270,2,LD
+,,Oil,30,,
+Vegetable Stir Fry,350,Mixed vegetables,320,4,LD
+,,Oil,30,,
+Garden Egg Stew (without meat),350,Eggs,300,4,LD
+,,Tomatoes,30,,
+,,Onion,20,,
+,,Oil,30,,
+Okra and Tomato Salad,250,Okra,150,3,LD
+,,Tomatoes,70,,
+,,Olive oil,30,,
+Fried Sweet Potato Balls,200,Sweet potatoes,180,2,BS
+,,Oil,20,,
+Boiled Green Bananas,300,Green Bananas,280,1,LD
+,,Salt,20,,
+Millet Couscous,350,Millet flour,320,2,LD
+,,Water,30,,
+Roasted Pumpkin,300,Pumpkin,270,2,LD
+,,Oil,30,,
+Boiled Taro,300,Taro root,280,1,LD
+,,Salt,20,,
+Grilled Plantains,300,Plantains,280,2,LD
+,,Oil,20,,
+Roasted Sweet Potatoes,300,Sweet potatoes,270,2,LD
+,,Oil,30,,
+Boiled Pumpkin Leaves,350,Pumpkin leaves,300,2,LD
+,,Oil,50,,
+,,Olive oil,30,,
+Fried Sweet Potato Chips,200,Sweet potatoes,180,2,BS
+,,Oil,20,,
+Yam Porridge,350,Yam,320,2,LD
+,,Water,30,,
+Baobab Fruit Drink,300,Baobab fruit powder,50,2,BS
+,,Water,250,,
+Tamarind Juice,300,Tamarind pulp,50,2,BS
+,,Water,250,,
+Watermelon Salad,250,Watermelon,200,3,BS
+,,Mint leaves,30,,
+,,Lime juice,20,,
+Baobab Leaf Stew (no meat),350,Baobab leaves,250,3,LD
+,,Onion,50,,
+,,Palm oil,50,,
+Roasted Yam,300,Yam,280,1,LD
+,,Oil,20,,
+Steamed Waterleaf,300,Waterleaf,270,2,BS
+,,Oil,30,,
+Cassava Leaf Soup (no meat),350,Cassava leaves,250,4,LD
+,,Tomatoes,50,,
+,,Onion,30,,
+,,Palm oil,20,,
+Baobab Fruit Smoothie,300,Baobab fruit powder,40,3,BS
+,,Bananass,150,,
+,,Water,110,,
+Sweet Potato Leaves Soup,350,Sweet potato leaves,250,4,LD
+,,Tomato,50,,
+,,Onion,30,,
+,,Palm oil,20,,
+,,Yeast,10,,
+Okra Salad,250,Okra,150,3,BS
+,,Tomato,50,,
+,,Olive oil,30,,
+Baobab Leaf Salad,250,Baobab leaves,180,3,LD
+,,Lemon juice,30,,
+,,Olive oil,20,,
+Millet Stew (without meat),350,Low-protein flour,320,3,LD
+,,Tomato,20,,
+,,Water,10,,
+Roasted Garden Eggplant,300,African eggplants,270,2,LD
+,,Olive oil,30,,
+Flatbread,250,Low-protein flour,220,3,LD
+,,Water,20,,
+,,Salt,10,,
+Mashed Pumpkin,300,Pumpkin,280,2,LD
+,,Olive oil,20,,
+Cooked Waterleaf,300,Waterleaf,270,2,LD
+,,Palm oil,30,,
+Boiled Sweet Cassava,300,Cassava,280,2,BS
+,,Salt,20,,
+Okra and Tomato Soup,350,Okra,250,4,LD
+,,Tomato,50,,
+,,Onion,30,,
+,,Palm oil,20,,
+Steamed Green Beans,300,Green beans,270,2,BS
+,,Olive oil,30,,
+Roasted Sweet Potatoes,300,Sweet potatoes,270,2,BS
+,,Olive oil,30,,
+Baobab Leaf Juice,300,Baobab leaves,200,3,BS
+,,Water,80,,
+,,Lemon juice,20,,
+Rice and Beans (low-protein beans or substituted),350,Low-protein beans,150,4,LD
+,,Rice,150,,
+,,Tomatoes,30,,
+,,Oil,20,,
+Ugali with Vegetable Stew,350,Low-protein flour,200,5,LD
+,,Mixed vegetables,100,,
+,,Tomato,20,,
+,,Onion,20,,
+,,Oil,10,,
+Millet and Spinach Stew,350,Low-protein flour,200,4,LD
+,,Spinach,100,,
+,,Onion,30,,
+,,Oil,20,,
+Porridge with Baobab,350,Low-protein flour,300,3,BS
+,,Baobab fruit powder,30,,
+,,Water,20,,
+Plantain and Tomato Salad,250,Plantain,150,3,LD
+,,Tomato,70,,
+,,Lemon juice,30,,
+Cassava Leaf and Pumpkin Soup,350,Cassava leaves,200,4,LD
+,,Pumpkin,100,,
+,,Onion,30,,
+,,Palm oil,20,,
+Roasted Maize with Chili,250,Maize,230,3,LD
+,,Chili,10,,
+,,Salt,10,,
+Okra and Eggplant Stew,350,Okra,200,4,LD
+,,Eggplant,100,,
+,,Tomato,30,,
+,,Oil,20,,
+Sweet Potato and Peanut Soup (using low-protein peanut substitute),350,Sweet potato,250,4,LD
+,,Low-protein peanut substitute,30,,
+,,Tomato,40,,
+,,Oil,30,,
+Steamed Waterleaf with Tomatoes,300,Waterleaf,250,3,LD
+,,Tomato,30,,
+,,Oil,20,,
+Millet Flatbread with Veggies,250,Low-protein flour,200,4,LD
+,,Mixed vegetables,30,,
+,,Water,20,,
+,,Oil,20,,
