@@ -1,0 +1,421 @@
+Meal,Serving Size (g),Ingredient,Weight (g),Ingredients #,Meal Type
+Tomato Rasam,150,"Tomato, fresh juice",50,5,LD
+,,Garlic,2,,
+,,Tamarind paste,5,,
+,,Black pepper,1,,
+,,Water,92,,
+Vegetable Stew,180,"Potatoes, boiled",60,5,LD
+,,Carrots,40,,
+,,Green beans,30,,
+,,Coconut cream,30,,
+,,Raw Ginger (Fresh),2,,
+Sambar ,150,"Eggplant, cooked",30,5,LD
+,,"Tomatoes, cooked",30,,
+,,"Onion, raw",20,,
+,,Tamarind paste ,5,,
+,,Water,65,5,LD
+Masala Dosa ,150,"Potatoes, boiled",70,,
+,,Onions,40,,
+,,Mustard,3,,
+,,Turmeric,2,,
+,,Green chili,5,,
+Dosa Base,120,Cream of Rice,60,3,LD
+,,Water,60,,
+,,Salt,<1,,
+Lemon Rice,150,"Rice, long-grain",50,5,LD
+,,Lemon juice,10,,
+,,Mustard,5,,
+,,Curry leaves,2,,
+,,Turmeric,2,,
+Upma,200,Cream of Wheat regular,60,5,LD
+,,Green bell pepper,30,,
+,,Onions,20,,
+,,Raw Ginger (Fresh),2,,
+,,Mustard,3,,
+Coconut Chutney,50,Coconut cream,25,4,LD
+,,Green chili ,5,,
+,,Raw Ginger (Fresh),3,,
+,,Water,17,,
+Vegetable Kurma,150,"Potatoes, boiled",50,5,LD
+,,"Carrots, cooked",40,,
+,,Green beans,30,,
+,,Coconut cream,30,,
+,,Turmeric,1,,
+Aloo Tamatar Curry,180,Potatoes,100,4,LD
+,,Tomato,40,,
+,,Garlic,3,,
+,,Cumin,2,,
+Bhindi Masala,150,Okra,100,5,LD
+,,Tomato,30,,
+,,Onions,10,,
+,,Garlic,5,,
+,,Mustard,5,,
+Baingan Bharta,180,Eggplant,120,5,LD
+,,Tomato,30,,
+,,Onions,15,,
+,,Garlic,10,,
+,,Cilantro,5,,
+Jeera Aloo,150,Potatoes,90,3,BS
+,,Garlic,5,,
+,,Cumin,2,,
+Tinda Sabzi,160,Zucchini,100,4,LD
+,,Tomato,30,,
+,,Garlic,5,,
+,,Mustard,5,,
+Gajar Matar,140,Carrots,80,4,LD
+,,Peas,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+Kachumber Salad,100,Cucumber,60,3,BS
+,,Tomato,30,,
+,,Onions,10,,
+Lauki Sabzi,160,Zucchini,100,4,LD
+,,Tomato,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+Tamarind Potatoes,180,Potatoes,100,5,LD
+,,Tamarind,10,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Mustard,3,,
+Aloo Capsicum,170,Potatoes,90,4,LD
+,,Green bell peppers,60,,
+,,Onions,10,,
+,,Cumin,2,,
+Beetroot Curry,160,Beet root,100,4,LD
+,,Tomato,30,,
+,,Cumin,2,,
+,,Garlic,5,,
+Aloo Methi,150,Potatoes,90,5,LD
+,,Cilantro,10,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Mustard,3,,
+Aloo Baingan,170,Potatoes,80,5,LD
+,,Eggplant,60,,
+,,Tomato,20,,
+,,Garlic,5,,
+,,Cumin,2,,
+Simple Dahi Chawal,250,Rice,150,2,LD
+,,Yogurt,100,,
+Bhindi Stir Fry,220,Okra,150,4,LD
+,,Mustard Seeds,5,,
+,,Oil,40,,
+,,Turmeric,25,,
+Vegetable Pulao,300,Basmati Rice (Cooked),150,5,LD
+,,Peas,50,,
+,,Carrot,50,,
+,,Onion,30,,
+,,Oil,20,,
+Dal-Free Rasam,250,Tomato,100,4,LD
+,,Tamarind Paste,20,,
+,,Spices (Rasam Powder),30,,
+,,Water,100,,
+Chana-Free Chaat,200,Boiled Potato,120,4,LD
+,,Onion,40,,
+,,Tamarind Chutney,30,,
+,,Sev (Low Protein),10,,
+Coconut Rice,250,Cooked Rice,160,3,LD
+,,Fresh Grated Coconut,50,,
+,,Oil,40,,
+Cucumber Raita,180,Yogurt,100,3,LD
+,,Cucumber,50,,
+,,Cumin Powder,30,,
+Vegetable Curry,300,Mixed Vegetables,200,5,LD
+,,Onion,30,,
+,,Tomato,30,,
+,,Curry Masala,20,,
+,,Oil,20,,
+Tamarind Rice,270,Rice,150,4,LD
+,,Tamarind Paste,30,,
+,,Curry Leaves,40,,
+,,Oil,50,,
+Kachumber Salad,180,Cucumber,60,3,BS
+,,Tomato,60,,
+,,Onion,60,,
+Bombay Sandwich,200,White Bread,120,4,LD
+,,Boiled Potato,40,,
+,,Green Chutney,20,,
+,,Tomato,20,,
+Jaggery Poha,220,Flattened PKU Rice (Poha),150,3,LD
+,,Jaggery,50,,
+,,Coconut,20,,
+Chilli Potato,240,Potato,150,4,LD
+,,Bell Pepper,40,,
+,,Soy-Free Sauce,30,,
+,,Oil,20,,
+Masala French Fries,250,Potato,180,3,LD
+,,Oil,50,,
+,,Chaat Masala,20,,
+Aloo Gobhi,180,Potatoes,80,5,LD
+,,Cauliflower,70,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Turmeric,2,,
+Gobhi Masala,160,Cauliflower,100,5,LD
+,,Tomato,30,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Cumin,3,,
+Vegetable Tehri,200,Rice,100,5,LD
+,,Carrots,30,,
+,,Peas,30,,
+,,Potatoes,30,,
+,,Cumin,2,,
+Kadhi (Mock),160,Coconut cream,80,5,LD
+,,Lemon juice,20,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Turmeric,2,,
+Baingan Tamatar,170,Eggplant,90,5,LD
+,,Tomato,50,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Cilantro,3,,
+Cabbage Poriyal,140,Green cabbage,100,5,LD
+,,Coconut,20,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Cumin,2,,
+Lauki Chana (Mock),180,Zucchini,100,5,LD
+,,Peas,40,,
+,,Garlic,5,,
+,,Mustard,3,,
+,,Cumin,2,,
+Bharta with Peas,160,Eggplant,90,5,LD
+,,Peas,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Onions,10,,
+Methi Aloo,150,Potatoes,90,5,BS
+,,Cilantro,10,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Mustard,3,,
+Tamarind Aloo,160,Potatoes,100,5,LD
+,,Lemon juice,20,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Cumin,2,,
+Aloo Tamatar Curry,180,Potatoes,100,4,LD
+,,Tomato,40,,
+,,Garlic,3,,
+,,Cumin,2,,
+Bhindi Masala,150,Okra,100,5,LD
+,,Tomato,30,,
+,,Onions,10,,
+,,Garlic,5,,
+,,Mustard,5,,
+Baingan Bharta,180,Eggplant,120,5,LD
+,,Tomato,30,,
+,,Onions,15,,
+,,Garlic,10,,
+,,Cilantro,5,,
+Jeera Aloo,150,Potatoes,90,3,LD
+,,Garlic,5,,
+,,Cumin,2,,
+Tinda Sabzi,160,Zucchini,100,4,LD
+,,Tomato,30,,
+,,Garlic,5,,
+,,Mustard,5,,
+Gajar Matar,140,Carrots,80,4,LD
+,,Peas,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+Kachumber Salad,100,Cucumber,60,3,BS
+,,Tomato,30,,
+,,Onions,10,,
+Lauki Sabzi,160,Zucchini,100,4,LD
+,,Tomato,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+Tamarind Potatoes,180,Potatoes,100,5,BS
+,,Lemon juice,10,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Mustard,3,,
+Aloo Capsicum,170,Potatoes,90,4,LD
+,,Green bell peppers,60,,
+,,Onions,10,,
+,,Cumin,2,,
+Beetroot Curry,160,Beet root,100,4,LD
+,,Tomato,30,,
+,,Cumin,2,,
+,,Garlic,5,,
+Palak Curry,180,Spinach,90,5,LD
+,,Coconut cream,30,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Onions,10,,
+Aloo Methi,150,Potatoes,90,5,LD
+,,Cilantro,10,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Mustard,3,,
+Aloo Baingan,170,Potatoes,80,5,LD
+,,Eggplant,60,,
+,,Tomato,20,,
+,,Garlic,5,,
+,,Cumin,2,,
+Peas Pulao,180,Rice,100,5,LD
+,,Peas,40,,
+,,Cumin,2,,
+,,Bay leaf,1,,
+,,Oil,10,,
+Lemon Rice,180,Rice,100,5,LD
+,,Lemon juice,20,,
+,,Cumin,2,,
+,,Mustard,2,,
+,,Oil,10,,
+Chana Aloo (Mock),160,Potatoes,90,5,LD
+,,Peas,40,,
+,,Onions,20,,
+,,Cumin,2,,
+,,Garlic,3,,
+Aloo Shimla Mirch,170,Potatoes,90,4,LD
+,,Green bell peppers,60,,
+,,Onions,15,,
+,,Garlic,5,,
+Aloo Tamatar Bhujia,160,Potatoes,100,4,LD
+,,Tomato,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+Dry Aloo Matar,150,Potatoes,90,4,LD
+,,Peas,40,,
+,,Cumin,2,,
+,,Garlic,3,,
+Tindora Stir-Fry,150,Zucchini,100,4,LD
+,,Cumin,2,,
+,,Garlic,5,,
+,,Mustard,3,,
+Aloo Gobhi,180,Potatoes,80,5,LD
+,,Cauliflower,70,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Turmeric,2,,
+Gobhi Masala,160,Cauliflower,100,5,LD
+,,Tomato,30,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Cumin,3,,
+Vegetable Tehri,200,Rice,100,5,LD
+,,Carrots,30,,
+,,Peas,30,,
+,,Potatoes,30,,
+,,Cumin,2,,
+Kadhi (Mock),160,Coconut cream,80,5,LD
+,,Lemon juice,20,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Turmeric,2,,
+Baingan Tamatar,170,Eggplant,90,5,LD
+,,Tomato,50,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Cilantro,3,,
+Cabbage Poriyal,140,Green cabbage,100,5,LD
+,,Coconut,20,,
+,,Garlic,5,,
+,,Mustard,2,,
+,,Cumin,2,,
+Lauki Chana (Mock),180,Zucchini,100,5,LD
+,,Peas,40,,
+,,Garlic,5,,
+,,Mustard,3,,
+,,Cumin,2,,
+Bharta with Peas,160,Eggplant,90,5,LD
+,,Peas,40,,
+,,Garlic,5,,
+,,Cumin,2,,
+,,Onions,10,,
+,,Mustard,3,,
+Ghee Rice,240,Rice,160,3,LD
+,,Ghee,50,,
+,,Cumin Seeds,30,,
+Cabbage Stir Fry,250,Shredded Cabbage,180,4,LD
+,,Mustard Seeds,10,,
+,,Oil,40,,
+,,Turmeric,20,,
+Tomato Upma,300,Semolina,180,5,LD
+,,Tomato,50,,
+,,Onion,40,,
+,,Mustard Seeds,10,,
+,,Oil,20,,
+Spiced Corn,200,Corn Kernels,150,3,LD
+,,Chaat Masala,30,,
+,,Lemon Juice,20,,
+Fried Plantains,250,Ripe Plantain,180,2,LD
+,,Oil,70,,
+Plain Khichdi,290,Rice,150,3,LD
+,,Ghee,40,,
+,,,,,
+Potato Capsicum Fry,250,Potato,150,4,LD
+,,Capsicum,50,,
+,,Oil,30,,
+,,Turmeric,20,,
+Plain Uttapam,270,Dosa Batter,200,3,LD
+,,Onion,40,,
+,,Oil,30,,
+Papaya Sabzi,250,Raw Papaya,180,4,LD
+,,Mustard Seeds,10,,
+,,Oil,40,,
+,,Curry Powder,20,,
+Malai Toast,200,PKU Bread,130,3,BS
+,,Fresh Cream,50,,
+,,Sugar (table),20,,
+Mint Rice,260,Rice,160,4,LD
+,,Mint Leaves,30,,
+,,Green Chili,20,,
+,,Oil,50,,
+Rice Porridge,270,Rice,170,3,BS
+,,Coconut Milk,70,,
+,,Jaggery,30,,
+Sweet Suji Balls,220,Semolina,150,3,BS
+,,Jaggery,50,,
+,,Coconut,20,,
+Jeera Aloo Rice,280,Rice,160,4,LD
+,,Potato,70,,
+,,Cumin Seeds,20,,
+,,Oil,30,,
+Tomato Sevai,300,Rice,180,4,LD
+,,Tomato,60,,
+,,Oil,40,,
+,,Mustard Seeds,20,,
+Roti Roll,250,Roti,130,4,BS
+,,Potato,70,,
+,,Chutney,30,,
+,,Onion,20,,
+Stuffed Bell Pepper,270,Bell Pepper,120,4,BS
+,,Potato,100,,
+,,Onion,30,,
+,,Oil,20,,
+Bananass Fritters,240,Bananass,160,2,BS
+,,Oil,80,,
+Carrot Rice,250,Rice,150,3,LD
+,,Carrots,70,,
+,,Oil,30,,
+Curry Leaf Rice,260,Rice,150,4,
+,,Curry Leaves,30,,LD
+,,Mustard Seeds,30,,
+,,Oil,50,,
+Bread Upma,300,Bread Cubes,180,4,BS
+,,Onion,50,,
+,,Tomato,50,,
+,,Oil,20,,
+Masala Idli Fry,270,Steamed Idli,180,4,LD
+,,Onion,40,,
+,,Masala Powder,20,,
+,,Oil,30,,
+Tandoori Potatoes,260,Potato,160,3,LD
+,,Tandoori Masala,60,,
+,,Oil,40,,
+Lauki Curry,300,Squash,200,4,LD
+,,Tomato,50,,
+,,Oil,30,,
+,,Mustard Seeds,20,,
+Rice Idli,250,Idli Batter,200,2,LD
+,,Oil,50,,
+Simple Sweet Rice,230,Rice,150,3,BS
+,,Sugar (table),50,,
+,,Ghee,30,,
+103,,,,,

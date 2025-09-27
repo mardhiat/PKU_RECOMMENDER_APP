@@ -1,0 +1,233 @@
+Meal,Serving Size (g),Ingredient,Grams,Number of Ingredients,Meal Type
+Minestrone (vegetable soup),350,Carrots,80,7,LD
+,,Zucchini,80,,
+,,Tomatoes,80,,
+,,Celery,40,,
+,,Potatoes,50,,
+,,Onion,20,,
+,,Olive oil,10,,
+Panzanella (bread salad),300,PKU bread,100,5,LD
+,,Tomatoes,100,,
+,,Cucumber,50,,
+,,Basil,30,,
+,,Olive oil,20,,
+"Risotto al Limone (lemon risotto, no cheese)",350,Low-protein rice,150,4,BS
+,,Vegetable broth,150,,
+,,Lemon zest,30,,
+,,Olive oil,20,,
+Pasta al Pomodoro (no cheese),350,Pasta,150,4,LD
+,,Tomatoes,150,,
+,,Garlic,30,,
+,,Olive oil,20,,
+Caponata (eggplant stew),300,Eggplant,150,7,LD
+,,Tomatoes,80,,
+,,Celery,30,,
+,,Onion,30,,
+,,Capers,10,,
+,,Olive oil,30,,
+,,Vinegar,20,,
+Focaccia (plain),250,Flour,150,3,BS
+,,Water,80,,
+,,Olive oil,20,,
+Polenta,300,Cornmeal,200,2,BS
+,,Water,100,,
+Verdure Grigliate (grilled vegetables),300,Zucchini,67,5,LD
+,,Peppers,67,,
+,,Eggplant,67,,
+,,Olive oil,50,,
+,,Salt,10,,
+Bruschetta (no cheese),200,PKU Bread,100,3,BS
+,,Tomatoes,80,,
+,,Basil,20,,
+Ribollita (Tuscan vegetable soup),350,Cabbage,80,7,LD
+,,Beans (low protein option),50,,
+,,Carrots,60,,
+,,Celery,40,,
+,,Tomatoes,40,,
+,,Onion,30,,
+,,Olive oil,20,,
+Pomodori al Forno (baked tomatoes),250,Tomatoes,200,2,BS
+,,Olive oil,30,,
+,,Garlic,20,,
+Cicoria Ripassata (sautéed chicory),300,Chicory,200,3,BS
+,,Garlic,40,,
+,,Olive oil,30,,
+Ribollita (without beans),350,Cabbage,120,5,BS
+,,Carrots,60,,
+,,Celery,40,,
+,,Tomatoes,30,,
+,,Olive oil,20,,
+Patate al Rosmarino,300,Potatoes,250,3,BS
+,,Rosemary,30,,
+,,Olive oil,20,,
+Insalata di Finocchi,250,Fennel,150,3,BS
+,,Lemon juice,50,,
+,,Olive oil,20,,
+Verdure al Vapore,300,Broccoli,100,4,LD
+,,Carrots,100,,
+,,Cauliflower,80,,
+,,Olive oil,20,,
+Pomodori e Cipolle,250,Tomatoes,150,3,LD
+,,Onions,70,,
+,,Olive oil,20,,
+Melanzane alla Griglia,300,Eggplant,250,2,LD
+,,Olive oil,30,,
+Zuppa di Verdure,350,Mixed vegetables,250,6,LD
+,,Vegetable broth,80,,
+,,Olive oil,20,,
+Insalata di Rucola,200,Arugula,150,3,LD
+,,Lemon juice,30,,
+,,Olive oil,20,,
+Pasta Aglio e Olio,350,Spaghetti (low-protein if possible),150,4,LD
+,,Garlic,30,,
+,,Olive oil,50,,
+,,Parsley,20,,
+Fagiolini lessati,250,Green beans,200,2,BS
+,,Olive oil,30,,
+Patate Bollite,300,Boiled potatoes,250,2,BS
+,,Olive oil,20,,
+Insalata di Cetrioli,200,Cucumbers,150,3,BS
+,,Vinegar,30,,
+,,Olive oil,20,,
+Carote al Vapore,250,Steamed carrots,220,2,BS
+,,Olive oil,20,,
+Minestra di Zucca,350,Pumpkin,250,4,LD
+,,Onion,50,,
+,,Vegetable broth,50,,
+,,Olive oil,20,,
+Polenta con Funghi,350,Polenta,200,3,LD
+,,Mushrooms,100,,
+,,Olive oil,30,,
+Cipolle al Forno,250,Baked onions,220,2,BD
+,,Olive oil,30,,
+Zucchine trifolate,250,Zucchini,200,3,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+Radicchio alla Griglia,300,Grilled radicchio,250,2,LD
+,,Olive oil,30,,
+Carciofi alla Romana,300,Artichokes,250,4,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+,,Parsley,20,,
+Finocchi al Forno,300,Fennel,250,3,LD
+,,Olive oil,30,,
+,,Lemon juice,20,,
+Cipolline in Agrodolce,250,Pearl onions,200,4,LD
+,,Vinegar,20,,
+,,Sugar,20,,
+,,Olive oil,20,,
+Cavolfiore al Vapore,300,Steamed cauliflower,270,2,BS
+,,Olive oil,30,,
+Zuppa di Lenticchie (without legumes if strict PKU),350,Lentils ,100,5,LD
+,,Carrots,100,,
+,,Celery,80,,
+,,Onion,50,,
+,,Olive oil,20,,
+Fagioli Lessati (green beans),250,Green beans,220,2,BS
+,,Olive oil,30,,
+Pomodori Secchi,200,Sun-dried tomatoes,150,2,BS
+,,Olive oil,50,,
+Broccoli Saltati,300,Broccoli,250,3,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+Peperoni Arrostiti,300,Roasted red peppers,280,2,BS
+,,Olive oil,20,,
+Zucchini alla Scapece,300,Zucchini,250,3,LD
+,,Vinegar,30,,
+,,Olive oil,20,,
+Insalata di Pomodori,200,Tomatoes,150,3,BS
+,,Basil,30,,
+,,Olive oil,20,,
+Brodetto di Verdure,350,Mixed vegetables,250,5,LD
+,,Tomato broth,80,,
+,,Olive oil,20,,
+Patate al Forno,300,Roasted potatoes,270,2,LD
+,,Olive oil,30,,
+Insalata di Radicchio,200,Radicchio,150,3,BS
+,,Balsamic vinegar,30,,
+,,Olive oil,20,,
+Zucca al Forno,300,Roasted pumpkin,270,2,BS
+,,Olive oil,30,,
+Insalata di Cetrioli,200,Cucumbers,150,3,LD
+,,Vinegar,30,,
+,,Olive oil,20,,
+Cicoria Ripassata,300,Chicory,250,3,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+Peperonata,300,Bell peppers,250,4,LD
+,,Tomatoes,30,,
+,,Olive oil,20,,
+,,Onion,10,,
+Fagioli all'Uccelletto,350,Cannellini beans (small amount),100,5,LD
+,,Sage,10,,
+,,Garlic,30,,
+,,Olive oil,30,,
+,,Tomato sauce,50,,
+,,Onion,30,,
+Insalata di Carote,200,Carrots,150,3,LD
+,,Lemon juice,20,,
+,,Olive oil,30,,
+Zucchine al Forno,300,Zucchini,250,2,BS
+,,Olive oil,30,,
+Patate e Cipolle,300,Potatoes,200,3,LD
+,,Onions,70,,
+,,Olive oil,30,,
+Fave e Cicoria,350,Fava beans,100,4,LD
+,,Chicory,150,,
+,,Olive oil,50,,BS
+Spinaci Saltati,300,Spinach,250,2,
+,,Olive oil,30,,
+Pomodori Ripieni (without cheese),300,Tomatoes,250,3,LD
+,,Breadcrumbs,30,,
+,,Olive oil,20,,
+Insalata di Radicchio e Arance,250,Radicchio,150,4,BS
+,,Oranges,60,,
+,,Olive oil,20,,
+,,Balsamic vinegar,20,,LD
+Broccoli al Forno,300,Broccoli,270,2,
+,,Olive oil,30,,
+Carciofi alla Giudia,300,Artichokes,270,2,LD
+,,Olive oil,30,,
+Insalata di Finocchi e Arance,250,Fennel,150,3,BS
+,,Oranges,80,,
+,,Olive oil,20,,
+Cavolfiore al Forno,300,Cauliflower,270,2,LD
+,,Olive oil,30,,
+Cicoria Lessata,300,Boiled chicory,270,2,LD
+,,Olive oil,30,,
+Insalata di Pomodorini,200,Cherry tomatoes,150,3,BS
+,,Basil,30,,
+,,Olive oil,20,,
+Funghi trifolati,300,Mushrooms,250,3,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+Insalata di Cetrioli e Menta,200,Cucumbers,150,3,BS
+,,Mint,30,,
+,,Olive oil,20,,
+Finocchi al Forno,300,Fennel,250,3,LD
+,,Olive oil,30,,
+,,Lemon juice,20,,
+Carciofi alla Romana,300,Artichokes,250,4,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+,,Parsley,20,,
+Insalata di Carote e Limone,200,Carrots,150,3,BS
+,,Lemon juice,30,,
+,,Olive oil,20,,
+Zucchine Ripiene (without cheese),300,Zucchini,250,3,LD
+,,Breadcrumbs,30,,
+,,Olive oil,20,,
+Carciofi Grigliati,300,Artichokes,250,2,LD
+,,Olive oil,30,,
+Funghi al Forno,300,Mushrooms,250,3,LD
+,,Garlic,20,,
+,,Olive oil,30,,
+Patate e Rosmarino,300,Potatoes,250,3,LD
+,,Olive oil,30,,
+,,Rosemary,20,,
+Cavolfiore Gratinate,300,Cauliflower,270,3,LD
+,,Olive oil,30,,
+,,Breadcrumbs,20,,
+Finocchi al Limone,300,Fennel,250,3,BS
+,,Lemon juice,30,,
+,,Olive oil,20,,
