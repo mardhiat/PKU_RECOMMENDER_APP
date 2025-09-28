@@ -1,0 +1,804 @@
+Ingredient,Serving Size (g),PHE(mg),TYR(mg),Protein(g),Energy(kcal)
+"Animal crackers, cinnamon graham",10,29,10,0.6,45
+Apple cinnamon cookies,10,31,12,0.8,43
+Banana cookies,10,30,11,0.7,43
+Strawberry fruit bars,12,31,12,0.6,49
+Veggie crackers,7,30,10,0.6,33
+Barley,4,28,15,0.5,15
+Mixed,6,30,15,0.6,23
+Oatmeal,3,27,14,0.4,12
+Oatmeal/banana,4,27,17,0.4,16
+Oatmeal/mixed fruit,6,32,17,0.6,25
+Rice,6,28,16,0.5,23
+Rice/apples,11,30,21,0.6,43
+Rice/apple bits,8,29,15,0.6,32
+Rice/bananas,9,30,19,0.6,35
+Rice/mixed fruit,9,31,23,0.6,35
+Oatmeal,34,30,20,0.6,19
+Mixed/applesauce/bananas,57,30,15,0.6,49
+Oatmeal/applesauce/bananas,42,30,13,0.5,35
+Rice/applesauce,57,30,15,0.4,52
+Mixed/apples/banans,54,30,16,0.6,41
+Oatmeal/apples/cinnamon,53,30,16,0.6,36
+Greenbeans/potatoes,26,30,23,0.6,16
+Spring garden vegetables,60,30,18,0.9,21
+Peas,24,30,19,0.7,12
+Potatoes,75,30,25,0.8,35
+Sweet Potatoes,45,30,12,0.5,29
+Creamed corn,31,30,20,0.6,19
+Creamed spinach,20,30,23,0.6,9
+Garden vegetables,30,30,18,0.4,11
+Peas,24,30,19,0.7,12
+Peas/rice,23,30,15,0.2,12
+Mixed fruit juice,125,15,6,0.3,60
+Pear juice,202,15,4,0.6,99
+Bananas,47,15,8,0.5,47
+Pears,68,15,4,0.3,39
+Prunes,58,15,5,0.6,58
+Applesauce/apricot,100,15,6,0.3,52
+Apricot/mixed fruit,75,15,7,0.4,45
+Bananas/apples/pears,43,15,5,0.4,36
+Banana/pineapple,43,15,6,0.4,32
+Banana/strawberry,60,15,8,0.6,54
+"Hawaiian delight dessert, 2nd Foods",24,15,9,0.3,20
+"Hawaiian delight dessert, 3rd Foods",21,15,8,0.3,18
+"Peach cobbler dessert, 2nd Foods",136,15,7,0.7,103
+"Peach cobbler dessert, 3rd Foods",125,14,4,0.6,54
+"Peaches, 2nd Foods",88,15,9,0.6,56
+"Peaches, 3rd Foods",83,15,7,0.6,53
+Pear/pineapple,71,15,4,0.3,39
+Pears,88,15,8,0.4,65
+"Plums/apples, 2nd Foods",94,15,5,0.4,66
+"Plums/apples, 3rd Foods",71,15,4,0.3,49
+Prunes/apples,71,15,6,0.4,55
+Apples ,136,15,4,0.3,65
+Mixed Fruit,115,15,6,0.3,56
+Peaches,94,15,6,0.5,46
+Apple/carrot,214,15,11,0.2,89
+Apple/sweet potato,125,15,9,0.4,62
+Apple/sweet potato,125,15,8,0.3,72
+Banana/oatmeal/peach,27,15,6,0.3,20
+Pear/wild blueberry,100,15,5,0.4,61
+Pears/winter squash,25,15,6,0.3,13
+Tropical fruit blend,68,15,7,0.4,50
+Green beans,23,15,9,0.4,9
+Squash,50,15,14,0.4,17
+Carrots,75,15,10,0.6,22
+Mixed Vegetables,27,15,11,0.3,11
+Green beans/rice,28,15,11,0.3,12
+Butternut squash/corn,25,15,10,0.5,12
+Garden carrots/brown rice,47,15,9,0.4,20
+Green beans,28,15,12,0.3,7
+Apple juice,218,5,5,0.2,109
+Apple/banana juice,93,5,4,0.2,50
+Apple/cherry juice,124,5,3,0.3,62
+Apple/cranberry juice,93,5,4,0.2,46
+Apple/grape juice,218,5,5,0.2,112
+Apple/prune juice,124,5,4,0.3,69
+Fruit medley tropical fruit dessert,100,5,2,0.2,64
+Guava tropical fruit dessert,83,5,2,0.1,58
+Mango/banana/passion fruit juice,57,6,3,0.1,34
+Mango tropical fruit dessert,50,5,3,0.1,43
+Mixed fruit juice,163,5,2,0.5,80
+Orange juice,100,7,3,0.6,47
+Papaya tropical fruit dessert,83,5,2,0.2,53
+Peach/mango dessert,78,5,3,0.2,47
+Applesauce,86,5,3,0.2,48
+Apple/blueberry,83,5,3,0.2,42
+Fruit salad,50,5,3,0.2,32
+Berry punch,218,5,5,0.2,111
+Fruit punch,218,5,5,0.2,113
+Apple/mango/kiwi,100,5,3,0.1,60
+Apple/strawberry,100,5,3,0.1,60
+Corn grits instant cheese flavor,36,36,29,0.7,27
+Corn grits instant plain,34,27,22,0.5,20
+"Corn grits regular, quick (plain)",45,33,28,0.6,28
+Cream of Rice,81,30,40,0.7,42
+Cream of Wheat instant,30,30,18,0.6,19
+Cream of Wheat Mix'n Eat flavored,38,33,20,0.6,33
+Cream of Wheat Mix'n Eat plain,36,37,22,0.7,26
+Cream of Wheat quick,30,25,14,0.4,16
+Cream of Wheat regular,30,30,18,0.5,19
+Farina,44,34,20,0.6,22
+Maltax,31,33,19,0.7,22
+Malt-o-Meal,35,29,16,0.5,18
+Maypo Oat,30,34,20,0.7,21
+"Oats, regular, quick, and instant",20,28,18,0.5,12
+Pettijohns,30,24,14,0.5,20
+Ralston,32,32,19,0.7,17
+Roman Meal,22,31,22,0.6,14
+Wheatena,30,29,17,0.6,22
+Whole Wheat Hot Natural,30,29,17,0.6,19
+All Bran,5,29,22,0.8,13
+Alpha-Bits,7,29,20,0.5,28
+Apple Jacks,9,26,18,0.5,36
+100% Bran,6,30,22,0.8,17
+Bran Buds,5,28,21,0.7,14
+Bran Chex,6,29,23,0.6,20
+Cap'n Crunch,12,33,25,0.6,51
+Cap'n Crunch's Crunch Berries,12,32,25,0.6,49
+Cap'n Crunch's Peanut Butter,9,33,27,0.6,38
+Cheerios,4,35,23,0.6,17
+Chinnamon Toast Crunch,19,30,18,0.7,80
+Cocoa Krispies,12,27,34,0.6,46
+Cocoa Pebbles,16,33,42,0.8,66
+Cocoa  Puffs,19,31,26,0.7,73
+Cookie Crisp,10,26,19,0.5,39
+Corn Bran,9,32,24,0.6,31
+Corn Chex,7,26,22,0.5,28
+Corn Flakes,7,31,26,0.6,29
+Crisp Rice,9,26,34,0.6,37
+Crispy Wheat 'n Raisins,11,35,21,0.7,37
+C W Post plain,6,29,21,0.5,27
+C W Post with raisins,7,29,21,0.6,28
+Fortified Oat Flakes,3,29,21,0.6,11
+40% Bran Flakes,6,30,20,0.7,19
+Froot Loops,9,29,20,0.6,37
+Frosted Mini-Wheats®,8,38,22,0.8,28
+Frosted Rice Krinkles®,16,34,44,0.8,62
+Frosted Rice Krispies®,14,28,37,0.6,54
+Fruit Wheat Squares,10,32,19,0.7,35
+Fruity Pebbles®,16,28,37,0.6,66
+Golden Grahams,10,28,22,0.5,38
+Grape Nuts Flakes®,6,33,20,0.7,22
+Honey Nut Cheerios®,5,27,18,0.5,18
+Honey Nut Corn Flakes®,9,31,25,0.6,38
+Honeycomb®,11,33,26,0.6,43
+King Vitaman®,11,29,23,0.5,43
+Kix®,6,29,23,0.6,24
+Life®,3,28,20,0.5,10
+Lucky Charms®,6,30,20,0.5,23
+Nutrigrain Barley,5,31,19,0.6,19
+Nutrigrain Corn,8,32,27,0.6,30
+Nutrigrain Rye,8,31,21,0.7,27
+Wheat,5,25,15,0.5,20
+Oat Flakes,3,29,21,0.6,11
+Product 19®,6,31,23,0.6,24
+Quisp®,11,30,23,0.6,47
+Raisin Bran (Post®),7,26,17,0.7,22
+Rice Chex®,13,29,38,0.7,50
+Rice Krispies®,9,27,36,0.6,37
+"Rice, puffed",10,28,37,0.7,42
+Special K,4,31,34,0.7,14
+Sugar Frosted Flakes,12,30,25,0.6,44
+Sugar Pops,11,29,24,0.6,43
+Sugar Smacks,9,34,20,0.7,35
+Sugar Sparkled Flakes,13,35,29,0.7,64
+Super Sugar Crisp,8,28,16,0.5,31
+Team,11,32,31,0.7,41
+Toasties (Post),7,29,24,0.6,27
+Total,6,30,18,0.6,22
+Trix,9,27,21,0.5,35
+puffed,4,30,17,0.6,14
+shredded,5,28,17,0.6,19
+Wheat Chex,6,30,17,0.6,21
+Wheaties,7,33,20,0.7,25
+Corn,21,30,25,0.6,19
+cream style,32,26,21,0.6,23
+whole kernel,20,32,26,0.7,22
+"brown,",25,32,24,0.6,27
+cakes,9,34,45,0.8,35
+fried,23,30,23,0.7,30
+pilaf,15,30,20,0.6,23
+Rice-A-Roni,21,28,20,0.7,26
+Spanish,30,26,21,0.5,26
+long-grain,26,36,23,0.7,33
+"long-grain, instant",31,34,21,0.6,30
+medium- and short-grain,26,32,20,0.6,33
+Macaroni,12,31,18,0.6,18
+Noodles,13,26,14,0.5,17
+Ramen ® Noodles,10,25,15,0.6,22
+Spaghetti,19,33,17,0.6,21
+"baked, w/ skin, mashed Potatoes",25,26,18,0.4,26
+"boiled, no skin, mashed Potatoes",31,30,21,0.5,32
+"canned, packed in syrup Potatoes",49,26,18,0.4,67
+"baked, no skin Potatoes",30,31,26,0.7,33
+no skin Potatoes,39,30,25,0.7,34
+Potatoes w/ skin,40,32,28,0.8,34
+canned Potatoes,45,28,24,0.3,27
+"French fries (1/2"" x 1/2"" x 2"")",20,32,19,0.7,64
+"hash browns, frozen/cooked",20,26,15,0.6,43
+"microwaved, w/ skin Potatoes",29,27,23,0.6,29
+pan fried Potatoes,29,30,18,0.7,61
+Tater Tots ®,37,33,19,0.8,61
+"Yams, baked or boiled",42,29,17,0.6,49
+Chocolate sauce (Hershey's ®),20,25,18,0.5,49
+Chow mein noodles,7,35,21,0.8,38
+"Flour, cake",8,31,19,0.6,30
+"Jell-O ®, w/ sugar",80,30,3,0.6,65
+Barnum's Animal Crackers ®,10,34,21,0.7,45
+fig bar,16,33,21,0.6,57
+Ho Ho's ®,14,27,17,0.6,60
+Oreo ®,11,24,15,0.5,53
+Social Tea Biscuit ®,11,28,17,0.6,48
+Sugar Wafer (Nabisco ®),17,30,18,0.7,80
+vanilla wafer,12,32,19,0.6,55
+"Goldfish ®, original",9,29,19,0.6,44
+"graham cracker (2"" x 2"")",7,28,17,0.6,27
+Ritz ®,10,32,19,0.7,50
+Ritz Bits ® (cheese),6,28,18,0.5,28
+Rye Thins ®,8,27,12,0.6,39
+Rykrisp ®,6,30,21,0.6,23
+saltine,6,27,16,0.5,26
+soda,7,35,19,0.7,30
+Waverly ®,7,24,15,0.5,35
+Wheat Thins ®,9,31,19,0.7,43
+Doodads ®,7,34,22,0.8,35
+Doritos®,9,28,17,0.7,44
+"Doughnuts, Ener-G® Banana",84,31,10,0.8,309
+Fritos®,10,30,22,0.7,55
+"Ice cream cone, wafer type",4,22,13,0.4,17
+Buttered Popcorn,6,31,26,0.6,27
+Caramel Popcorn,9,28,23,0.5,34
+Plain Popcorn,4,26,22,0.5,15
+"Potato chips (2"" diameter)",10,29,24,0.6,52
+Rice cakes,9,34,45,0.8,35
+Tortilla chips,8,36,29,0.7,27
+"Corn Tortilla (6"" diameter)",8,36,29,0.7,27
+"Flour Tortilla (6"" diameter)",8,33,19,0.7,27
+"Butter, stick",14,6,6,0.1,101
+"Gravy mushroom, canned",10,6,4,0.1,5
+"Gravy mushroom mix, dry",1,4,3,0.1,3
+"Gravy onion mix, dry",1,5,3,0.1,3
+Margarine liquid,5,4,4,0.1,34
+Margarine soft,14,5,5,0.1,102
+Margarine stick or brick,14,6,6,0.1,101
+"Liquid nondairy creamer, w/ sodium caseinate",10,6,4,0.1,14
+"Powder nondairy creamer, w/ sodium caseinate",2,5,5,0.1,11
+Rich's ® Coffee Rich,29,4,3,0.1,44
+Polyrich ®,29,4,3,0.1,44
+"Olives, black or green",10,4,4,0.2,15
+French salad dressing,16,4,4,0.1,67
+Italian salad dressing,15,4,4,0.1,69
+Mayonnaise,9,5,4,0.1,66
+Thousand Island,16,6,6,0.1,59
+Cool Whip ® extra creamy,5,6,6,0.1,15
+Cool Whip ® regular,8,6,6,0.1,22
+Richwhip pressurized,22,5,4,0.1,60
+Richwhip prewhipped,8,5,4,0.1,24
+"Whipped cream, pressurized",4,6,6,0.1,10
+"Canned apricots, heavy syrup",64,14,8,0.3,54
+"Dried apricots, halves",11,16,9,0.4,25
+"Frozen apricots, sweetened",60,16,9,0.4,60
+"Apricot nectar, canned",94,15,9,0.3,53
+Whole apricots,35,18,10,0.5,17
+"Avocados, all varieties, mashed",23,17,12,0.5,38
+"Bananas, sliced",42,16,10,0.4,39
+"Blackberries, canned, heavy syrup",25,16,19,0.6,39
+"Blackberries, frozen",50,17,20,0.6,32
+"Blackberries, raw",72,15,17,0.5,38
+"Blueberries, canned, heavy syrup",64,15,5,0.4,56
+"Blueberries, frozen, sweetened",115,16,6,0.5,93
+"Blueberries, raw",72,17,6,0.5,41
+"Boysenberries, canned, heavy syrup",64,18,13,0.6,56
+"Cherries, canned, heavy syrup, sour red",77,12,5,0.6,70
+"Cherries, canned, heavy syrup, sweet",86,15,10,0.5,67
+"Cherries, raw",48,13,5,0.6,34
+Dates,25,14,8,0.5,68
+"Figs, canned, heavy syrup",168,15,32,0.7,180
+"Figs, dried, uncooked",19,14,25,0.6,48
+"Figs, whole, large",83,15,27,0.6,61
+"Fruit cocktail, canned, heavy syrup",128,14,9,0.4,93
+"Fruit salad, canned, heavy syrup",128,14,10,0.4,94
+"Gooseberries, canned, light syrup",63,15,5,0.4,46
+"Grapefruit, canned, light syrup",85,15,8,0.5,50
+"Grapefruit, juice, canned, unsweetened",124,19,13,0.6,48
+"Grapefruit, sections",77,16,8,0.5,24
+"Grapes, adherent skin",120,16,14,0.8,86
+"Grapes, juice, canned",126,15,4,0.7,78
+"Grapes, slipskin",92,12,10,0.6,58
+"Grapes, Thompson, seedless, canned, heavy syrup",128,13,10,0.6,93
+Kiwi fruit,50,16,13,0.5,31
+"Mangoes, sliced",82,14,9,0.4,54
+"Cantaloupe, cubed",53,13,8,0.5,18
+"Casaba, cubed",57,15,10,0.5,15
+"Honeydew, cubed",85,11,8,0.4,30
+"Mixed fruit, canned, heavy syrup",127,14,10,0.5,92
+"Nectarines, sliced",52,16,12,0.5,25
+"Orange juice, canned",249,17,7,1.5,105
+"Orange juice, frozen, diluted",187,15,8,1.3,84
+Orange sections,45,14,7,0.4,21
+"Papaya, cubed",140,13,7,0.9,54
+Passion fruit juice,124,14,10,0.5,63
+"Passion fruit , whole, small",18,12,8,0.4,73
+"Peaches, canned, heavy syrup",128,18,16,0.6,95
+"Peaches, dried",13,15,12,0.5,31
+"Peaches, frozen, sweetened",83,17,13,0.5,78
+"Peaches, nectar",187,16,13,0.5,100
+"Peaches, sliced",85,18,16,0.5,37
+"Peaches, spiced, canned, heavy syrup",121,16,13,0.5,90
+"Pears, canned, heavy syrup",255,13,5,0.5,188
+"Pears halves, dried",35,17,6,0.7,92
+Pears sliced,165,17,5,0.6,97
+"Persimmons, Japanese",56,15,9,0.4,39
+"Pineapple canned, heavy syrup, chunks, tidbits, or crushed",191,17,15,0.8,149
+Pineapple diced,116,14,14,0.4,58
+"Pineapple frozen, sweetened, chunks",122,15,16,0.5,104
+"Pineapple juice, canned, frozen, diluted",125,15,13,0.5,65
+"Plantains, cooked",51,14,10,0.4,60
+Plums cubed,82,14,5,0.7,45
+"Plums purple, canned, heavy syrup",194,16,6,0.7,172
+Prunes juice,128,17,6,0.8,90
+"Prunes whole, dried",25,15,6,0.7,60
+"Raisins, seedless",18,12,11,0.6,55
+"Raspberries canned, heavy syrup",64,15,18,0.5,58
+Raspberries raw,62,16,19,0.6,30
+"Raspberries red, frozen, sweetened",83,17,20,0.6,85
+"Rhubarb, cooked, sweetened",120,14,9,0.5,139
+"Strawberries, sliced, frozen, sweetened",85,13,15,0.5,82
+"Strawberries, sliced, raw",74,13,16,0.5,23
+"Tangerines canned, light syrup",84,13,7,0.4,51
+"Tangerines juice canned, sweetened",249,15,7,1.2,125
+"Tangerines juice frozen, diluted",241,12,5,1,110
+Tangerines whole medium,84,18,9,0.5,37
+"Watermelon, cubed",120,18,12,0.7,38
+Asparagus canned green,30,15,9,0.6,6
+Asparagus canned white,38,19,13,0.6,7
+"Asparagus fresh or frozen, cooked",22,16,10,0.6,6
+Asparagus raw,21,16,10,0.7,7
+"Bamboo shoots, canned, sliced",25,15,12,0.4,5
+"Beans, snap, green, canned",34,14,9,0.4,7
+"Beans, snap, green, fresh, cooked",16,14,9,0.4,7
+"Beans, snap, green, frozen, cooked",34,17,11,0.5,9
+"Beans, sprouts, mung, cooked",16,14,6,0.3,3
+"Beans, sprouts, mung, raw",13,15,7,0.4,4
+"Beans, sprouts, soy, raw",8,13,12,0.4,3
+"Beans, sprouts, soy, cooked",6,12,11,0.4,3
+"Beans, yellow wax, canned",34,14,9,0.4,7
+Red beets,50,15,12,0.5,15
+"Beet greens, cooked",18,12,11,0.5,5
+Cooked broccoli,20,18,13,0.6,6
+Raw broccoli,16,14,7,0.3,3
+Brussels sprouts,21,16,12,0.5,8
+"Chinese cabbage (Pak-choi), cooked",32,15,10,0.5,4
+"Chinese cabbage (Pak-choi), raw",35,15,10,0.5,5
+"Red cabbage, cooked",37,13,7,0.4,8
+"Red cabbage, raw",35,15,8,0.5,10
+"White cabbage, cooked",52,15,8,0.5,10
+"White cabbage, raw",35,14,7,0.4,8
+"Carrots, canned",50,15,9,0.5,17
+"Carrots, fresh or cooked",39,14,8,0.4,18
+"Carrots, sliced",55,18,11,0.6,24
+"Cauliflower, cooked",23,16,10,0.4,6
+"Cauliflower, frozen",22,13,8,0.4,4
+"Cauliflower, raw",25,18,11,0.5,6
+"Celery, diced",75,11,5,0.4,11
+"Chard, cooked",14,15,11,0.2,3
+"Chayote, cooked",40,14,10,0.2,10
+"Collards, cooked",48,18,15,0.5,6
+"Collards, frozen",14,14,11,0.4,5
+"Cucumber, sliced",104,16,9,0.6,14
+"Eggplant, cooked",48,17,11,0.4,13
+"Eggplant, raw",31,14,9,0.3,8
+"Endive, raw, shredded",25,13,10,0.3,4
+"Kale, cooked",16,16,11,0.3,5
+"Kohlrabi, sliced, cooked",41,17,12,0.7,12
+"Kohlrabi, sliced, raw",35,14,17,0.6,10
+"Lettuce bibb and Boston, raw",30,16,10,0.4,4
+"Lettuce iceberg, shredded",28,14,8,0.3,4
+"Romaine and cos lettuce, raw",20,14,8,0.3,4
+"Agaricus bisporus mushrooms, cooked",19,15,8,0.4,5
+"Agaricus bisporus mushrooms, raw",18,15,8,0.4,5
+"Shitake mushrooms, cooked",18,12,8,0.3,10
+"Shiitake mushrooms, dried",4,17,12,0.3,11
+"Mustard greens, cooked",26,16,31,0.6,4
+"Okra, pods or sliced, cooked",23,16,21,0.5,8
+"Onions, cooked",75,15,15,0.7,20
+"Onions, raw",50,15,15,0.6,15
+Onion rings,25,18,12,0.4,90
+"Parsnips, cooked",58,15,12,0.6,48
+"Peas, green, canned or frozen, cooked",10,17,10,0.5,7
+"Green peppers, cooked",68,13,9,0.4,12
+"Green peppers, raw",50,13,9,0.4,13
+Dill pickles,104,16,9,0.6,14
+"Dill pickles, relish",83,12,7,0.4,14
+Sweet pickles,83,12,7,0.4,114
+"Pumpkin, canned",46,16,21,0.5,15
+"Radish, red, small",67,15,9,0.4,10
+"Radish white icicle, sliced",50,18,11,0.6,7
+"Rutabagas, cooked, mashed",60,17,13,0.7,20
+"Rutabagas, raw, cubed",44,14,10,0.5,16
+Sauerkraut,59,17,9,0.5,11
+"Shallots, chopped",20,16,14,0.5,14
+"Spinach, fresh or frozen, cooked",12,16,13,0.4,2
+"Spinach, raw, chopped",14,18,15,0.4,3
+"Squash, summer, all varieties, cooked",45,15,11,0.4,9
+"Squash, summer, all varieties, raw",33,14,10,0.4,7
+"Acorn squash, baked, cubed",38,17,15,0.4,21
+"Acorn squash, boiled, mashed",61,16,14,0.4,20
+"Butternut squash, baked, cubed",51,18,16,0.5,20
+"Butternut squash, boiled, mashed",30,15,12,0.4,12
+"Hubbard squash, baked, cubed",26,15,13,0.6,13
+"Hubbard squash, boiled, mashed",30,17,15,0.4,9
+"Squash spaghetti, cooked",51,12,10,0.3,15
+"Taro, cooked",66,18,13,0.3,94
+Taro leaves,18,20,18,0.5,4
+"Tomato canned or fresh, cooked",60,17,12,0.7,15
+Tomato catsup,31,15,8,0.6,33
+"Tomato, fresh juice",92,15,9,0.7,16
+Tomato paste,16,13,8,0.6,14
+Tomato purée,47,16,10,0.8,19
+"Tomato sauce canned, w/ onions, green pepper, and celery",61,17,11,0.8,19
+Marinara sauce,47,16,10,0.8,32
+"Tomato, whole",66,14,9,0.5,12
+canned greens,25,17,10,0.4,4
+"fresh or frozen, cooked greens",18,12,8,0.2,4
+cooked turnips,78,16,12,0.9,21
+raw turnips,65,16,12,0.9,27
+Vegetable juice cocktail,91,12,7,0.6,17
+"Asparagus, Cream of",21,16,12,0.4,15
+"Celery, Cream of",31,20,14,0.4,22
+Chicken Gumbo,21,16,12,0.4,9
+Chicken Vegetable,16,17,12,0.5,9
+"Mushroom, Cream of",20,16,12,0.4,20
+Onion,20,16,15,0.7,9
+"Potato, Cream of",24,15,12,0.3,14
+Tomato,32,18,11,0.5,21
+Tomato Bisque,26,16,12,0.5,25
+Tomato Rice,32,18,11,0.5,30
+"Vegetable, Old Fashioned",15,13,6,0.3,9
+"Vegetarian, Vegetable",15,13,6,0.3,9
+Butterscotch chips,5,5,5,0.1,15
+Gelatin pop,22,5,1,0.3,16
+Marmalade,19,3,2,0.1,50
+Marshmallow,8,4,1,0.2,26
+"M&M ® candy, plain",2,6,4,0.2,8
+chocolate,8,7,5,0.2,17
+vanilla,8,5,4,0.1,17
+"Raisins, chocolate covered",2,6,6,0.2,12
+peach,30,4,4,0.1,30
+pineapple,59,7,7,0.2,58
+strawberry,59,7,8,0.2,58
+Apple butter ,40,4,3,0.2,74
+"canned, sweetened, sliced Apple",102,5,3,0.2,68
+Apple chips (Nature's Favorite ®),15,6,4,0.2,60
+dried Apple,21,6,4,0.2,52
+"dried, cooked Apple",64,4,3,0.1,36
+"juice, frozen, diluted Apple",120,4,3,0.2,56
+"sauce, sweetened, canned Apple",128,6,4,0.2,97
+"whole, small Apple",100,5,4,0.2,59
+"Cranberry sauce, canned",69,5,1,0.1,104
+orange fruit Bar,37,5,2,0.1,35
+pineapple Fruit Bar,37,4,4,0.1,35
+strawberry Fruit Bar,74,6,7,0.2,60
+Fruit ice,48,6,3,0.2,62
+Apple fruit pie filling,123,4,3,0.1,135
+Cherry fruit pie filling,47,5,2,0.2,49
+Peach fruit pie filling,50,5,4,0.2,54
+Strawberry fruit pie filling,31,5,5,0.2,34
+Fruit Roll-UPS®,14,4,3,0.2,55
+Lemon juice,125,4,2,0.1,55
+Papaya nectar,250,5,3,0.4,142
+Peach nectar,62,5,4,0.2,34
+Pear nectar,125,4,1,0.1,75
+Barbecue sauce,16,6,4,0.3,12
+Chocolate drink powder,3,4,3,0.1,11
+Chocolate pudding mix,7,6,4,0.1,23
+Chocolate syrup,6,5,4,0.1,14
+"Coconut, dried, sweetened w/ sugar",3,5,3,0.1,15
+"Coffee, instant, powder",2,5,3,0.2,4
+Horseradish,2,4,4,0.1,2
+"Apple juice, canned",124,2,2,0.1,60
+"Beer, regular",28,2,4,0.1,12
+"Carbonated beverages, caffeine-free",113,0,0,0,52
+Cranberry juice cocktail,126,1,1,0,72
+Exceed® Energy Drink,124,0,0,0,35
+Gatorade®,125,0,0,0,25
+"Kool-Aid®, sweetened w/ sugar",125,0,0,0,48
+Liquor,28,0,0,0,70
+"Limeade, sweetened w/ sugar",125,0,0,0,51
+Tang®,125,0,0,0,59
+"Tea, instant, powder",1,1,1,0.1,3
+Wine,28,1,1,0.1,21
+Candy corn,16,0,0,0,58
+Gumdrops,4,0,0,0,14
+Hard candy,10,0,0,0,39
+Jelly beans,28,0,0,0,103
+Lollipop,28,0,0,0,108
+"Frosting, strawberry and vanilla",16,0,0,0,69
+Honey,21,3,2,0.1,64
+"Lemon pudding, canned (Hunt's®)",121,0,0,0,151
+Molasses,21,0,0,0,48
+"Popsicle®, twin",128,0,0,0,95
+Brown sugar,14,0,0,0,52
+Powdered sugar,8,0,0,0,31
+Sugar (table),12,0,0,0,48
+Corn syrup,20,0,0,0,58
+Maple syrup,20,0,0,0,50
+Syrup (table),20,0,0,0,50
+Fruit butters,7,1,1,0.1,13
+Fruit ices,,0,0,0,69
+Fruit juice bar,52,2,1,0.1,43
+Fun Fruits®,26,2,1,0.1,100
+"Guava, raw",90,2,9,0.7,45
+"Guava, sauce",119,1,5,0.4,43
+James,7,1,1,0.1,18
+Jellies,20,0,0,0,50
+Cornstarch,8,0,0,0,29
+Lard,13,0,0,0,115
+Vegetable oil,14,0,0,0,120
+"Oil, vegetable",14,0,0,0,120
+"Richwhip®, liquid",14,0,0,0,40
+Shortening,13,0,0,0,113
+"Tapioca, dry",10,1,1,0.1,36
+Vinegar/oil dressing,16,0,0,0,70
+Wheat starch,8,1,1,0,25
+Low protein bread,100,29,9,1,200
+Olive Oil,14,0,0,0,119
+Garlic,3,5,2,0.19,4
+Fresh Basil,3,3,2,0.08,0.58
+Salt and Pepper,1,0,0,0,0
+Balsamic Vinegar,16,0,0,0.08,14
+Ground Cinnamon,3,0,0,0,5
+Cinnamon,3,4,4,0.1,6
+Unsalted Butter,14,6,6,0.12,102
+Lemon zest,28,0,0,4,100
+Salt,6,0,0,0,0
+Raw Ginger (Fresh),2,0.9,0.4,0.04,2
+Chicken Stock,240,0,0,6,86
+Water,237,0,0,0,0
+Fresh Dill,1,0.65,0.96,0.03,0.43
+Portobello Mushrooms,86,65,12,1.8,19
+Soy Sauce,16,56,39,1.3,8
+"Onions, green, raw",15,0,0,0.27,5
+Fresh thyme,1,0,0,0.04,0.81
+dried thyme,3,0,0,0.25,7
+garlic powder,3,16,14,0.51,10
+cherry tomato,149,40,21,1.3,27
+cilantro,4,0,0,0.09,0.92
+cornmeal,257,231,170,4.4,182
+egg replacer,6,0,0,0,15
+seaweed paper,26,71,66,1.5,9
+apple cider vinegar,15,0,0,0,3
+green bell peppers,149,137,18,1.3,30
+red bell peppers,119,60,11,1.2,31
+vegetable broth,221,0,0,0.53,11
+Dried Oregano,1,4,3,0.09,3
+Dried Cranberries,40,0,0,0,140
+jalapeno,14,0,0,0.13,4
+coconut cream,100,0,0,1.2,357
+swiss chard,36,40,0,0.65,7
+tumeric,3,16,10,0.29,9
+paprika,7,41,26,0.96,19
+dry mustard,1,0,0,0,0
+beet root,10,0,0,1,35
+parsley,60,87,49,1.8,22
+baking powder,1,0,0,0,0
+baking mix,13,0,0,1,45
+mint,1,2,0.99,0.03,0.44
+millet flour,100,300,120,11,378
+waterleaf,100,70,35,2,35
+Chives,100,80,50,3.3,30
+Green Cabbage,100,65,40,1.3,25
+Spring Onions,100,70,40,1.8,32
+Oat milk,100,6,6,0.2,40
+Leek,100,75,45,1.5,61
+Oat fiber,100,0,0,0,200
+"Parsnip, raw",100,85,55,1.2,75
+Green apple,100,25,15,0.3,52
+Rosemary,100,120,80,3.3,131
+Grapeseed oil,10,0,0,0,90
+Swede,100,60,40,1.1,37
+Mustard ,100,60,40,3.7,66
+Cumin,2,20,8,0.4,8
+Zucchini,100,35,20,1.2,17
+Baker's yeast,3,50,30,0.9,11
+Rhubarb,100,45,30,1,21
+Oat milk dressing,100,10,10,0.3,180
+"Celery, raw",100,35,20,0.7,16
+Bay leaf,1,6,3,0.13,3
+Tamarind,100,150,140,2.8,239
+Turmeric,100,350,300,8,312
+Curry Powder,5,30,18,0.6,18
+Mustard Seeds,100,350,210,26,508
+Jaggery,100,40,20,0.4,383
+Sage (dried),1,9,5,0.18,3
+Cloves,1,6,3,0.13,3
+Cayenne,1,8,4,0.17,3
+Avocado Oil,10,0,0,0,90
+Vegan butter,10,0,0,0,76
+White Pepper,1,13,6,0.26,3
+Coriander,1,11,5,0.22,3
+chili sauce,15,15,5,0.3,25
+Granny Smith Golden Apples,100,6,3,0.12,52
+Allspice,10,37,12,0.75,26
+Nutmeg,10,49,16,1,53
+Vegan Worcestershire sauce,15,8,3,0.16,13
+Italian seasoning,10,28,10,0.56,27
+Onion Powder,10,52,17,1.04,34
+Pumpkin,100,23,8,0.9,20
+Chili Flakes,10,50,15,1,40
+Allspice Berries,10,37,12,0.75,26
+Floral Honey,10,0,0,0.01,30
+Cherry jam,20,2,1,0.05,52
+Pickle brine,100,0,0,0.1,10
+Salad mix ,100,60,20,1.2,20
+Pickled Pumpkin,100,25,8,0.9,40
+sweet peas,100,215,70,5,81
+Shiso Leaves,100,80,60,4,37
+Komatsuna,100,110,70,2.2,14
+Lotus Root,100,210,0.13,2.6,74
+Wakame,100,90,50,1.8,45
+Yuzu Juice,100,20,10,0.3,26
+Burdock Root,100,60,0.15,1.5,72
+Okra,100,65,180,2,33
+Rice vinegar,15,0,0,0,0
+Daikon,100,25,70,0.6,18
+Water Spinach,100,50,160,3,19
+Chilli Flakes,100,0,30,8,20
+mirin,100,0,0,0,200
+Miso subsituite,1,15,10,0.2,140
+Kabocha,100,35,30,1.2,38
+umeboshi,100,29,20,1,36
+Baby bok Choy,100,30,20,1.5,13
+Coconut Milk,240,35,25,1,45
+Artichoke hearts,100,60,45,3.3,47
+Cauliflower rice,100,90,50,2,40
+Mint leaves,100,30,89,3.5,58
+Capsicum,100,50,10,1,26
+Green chili       ,100,30,52,0.9,18
+Coconut milk,100,64,36,0.9,230
+"Jicama slices, raw",100,29,17,0.72,38
+"Nopales, cooked, chopped",100,42,24,1.35,22
+Vegan Aioli ,100,45,25,0.8,660
+Tamarind Paste,100,74,39,2.8,239
+Caraway Seeds,1,49,26,1,33
+Celery Root,100,65,35,1.5,42
+Fennel,100,50,25,1.2,31
+Basmati rice ,100,72,31,2.7,121
+Bell pepper,100,29,17,0.9,26
+Black pepper,100,603,217,10.4,251
+Boiled potato,100,75,43,2,87
+Cauliflower,100,63,37,1.9,25
+Chaat masala,100,180,100,6,210
+Coconut,100,106,62,3.3,354
+Cucumber,100,22,13,0.7,16
+Cumin powder,100,420,180,17.8,375
+Curry leaves,100,93,49,6,108
+Curry masala,100,280,150,10,300
+Flattened PKU rice (Poha),100,72,40,2.3,110
+Fresh grated coconut,100,97,56,3.2,354
+"Garlic, raw",100,134,80,6.4,149
+f,100,47,28,1.8,80
+Green chutney (avg.),100,55,30,1.2,70
+Oil,100,0,0,0,884
+"Potatoes, boiled",100,75,43,2,87
+"Rice, long-grain",100,73,32,2.6,130
+Sev,100,120,60,4,450
+Soy-free sauce ,100,65,40,1,100
+rasam powder,100,300,150,12,320
+Tamarind chutney,100,53,30,1.3,230
+Tamarind paste,100,54,31,2.8,239
+"Tomatoes, cooked",100,49,27,1.2,32
+White bread,100,167,75,7.9,265
+Yogurt,100,157,91,3.5,59
+Tamarind pulp,100,52,30,2.8,239
+Waterleaf,100,90,50,3.3,33
+Cassava Root (Raw),100,40,23,1.4,160
+Cassava Root (Boiled),100,22,13,0.6,112
+Cassava Leaves (Raw),100,215,120,7,70
+Dijon Mustard,100,270,110,5.5,66
+Vegan Cream (PKU-safe),100,0,0,0,125
+white rice,100,125,55,2.7,130
+Corn kernels,100,28,29,3.2,86
+Onions,100,5,3,1.1,40
+Fresh cream,100,108,102,2.3,195
+Ghee,100,0,0,0,900
+Spinach,100,10,8,2.9,23
+Dosa batter,100,25,23,2.5,150
+Idli batter,100,20,18,2,120
+Masala powder,100,50,45,5,350
+PKU bread,100,10,8,1,150
+Papaya,100,6,5,0.5,43
+Ripe plantain,100,8,7,1.3,122
+Roti,100,35,32,3.5,297
+Semolina,100,40,38,4,360
+Shredded cabbage,100,8,7,1.3,25
+Steamed idli,100,15,13,1.5,100
+Tandoori masala,100,45,40,4.5,300
+,,,,,
+,,,,,
+artichokes,100,35,20,1.9,47
+arugula,50,25,12,1.3,13
+baked onions,100,25,15,1,40
+basil,10,9,5,0.3,2
+beans (low protein option),100,35,15,1.3,75
+boiled chicory,100,40,20,1.7,23
+breadcrumbs,10,40,15,1.3,35
+broccoli,100,57,30,2.8,34
+cabbage,100,38,20,1.3,25
+cannellini beans (small amount),100,250,100,8,110
+capers,10,5,2,0.2,6
+cauliflower,100,32,18,1.9,25
+celery,100,30,10,1.2,16
+cherry tomatoes,100,36,20,0.9,18
+chicory,100,40,20,1.7,23
+cucumber,100,18,8,0.7,15
+eggplant,100,35,18,1,24
+fava beans,100,300,120,8,110
+fennel,100,35,15,1.2,31
+flour,30,100,45,3,110
+lentils,100,190,80,7.6,116
+low-protein rice,50,5,3,0.1,180
+mushrooms,100,35,15,1.8,22
+onions,100,25,10,1,40
+oranges,100,26,13,0.9,47
+pasta,100,210,90,7.3,131
+pearl onions,100,30,12,1.2,34
+polenta,100,25,12,2,70
+radicchio,100,25,10,1.4,23
+sage,5,13,5,0.3,7
+spaghetti (low-protein if possible),50,5,3,0.1,170
+spinach,100,60,30,3,28
+steamed carrots,100,35,18,0.8,35
+steamed cauliflower,100,30,15,1.7,23
+sugar,10,0,0,0,39
+sun-dried tomatoes,50,130,70,5,140
+tomato broth,100,20,10,0.5,15
+tomato sauce,100,55,25,1.4,40
+tomatoes,100,36,18,0.9,18
+vinegar,15,0,0,0,3
+Baobab fruit powder,10,16.3,9.1,0.37,25
+Low-protein peanut substitute,,,,,
+f,100,193,85,3.4,92
+Sesame Oil,14,0,0,0,120
+Low-protein flour,100,5,3,0.4,360
+Star anise,2,2.6,1.6,0.13,7
+kosher salt,5,0,0,0,0
+Korean red pepper flakes,5,21,12,1,18
+Winter Melon,100,7,4,0.3,13
+dried shiitake mushrooms,10,120,70,2.5,30
+Dried red chili peppers,5,19,11,0.9,17
+preserved vegetables,30,24,14,1,12
+Wood ear mushrooms,50,22,13,1,25
+Garlic chives,100,50,30,2.5,30
+Sweet Onion,100,42,21,1.1,40
+sumac,100,520,260,9.6,350
+dried barberries,100,130,60,3.6,325
+saffron water,0.03,0.4,0.2,0,0
+tarragon,100,960,430,22.8,295
+scallion greens,100,110,50,1.8,32
+lavash,100,570,240,9,275
+pomegranate molasses,100,35,15,0.3,250
+fenugreek,100,1600,750,23,323
+rosewater,100,0,0,0,0
+pomegranate arils,100,40,20,1.7,83
+sour cherries,100,35,18,1,50
+barberries,100,130,60,3.6,325
+orange zest,100,550,250,10.5,270
+bulgur,100,150,70,3.1,83
+grape molasses,100,40,18,0.4,250
+rice flour,100,350,150,6,366
+melon,100,125,12,0.8,34
+Bean sprouts,100,60,35,3,31
+Japanese/Lebanese cucumbers,100,7,4,0.3,15
+Kabocha squash,100,28,17,1.2,35
+Scallions,100,37,22,1.6,32
+choy sum,100,40,25,1.8,20
+Canola oil,14,0,0,0,120
+Chili oil,14,2.5,1.5,0.05,120
+Chinese black vinegar,15,1,0.5,0.05,5
+Granulated sugar,4,0,0,0,16
+Dark Soy Sauce,15,50,30,1,10
+Napa Cabbage,100,28,16,1.2,16
+Snow Peas,100,79,47,3.3,42
+Enoki Mushroom,100,67,40,2.8,37
+Lettuce,100,18,10,0.8,15
+Chinese Broccoli / Gai Lan,100,65,38,2.7,22
+Fuzzy Melon,100,13,8,0.6,20
+Tatsoi,100,37,22,1.6,20
+Bok Choy,100,27,16,1.1,13
+Bamboo Shoots,100,40,24,1.7,27
+Water Chestnut,100,15,9,0.6,97
+Zha Cai,30,28,16,1.2,15
+Yam,100,45,27,1.9,118
+Pickled Radish,50,12,7,0.5,20
+Pickled Cabbage,50,10,6,0.4,12
+Seaweed (rehydrated),100,19,11,0.8,45
+Chinese Leek,100,50,30,2.2,35
+Garlic Sprouts,100,55,32,2.3,40
+Shanghai Greens,100,25,15,1,13
+Sweet Corn,100,115,70,3.4,96
+Kailan,100,65,38,2.7,22
+Cabbage Core Shreds,100,30,18,1.2,25
+Chinese Celery,100,32,19,1.3,17
