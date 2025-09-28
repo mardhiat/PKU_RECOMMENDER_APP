@@ -13,21 +13,6 @@ A **Python + Streamlit app** for personalized PKU dietary management. Provides m
 - Visualize nutrition data with **charts and graphs**.  
 
 
-
-## Installation
-
-```bash
-git clone https://github.com/mardhiat/pku-recommender-app.git
-cd pku-dietary-management
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
-pip install -r requirements.txt
-streamlit run app.py
-```
-
 ### Contact
 
 Mardhiat Ajetunmobi
