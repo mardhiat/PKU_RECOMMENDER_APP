@@ -707,6 +707,7 @@ with tabs[2]:
         else: st.info('No permanent ratings file')
     else:
         st.info('Upload Cuisine CSVs in the sidebar')
+
 with tabs[3]:
     serving_size = st.number_input('Serving Size (g): ', min_value=0.0, step=10.0)
     rtabs = st.tabs(['Top 5 Recommendations', 'Single Food Recommendation'])
