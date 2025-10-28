@@ -13,6 +13,49 @@ import plotly.graph_objects as go
 import plotly.express as px
 import io
 
+# ========== NEW: PHE CAP CONFIGURATION ==========
+MAX_PHE_ADULT = 750  # mg/day for adults (>12 months)
+MAX_PHE_CHILD = None  # Will be calculated based on age/weight
+
+def apply_phe_cap(meal_plan, total_phe, max_phe, age_in_months):
+    """
+    Applies PHE cap by scaling portions proportionally if needed.
+    Returns adjusted meal plan and warning message if applicable.
+    """
+    if age_in_months < 12:  # Baby - use guideline ranges
+        return meal_plan, None
+    
+    # For children and adults
+    if total_phe > max_phe:
+        scale_factor = max_phe / total_phe
+        warning_msg = f"⚠️ Total daily PHE ({total_phe:.0f} mg) exceeds recommended limit ({max_phe:.0f} mg). Portions have been adjusted by {scale_factor:.1%} to stay within safe limits."
+        
+        # Scale all portions
+        adjusted_plan = {}
+        for meal, details in meal_plan.items():
+            adjusted_plan[meal] = {
+                'portion': details['portion'] * scale_factor,
+                'phe': details['phe'] * scale_factor,
+                'protein': details['protein'] * scale_factor,
+                'calories': details['calories'] * scale_factor
+            }
+        
+        return adjusted_plan, warning_msg
+    
+    return meal_plan, None
+
+def get_phe_limit(age_in_months, weight):
+    """
+    Returns the PHE limit based on age and clinical practice.
+    For adults (>12 months), uses 750 mg/day cap.
+    """
+    if age_in_months >= 12:
+        return MAX_PHE_ADULT
+    else:
+        # For babies, use calculated need
+        return calcNeedOfPhe(age_in_months, weight)
+# ================================================
+
 
 def calcAge(year, month, day):
     today = datetime.today()
@@ -46,10 +89,15 @@ def calcNeedOfCals(weight, age):
     return 107.5 * weight
 
 def calcNeedOfPhe(age, weight):
-    if age < 3: return 47.5 * weight
-    if age < 6: return 32.5 * weight
-    if age < 9: return 30 * weight
-    return 22.5 * weight
+    """Calculate PHE needs based on age in months and weight"""
+    if age < 6:  # 0-6 months
+        return 47.5 * weight
+    elif age < 12:  # 6-12 months
+        return 32.5 * weight
+    elif age < 144:  # 1-12 years (12-144 months)
+        return 30 * weight
+    else:  # 12 years and above
+        return 22.5 * weight
 
 def prepare_meal_df(raw_df: pd.DataFrame) -> pd.DataFrame:
     rename_map = {}
@@ -86,7 +134,6 @@ def load_cuisine_files():
         'Mediterranean Foods': 'Mediterranean_Foods.csv',
         'Mexican Foods': 'Mexican_Foods.csv',
         'Scottish-Irish Foods': 'Scottish-Irish_Foods.csv'
-        #'Baby Food': 'pku_baby_foods_final.csv'
     }
     
     loaded_cuisines = {}
@@ -155,10 +202,7 @@ def similarityF(food1, food2, cuisine_df):
     return total_similarity
 
 def predictedContentBased(ratings_df, user_id, food, cuisine_df):
-    # Get all meals
     foodList = ratings_df['dish'].unique()
-
-    # Get ratings for this user
     user_ratings = ratings_df[ratings_df['user_id'] == user_id]
 
     sumNum = 0
@@ -331,7 +375,6 @@ def meal_nutrition(dish, serving_size, cuisine_file, ingredients_file):
     if dish_row.empty:
         raise ValueError(f"Dish '{dish}' not found in cuisine file")
     
-    # Handle different column names for ingredients count
     num_ingredients_col = None
     for col in ['Number of Ingredients', 'IngredientsCount', 'Ingredients Count']:
         if col in dish_row.columns:
@@ -339,7 +382,6 @@ def meal_nutrition(dish, serving_size, cuisine_file, ingredients_file):
             break
     
     if num_ingredients_col is None:
-        # Default to counting ingredients manually
         numIngredients = len(cuisine_file[cuisine_file.index >= dish_row.index[0]]) - 1
     else:
         numIngredients = int(dish_row.iloc[0][num_ingredients_col])
@@ -360,12 +402,10 @@ def meal_nutrition(dish, serving_size, cuisine_file, ingredients_file):
         if ingredient_row.empty:
             continue
 
-        # Handle different column structures
         try:
-            grams = float(ingredient_row.iloc[0].iloc[1])  # Second column usually has serving size
-            gramsWanted = float(cuisine_file.iloc[i].iloc[3] if len(cuisine_file.iloc[i]) > 3 else 100)  # Default 100g
+            grams = float(ingredient_row.iloc[0].iloc[1])
+            gramsWanted = float(cuisine_file.iloc[i].iloc[3] if len(cuisine_file.iloc[i]) > 3 else 100)
             
-            # Find protein, phe, and calorie columns
             protein_col = next((col for col in ingredient_row.columns if 'protein' in col.lower()), None)
             phe_col = next((col for col in ingredient_row.columns if 'phe' in col.lower()), None)
             cal_col = next((col for col in ingredient_row.columns if any(x in col.lower() for x in ['energy', 'calor', 'kcal'])), None)
@@ -381,20 +421,18 @@ def meal_nutrition(dish, serving_size, cuisine_file, ingredients_file):
         except (ValueError, IndexError):
             continue
 
-    # Handle meal weight conversion
     try:
         meal_weight_col = next((col for col in dish_row.columns if any(x in col.lower() for x in ['weight', 'grams', 'serving'])), None)
         if meal_weight_col:
             mealGrams = float(dish_row.iloc[0][meal_weight_col])
         else:
-            mealGrams = 100  # Default assumption
+            mealGrams = 100
         
         conversion = serving_size / mealGrams
         dishProtein *= conversion
         dishPhenyl *= conversion
         dishCalories *= conversion
     except (ValueError, KeyError):
-        # If can't find meal weight, assume no conversion needed
         pass
 
     return [dishProtein, dishPhenyl, dishCalories]
@@ -425,6 +463,8 @@ if 'protein' not in st.session_state:
     st.session_state['e2'] = 0
     st.session_state['phe'] = 0
     st.session_state['energy'] = 0
+    st.session_state['age_in_months'] = 0  # NEW: Track age
+    st.session_state['weight'] = 0  # NEW: Track weight
 
 # Load data files
 cuisine_data = load_cuisine_files()
@@ -511,9 +551,6 @@ with tabs[0]:
             st.write(f'Age: {age} months, BMI: {bmi:.1f}')
             st.write(f'Daily Requirements - Protein: {needP:.1f}g, Calories: {needC:.0f}, PHE: {needPh:.0f}mg')
 
-    # Rest of the baby diet planner implementation...
-    # (The complementary food section would go here)
-
 with tabs[1]:
     st.header('Personal Profile & Nutrition Calculator')
     st.markdown("""
@@ -574,89 +611,105 @@ with tabs[1]:
                 e1 = 900
                 e2 = 1800
                 e3 = 1300
-                phe1 = 200
-                phe2 = 400
+                phe1 = 4  # Lower bound
+                phe2 = 8  # Upper bound (for avg calculation)
                 protein = 30
-            elif(age_in_months < 84):
+        elif(age_in_months < 84):
                 e1 = 1300
                 e2 = 2300
                 e3 = 1700
-                phe1 = 210
-                phe2 = 450
+                phe1 = 4  # Lower bound
+                phe2 = 8  # Upper bound
                 protein = 35
-            else:
+        else:
                 e1 = 1650
                 e2 = 3300
                 e3 = 2400
-                phe1 = 220
-                phe2 = 500
+                phe1 = 8  # Lower bound
+                phe2 = 16  # Upper bound
                 protein = 40
-            
-            if(bmi_category == "underweight"):
-                energy = e2
-            elif(bmi_category == "normal"):
-                energy = e3
-            else:  # overweight or obese
-                energy = e1
+    
+        if(bmi_category == "underweight"):
+            energy = e2
+        elif(bmi_category == "normal"):
+            energy = e3
         else:
-            if(sex == "Female"):
-                if(age_in_months < 180):
-                    e1 = 1500
-                    e2 = 3000
-                    e3 = 2200
-                    phe1 = 250
-                    phe2 = 700
-                    protein = 50
-                elif(age_in_months < 228):
-                    e1 = 1200
-                    e2 = 3000
-                    e3 = 2100
-                    phe1 = 230
-                    phe2 = 700
-                    protein = 55
-                else:
-                    e1 = 1400
-                    e2 = 2500
-                    e3 = 2100
-                    phe1 = 220
-                    phe2 = 700
-                    protein = 60
-            else:  # Male
-                if(age_in_months < 180):
-                    e1 = 2000
-                    e2 = 3700
-                    e3 = 2700
-                    phe1 = 225
-                    phe2 = 900
-                    protein = 55
-                elif(age_in_months < 228):
-                    e1 = 2100
-                    e2 = 3900
-                    e3 = 2800
-                    phe1 = 295
-                    phe2 = 1100
-                    protein = 65
-                else:
-                    e1 = 2000
-                    e2 = 3300
-                    e3 = 2900
-                    phe1 = 290
-                    phe2 = 1200
-                    protein = 70
-            
-            if(bmi_category == "underweight"):
-                energy = e2
-            elif(bmi_category == "normal"):
-                energy = e3
-            else:  # overweight or obese
-                energy = e1
+            energy = e1
+    else:
+        if(sex == "Female"):
+            if(age_in_months < 180):
+                e1 = 1500
+                e2 = 3000
+                e3 = 2200
+                phe1 = 12  # Lower bound
+                phe2 = 24  # Upper bound
+                protein = 50
+        elif(age_in_months < 228):
+                e1 = 1200
+                e2 = 3000
+                e3 = 2100
+                phe1 = 12  # Lower bound
+                phe2 = 24  # Upper bound
+                protein = 55
+        else:
+                e1 = 1400
+                e2 = 2500
+                e3 = 2100
+                phe1 = 12  # Lower bound
+                phe2 = 24  # Upper bound
+                protein = 60
+    else:  # Male
+        if(age_in_months < 180):
+                e1 = 2000
+                e2 = 3700
+                e3 = 2700
+                phe1 = 12  # Lower bound
+                phe2 = 24  # Upper bound
+                protein = 55
+        elif(age_in_months < 228):
+                e1 = 2100
+                e2 = 3900
+                e3 = 2800
+                phe1 = 12  # Lower bound
+                phe2 = 24  # Upper bound
+                protein = 65
+        else:
+                e1 = 2000
+                e2 = 3300
+                e3 = 2900
+                phe1 = 12  # Lower bound
+                phe2 = 24  # Upper bound
+                protein = 70
+    
+        if(bmi_category == "underweight"):
+            energy = e2
+        elif(bmi_category == "normal"):
+            energy = e3
+        else:
+            energy = e1
+
+# Calculate average PHE as (phe1 + phe2) / 2
+    phe = (phe1 + phe2) / 2
         
-        phe = mean(phe1, phe2)
+        # ========== NEW: Apply 750mg cap for adults ==========
+        if age_in_months >= 12:
+            actual_phe_limit = MAX_PHE_ADULT
+            if phe > actual_phe_limit:
+                st.warning(f"⚠️ Clinical Practice Note: While guidelines allow {phe1}-{phe2} mg/day, we limit adult PHE intake to {actual_phe_limit} mg/day to prevent elevated phenylalanine levels.")
+                phe = actual_phe_limit
+        # ====================================================
 
         st.write(f"**Your Daily Nutritional Targets:**")
         st.write(f"- Daily Calorie Goal: {energy} kcal")
         st.write(f"- Daily Protein Goal: {protein} g")
-        st.write(f"- Daily Phenylalanine Range: {phe1}-{phe2} mg (Average: {phe:.0f} mg)")
+        
+        # ========== NEW: Show clinical limit for adults ==========
+        if age_in_months >= 12:
+            st.write(f"- Daily Phenylalanine Limit (Clinical): **{MAX_PHE_ADULT} mg** (guideline range: {phe1}-{phe2} mg)")
+        else:
+            st.write(f"- Daily Phenylalanine Range: {phe1}-{phe2} mg (Average: {phe:.0f} mg)")
+        # ========================================================
+        
         st.write(f"- BMI: {bmi:.1f} ({bmi_category})")
 
         # Store in session state
@@ -667,6 +720,8 @@ with tabs[1]:
         st.session_state['e2'] = e2
         st.session_state['phe'] = phe
         st.session_state['energy'] = energy
+        st.session_state['age_in_months'] = age_in_months  # NEW
+        st.session_state['weight'] = weight  # NEW
         
         st.success("Profile saved! You can now get personalized recommendations.")
 
@@ -739,6 +794,7 @@ with tabs[3]:
         phe2 = st.session_state['phe2']
         e1 = st.session_state['e1']
         e2 = st.session_state['e2']
+        age_in_months = st.session_state.get('age_in_months', 0)
 
         proteinM = mealtime_nutrition(protein, meal_category)
         phe1M = mealtime_nutrition(phe1, meal_category)
@@ -746,13 +802,24 @@ with tabs[3]:
         e1M = mealtime_nutrition(e1, meal_category)
         e2M = mealtime_nutrition(e2, meal_category)
         
+        # ========== NEW: Use clinical PHE limit ==========
+        if age_in_months >= 12:
+            phe_limit = MAX_PHE_ADULT
+        else:
+            phe_limit = st.session_state['phe']
+        # ================================================
+        
         with rtabs[0]:
             st.subheader('Top 5 Recommendations')
             
-            # Get the cuisine that user has rated
+            # ========== NEW: Show PHE limit being used ==========
+            if age_in_months >= 12:
+                st.info(f"🔒 Daily PHE limit: {MAX_PHE_ADULT} mg (clinical practice)")
+            # ==================================================
+            
             user_ratings = st.session_state.ratings_session[st.session_state.ratings_session['user_id'] == user_id]
             if not user_ratings.empty:
-                rated_cuisine = user_ratings['cuisine'].iloc[0]  # Get first rated cuisine
+                rated_cuisine = user_ratings['cuisine'].iloc[0]
                 
                 if rated_cuisine in cuisine_data:
                     cuisine_df = cuisine_data[rated_cuisine]
@@ -763,12 +830,15 @@ with tabs[3]:
                         unrated_meals = [meal for meal in all_meals if meal not in rated_meals]
 
                         predictions = []
+                        total_daily_phe = 0  # NEW: Track total PHE
+                        
                         for meal in unrated_meals:
                             try:
                                 vector = meal_nutrition(meal, serving_size, cuisine_df, ing_df)
                                 meal_protein = vector[0]
                                 meal_phenyl = vector[1] 
                                 meal_calories = vector[2]
+                                
                                 hyb_score = hybrid_filtering(meal, user_id, beta, st.session_state.ratings_session, cuisine_df, λ)
                                 hesa_score = health_safety_score(meal_protein, meal_phenyl, meal_calories, proteinM, phe1M, phe2M, e1M, e2M)
                                 fi_score = final_score(hyb_score, hesa_score, pref_scale)
@@ -779,12 +849,26 @@ with tabs[3]:
                         if predictions:
                             top5 = sorted(predictions, key=lambda x: x[1], reverse=True)[:5]
                             
+                            # ========== NEW: Calculate total PHE and apply cap ==========
+                            total_daily_phe = sum(item[3] for item in top5)
+                            
+                            if age_in_months >= 12 and total_daily_phe > MAX_PHE_ADULT:
+                                scale_factor = MAX_PHE_ADULT / total_daily_phe
+                                st.warning(f"⚠️ Total PHE ({total_daily_phe:.0f} mg) exceeds {MAX_PHE_ADULT} mg limit. Portions adjusted by {scale_factor:.1%}.")
+                                
+                                # Scale all portions
+                                top5 = [(dish, score, protein * scale_factor, phe * scale_factor, calories * scale_factor) 
+                                       for dish, score, protein, phe, calories in top5]
+                                total_daily_phe = MAX_PHE_ADULT
+                            # ===========================================================
+                            
                             st.subheader("Top 5 Recommended Dishes")
+                            st.write(f"**Total Daily PHE: {total_daily_phe:.0f} mg / {phe_limit:.0f} mg**")
+                            
                             for dish, score, protein, phe, calories in top5:
                                 st.write(f"**{dish}**: Score {score:.2f}")
                                 st.write(f"   - PHE: {phe:.1f}mg, Protein: {protein:.1f}g, Calories: {calories:.1f}kcal")
                             
-                            # Create visualization
                             data = {
                                 'Meal': [item[0] for item in top5],
                                 'Phenylalanine': [item[3] for item in top5],
@@ -806,7 +890,6 @@ with tabs[3]:
         with rtabs[1]:
             st.subheader("Single Food Analysis")
             
-            # Let user select cuisine for analysis
             analysis_cuisine = st.selectbox("Select cuisine for analysis:", list(cuisine_data.keys()))
             
             if analysis_cuisine:
@@ -834,12 +917,18 @@ with tabs[3]:
                         st.write(f'- Hybrid Score: {hscore:.2f}')
                         st.write(f'- Health Safety Score: {hs_score:.2f}')
                         st.write(f'- **Final Score: {f_score:.2f}**')
+                        
+                        # ========== NEW: PHE limit check ==========
+                        if age_in_months >= 12 and meal_phenyl > MAX_PHE_ADULT:
+                            st.error(f"⚠️ This serving ({meal_phenyl:.0f} mg PHE) exceeds daily limit of {MAX_PHE_ADULT} mg!")
+                            safe_portion = (MAX_PHE_ADULT / meal_phenyl) * serving_size
+                            st.info(f"💡 Recommended safe portion: {safe_portion:.0f}g")
+                        # =========================================
 
-                        # Nutritional radar chart
                         if st.session_state['phe'] > 0:
                             labels = ['Phenylalanine', 'Protein', 'Energy']
                             
-                            percent_phe = (meal_phenyl / st.session_state['phe']) * 100
+                            percent_phe = (meal_phenyl / phe_limit) * 100
                             percent_protein = (meal_protein / st.session_state['protein']) * 100 if st.session_state['protein'] > 0 else 0
                             percent_calories = (meal_calories / st.session_state['energy']) * 100 if st.session_state['energy'] > 0 else 0
                             
@@ -886,27 +975,23 @@ with tabs[4]:
     if 'chat_history' not in st.session_state:
         st.session_state.chat_history = []
     
-    # Display chat history
     for message in st.session_state.chat_history:
         if message["role"] == "user":
             st.markdown(f"**You:** {message['content']}")
         else:
             st.markdown(f"**PKU Assistant:** {message['content']}")
     
-    # Chat input
     with st.form("chat_form", clear_on_submit=True):
         chat_input = st.text_input("Ask your PKU nutrition question:")
         send_clicked = st.form_submit_button("Send Message")
     
     if send_clicked and chat_input.strip():
-        # Add user message
         st.session_state.chat_history.append({"role": "user", "content": chat_input})
         
         try:
             genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
             model = genai.GenerativeModel("gemini-1.5-flash")
             
-            # Create context for PKU-specific responses
             context = f"""You are a helpful PKU nutrition assistant. The user asked: {chat_input}
             
             Provide helpful, accurate information about PKU diet management, low-phenylalanine foods, 
@@ -941,12 +1026,10 @@ with tabs[5]:
         if cuisine_selection and meal_type_selection:
             cuisine_df = cuisine_data[cuisine_selection]
             
-            # Show available dishes for selected cuisine
             available_dishes = cuisine_df['Meal'].dropna().unique().tolist()
             st.subheader(f"Available {cuisine_selection} dishes:")
             st.write(f"Total dishes available: {len(available_dishes)}")
             
-            # Meal planning section
             col1, col2 = st.columns(2)
             
             with col1:
@@ -956,7 +1039,6 @@ with tabs[5]:
                 
                 if selected_dish:
                     try:
-                        # Calculate nutrition for selected dish
                         nutrition_vector = meal_nutrition(selected_dish, serving_size_custom, cuisine_df, ing_df)
                         protein, phe, calories = nutrition_vector[0], nutrition_vector[1], nutrition_vector[2]
                         
@@ -965,8 +1047,11 @@ with tabs[5]:
                         st.write(f"- Protein: {protein:.1f} g")
                         st.write(f"- Calories: {calories:.1f} kcal")
                         
-                        # Calculate safe portion based on user's PHE limit
-                        user_daily_phe = st.session_state.get('phe', 0)
+                        # ========== NEW: Use clinical PHE limit ==========
+                        age_in_months = st.session_state.get('age_in_months', 0)
+                        user_daily_phe = MAX_PHE_ADULT if age_in_months >= 12 else st.session_state.get('phe', 0)
+                        # ===============================================
+                        
                         if user_daily_phe > 0:
                             meal_phe_ratio = 0.3 if meal_type_selection in ["Lunch", "Dinner"] else 0.2
                             meal_phe_limit = user_daily_phe * meal_phe_ratio
@@ -974,6 +1059,11 @@ with tabs[5]:
                             if phe > 0:
                                 safe_portion = (meal_phe_limit / phe) * serving_size_custom
                                 st.info(f"**Recommended safe portion:** {safe_portion:.0f}g for {meal_type_selection.lower()}")
+                                
+                                # ========== NEW: Warn if exceeds limit ==========
+                                if phe > meal_phe_limit:
+                                    st.warning(f"⚠️ Current serving exceeds meal PHE limit ({meal_phe_limit:.0f} mg)")
+                                # ==============================================
                         
                     except Exception as e:
                         st.error(f"Could not calculate nutrition for {selected_dish}. Please check ingredient database.")
@@ -986,14 +1076,13 @@ with tabs[5]:
                     filtered_dishes = [dish for dish in available_dishes 
                                      if dish_search.lower() in dish.lower()]
                     st.write(f"Found {len(filtered_dishes)} matching dishes:")
-                    for dish in filtered_dishes[:10]:  # Show first 10 matches
+                    for dish in filtered_dishes[:10]:
                         st.write(f"• {dish}")
                 else:
                     st.write("Sample dishes from this cuisine:")
                     for dish in available_dishes[:10]:
                         st.write(f"• {dish}")
             
-            # Comparison tool
             st.subheader("Compare Multiple Dishes")
             dishes_to_compare = st.multiselect("Select dishes to compare (max 5):", 
                                              available_dishes, max_selections=5)
@@ -1002,7 +1091,7 @@ with tabs[5]:
                 comparison_data = []
                 for dish in dishes_to_compare:
                     try:
-                        nutrition = meal_nutrition(dish, 100, cuisine_df, ing_df)  # Per 100g
+                        nutrition = meal_nutrition(dish, 100, cuisine_df, ing_df)
                         comparison_data.append({
                             'Dish': dish,
                             'PHE (mg/100g)': round(nutrition[1], 1),
@@ -1016,12 +1105,10 @@ with tabs[5]:
                     comparison_df = pd.DataFrame(comparison_data)
                     st.dataframe(comparison_df, use_container_width=True)
                     
-                    # Create comparison chart
                     fig = px.bar(comparison_df, x='Dish', y=['PHE (mg/100g)', 'Protein (g/100g)'], 
                                barmode='group', title='Nutritional Comparison (per 100g)')
                     st.plotly_chart(fig, use_container_width=True)
 
-# Footer with data information
 st.markdown("---")
 st.markdown("""
 ### About the Data
@@ -1030,6 +1117,9 @@ This app uses comprehensive nutritional databases covering:
 - **Detailed Ingredient Database** with phenylalanine, protein, and calorie content
 - **Baby Food Database** for infants 6-12 months
 - **AI-Powered Chat** for personalized PKU nutrition guidance
+
+**Clinical Note:** For adults and children over 12 months, this app enforces a **750 mg/day PHE limit** based on clinical practice, 
+even though guidelines may allow higher amounts. This helps prevent elevated phenylalanine levels.
 
 *Always consult with your healthcare provider or registered dietitian before making significant changes to your PKU diet.*
 """)
