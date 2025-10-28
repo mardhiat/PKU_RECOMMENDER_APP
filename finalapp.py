@@ -582,7 +582,7 @@ with tabs[1]:
             if(age_in_months < 48):
                 e1 = 900
                 e2 = 1800
-                e3 = 1300
+                e3 = (e1+e2)/2
                 phe1 = 200
                 phe2 = 400
                 protein = 30
