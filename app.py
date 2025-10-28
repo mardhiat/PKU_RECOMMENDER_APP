@@ -13,48 +13,44 @@ import plotly.graph_objects as go
 import plotly.express as px
 import io
 
-# ========== NEW: PHE CAP CONFIGURATION ==========
-MAX_PHE_ADULT = 750  # mg/day for adults (>12 months)
-MAX_PHE_CHILD = None  # Will be calculated based on age/weight
-
-def apply_phe_cap(meal_plan, total_phe, max_phe, age_in_months):
+def calcNeedOfPhe(age, weight, actual_phe_level=None):
     """
-    Applies PHE cap by scaling portions proportionally if needed.
-    Returns adjusted meal plan and warning message if applicable.
-    """
-    if age_in_months < 12:  # Baby - use guideline ranges
-        return meal_plan, None
+    Calculate PHE needs using golden number system
     
-    # For children and adults
-    if total_phe > max_phe:
-        scale_factor = max_phe / total_phe
-        warning_msg = f"⚠️ Total daily PHE ({total_phe:.0f} mg) exceeds recommended limit ({max_phe:.0f} mg). Portions have been adjusted by {scale_factor:.1%} to stay within safe limits."
-        
-        # Scale all portions
-        adjusted_plan = {}
-        for meal, details in meal_plan.items():
-            adjusted_plan[meal] = {
-                'portion': details['portion'] * scale_factor,
-                'phe': details['phe'] * scale_factor,
-                'protein': details['protein'] * scale_factor,
-                'calories': details['calories'] * scale_factor
-            }
-        
-        return adjusted_plan, warning_msg
+    Args:
+        age: Age in months
+        weight: Weight in kg
+        actual_phe_level: Current blood PHE level (mg/dL)
     
-    return meal_plan, None
-
-def get_phe_limit(age_in_months, weight):
+    Returns:
+        tuple: (phe_lower_bound, phe_upper_bound, target_phe)
     """
-    Returns the PHE limit based on age and clinical practice.
-    For adults (>12 months), uses 750 mg/day cap.
-    """
-    if age_in_months >= 12:
-        return MAX_PHE_ADULT
+    # Define age-based ranges (mg/day)
+    if age < 6:  # 0-6 months
+        phe1, phe2 = 120, 360
+        golden_threshold = 4
+    elif age < 12:  # 6-12 months
+        phe1, phe2 = 200, 400
+        golden_threshold = 6
+    elif age < 144:  # 1-12 years
+        phe1, phe2 = 200, 500
+        golden_threshold = 8
+    else:  # 12+ years
+        phe1, phe2 = 220, 900
+        golden_threshold = 12
+    
+    # Apply golden number logic
+    if actual_phe_level is not None:
+        if actual_phe_level < golden_threshold:
+            target_phe = phe1  # Use lower bound
+        elif actual_phe_level == golden_threshold:  # Changed from <=
+            target_phe = (phe1 + phe2) / 2  # Use average
+        else:  # actual_phe_level > golden_threshold
+            target_phe = phe1  # Stricter control needed
     else:
-        # For babies, use calculated need
-        return calcNeedOfPhe(age_in_months, weight)
-# ================================================
+        target_phe = (phe1 + phe2) / 2  # Default to average
+    
+    return phe1, phe2, target_phe
 
 
 def calcAge(year, month, day):
@@ -88,16 +84,7 @@ def calcNeedOfCals(weight, age):
     if age < 9: return 107.5 * weight
     return 107.5 * weight
 
-def calcNeedOfPhe(age, weight):
-    """Calculate PHE needs based on age in months and weight"""
-    if age < 6:  # 0-6 months
-        return 47.5 * weight
-    elif age < 12:  # 6-12 months
-        return 32.5 * weight
-    elif age < 144:  # 1-12 years (12-144 months)
-        return 30 * weight
-    else:  # 12 years and above
-        return 22.5 * weight
+
 
 def prepare_meal_df(raw_df: pd.DataFrame) -> pd.DataFrame:
     rename_map = {}
@@ -547,9 +534,9 @@ with tabs[0]:
 
             needP = calcNeedOfProtein(weight, age)
             needC = calcNeedOfCals(weight, age)
-            needPh = calcNeedOfPhe(age, weight)
+            phe1_baby, phe2_baby, needPh = calcNeedOfPhe(age, weight, phe)
             st.write(f'Age: {age} months, BMI: {bmi:.1f}')
-            st.write(f'Daily Requirements - Protein: {needP:.1f}g, Calories: {needC:.0f}, PHE: {needPh:.0f}mg')
+            st.write(f'Daily Requirements - Protein: {needP:.1f}g, Calories: {needC:.0f}, PHE Target: {needPh:.0f}mg (Range: {phe1_baby}-{phe2_baby} mg)')
 
 with tabs[1]:
     st.header('Personal Profile & Nutrition Calculator')
@@ -592,138 +579,85 @@ with tabs[1]:
     month = st.number_input('Birth month:', 1, 12, key='diet1_month')
     day = st.number_input('Birth day:', 1, 31, key='diet1_day')
     age_in_months = calcAge(year, month, day)
+    
+    current_phe_level = st.number_input(
+        'Current Blood PHE Level (mg/dL):', 
+        min_value=0.0, 
+        step=0.1,
+        help="Enter your most recent blood phenylalanine level"
+    )
 
     if st.button('Calculate Nutrition', key='nutr'):
         e1 = 0
         e2 = 0
         protein = 0
-        phe1 = 0
-        phe2 = 0
         e3 = 0
 
-        def mean(n1, n2):
-            return (float(n1) + n2) / 2
-
-        if(age_in_months < 12):
+        if age_in_months < 12:
             st.write("Please refer to baby diet planner instead")
-        elif(age_in_months < 132):
-            if(age_in_months < 48):
-                e1 = 900
-                e2 = 1800
-                e3 = 1300
-                phe1 = 4  # Lower bound
-                phe2 = 8  # Upper bound (for avg calculation)
-                protein = 30
-        elif(age_in_months < 84):
-                e1 = 1300
-                e2 = 2300
-                e3 = 1700
-                phe1 = 4  # Lower bound
-                phe2 = 8  # Upper bound
-                protein = 35
         else:
-                e1 = 1650
-                e2 = 3300
-                e3 = 2400
-                phe1 = 8  # Lower bound
-                phe2 = 16  # Upper bound
-                protein = 40
-    
-        if(bmi_category == "underweight"):
-            energy = e2
-        elif(bmi_category == "normal"):
-            energy = e3
-        else:
-            energy = e1
-    else:
-        if(sex == "Female"):
-            if(age_in_months < 180):
-                e1 = 1500
-                e2 = 3000
-                e3 = 2200
-                phe1 = 12  # Lower bound
-                phe2 = 24  # Upper bound
-                protein = 50
-        elif(age_in_months < 228):
-                e1 = 1200
-                e2 = 3000
-                e3 = 2100
-                phe1 = 12  # Lower bound
-                phe2 = 24  # Upper bound
-                protein = 55
-        else:
-                e1 = 1400
-                e2 = 2500
-                e3 = 2100
-                phe1 = 12  # Lower bound
-                phe2 = 24  # Upper bound
-                protein = 60
-    else:  # Male
-        if(age_in_months < 180):
-                e1 = 2000
-                e2 = 3700
-                e3 = 2700
-                phe1 = 12  # Lower bound
-                phe2 = 24  # Upper bound
-                protein = 55
-        elif(age_in_months < 228):
-                e1 = 2100
-                e2 = 3900
-                e3 = 2800
-                phe1 = 12  # Lower bound
-                phe2 = 24  # Upper bound
-                protein = 65
-        else:
-                e1 = 2000
-                e2 = 3300
-                e3 = 2900
-                phe1 = 12  # Lower bound
-                phe2 = 24  # Upper bound
-                protein = 70
-    
-        if(bmi_category == "underweight"):
-            energy = e2
-        elif(bmi_category == "normal"):
-            energy = e3
-        else:
-            energy = e1
+            # Calculate PHE using golden number system
+            phe1, phe2, phe_target = calcNeedOfPhe(age_in_months, weight, current_phe_level)
+            
+            # Energy and protein calculations based on age
+            if age_in_months < 132:
+                if age_in_months < 48:
+                    e1, e2, e3 = 900, 1800, 1300
+                    protein = 30
+                elif age_in_months < 84:
+                    e1, e2, e3 = 1300, 2300, 1700
+                    protein = 35
+                else:
+                    e1, e2, e3 = 1650, 3300, 2400
+                    protein = 40
+            else:
+                if sex == "Female":
+                    if age_in_months < 180:
+                        e1, e2, e3 = 1500, 3000, 2200
+                        protein = 50
+                    elif age_in_months < 228:
+                        e1, e2, e3 = 1200, 3000, 2100
+                        protein = 55
+                    else:
+                        e1, e2, e3 = 1400, 2500, 2100
+                        protein = 60
+                else:  # Male
+                    if age_in_months < 180:
+                        e1, e2, e3 = 2000, 3700, 2700
+                        protein = 55
+                    elif age_in_months < 228:
+                        e1, e2, e3 = 2100, 3900, 2800
+                        protein = 65
+                    else:
+                        e1, e2, e3 = 2000, 3300, 2900
+                        protein = 70
+            
+            # Determine energy based on BMI
+            if bmi_category == "underweight":
+                energy = e2
+            elif bmi_category == "normal":
+                energy = e3
+            else:
+                energy = e1
 
-# Calculate average PHE as (phe1 + phe2) / 2
-    phe = (phe1 + phe2) / 2
-        
-        # ========== NEW: Apply 750mg cap for adults ==========
-        if age_in_months >= 12:
-            actual_phe_limit = MAX_PHE_ADULT
-            if phe > actual_phe_limit:
-                st.warning(f"⚠️ Clinical Practice Note: While guidelines allow {phe1}-{phe2} mg/day, we limit adult PHE intake to {actual_phe_limit} mg/day to prevent elevated phenylalanine levels.")
-                phe = actual_phe_limit
-        # ====================================================
+            st.write(f"**Your Daily Nutritional Targets:**")
+            st.write(f"- Daily Calorie Goal: {energy} kcal")
+            st.write(f"- Daily Protein Goal: {protein} g")
+            st.write(f"- Daily Phenylalanine Target: **{phe_target:.0f} mg** (Range: {phe1}-{phe2} mg)")
+            if current_phe_level > 0:
+                st.write(f"  - Based on your current PHE level: {current_phe_level} mg/dL")
+            st.write(f"- BMI: {bmi:.1f} ({bmi_category})")
 
-        st.write(f"**Your Daily Nutritional Targets:**")
-        st.write(f"- Daily Calorie Goal: {energy} kcal")
-        st.write(f"- Daily Protein Goal: {protein} g")
-        
-        # ========== NEW: Show clinical limit for adults ==========
-        if age_in_months >= 12:
-            st.write(f"- Daily Phenylalanine Limit (Clinical): **{MAX_PHE_ADULT} mg** (guideline range: {phe1}-{phe2} mg)")
-        else:
-            st.write(f"- Daily Phenylalanine Range: {phe1}-{phe2} mg (Average: {phe:.0f} mg)")
-        # ========================================================
-        
-        st.write(f"- BMI: {bmi:.1f} ({bmi_category})")
-
-        # Store in session state
-        st.session_state['protein'] = protein
-        st.session_state['phe1'] = phe1
-        st.session_state['phe2'] = phe2
-        st.session_state['e1'] = e1
-        st.session_state['e2'] = e2
-        st.session_state['phe'] = phe
-        st.session_state['energy'] = energy
-        st.session_state['age_in_months'] = age_in_months  # NEW
-        st.session_state['weight'] = weight  # NEW
-        
-        st.success("Profile saved! You can now get personalized recommendations.")
+            # Store in session state
+            st.session_state['protein'] = protein
+            st.session_state['phe1'] = phe1
+            st.session_state['phe2'] = phe2
+            st.session_state['phe'] = phe_target
+            st.session_state['energy'] = energy
+            st.session_state['age_in_months'] = age_in_months
+            st.session_state['weight'] = weight
+            
+            st.success("Profile saved! You can now get personalized recommendations.")
 
 with tabs[2]:
     st.header('Rate Cuisine Dishes')
@@ -802,12 +736,6 @@ with tabs[3]:
         e1M = mealtime_nutrition(e1, meal_category)
         e2M = mealtime_nutrition(e2, meal_category)
         
-        # ========== NEW: Use clinical PHE limit ==========
-        if age_in_months >= 12:
-            phe_limit = MAX_PHE_ADULT
-        else:
-            phe_limit = st.session_state['phe']
-        # ================================================
         
         with rtabs[0]:
             st.subheader('Top 5 Recommendations')
