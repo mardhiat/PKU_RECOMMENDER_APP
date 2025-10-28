@@ -739,12 +739,6 @@ with tabs[3]:
         
         with rtabs[0]:
             st.subheader('Top 5 Recommendations')
-            
-            # ========== NEW: Show PHE limit being used ==========
-            if age_in_months >= 12:
-                st.info(f"🔒 Daily PHE limit: {MAX_PHE_ADULT} mg (clinical practice)")
-            # ==================================================
-            
             user_ratings = st.session_state.ratings_session[st.session_state.ratings_session['user_id'] == user_id]
             if not user_ratings.empty:
                 rated_cuisine = user_ratings['cuisine'].iloc[0]
@@ -776,23 +770,9 @@ with tabs[3]:
 
                         if predictions:
                             top5 = sorted(predictions, key=lambda x: x[1], reverse=True)[:5]
-                            
-                            # ========== NEW: Calculate total PHE and apply cap ==========
-                            total_daily_phe = sum(item[3] for item in top5)
-                            
-                            if age_in_months >= 12 and total_daily_phe > MAX_PHE_ADULT:
-                                scale_factor = MAX_PHE_ADULT / total_daily_phe
-                                st.warning(f"⚠️ Total PHE ({total_daily_phe:.0f} mg) exceeds {MAX_PHE_ADULT} mg limit. Portions adjusted by {scale_factor:.1%}.")
-                                
-                                # Scale all portions
-                                top5 = [(dish, score, protein * scale_factor, phe * scale_factor, calories * scale_factor) 
-                                       for dish, score, protein, phe, calories in top5]
-                                total_daily_phe = MAX_PHE_ADULT
-                            # ===========================================================
-                            
                             st.subheader("Top 5 Recommended Dishes")
-                            st.write(f"**Total Daily PHE: {total_daily_phe:.0f} mg / {phe_limit:.0f} mg**")
-                            
+                            total_daily_phe = sum(item[3] for item in top5)  # Calculate total PHE from top 5
+                            st.write(f"**Total Daily PHE: {total_daily_phe:.0f} mg / {st.session_state.get('phe', 0):.0f} mg**")
                             for dish, score, protein, phe, calories in top5:
                                 st.write(f"**{dish}**: Score {score:.2f}")
                                 st.write(f"   - PHE: {phe:.1f}mg, Protein: {protein:.1f}g, Calories: {calories:.1f}kcal")
@@ -817,7 +797,7 @@ with tabs[3]:
         
         with rtabs[1]:
             st.subheader("Single Food Analysis")
-            
+            phe_limit = st.session_state.get('phe', 1)  # Get user's personal PHE target
             analysis_cuisine = st.selectbox("Select cuisine for analysis:", list(cuisine_data.keys()))
             
             if analysis_cuisine:
@@ -846,12 +826,10 @@ with tabs[3]:
                         st.write(f'- Health Safety Score: {hs_score:.2f}')
                         st.write(f'- **Final Score: {f_score:.2f}**')
                         
-                        # ========== NEW: PHE limit check ==========
-                        if age_in_months >= 12 and meal_phenyl > MAX_PHE_ADULT:
-                            st.error(f"⚠️ This serving ({meal_phenyl:.0f} mg PHE) exceeds daily limit of {MAX_PHE_ADULT} mg!")
-                            safe_portion = (MAX_PHE_ADULT / meal_phenyl) * serving_size
-                            st.info(f"💡 Recommended safe portion: {safe_portion:.0f}g")
-                        # =========================================
+                        personal_phe_limit = st.session_state.get('phe', 0)
+                        if personal_phe_limit > 0 and meal_phenyl > personal_phe_limit:
+                            st.warning(f"⚠️ This serving ({meal_phenyl:.0f} mg PHE) exceeds your daily target ({personal_phe_limit:.0f} mg)!")
+                            safe_portion = (personal_phe_limit / meal_phenyl) * serving_size
 
                         if st.session_state['phe'] > 0:
                             labels = ['Phenylalanine', 'Protein', 'Energy']
@@ -975,10 +953,8 @@ with tabs[5]:
                         st.write(f"- Protein: {protein:.1f} g")
                         st.write(f"- Calories: {calories:.1f} kcal")
                         
-                        # ========== NEW: Use clinical PHE limit ==========
                         age_in_months = st.session_state.get('age_in_months', 0)
-                        user_daily_phe = MAX_PHE_ADULT if age_in_months >= 12 else st.session_state.get('phe', 0)
-                        # ===============================================
+                        user_daily_phe = st.session_state.get('phe', 0)
                         
                         if user_daily_phe > 0:
                             meal_phe_ratio = 0.3 if meal_type_selection in ["Lunch", "Dinner"] else 0.2
@@ -1046,8 +1022,7 @@ This app uses comprehensive nutritional databases covering:
 - **Baby Food Database** for infants 6-12 months
 - **AI-Powered Chat** for personalized PKU nutrition guidance
 
-**Clinical Note:** For adults and children over 12 months, this app enforces a **750 mg/day PHE limit** based on clinical practice, 
-even though guidelines may allow higher amounts. This helps prevent elevated phenylalanine levels.
+**Personalized Approach:** This app uses a "golden number" system that adjusts your PHE targets based on your current blood PHE levels and age. Your targets are personalized to help you maintain optimal control.
 
 *Always consult with your healthcare provider or registered dietitian before making significant changes to your PKU diet.*
 """)
