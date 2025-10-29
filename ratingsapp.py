@@ -85,7 +85,7 @@ if st.session_state.page == 0:
 
     By proceeding, you consent to participate in this research.
     """)
-    if st.button("I Consent"):
+    if st.button("I consent"):
         st.session_state.page = 1
         st.rerun()
 
@@ -279,7 +279,7 @@ elif st.session_state.page == 3:
 
         
         # Prepare data row matching header order
-        headers = sheet.row_values(1)
+        headers = sheet.row_values(1) 
         row_data = []
         for header in headers:
             value = st.session_state.user_data.get(header, "")
