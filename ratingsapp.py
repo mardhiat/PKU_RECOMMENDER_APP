@@ -81,7 +81,7 @@ if st.session_state.page == 0:
     - Food ratings from your chosen cuisines
     - PHE tolerance  
 
-    Your responses are stored **locally** in a CSV file. No personal identifiers are shared externally.
+    Your responses are stored **safely**. No personal identifiers are shared externally.
 
     By proceeding, you consent to participate in this research.
     """)
@@ -239,21 +239,70 @@ elif st.session_state.page == 2:
 elif st.session_state.page == 3:
     st.title("Thank You!")
     
-    # Save data
+    # Add timestamp
     st.session_state.user_data["Timestamp"] = datetime.datetime.now().isoformat()
     
-    df_new = pd.DataFrame([st.session_state.user_data])
-    
     try:
-        df_existing = pd.read_csv(DATA_FILE)
-        df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-    except FileNotFoundError:
-        df_combined = df_new
-    
-    df_combined.to_csv(DATA_FILE, index=False)
-    
-    st.success("Your responses have been saved successfully!")
-    st.balloons()
+        # Import Google Sheets libraries
+        import gspread
+        from oauth2client.service_account import ServiceAccountCredentials
+        
+        # Connect to Google Sheets
+        scope = [
+            'https://spreadsheets.google.com/feeds',
+            'https://www.googleapis.com/auth/drive'
+        ]
+        
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(
+            st.secrets["gcp_service_account"], 
+            scope
+        )
+        client = gspread.authorize(creds)
+        
+        # Open the sheet
+        sheet = client.open("ratingsappdata").sheet1
+        
+        # Combine existing headers with any new keys
+        existing_headers = sheet.row_values(1)
+        all_keys = list(st.session_state.user_data.keys())
+
+        # Add any new keys to the sheet header
+        for key in all_keys:
+            if key not in existing_headers:
+                existing_headers.append(key)
+
+        # If sheet is empty, add headers
+        if not existing_headers:
+            sheet.append_row(all_keys)
+        else:
+            sheet.update('A1', [existing_headers])
+
+        
+        # Prepare data row matching header order
+        headers = sheet.row_values(1)
+        row_data = []
+        for header in headers:
+            value = st.session_state.user_data.get(header, "")
+            row_data.append(str(value))
+        
+        # Append data
+        sheet.append_row(row_data)
+        
+        st.success(" Your responses have been saved successfully!")
+        st.balloons()
+        
+    except Exception as e:
+        st.error(f"Error saving to Google Sheets: {e}")
+        
+        # Fallback: save to CSV locally (for backup/testing)
+        df_new = pd.DataFrame([st.session_state.user_data])
+        try:
+            df_existing = pd.read_csv(DATA_FILE)
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+        except FileNotFoundError:
+            df_combined = df_new
+        df_combined.to_csv(DATA_FILE, index=False)
+        st.warning("Data saved to local CSV as backup.")
     
     st.markdown("""
     ### Summary of Your Participation:
@@ -269,8 +318,52 @@ elif st.session_state.page == 3:
         st.session_state.user_data.get("PHE_tolerance", "N/A")
     ))
     
+
+    # --- FOOD RECOMMENDATION SECTION --- #
+    st.subheader("Recommended Foods for You 🍽️")
+
+    # Get rated foods
+    rated_foods = {food: rating for food, rating in st.session_state.user_data.items() if isinstance(rating, (int, float))}
+    liked_foods = [food for food, rating in rated_foods.items() if rating >= 4]
+
+    # Build full list of all foods from selected cuisines
+    all_foods = {}
+    for cuisine in st.session_state.selected_cuisines:
+        meals_dict = load_cuisine_meals(cuisine)
+        for meal, ingredients in meals_dict.items():
+            food_key = f"{meal} ({cuisine})"
+            all_foods[food_key] = ingredients
+
+    # Find foods the user didn’t rate
+    unrated_foods = [f for f in all_foods.keys() if f not in rated_foods]
+
+    # Score foods by ingredient similarity to liked foods
+    food_scores = {}
+    for food in unrated_foods:
+        ingredients = set(all_foods[food])
+        similarity_score = 0
+        for liked in liked_foods:
+            liked_ing = set(all_foods.get(liked, []))
+            intersection = ingredients.intersection(liked_ing)
+            union = ingredients.union(liked_ing)
+            if union:
+                similarity_score += len(intersection) / len(union)
+        food_scores[food] = similarity_score
+
+    # Sort and show top 5 recommendations
+    top_5 = sorted(food_scores.items(), key=lambda x: x[1], reverse=True)[:5]
+
+    if top_5:
+        for food, score in top_5:
+            st.markdown(f"**{food}** (Similarity: {score:.2f})")
+            st.write(", ".join(all_foods.get(food, [])))
+            st.divider()
+    else:
+        st.info("Not enough data yet to generate recommendations.")
+
+
+
     if st.button("Start New Response"):
-        # Clear session state
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()
