@@ -279,14 +279,14 @@ elif st.session_state.page == 3:
 
         
         # Prepare data row matching header order
-        headers = sheet.row_values(1) 
-        row_data = []
-        for header in headers:
-            value = st.session_state.user_data.get(header, "")
-            row_data.append(str(value))
-        
-        # Append data
+        # Make sure headers are in the same order as user_data keys
+        headers = list(st.session_state.user_data.keys())
+        row_data = [str(st.session_state.user_data.get(h, "")) for h in headers]
+
+        # Update sheet header if needed
+        sheet.update('A1', [headers])
         sheet.append_row(row_data)
+
         
         st.success(" Your responses have been saved successfully!")
         st.balloons()
