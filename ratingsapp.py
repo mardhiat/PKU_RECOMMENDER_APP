@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import random
 import datetime
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 # Load all cuisine CSV files
 CUISINE_FILES = {
@@ -20,12 +22,13 @@ CUISINE_FILES = {
 # CSV file to save responses
 DATA_FILE = "user_responses.csv"
 
-# Function to generate random PHE tolerance based on age
+# Function to generate random PHE tolerance based on age (in mg/day)
 def generate_phe(age):
+    """Generate PHE tolerance in mg/day (range 3-40)"""
     if age <= 18:  # children
-        return random.randint(120, 360)
+        return random.randint(3, 25)
     else:  # adults
-        return random.randint(120, 600)
+        return random.randint(10, 40)
 
 # Function to load cuisine data and get meals with ingredients
 def load_cuisine_meals(cuisine_name):
@@ -53,6 +56,139 @@ def load_cuisine_meals(cuisine_name):
         st.error(f"Error loading {cuisine_name}: {e}")
         return {}
 
+# Load historical user data from Google Sheets
+@st.cache_data(ttl=300)  # Cache for 5 minutes
+def load_user_data_from_sheets():
+    """Load all historical user ratings from Google Sheets"""
+    try:
+        import gspread
+        from oauth2client.service_account import ServiceAccountCredentials
+        
+        scope = [
+            'https://spreadsheets.google.com/feeds',
+            'https://www.googleapis.com/auth/drive'
+        ]
+        
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(
+            st.secrets["gcp_service_account"], 
+            scope
+        )
+        client = gspread.authorize(creds)
+        sheet = client.open("ratingsappdata").sheet1
+        
+        # Get all data
+        data = sheet.get_all_records()
+        df = pd.DataFrame(data)
+        
+        return df
+    except Exception as e:
+        st.warning(f"Could not load historical data: {e}")
+        return pd.DataFrame()
+
+# Content-based filtering recommendation
+def content_based_recommendation(all_foods, liked_foods, unrated_foods):
+    """Content-based filtering: recommend based on ingredient similarity"""
+    food_scores = {}
+    for food in unrated_foods:
+        ingredients = set(all_foods.get(food, []))
+        similarity_score = 0
+        for liked in liked_foods:
+            liked_ing = set(all_foods.get(liked, []))
+            intersection = ingredients.intersection(liked_ing)
+            union = ingredients.union(liked_ing)
+            if union:
+                # Jaccard similarity
+                similarity_score += len(intersection) / len(union)
+        food_scores[food] = similarity_score / max(len(liked_foods), 1)
+    return food_scores
+
+# Collaborative filtering recommendation
+def collaborative_filtering_recommendation(historical_df, current_user_ratings, unrated_foods):
+    """Collaborative filtering: recommend based on similar users' preferences"""
+    if historical_df.empty or len(historical_df) < 2:
+        return {}
+    
+    # Extract only food rating columns (those with parentheses indicating cuisine)
+    food_columns = [col for col in historical_df.columns if '(' in str(col) and ')' in str(col)]
+    
+    if not food_columns:
+        return {}
+    
+    # Create user-item matrix
+    ratings_matrix = historical_df[food_columns].copy()
+    
+    # Convert to numeric, replace empty/non-numeric with NaN
+    for col in food_columns:
+        ratings_matrix[col] = pd.to_numeric(ratings_matrix[col], errors='coerce')
+    
+    # Fill NaN with 0 for similarity calculation
+    ratings_matrix_filled = ratings_matrix.fillna(0)
+    
+    # Create current user's rating vector
+    current_user_vector = []
+    for col in food_columns:
+        if col in current_user_ratings:
+            current_user_vector.append(current_user_ratings[col])
+        else:
+            current_user_vector.append(0)
+    
+    current_user_vector = np.array(current_user_vector).reshape(1, -1)
+    
+    # Calculate cosine similarity between current user and all historical users
+    similarities = cosine_similarity(current_user_vector, ratings_matrix_filled.values)
+    
+    # Get top 5 similar users
+    similar_users_idx = similarities[0].argsort()[-5:][::-1]
+    
+    # Predict ratings for unrated foods based on similar users
+    food_scores = {}
+    for food in unrated_foods:
+        if food not in food_columns:
+            continue
+        
+        weighted_sum = 0
+        similarity_sum = 0
+        
+        for idx in similar_users_idx:
+            user_rating = ratings_matrix.iloc[idx][food]
+            if pd.notna(user_rating) and user_rating > 0:
+                similarity_score = similarities[0][idx]
+                weighted_sum += similarity_score * user_rating
+                similarity_sum += similarity_score
+        
+        if similarity_sum > 0:
+            food_scores[food] = weighted_sum / similarity_sum
+        else:
+            food_scores[food] = 0
+    
+    return food_scores
+
+# Hybrid filtering recommendation
+def hybrid_recommendation(content_scores, collaborative_scores, alpha=0.5):
+    """Hybrid filtering: combine content-based and collaborative filtering"""
+    hybrid_scores = {}
+    
+    # Normalize scores to 0-1 range
+    def normalize_scores(scores):
+        if not scores or max(scores.values()) == 0:
+            return scores
+        max_score = max(scores.values())
+        return {k: v/max_score for k, v in scores.items()}
+    
+    content_norm = normalize_scores(content_scores)
+    collab_norm = normalize_scores(collaborative_scores)
+    
+    # Combine all foods
+    all_foods = set(content_norm.keys()).union(set(collab_norm.keys()))
+    
+    for food in all_foods:
+        content_score = content_norm.get(food, 0)
+        collab_score = collab_norm.get(food, 0)
+        # Weighted combination
+        hybrid_scores[food] = alpha * content_score + (1 - alpha) * collab_score
+    
+    return hybrid_scores
+
 #  Initialize session state  #
 if 'page' not in st.session_state:
     st.session_state.page = 0
@@ -70,22 +206,74 @@ if 'food_ingredients' not in st.session_state:
 #  PAGE 0: Consent 
 if st.session_state.page == 0:
     st.title("PKU Dietary Preference Study")
+    
     st.markdown("""
-    **About the research:**  
-    Phenylketonuria (PKU) is a rare metabolic disorder caused by variants in the PAH gene, leading to elevated phenylalanine (PHE) levels in the blood.  
-
-    This study collects dietary preferences and basic patient information to develop a personalized food recommendation system for PKU management.
-
-    **Your data:**  
-    - Height, weight, age, gender  
-    - Food ratings from your chosen cuisines
-    - PHE tolerance  
-
-    Your responses are stored **safely**. No personal identifiers are shared externally.
-
-    By proceeding, you consent to participate in this research.
+    ### About Phenylketonuria (PKU)
+    
+    Phenylketonuria (PKU) is a rare inherited metabolic disorder caused by variations in the PAH gene, 
+    leading to elevated levels of phenylalanine (PHE) in the blood. Managing PHE levels through strict 
+    dietary control is essential to prevent neurological complications and support healthy development.
+    
+    This application is designed to support individuals with PKU by collecting user ratings on foods 
+    that are safe or restricted in the PKU diet.
+    
+    ### Important Information About PKU Diet
+    
+    People with PKU cannot safely consume about **90% of common foods worldwide**. Only about **5% of foods** 
+    are considered safe for regular consumption, while another **5% are restricted** and must be eaten only 
+    in carefully controlled amounts, depending on each individual's tolerance level. The other **90% of foods** 
+    are strictly forbidden due to their high phenylalanine content.
+    
+    Therefore, the variety of foods available in this app is limited and primarily includes **fruits, 
+    vegetables, and carbohydrate-based items** that are naturally lower in phenylalanine.
+    
+    **Your careful and thoughtful ratings are extremely valuable**—they will help improve PKU-friendly food 
+    recommendations and make a meaningful contribution to the PKU Society and broader community research efforts.
+    
+    ---
+    
+    ### Purpose of the Study
+    
+    This study collects dietary preferences and basic participant information to develop a personalized 
+    food recommendation system that supports PKU dietary management.
+    
+    **Data collected includes:**
+    - Height, weight, age, and gender
+    - Food ratings from your selected cuisines
+    - PHE tolerance level
+    
+    All data are stored securely, and no personal identifiers are shared externally. Participation is 
+    voluntary, and you may withdraw at any time.
+    
+    ---
+    
+    ### Feedback on Recommended Foods
+    
+    At the end of the rating process, the application will display **two sets of recommendations**:
+    
+    1. **Top 5 Dishes from the Same Cuisine Group** – Based on the cuisine category you selected 
+       (for example, Mediterranean, Asian, or American), the system will recommend your top five dishes 
+       from within that same group.
+    
+    2. **Top 5 Dishes Across All Cuisines** – The system will also suggest the five most suitable dishes 
+       overall, selected from all cuisine categories available in the application.
+    
+    We kindly ask you to provide quick feedback on these recommendations by selecting **"Thumbs Up 👍"** 
+    if you agree or like the suggestion, or **"Thumbs Down 👎"** if you do not.
+    
+    Your feedback on both sets of recommendations will help us refine the algorithm, enhance the accuracy 
+    of personalized PKU-friendly food suggestions, and contribute valuable insights to the PKU Society's 
+    ongoing research efforts.
+    
+    ---
+    
+    ### Consent
+    
+    By proceeding, you consent to participate in this research and allow your anonymized data to be used 
+    for scientific purposes.
     """)
-    if st.button("I consent"):
+    
+    if st.button("I Consent to Participate"):
         st.session_state.page = 1
         st.rerun()
 
@@ -117,9 +305,9 @@ elif st.session_state.page == 1:
         lbs = st.number_input("Weight (lbs)", min_value=20, max_value=700, value=150)
         weight = lbs*0.453592
 
-    # Generate PHE
+    # Generate PHE (in mg/day, range 3-40)
     phe = generate_phe(age)
-    st.info(f"**Your estimated PHE tolerance:** {phe} μmol/L")
+    st.info(f"**Your estimated PHE tolerance:** {phe} mg/day")
 
     # Next button
     if st.button("Next"):
@@ -133,7 +321,7 @@ elif st.session_state.page == 1:
                 "Gender": gender,
                 "Height_cm": round(height, 1),
                 "Weight_kg": round(weight, 1),
-                "PHE_tolerance": phe
+                "PHE_tolerance_mg_per_day": phe
             })
             st.session_state.page = 1.5
             st.rerun()
@@ -235,13 +423,215 @@ elif st.session_state.page == 2:
                 st.session_state.page = 3
                 st.rerun()
 
-#  PAGE 3: Thank You 
+#  PAGE 3: Thank You & Recommendations
 elif st.session_state.page == 3:
     st.title("Thank You!")
     
     # Add timestamp
     st.session_state.user_data["Timestamp"] = datetime.datetime.now().isoformat()
     
+    # Load historical data from Google Sheets
+    st.info("Loading historical user data for collaborative recommendations...")
+    historical_df = load_user_data_from_sheets()
+    
+    # Get rated foods
+    rated_foods = {food: rating for food, rating in st.session_state.user_data.items() 
+                   if isinstance(rating, (int, float)) and "(" in str(food)}
+    liked_foods = [food for food, rating in rated_foods.items() if rating >= 4]
+    
+    # --- RECOMMENDATION SECTION --- #
+    st.subheader("🍽️ Personalized Food Recommendations")
+    
+    # Build foods from SELECTED cuisines only
+    selected_cuisine_foods = {}
+    for cuisine in st.session_state.selected_cuisines:
+        meals_dict = load_cuisine_meals(cuisine)
+        for meal, ingredients in meals_dict.items():
+            food_key = f"{meal} ({cuisine})"
+            selected_cuisine_foods[food_key] = ingredients
+    
+    # Build foods from ALL cuisines
+    all_cuisine_foods = {}
+    for cuisine in CUISINE_FILES.keys():
+        meals_dict = load_cuisine_meals(cuisine)
+        for meal, ingredients in meals_dict.items():
+            food_key = f"{meal} ({cuisine})"
+            all_cuisine_foods[food_key] = ingredients
+    
+    # Find unrated foods
+    unrated_selected = [f for f in selected_cuisine_foods.keys() if f not in rated_foods]
+    unrated_all = [f for f in all_cuisine_foods.keys() if f not in rated_foods]
+    
+    if liked_foods:
+        # === RECOMMENDATIONS FROM SELECTED CUISINES ===
+        st.markdown("### 📋 Top 5 Dishes from Your Selected Cuisines")
+        st.write(f"Based on cuisines you chose: **{', '.join(st.session_state.selected_cuisines)}**")
+        
+        # Content-Based
+        content_scores_selected = content_based_recommendation(
+            selected_cuisine_foods, liked_foods, unrated_selected
+        )
+        
+        # Collaborative
+        collaborative_scores_selected = collaborative_filtering_recommendation(
+            historical_df, rated_foods, unrated_selected
+        )
+        
+        # Hybrid
+        hybrid_scores_selected = hybrid_recommendation(
+            content_scores_selected, collaborative_scores_selected, alpha=0.6
+        )
+        
+        # Display all three types
+        tab1, tab2, tab3 = st.tabs([
+            "🎯 Content-Based", 
+            "👥 Collaborative", 
+            "🔀 Hybrid (Recommended)"
+        ])
+        
+        with tab1:
+            st.write("**Method:** Ingredient similarity analysis")
+            top_5 = sorted(content_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
+            if top_5 and top_5[0][1] > 0:
+                for i, (food, score) in enumerate(top_5, 1):
+                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                    st.write("*Ingredients:* " + ", ".join(selected_cuisine_foods.get(food, [])))
+                    feedback = st.radio(
+                        "Do you like this recommendation?",
+                        ("👍 Thumbs Up", "👎 Thumbs Down"),
+                        key=f"cb_sel_{i}",
+                        horizontal=True
+                    )
+                    st.session_state.user_data[f"CB_Selected_{food}"] = feedback
+                    st.divider()
+            else:
+                st.info("Not enough data for content-based recommendations.")
+        
+        with tab2:
+            st.write("**Method:** Similar users' preferences")
+            if not historical_df.empty:
+                top_5 = sorted(collaborative_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
+                if top_5 and top_5[0][1] > 0:
+                    for i, (food, score) in enumerate(top_5, 1):
+                        st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                        st.write("*Ingredients:* " + ", ".join(selected_cuisine_foods.get(food, [])))
+                        feedback = st.radio(
+                            "Do you like this recommendation?",
+                            ("👍 Thumbs Up", "👎 Thumbs Down"),
+                            key=f"collab_sel_{i}",
+                            horizontal=True
+                        )
+                        st.session_state.user_data[f"Collab_Selected_{food}"] = feedback
+                        st.divider()
+                else:
+                    st.info("Not enough similar users found.")
+            else:
+                st.info("No historical data available yet. Collaborative filtering requires multiple users.")
+        
+        with tab3:
+            st.write("**Method:** Combined content-based + collaborative (60% content, 40% collaborative)")
+            top_5 = sorted(hybrid_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
+            if top_5 and top_5[0][1] > 0:
+                for i, (food, score) in enumerate(top_5, 1):
+                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                    st.write("*Ingredients:* " + ", ".join(selected_cuisine_foods.get(food, [])))
+                    feedback = st.radio(
+                        "Do you like this recommendation?",
+                        ("👍 Thumbs Up", "👎 Thumbs Down"),
+                        key=f"hybrid_sel_{i}",
+                        horizontal=True
+                    )
+                    st.session_state.user_data[f"Hybrid_Selected_{food}"] = feedback
+                    st.divider()
+            else:
+                st.info("Not enough data for hybrid recommendations.")
+        
+        # === RECOMMENDATIONS FROM ALL CUISINES ===
+        st.markdown("### 🌍 Top 5 Dishes Across All Cuisines")
+        st.write("Expanding recommendations to include all available cuisines")
+        
+        # Content-Based
+        content_scores_all = content_based_recommendation(
+            all_cuisine_foods, liked_foods, unrated_all
+        )
+        
+        # Collaborative
+        collaborative_scores_all = collaborative_filtering_recommendation(
+            historical_df, rated_foods, unrated_all
+        )
+        
+        # Hybrid
+        hybrid_scores_all = hybrid_recommendation(
+            content_scores_all, collaborative_scores_all, alpha=0.6
+        )
+        
+        # Display all three types
+        tab4, tab5, tab6 = st.tabs([
+            "🎯 Content-Based", 
+            "👥 Collaborative", 
+            "🔀 Hybrid (Recommended)"
+        ])
+        
+        with tab4:
+            st.write("**Method:** Ingredient similarity analysis")
+            top_5 = sorted(content_scores_all.items(), key=lambda x: x[1], reverse=True)[:5]
+            if top_5 and top_5[0][1] > 0:
+                for i, (food, score) in enumerate(top_5, 1):
+                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                    st.write("*Ingredients:* " + ", ".join(all_cuisine_foods.get(food, [])))
+                    feedback = st.radio(
+                        "Do you like this recommendation?",
+                        ("👍 Thumbs Up", "👎 Thumbs Down"),
+                        key=f"cb_all_{i}",
+                        horizontal=True
+                    )
+                    st.session_state.user_data[f"CB_All_{food}"] = feedback
+                    st.divider()
+            else:
+                st.info("Not enough data for content-based recommendations.")
+        
+        with tab5:
+            st.write("**Method:** Similar users' preferences")
+            if not historical_df.empty:
+                top_5 = sorted(collaborative_scores_all.items(), key=lambda x: x[1], reverse=True)[:5]
+                if top_5 and top_5[0][1] > 0:
+                    for i, (food, score) in enumerate(top_5, 1):
+                        st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                        st.write("*Ingredients:* " + ", ".join(all_cuisine_foods.get(food, [])))
+                        feedback = st.radio(
+                            "Do you like this recommendation?",
+                            ("👍 Thumbs Up", "👎 Thumbs Down"),
+                            key=f"collab_all_{i}",
+                            horizontal=True
+                        )
+                        st.session_state.user_data[f"Collab_All_{food}"] = feedback
+                        st.divider()
+                else:
+                    st.info("Not enough similar users found.")
+            else:
+                st.info("No historical data available yet. Collaborative filtering requires multiple users.")
+        
+        with tab6:
+            st.write("**Method:** Combined content-based + collaborative (60% content, 40% collaborative)")
+            top_5 = sorted(hybrid_scores_all.items(), key=lambda x: x[1], reverse=True)[:5]
+            if top_5 and top_5[0][1] > 0:
+                for i, (food, score) in enumerate(top_5, 1):
+                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                    st.write("*Ingredients:* " + ", ".join(all_cuisine_foods.get(food, [])))
+                    feedback = st.radio(
+                        "Do you like this recommendation?",
+                        ("👍 Thumbs Up", "👎 Thumbs Down"),
+                        key=f"hybrid_all_{i}",
+                        horizontal=True
+                    )
+                    st.session_state.user_data[f"Hybrid_All_{food}"] = feedback
+                    st.divider()
+            else:
+                st.info("Not enough data for hybrid recommendations.")
+    else:
+        st.info("Please rate at least one food with 4 or 5 stars to receive recommendations.")
+    
+    # --- SAVE DATA --- #
     try:
         # Import Google Sheets libraries
         import gspread
@@ -262,7 +652,7 @@ elif st.session_state.page == 3:
         # Open the sheet
         sheet = client.open("ratingsappdata").sheet1
         
-        # Combine existing headers with any new keys
+        # Get existing headers
         existing_headers = sheet.row_values(1)
         all_keys = list(st.session_state.user_data.keys())
 
@@ -271,30 +661,23 @@ elif st.session_state.page == 3:
             if key not in existing_headers:
                 existing_headers.append(key)
 
-        # If sheet is empty, add headers
+        # Update headers
         if not existing_headers:
             sheet.append_row(all_keys)
         else:
             sheet.update('A1', [existing_headers])
-
         
         # Prepare data row matching header order
-        # Make sure headers are in the same order as user_data keys
-        headers = list(st.session_state.user_data.keys())
-        row_data = [str(st.session_state.user_data.get(h, "")) for h in headers]
-
-        # Update sheet header if needed
-        sheet.update('A1', [headers])
+        row_data = [str(st.session_state.user_data.get(h, "")) for h in existing_headers]
         sheet.append_row(row_data)
-
         
-        st.success(" Your responses have been saved successfully!")
+        st.success("✅ Your responses have been saved successfully!")
         st.balloons()
         
     except Exception as e:
         st.error(f"Error saving to Google Sheets: {e}")
         
-        # Fallback: save to CSV locally (for backup/testing)
+        # Fallback: save to CSV locally
         df_new = pd.DataFrame([st.session_state.user_data])
         try:
             df_existing = pd.read_csv(DATA_FILE)
@@ -304,10 +687,12 @@ elif st.session_state.page == 3:
         df_combined.to_csv(DATA_FILE, index=False)
         st.warning("Data saved to local CSV as backup.")
     
+    # Summary
     st.markdown("""
+    ---
     ### Summary of Your Participation:
     - **Foods Rated:** {} foods from {} cuisine(s)
-    - **Your PHE Tolerance:** {} μmol/L
+    - **Your PHE Tolerance:** {} mg/day
     
     Thank you for contributing to PKU dietary research!
     
@@ -315,55 +700,13 @@ elif st.session_state.page == 3:
     """.format(
         len(st.session_state.selected_foods),
         len(st.session_state.selected_cuisines),
-        st.session_state.user_data.get("PHE_tolerance", "N/A")
+        st.session_state.user_data.get("PHE_tolerance_mg_per_day", "N/A"),
+        len(historical_df) if not historical_df.empty else 0
     ))
     
-
-    # --- FOOD RECOMMENDATION SECTION --- #
-    st.subheader("Recommended Foods for You 🍽️")
-
-    # Get rated foods
-    rated_foods = {food: rating for food, rating in st.session_state.user_data.items() if isinstance(rating, (int, float))}
-    liked_foods = [food for food, rating in rated_foods.items() if rating >= 4]
-
-    # Build full list of all foods from selected cuisines
-    all_foods = {}
-    for cuisine in st.session_state.selected_cuisines:
-        meals_dict = load_cuisine_meals(cuisine)
-        for meal, ingredients in meals_dict.items():
-            food_key = f"{meal} ({cuisine})"
-            all_foods[food_key] = ingredients
-
-    # Find foods the user didn’t rate
-    unrated_foods = [f for f in all_foods.keys() if f not in rated_foods]
-
-    # Score foods by ingredient similarity to liked foods
-    food_scores = {}
-    for food in unrated_foods:
-        ingredients = set(all_foods[food])
-        similarity_score = 0
-        for liked in liked_foods:
-            liked_ing = set(all_foods.get(liked, []))
-            intersection = ingredients.intersection(liked_ing)
-            union = ingredients.union(liked_ing)
-            if union:
-                similarity_score += len(intersection) / len(union)
-        food_scores[food] = similarity_score
-
-    # Sort and show top 5 recommendations
-    top_5 = sorted(food_scores.items(), key=lambda x: x[1], reverse=True)[:5]
-
-    if top_5:
-        for food, score in top_5:
-            st.markdown(f"**{food}** (Similarity: {score:.2f})")
-            st.write(", ".join(all_foods.get(food, [])))
-            st.divider()
-    else:
-        st.info("Not enough data yet to generate recommendations.")
-
-
-
     if st.button("Start New Response"):
+        # Clear cache to reload fresh data
+        st.cache_data.clear()
         for key in list(st.session_state.keys()):
             del st.session_state[key]
         st.rerun()
