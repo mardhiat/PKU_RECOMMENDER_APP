@@ -58,7 +58,7 @@ def load_cuisine_meals(cuisine_name):
 
 # Load historical user data from Google Sheets
 @st.cache_data(ttl=300)  # Cache for 5 minutes
-def load_user_data_from_sheets():
+def loading_user_data_from_sheets():
     """Load all historical user ratings from Google Sheets"""
     try:
         import gspread
@@ -227,6 +227,9 @@ if st.session_state.page == 0:
     Therefore, the variety of foods available in this app is limited and primarily includes **fruits, 
     vegetables, and carbohydrate-based items** that are naturally lower in phenylalanine.
     
+    **Please note that meat, chicken, fish, nuts, and dairy products are prohibited for individuals with PKU.** 
+    Therefore, all dishes included in this app are selected to align with PKU dietary guidelines and ensure safety.
+    
     **Your careful and thoughtful ratings are extremely valuable**—they will help improve PKU-friendly food 
     recommendations and make a meaningful contribution to the PKU Society and broader community research efforts.
     
@@ -240,10 +243,27 @@ if st.session_state.page == 0:
     **Data collected includes:**
     - Height, weight, age, and gender
     - Food ratings from your selected cuisines
-    - PHE tolerance level
+    - Dietary tolerance level
     
     All data are stored securely, and no personal identifiers are shared externally. Participation is 
     voluntary, and you may withdraw at any time.
+    
+    ---
+    
+    ### Food Rating Guidelines
+    
+    In this application, you are asked to rate each food item on a scale from **0 to 5** based on your 
+    personal preference and familiarity:
+    
+    - **0 – No Opinion / Not Sure:** You are unfamiliar with the food or unsure about it.
+    - **1 – Strongly Dislike:** You do not like this food at all.
+    - **2 – Dislike:** You generally would not choose this food.
+    - **3 – Neutral:** You neither like nor dislike this food.
+    - **4 – Like:** You enjoy this food and would choose it.
+    - **5 – Strongly Like:** You really like this food and it is one of your favorites.
+    
+    Your ratings help the system learn your preferences and improve the accuracy of PKU-friendly food 
+    recommendations tailored to your dietary needs.
     
     ---
     
@@ -251,9 +271,9 @@ if st.session_state.page == 0:
     
     At the end of the rating process, the application will display **two sets of recommendations**:
     
-    1. **Top 5 Dishes from the Same Cuisine Group** – Based on the cuisine category you selected 
-       (for example, Mediterranean, Asian, or American), the system will recommend your top five dishes 
-       from within that same group.
+    1. **Top 5 Dishes from Your Selected Cuisine(s)** – Based on the cuisine category you selected 
+       (for example, Mediterranean, Asian, or European), the system will recommend your top five dishes 
+       from within those selected cuisines.
     
     2. **Top 5 Dishes Across All Cuisines** – The system will also suggest the five most suitable dishes 
        overall, selected from all cuisine categories available in the application.
@@ -307,7 +327,7 @@ elif st.session_state.page == 1:
 
     # Generate PHE (in mg/day, range 3-40)
     phe = generate_phe(age)
-    st.info(f"**Your estimated PHE tolerance:** {phe} mg/day")
+    st.info(f"**Your estimated dietary tolerance level:** {phe} mg/day")
 
     # Next button
     if st.button("Next"):
@@ -321,7 +341,7 @@ elif st.session_state.page == 1:
                 "Gender": gender,
                 "Height_cm": round(height, 1),
                 "Weight_kg": round(weight, 1),
-                "PHE_tolerance_mg_per_day": phe
+                "Dietary_tolerance_mg_per_day": phe
             })
             st.session_state.page = 1.5
             st.rerun()
@@ -391,12 +411,12 @@ elif st.session_state.page == 2:
     else:
         st.write("*No ingredient information available*")
     
-    # Rating slider
+    # Rating slider with improved help text
     rating = st.slider(
         "How much did you enjoy this food?", 
         0, 5, 3, 
         key=f"slider_{idx}",
-        help="0 = Never tried it before, 5 = Loved it!"
+        help="0 = No opinion/Not sure | 1 = Strongly dislike | 2 = Dislike | 3 = Neutral | 4 = Like | 5 = Strongly like"
     )
     
     # Store rating
@@ -432,7 +452,7 @@ elif st.session_state.page == 3:
     
     # Load historical data from Google Sheets
     st.info("Loading historical user data for collaborative recommendations...")
-    historical_df = load_user_data_from_sheets()
+    historical_df = loading_user_data_from_sheets()
     
     # Get rated foods
     rated_foods = {food: rating for food, rating in st.session_state.user_data.items() 
@@ -449,15 +469,15 @@ elif st.session_state.page == 3:
         for meal, ingredients in meals_dict.items():
             food_key = f"{meal} ({cuisine})"
             selected_cuisine_foods[food_key] = ingredients
-    
-    # Build foods from ALL cuisines
+
+    # Build foods from ALL cuisines in the database (for global recommendations)
     all_cuisine_foods = {}
-    for cuisine in CUISINE_FILES.keys():
+    for cuisine in CUISINE_FILES.keys():  # This loops through ALL 10 cuisines
         meals_dict = load_cuisine_meals(cuisine)
         for meal, ingredients in meals_dict.items():
             food_key = f"{meal} ({cuisine})"
             all_cuisine_foods[food_key] = ingredients
-    
+
     # Find unrated foods
     unrated_selected = [f for f in selected_cuisine_foods.keys() if f not in rated_foods]
     unrated_all = [f for f in all_cuisine_foods.keys() if f not in rated_foods]
@@ -545,6 +565,8 @@ elif st.session_state.page == 3:
                     st.divider()
             else:
                 st.info("Not enough data for hybrid recommendations.")
+        
+        st.markdown("---")
         
         # === RECOMMENDATIONS FROM ALL CUISINES ===
         st.markdown("### 🌍 Top 5 Dishes Across All Cuisines")
@@ -692,7 +714,7 @@ elif st.session_state.page == 3:
     ---
     ### Summary of Your Participation:
     - **Foods Rated:** {} foods from {} cuisine(s)
-    - **Your PHE Tolerance:** {} mg/day
+    - **Your Dietary Tolerance Level:** {} mg/day
     
     Thank you for contributing to PKU dietary research!
     
@@ -700,8 +722,7 @@ elif st.session_state.page == 3:
     """.format(
         len(st.session_state.selected_foods),
         len(st.session_state.selected_cuisines),
-        st.session_state.user_data.get("PHE_tolerance_mg_per_day", "N/A"),
-        len(historical_df) if not historical_df.empty else 0
+        st.session_state.user_data.get("Dietary_tolerance_mg_per_day", "N/A")
     ))
     
     if st.button("Start New Response"):
