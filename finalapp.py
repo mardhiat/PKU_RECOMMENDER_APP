@@ -895,7 +895,7 @@ def main():
     
     # Landing Page
     if not st.session_state.profile_created:
-        st.title("🏥 PKU Diet Management System")
+        st.title("PKU Diet Management System")
         st.markdown("""
         ### Welcome to your personalized PKU diet planner!
         
@@ -927,7 +927,10 @@ def main():
             
             if units == "Metric":
                 weight = st.number_input('Weight (kg):', min_value=0.0, step=0.1, key='weight')
-                height = st.number_input('Height (cm):', min_value=0.0, step=1.0, key='height') / 100
+                height_cm = st.number_input('Height (cm):', min_value=0.0, step=1.0, key='height_cm')
+                height = height_cm / 100  # Convert to meters
+                st.session_state['user_height_cm'] = height_cm  # Store height in cm
+                st.session_state['user_height'] = height  # Store height in meters
             else:
                 weight_lbs = st.number_input('Weight (lbs):', min_value=0.0, step=0.1, key='weight_lbs')
                 weight = weight_lbs * 0.453592
@@ -971,21 +974,20 @@ def main():
         if st.button("Calculate Diet Plan", type="primary"):
             if weight == 0 or height == 0:
                 st.error("Please enter valid weight and height")
-            else:
-                # Save to session state
-                st.session_state.user_age_category = age_category
-                st.session_state.user_age_category = age_category
-                st.session_state.user_weight = weight
-                st.session_state.user_height = height
-                st.session_state.user_birth_month = birth_month
-                st.session_state.user_birth_year = birth_year
-                st.session_state.user_birth_day = birth_day
-                st.session_state.user_current_phe = current_phe
-                st.session_state.user_sex = sex
-                st.session_state.user_age_hours = age_hours if age_category == "Baby (0-12 months)" else None
-                st.session_state.user_age_category = age_category
-                
-                st.rerun()
+        else:
+        # Save to session state
+            st.session_state.profile_created = True
+            st.session_state.user_age_category = age_category  
+            st.session_state.user_weight = weight
+            st.session_state.user_height_cm = height_cm
+            st.session_state.user_height = height
+            st.session_state.user_birth_month = birth_month
+            st.session_state.user_birth_year = birth_year
+            st.session_state.user_birth_day = birth_day
+            st.session_state.user_current_phe = current_phe
+            st.session_state.user_sex = sex
+            st.session_state.user_age_hours = age_hours if age_category == "Baby (0-12 months)" else None
+            st.rerun()
     
     # Main Application (after profile created)
     else:
@@ -999,10 +1001,20 @@ def main():
         
         st.sidebar.write(f"**Age:** {age_months} months ({age_months//12} years {age_months%12} months)")
         st.sidebar.write(f"**Weight:** {st.session_state.weight:.1f} kg")
-        st.sidebar.write(f"**Height:** {st.session_state.height*100:.0f} cm")
+        st.sidebar.write(f"**Height:** {st.session_state['user_height_cm']:.1f} cm")
         st.sidebar.write(f"**Current PHE:** {st.session_state.current_phe:.1f} mg/dL")
         
-        birth_date = date(int(birth_year), int(birth_month), int(birth_day))
+
+        if 'user_birth_year' in st.session_state and 'user_birth_month' in st.session_state and 'user_birth_day' in st.session_state:
+            birth_date = date(
+            int(st.session_state['user_birth_year']),
+            int(st.session_state['user_birth_month']),
+            int(st.session_state['user_birth_day'])
+    )
+        else:
+            st.error("Birth date information is missing. Please create a profile first.")
+            st.stop()
+
         age_display = format_age(birth_date)
         st.write(f"👤 Profile")
         st.write(f"Age: {age_display}")
