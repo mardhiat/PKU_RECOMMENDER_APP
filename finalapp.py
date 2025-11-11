@@ -1,57 +1,298 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.preprocessing import MinMaxScaler
-import seaborn as sns
-import matplotlib.pyplot as plt
-import google.generativeai as genai
 from datetime import datetime
 import math
 import os
 import plotly.graph_objects as go
 import plotly.express as px
-import io
+import google.generativeai as genai
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.preprocessing import MinMaxScaler
 
+# CORE CALCULATION FUNCTIONS (Based on Protocol Document)
 
-def calcAge(year, month, day):
+def calculate_age_months(birth_year, birth_month, birth_day):
+    """Calculate age in months from birth date"""
     today = datetime.today()
-    return (today.year - year) * 12 + (today.month - month)
+    return (today.year - birth_year) * 12 + (today.month - birth_month)
 
-def calculate_bmi(weight, height):
-    if height == 0:
+def calculate_bmi(weight_kg, height_m):
+    """Calculate BMI"""
+    if height_m == 0:
         return 0
-    bmi = weight / (height * height)
-    return bmi
+    return weight_kg / (height_m * height_m)
 
-def timeNeeded(weight, cals):
-    results = []
-    for met in (2.5, 3.3, 4.0):
-        total_min = cals / (met * weight) * 60
-        hrs = math.floor(total_min / 60)
-        mins = round(total_min - hrs * 60)
-        results.append((hrs, mins))
-    return results
+def get_phe_deletion_protocol(phe_mg_dl):
+    """
+    Determine PHE deletion hours based on diagnostic PHE level
+    Protocol Section VII.3, page 3
+    """
+    if phe_mg_dl < 4:
+        return 0, "No deletion needed - PHE level is acceptable"
+    elif 4 <= phe_mg_dl < 10:
+        return 24, "Monitor daily, add PHE when level reaches 5 mg/dL"
+    elif 10 <= phe_mg_dl < 20:
+        return 48, "Monitor daily, add PHE when level reaches 5 mg/dL"
+    elif 20 <= phe_mg_dl < 40:
+        return 72, "Monitor daily, add PHE when level reaches 5 mg/dL"
+    else:  # >= 40
+        return 96, "Monitor daily, add PHE when level reaches 5 mg/dL"
 
-def calcNeedOfProtein(weight, age):
-    if age < 3: return 3.25 * weight
-    if age < 6: return 3.25 * weight
-    if age < 9: return 2.75 * weight
-    return 2.75 * weight
+def get_initial_phe_dose(diagnostic_phe_mg_dl, weight_kg):
+    """
+    Calculate initial PHE mg/kg after deletion period
+    Protocol Section VII.4, page 3-4
+    """
+    if diagnostic_phe_mg_dl <= 10:
+        mg_per_kg = 70
+    elif 10 < diagnostic_phe_mg_dl <= 20:
+        mg_per_kg = 55
+    elif 20 < diagnostic_phe_mg_dl <= 30:
+        mg_per_kg = 45
+    elif 30 < diagnostic_phe_mg_dl <= 40:
+        mg_per_kg = 35
+    else:  # > 40
+        mg_per_kg = 25
+    
+    return mg_per_kg * weight_kg, mg_per_kg
 
-def calcNeedOfCals(weight, age):
-    if age < 3: return 120 * weight
-    if age < 6: return 120 * weight
-    if age < 9: return 107.5 * weight
-    return 107.5 * weight
+def get_infant_daily_needs(age_months, weight_kg):
+    """
+    Get daily nutritional needs for infants 0-12 months
+    From Table 1-1, page 12
+    """
+    needs = {}
+    
+    # Determine age bracket
+    if age_months < 3:
+        needs['protein_g_per_kg'] = 3.5
+        needs['phe_mg_per_kg_min'] = 25
+        needs['phe_mg_per_kg_max'] = 70
+        needs['energy_kcal_per_kg'] = 120
+        needs['fluid_ml_per_kg'] = 160
+        needs['age_group'] = '0-3 months'
+    elif age_months < 6:
+        needs['protein_g_per_kg'] = 3.5
+        needs['phe_mg_per_kg_min'] = 20
+        needs['phe_mg_per_kg_max'] = 45
+        needs['energy_kcal_per_kg'] = 120
+        needs['fluid_ml_per_kg'] = 160
+        needs['age_group'] = '3-6 months'
+    elif age_months < 9:
+        needs['protein_g_per_kg'] = 3.0
+        needs['phe_mg_per_kg_min'] = 15
+        needs['phe_mg_per_kg_max'] = 35
+        needs['energy_kcal_per_kg'] = 110
+        needs['fluid_ml_per_kg'] = 145
+        needs['age_group'] = '6-9 months'
+    else:  # 9-12 months
+        needs['protein_g_per_kg'] = 3.0
+        needs['phe_mg_per_kg_min'] = 10
+        needs['phe_mg_per_kg_max'] = 35
+        needs['energy_kcal_per_kg'] = 105
+        needs['fluid_ml_per_kg'] = 135
+        needs['age_group'] = '9-12 months'
+    
+    # Calculate total daily needs
+    needs['protein_g'] = needs['protein_g_per_kg'] * weight_kg
+    needs['phe_mg_min'] = needs['phe_mg_per_kg_min'] * weight_kg
+    needs['phe_mg_max'] = needs['phe_mg_per_kg_max'] * weight_kg
+    needs['phe_mg_target'] = (needs['phe_mg_min'] + needs['phe_mg_max']) / 2
+    needs['energy_kcal'] = needs['energy_kcal_per_kg'] * weight_kg
+    needs['fluid_ml'] = needs['fluid_ml_per_kg'] * weight_kg
+    
+    return needs
 
-def calcNeedOfPhe(age, weight):
-    if age < 3: return 47.5 * weight
-    if age < 6: return 32.5 * weight
-    if age < 9: return 30 * weight
-    return 22.5 * weight
+def get_child_adult_daily_needs(age_months, weight_kg, sex):
+    """
+    Get daily nutritional needs for children and adults
+    From Table 1-1, page 12
+    """
+    needs = {}
+    
+    if age_months < 48:  # 1-4 years
+        needs['phe_mg_min'] = 200
+        needs['phe_mg_max'] = 400
+        needs['protein_g'] = 30
+        needs['energy_kcal'] = 1300
+        needs['age_group'] = '1-4 years'
+    elif age_months < 84:  # 4-7 years
+        needs['phe_mg_min'] = 210
+        needs['phe_mg_max'] = 450
+        needs['protein_g'] = 35
+        needs['energy_kcal'] = 1700
+        needs['age_group'] = '4-7 years'
+    elif age_months < 132:  # 7-11 years
+        needs['phe_mg_min'] = 220
+        needs['phe_mg_max'] = 500
+        needs['protein_g'] = 40
+        needs['energy_kcal'] = 2400
+        needs['age_group'] = '7-11 years'
+    elif age_months < 180:  # 11-15 years
+        if sex == "Female":
+            needs['phe_mg_min'] = 250
+            needs['phe_mg_max'] = 750
+            needs['protein_g'] = 50
+            needs['energy_kcal'] = 2200
+        else:  # Male
+            needs['phe_mg_min'] = 225
+            needs['phe_mg_max'] = 900
+            needs['protein_g'] = 55
+            needs['energy_kcal'] = 2700
+        needs['age_group'] = '11-15 years'
+    elif age_months < 228:  # 15-19 years
+        if sex == "Female":
+            needs['phe_mg_min'] = 230
+            needs['phe_mg_max'] = 700
+            needs['protein_g'] = 55
+            needs['energy_kcal'] = 2100
+        else:  # Male
+            needs['phe_mg_min'] = 295
+            needs['phe_mg_max'] = 1100
+            needs['protein_g'] = 65
+            needs['energy_kcal'] = 2800
+        needs['age_group'] = '15-19 years'
+    else:  # 19+ years
+        if sex == "Female":
+            needs['phe_mg_min'] = 220
+            needs['phe_mg_max'] = 700
+            needs['protein_g'] = 60
+            needs['energy_kcal'] = 2100
+        else:  # Male
+            needs['phe_mg_min'] = 290
+            needs['phe_mg_max'] = 1200
+            needs['protein_g'] = 70
+            needs['energy_kcal'] = 2900
+        needs['age_group'] = '19+ years'
+    
+    needs['phe_mg_target'] = (needs['phe_mg_min'] + needs['phe_mg_max']) / 2
+    
+    return needs
+
+def calculate_phenex_amount(protein_needed_g, protein_from_food_g, age_months):
+    """
+    Calculate grams of Phenex powder needed
+    From Table 1-4, page 27
+    
+    Phenex-1 (0-24 months): 15g protein per 100g powder
+    Phenex-2 (24+ months): 30g protein per 100g powder
+    """
+    protein_from_phenex = protein_needed_g - protein_from_food_g
+    
+    if age_months < 24:
+        # Phenex-1
+        phenex_grams = (protein_from_phenex * 100) / 15
+        phenex_type = "Phenex-1"
+        protein_per_100g = 15
+        calories_per_100g = 480
+    else:
+        # Phenex-2
+        phenex_grams = (protein_from_phenex * 100) / 30
+        phenex_type = "Phenex-2"
+        protein_per_100g = 30
+        calories_per_100g = 410
+    
+    # Calculate what this Phenex provides
+    actual_protein = (phenex_grams / 100) * protein_per_100g
+    calories = (phenex_grams / 100) * calories_per_100g
+    
+    return {
+        'phenex_type': phenex_type,
+        'phenex_grams': phenex_grams,
+        'protein_g': actual_protein,
+        'calories_kcal': calories
+    }
+
+def calculate_formula_amount(phe_target_mg):
+    """
+    Calculate formula amount based on PHE target
+    From Table 1-2, page 12
+    
+    Similac With Iron (per 100 mL):
+    - PHE: 59 mg
+    - Protein: 1.40 g
+    - Energy: 68 kcal
+    """
+    formula_ml = (phe_target_mg / 59) * 100
+    
+    return {
+        'formula_ml': formula_ml,
+        'phe_mg': phe_target_mg,
+        'protein_g': (formula_ml / 100) * 1.40,
+        'calories_kcal': (formula_ml / 100) * 68
+    }
+
+# BABY DIET CALCULATOR (0-12 months)
+
+def calculate_baby_diet(age_months, weight_kg, current_phe_mg_dl, age_hours=None):
+    """
+    Complete diet calculation for babies 0-12 months
+    """
+    result = {}
+    
+    # Get daily nutritional needs
+    needs = get_infant_daily_needs(age_months, weight_kg)
+    result['needs'] = needs
+    
+    # Check if PHE deletion is needed (only for babies ≤96 hours old)
+    result['deletion_needed'] = False
+    if age_hours is not None and age_hours <= 96 and current_phe_mg_dl >= 4:
+        deletion_hours, deletion_note = get_phe_deletion_protocol(current_phe_mg_dl)
+        result['deletion_needed'] = True
+        result['deletion_hours'] = deletion_hours
+        result['deletion_note'] = deletion_note
+        
+        # During deletion: Phenex-1 ONLY (no formula)
+        phenex_deletion = calculate_phenex_amount(needs['protein_g'], 0, age_months)
+        result['deletion_phase'] = {
+            'phenex': phenex_deletion,
+            'water_ml': needs['fluid_ml'],
+            'feedings_per_day': '6-8' if age_months < 6 else '4-6'
+        }
+        
+        # After deletion: Calculate maintenance diet
+        initial_phe_mg, phe_mg_per_kg = get_initial_phe_dose(current_phe_mg_dl, weight_kg)
+        result['initial_phe_mg_per_kg'] = phe_mg_per_kg
+        result['initial_phe_mg'] = initial_phe_mg
+    else:
+        # Use target PHE range for ongoing management
+        initial_phe_mg = needs['phe_mg_target']
+        result['initial_phe_mg'] = initial_phe_mg
+    
+    # Calculate formula amount (based on PHE target)
+    formula = calculate_formula_amount(initial_phe_mg)
+    result['formula'] = formula
+    
+    # Calculate Phenex amount (remaining protein after formula)
+    phenex = calculate_phenex_amount(needs['protein_g'], formula['protein_g'], age_months)
+    result['phenex'] = phenex
+    
+    # Calculate total volume and water needed
+    total_volume_needed = needs['fluid_ml']
+    water_ml = total_volume_needed - formula['formula_ml']
+    result['water_ml'] = water_ml
+    result['total_volume_ml'] = total_volume_needed
+    
+    # Feeding schedule
+    result['feedings_per_day'] = '6-8' if age_months < 6 else '4-6'
+    avg_feedings = 7 if age_months < 6 else 5
+    result['ml_per_feeding'] = total_volume_needed / avg_feedings
+    
+    # Total nutrition provided
+    result['totals'] = {
+        'protein_g': formula['protein_g'] + phenex['protein_g'],
+        'phe_mg': formula['phe_mg'],
+        'calories_kcal': formula['calories_kcal'] + phenex['calories_kcal']
+    }
+    
+    return result
+
+
+# FILE LOADING FUNCTIONS
 
 def prepare_meal_df(raw_df: pd.DataFrame) -> pd.DataFrame:
+    """Prepare meal dataframe with consistent column names"""
     rename_map = {}
     for col in raw_df.columns:
         lc = col.lower().strip()
@@ -60,20 +301,142 @@ def prepare_meal_df(raw_df: pd.DataFrame) -> pd.DataFrame:
         if 'serving' in lc or 'total' in lc: rename_map[col] = 'DishWeight'
         if lc == 'ingredient': rename_map[col] = 'Ingredient'
         if col not in rename_map and any(x in lc for x in ['meal','dish','name']): rename_map[col] = 'Meal'
+    
     df = raw_df.rename(columns=rename_map)
     df = df.loc[:, ~df.columns.duplicated()]
+    
     if 'Meal' not in df.columns:
         raise KeyError("No 'Meal' column detected; cannot proceed.")
+    
     df['MealGroup'] = df['Meal'].ffill()
+    
     if 'MealType' not in df.columns:
         df['MealType'] = 'All'
+    
     if 'IngredientsCount' not in df.columns:
         df['IngredientsCount'] = df.groupby('MealGroup')['MealGroup'].transform('size')
+    
     if 'DishWeight' not in df.columns and 'Weight' in df.columns:
         df['DishWeight'] = df.groupby('MealGroup')['Weight'].transform('sum')
+    
     return df
 
+def load_cuisine_files():
+    """Load all cuisine CSV files"""
+    cuisine_files = {
+        'African Foods': 'African_Foods.csv',
+        'Central European Foods': 'Central_European_Foods.csv',
+        'Chinese Foods': 'Chinese_Foods.csv',
+        'Eastern European Foods': 'Eastern_European_Foods.csv',
+        'Indian Foods': 'Indian_Foods.csv',
+        'Italian Foods': 'Italian_Foods.csv',
+        'Japanese Foods': 'Japanese_Foods.csv',
+        'Mediterranean Foods': 'Mediterranean_Foods.csv',
+        'Mexican Foods': 'Mexican_Foods.csv',
+        'Scottish-Irish Foods': 'Scottish-Irish_Foods.csv'
+    }
+    
+    loaded_cuisines = {}
+    for name, filename in cuisine_files.items():
+        try:
+            df = pd.read_csv(filename, encoding='latin1')
+            loaded_cuisines[name] = prepare_meal_df(df)
+        except FileNotFoundError:
+            st.warning(f"File {filename} not found in directory.")
+        except Exception as e:
+            st.warning(f"Error loading {filename}: {e}")
+    
+    return loaded_cuisines
+
+def load_ingredient_files():
+    """Load ingredient database files"""
+    try:
+        nutritional_df = pd.read_csv('Nutritional_Data.csv')
+        chat_df = pd.read_csv('consolidated_chat_ingredients.csv')
+        return nutritional_df, chat_df
+    except FileNotFoundError as e:
+        st.error(f"Required ingredient file not found: {e}")
+        return None, None
+
+
+# MEAL NUTRITION CALCULATION
+
+def meal_nutrition(dish, serving_size, cuisine_file, ingredients_file):
+    """
+    Calculate nutrition for a specific dish
+    Returns: [protein_g, phe_mg, calories_kcal]
+    """
+    dish_row = cuisine_file[cuisine_file['Meal'].str.lower() == dish.lower()]
+    if dish_row.empty:
+        raise ValueError(f"Dish '{dish}' not found in cuisine file")
+    
+    # Get number of ingredients
+    num_ingredients_col = None
+    for col in ['Number of Ingredients', 'IngredientsCount', 'Ingredients Count']:
+        if col in dish_row.columns:
+            num_ingredients_col = col
+            break
+    
+    if num_ingredients_col is None:
+        numIngredients = len(cuisine_file[cuisine_file.index >= dish_row.index[0]]) - 1
+    else:
+        numIngredients = int(dish_row.iloc[0][num_ingredients_col])
+
+    dishProtein = 0
+    dishPhenyl = 0
+    dishCalories = 0
+
+    for i in range(dish_row.index[0], min(dish_row.index[0] + numIngredients, len(cuisine_file))):
+        if i >= len(cuisine_file):
+            break
+            
+        ingredient = cuisine_file.iloc[i]['Ingredient']
+        if pd.isna(ingredient):
+            continue
+            
+        ingredient_row = ingredients_file[ingredients_file['Ingredient'].str.lower() == ingredient.lower()]
+        if ingredient_row.empty:
+            continue
+
+        try:
+            grams = float(ingredient_row.iloc[0].iloc[1])
+            gramsWanted = float(cuisine_file.iloc[i].iloc[3] if len(cuisine_file.iloc[i]) > 3 else 100)
+            
+            protein_col = next((col for col in ingredient_row.columns if 'protein' in col.lower()), None)
+            phe_col = next((col for col in ingredient_row.columns if 'phe' in col.lower()), None)
+            cal_col = next((col for col in ingredient_row.columns if any(x in col.lower() for x in ['energy', 'calor', 'kcal'])), None)
+            
+            if protein_col and phe_col and cal_col:
+                gramsOfProtein = gramsWanted / grams * float(ingredient_row.iloc[0][protein_col])
+                gramsOfPhenyl = gramsWanted / grams * float(ingredient_row.iloc[0][phe_col])
+                calories = gramsWanted / grams * float(ingredient_row.iloc[0][cal_col])
+                
+                dishProtein += gramsOfProtein
+                dishPhenyl += gramsOfPhenyl
+                dishCalories += calories
+        except (ValueError, IndexError):
+            continue
+
+    try:
+        meal_weight_col = next((col for col in dish_row.columns if any(x in col.lower() for x in ['weight', 'grams', 'serving'])), None)
+        if meal_weight_col:
+            mealGrams = float(dish_row.iloc[0][meal_weight_col])
+        else:
+            mealGrams = 100
+        
+        conversion = serving_size / mealGrams
+        dishProtein *= conversion
+        dishPhenyl *= conversion
+        dishCalories *= conversion
+    except (ValueError, KeyError):
+        pass
+
+    return [dishProtein, dishPhenyl, dishCalories]
+
+# COLLABORATIVE FILTERING FUNCTIONS
+
 def calculate_w_ij(df, dish, ingredient):
+    """Calculate weight of ingredient in dish"""
     numMeals = len(df['Meal'].dropna())
     dish_row = df[df['Meal'].str.lower()==dish.lower()]
     if dish_row.empty: return 0.0
@@ -85,6 +448,7 @@ def calculate_w_ij(df, dish, ingredient):
     return len(meals_with)/numMeals * ingrWeight/dishWeight * 100
 
 def calculate_wj(df, ingredient):
+    """Calculate average weight of ingredient across all meals"""
     numMeals = len(df['Meal'].dropna())
     total = 0.0
     for idx in df[df['Ingredient'].str.lower()==ingredient.lower()].index:
@@ -94,7 +458,8 @@ def calculate_wj(df, ingredient):
         total += calculate_w_ij(df, dish, ingredient)
     return total/numMeals if numMeals else 0.0
 
-def similarityF(food1, food2):
+def similarityF(food1, food2, cuisine_df):
+    """Calculate similarity between two foods based on ingredients"""
     dish1_row = cuisine_df[cuisine_df['Meal'].str.lower() == food1.lower()]
     dish2_row = cuisine_df[cuisine_df['Meal'].str.lower() == food2.lower()]
 
@@ -118,11 +483,9 @@ def similarityF(food1, food2):
 
     return total_similarity
 
-def predictedContentBased(ratings_df, user_id, food):
-    # Get all meals
+def predictedContentBased(ratings_df, user_id, food, cuisine_df):
+    """Predict rating using content-based filtering"""
     foodList = ratings_df['dish'].unique()
-
-    # Get ratings for this user
     user_ratings = ratings_df[ratings_df['user_id'] == user_id]
 
     sumNum = 0
@@ -133,7 +496,7 @@ def predictedContentBased(ratings_df, user_id, food):
         current_rating = row['rating']
 
         if current_meal != food and current_rating != 0:
-            sim = similarityF(food, current_meal)
+            sim = similarityF(food, current_meal, cuisine_df)
             sumNum += sim * current_rating
             sumDenom += sim
 
@@ -142,18 +505,35 @@ def predictedContentBased(ratings_df, user_id, food):
     return sumNum / sumDenom
 
 def average_rating(ratings_df, user_id):
-    sum = ratings_df.loc[ratings_df.user_id==user_id, 'rating'].sum()
-
+    """Calculate average rating for a user"""
+    sum_ratings = ratings_df.loc[ratings_df.user_id==user_id, 'rating'].sum()
     newRatings = ratings_df.loc[ratings_df.user_id==user_id, 'rating'][ratings_df.loc[ratings_df.user_id==user_id, 'rating'] != 0]
     if len(newRatings) == 0:
         return 0
-    return float(sum / len(newRatings))
+    return float(sum_ratings / len(newRatings))
 
 def months_since_oldest(Tp):
+    """Calculate months since a timestamp"""
     today = datetime.today()
     return (today.year - Tp.year) * 12 + (today.month - Tp.month)
 
-def time_weight(ratings_df, u, v, meal):
+from datetime import date, datetime
+
+def format_age(birth_date):
+    today = date.today()
+    days_old = (today - birth_date).days
+    months = days_old // 30
+    years = months // 12
+
+    if days_old < 30:
+        return f"{days_old} days ({years} years {months % 12} months)"
+    elif months < 12:
+        return f"{months} months ({years} years {months % 12} months)"
+    else:
+        return f"{years} years {months % 12} months"
+
+def time_weight(ratings_df, u, v, meal, λ):
+    """Calculate time-weighted similarity"""
     ratings_df['timestamp'] = pd.to_datetime(ratings_df['timestamp'])
     Tp = ratings_df['timestamp'].min()
     Tp = months_since_oldest(Tp)
@@ -165,40 +545,8 @@ def time_weight(ratings_df, u, v, meal):
     tv = months_since_oldest(tv)
     return math.sqrt(math.exp(-λ * (Tp - tu)) * math.exp(-λ * (Tp - tv)))
 
-def user_similarity(ratings_df, u, v):
-    meals_u = set(ratings_df.loc[ratings_df.user_id==u, 'dish'])
-    meals_v = set(ratings_df.loc[ratings_df.user_id==v, 'dish'])
-    common = meals_u & meals_v
-    if not common:
-        return 0.0
-    mean_u = ratings_df.loc[ratings_df.user_id==u, 'rating'].mean()
-    mean_v = ratings_df.loc[ratings_df.user_id==v, 'rating'].mean()
-    num = denom_u = denom_v = 0.0
-    for meal in common:
-        ru = ratings_df.loc[(ratings_df.user_id==u) & (ratings_df.dish==meal), 'rating'].iloc[0]
-        rv = ratings_df.loc[(ratings_df.user_id==v) & (ratings_df.dish==meal), 'rating'].iloc[0]
-        w = time_weight(ratings_df, u, v, meal)
-        num += w * (ru - mean_u) * (rv - mean_v)
-        denom_u += w * (ru - mean_u)**2
-        denom_v += w * (rv - mean_v)**2
-    return num / (math.sqrt(denom_u) * math.sqrt(denom_v)) if denom_u and denom_v else 0.0
-
-def predict_rating(ratings_df, u, meal):
-    mean_u = ratings_df.loc[ratings_df.user_id==u, 'rating'].mean()
-    sims = []
-    devs = []
-    for v in ratings_df.user_id.unique():
-        if v == u:
-            continue
-        rvj = ratings_df.loc[(ratings_df.user_id==v) & (ratings_df.dish==meal), 'rating']
-        if rvj.empty:
-            continue
-        s = user_similarity(ratings_df, u, v)
-        sims.append(s)
-        devs.append(s * (rvj.iloc[0] - ratings_df.loc[ratings_df.user_id==v, 'rating'].mean()))
-    return mean_u + sum(devs) / sum(abs(np.array(sims))) if sims else mean_u
-
-def time_weighted_user_similarity(ratings_df, u, v):
+def time_weighted_user_similarity(ratings_df, u, v, λ):
+    """Calculate time-weighted user similarity"""
     sum_numerator = 0
     sum_denominator = 0
 
@@ -218,7 +566,7 @@ def time_weighted_user_similarity(ratings_df, u, v):
         ru = ratings_df.loc[(ratings_df.user_id==u) & (ratings_df.dish==meal), 'rating'].iloc[0]
         rv = ratings_df.loc[(ratings_df.user_id==v) & (ratings_df.dish==meal), 'rating'].iloc[0]
 
-        tw = time_weight(ratings_df, u, v, meal)
+        tw = time_weight(ratings_df, u, v, meal, λ)
         sum_numerator += (ru - mean_u) * (rv - mean_v) * tw
 
         sumUDenominator += (ru - mean_u) * (ru - mean_u) * tw
@@ -226,9 +574,10 @@ def time_weighted_user_similarity(ratings_df, u, v):
 
     sum_denominator = math.sqrt(sumUDenominator) * math.sqrt(sumVDenominator)
 
-    return sum_numerator / sum_denominator
+    return sum_numerator / sum_denominator if sum_denominator != 0 else 0
 
-def predictedCollabRating(ratings_df, user_id, food):
+def predictedCollabRating(ratings_df, user_id, food, λ):
+    """Predict rating using collaborative filtering"""
     sumNumerator = 0
     sumDenominator = 0
 
@@ -237,21 +586,25 @@ def predictedCollabRating(ratings_df, user_id, food):
     for v in ratings_df.user_id.unique():
         if v != user_id:
             meals_v_row = ratings_df[ratings_df['dish'].str.lower() == food.lower()]
-            meal_v_rating = float(meals_v_row.loc[ratings_df.user_id == v, 'rating'].iloc[0])
+            if not meals_v_row.empty:
+                meal_v_rating_row = meals_v_row.loc[ratings_df.user_id == v, 'rating']
+                if not meal_v_rating_row.empty:
+                    meal_v_rating = float(meal_v_rating_row.iloc[0])
 
-            sim = time_weighted_user_similarity(ratings_df, user_id, v)
+                    sim = time_weighted_user_similarity(ratings_df, user_id, v, λ)
 
-            mean_v = average_rating(ratings_df, v)
-            sumNumerator += sim * (meal_v_rating - mean_v)
-            sumDenominator += sim
+                    mean_v = average_rating(ratings_df, v)
+                    sumNumerator += sim * (meal_v_rating - mean_v)
+                    sumDenominator += abs(sim)
 
     if sumDenominator == 0:
         return 0
     return sumNumerator / sumDenominator + mean_u
 
-def hybrid_filtering(food, user_id, beta, ratings_df, df):
-    collab_rating = predictedCollabRating(ratings_df, user_id, food)
-    content_rating = predictedContentBased(ratings_df, user_id, food)
+def hybrid_filtering(food, user_id, beta, ratings_df, df, λ):
+    """Combine content-based and collaborative filtering"""
+    collab_rating = predictedCollabRating(ratings_df, user_id, food, λ)
+    content_rating = predictedContentBased(ratings_df, user_id, food, df)
 
     if collab_rating == 0:
         return content_rating
@@ -259,19 +612,20 @@ def hybrid_filtering(food, user_id, beta, ratings_df, df):
         return collab_rating
     return beta * collab_rating + (1 - beta) * content_rating
 
-def calculate_distance(min, max, input):
-    average = (min + max) / 2
-    if input < min:
-        return abs((average - input) / average * 100)
-    elif input > max:
-        return abs((average - input) / input * 100)
-    else:
-        return 0
-
-def safety_factor(distance):
-    return 5 * (1 - distance / 100)
-
 def health_safety_score(protein, PHE, energy, min_protein, min_PHE, max_PHE, min_energy, max_energy):
+    """Calculate health safety score for a meal"""
+    def calculate_distance(min_val, max_val, input_val):
+        average = (min_val + max_val) / 2
+        if input_val < min_val:
+            return abs((average - input_val) / average * 100)
+        elif input_val > max_val:
+            return abs((average - input_val) / input_val * 100)
+        else:
+            return 0
+
+    def safety_factor(distance):
+        return 5 * (1 - distance / 100)
+
     protein_distance = 0
     if protein < min_protein:
         protein_distance = abs((min_protein - protein) / min_protein * 100)
@@ -288,779 +642,692 @@ def health_safety_score(protein, PHE, energy, min_protein, min_PHE, max_PHE, min
     return sf
 
 def final_score(hybrid_score, hs_score, pref_scale):
+    """Calculate final recommendation score"""
     return hybrid_score * (1 - pref_scale) + hs_score * pref_scale
 
-def meal_nutrition(dish, serving_size, cuisine_file, ingredients_file):
-    dish_row = cuisine_file[cuisine_file['Meal'].str.lower() == dish.lower()]
-    numIngredients = int(dish_row.iloc[0]['Number of Ingredients'])
-
-    dishProtein = 0
-    dishPhenyl = 0
-    dishCalories = 0
-
-    for i in range(dish_row.index[0], dish_row.index[0] + numIngredients):
-        ingredient = cuisine_file.iloc[i]['Ingredient']
-        ingredient_row = ingredients_file[ingredients_file['Ingredient'].str.lower() == ingredient.lower()]
-
-        grams = float(ingredient_row.iloc[0, 1])
-        gramsWanted = float(cuisine_file.iloc[i, 3])
-        gramsOfProtein = gramsWanted / grams * float(ingredient_row.iloc[0, 4])
-        gramsOfPhenyl = gramsWanted / grams * float(ingredient_row.iloc[0, 2])
-        calories = gramsWanted / grams * float(ingredient_row.iloc[0, 5])
-
-        dishProtein += gramsOfProtein
-        dishPhenyl += gramsOfPhenyl
-        dishCalories += calories
-
-    mealGrams = dish_row.iloc[0, 1]
-
-    conversion = serving_size / mealGrams
-    dishProtein *= conversion
-    dishPhenyl *= conversion
-    dishCalories *= conversion
-
-    vector = [dishProtein, dishPhenyl, dishCalories]
-
-    return vector
-
-def mealtime_nutrition(nutrient, mealtime):
-    if mealtime == "Lunch/Dinner":
-        return nutrient * .3
-    if mealtime == "Breakfast/Snack":
-        return nutrient * .2
-
-RATINGS_FILE = 'ratings.csv'
-
-def append_ratings_file(df):
-    header = not os.path.exists(RATINGS_FILE)
-    df.to_csv(RATINGS_FILE, mode='a', index=False, header=header)
-
-st.sidebar.header('File Uploads & Settings')
-baby6 = st.sidebar.file_uploader('Baby Food 6-8 mo CSV', type='csv', key='baby6')
-baby8 = st.sidebar.file_uploader('Baby Food 8-12 mo CSV', type='csv', key='baby8')
-
-cuisine_files = st.sidebar.file_uploader('Cuisine Meal CSVs', type='csv', accept_multiple_files=True, key='cuisines')
-choice = None
-if cuisine_files:
-    names = [f.name for f in cuisine_files]
-    choice = st.sidebar.selectbox('Select Cuisine', names, key='cuisine_choice')
-    raw = next(f for f in cuisine_files if f.name == choice)
-    cuisine_df = prepare_meal_df(pd.read_csv(raw, encoding='latin1'))
-else:
-    cuisine_df = None
-ing_file = st.sidebar.file_uploader('Extra Ingredient CSV', type='csv', key='ingredient')
-
-chat_ing = st.sidebar.file_uploader('Chat Ingredient CSV', type='csv', key='chat_ing')
-user_id = st.sidebar.number_input('User ID',1,10,key='user_id')
-beta = st.sidebar.slider('Hybrid β',0.0,1.0,0.5,key='beta')
-λ = st.sidebar.slider('λ Time Weight', 0.0, 5.0, 0.0, key='λ')
-pref_scale = st.sidebar.slider('Preference - Health Safety (0 most preference, 1 most healthy)', 0.0, 1.0, 0.5, key='Preference Scale')
-
-ing_df = pd.read_csv(ing_file) if ing_file else None
-chat_df = pd.read_csv(chat_ing) if chat_ing else None
-df8 = pd.read_csv(baby8) if baby8 else None
-
-if 'ratings_session' not in st.session_state:
-    st.session_state.ratings_session = pd.DataFrame(
-        columns=['user_id','cuisine','meal_type','dish','rating','timestamp']
-    )
-
-if 'protein' not in st.session_state:
-    st.session_state['protein'] = 0
-    st.session_state['phe1'] = 0
-    st.session_state['phe2'] = 0
-    st.session_state['e1'] = 0
-    st.session_state['e2'] = 0
-    st.session_state['phe'] = 0
-    st.session_state['energy'] = 0
-
-tabs = st.tabs(["Baby Diet Planner", "Profile", "Ratings", "Recommendation", "Chat", "Custom Meal Planner"])
-with tabs[0]:
-    if 'diet_calculated' not in st.session_state:
-        st.session_state.diet_calculated = False
-    phe = st.number_input('PHE level (mg):', 0.0)
-    wtype = st.selectbox('Units:', ['', 'Metric','Imperial'], key='diet_wt')
-
-    if wtype != '':
-        if wtype == 'Metric':
-            weight = st.number_input('Weight (kg):', 0.0, key='diet_weight')
-        if wtype == 'Metric':
-            height = st.number_input('Height (cm):', 0.0, key='diet_height') / 100
-
-        if wtype == 'Imperial':
-            weight = st.number_input('Weight (lbs):', 0.0, key='diet_weight') / 2.205
-        if wtype == 'Imperial':
-            height = st.number_input('Height (inches):', 0.0, key='diet_height') / 39.37
-        year = st.number_input('Birth year:', 2023, datetime.now().year, key='diet_year')
-        month = st.number_input('Birth month:', 1, 12, key='diet_month')
-        day = st.number_input('Birth day:', 1, 31, key='diet_day')
+def mealtime_nutrition(nutrient, mealtype):
+    """Calculate nutrition needs for specific meal type"""
+    if mealtype == "Lunch" or mealtype == "Dinner":
+        return nutrient * 0.3
+    else:  # Breakfast or Snack
+        return nutrient * 0.2
 
 
-        if st.button('Calculate Diet', key='calc_diet'):
-            st.session_state.diet_calculated = True
+# DISPLAY FUNCTIONS
 
-        if st.session_state.diet_calculated:
-            age = calcAge(year, month, day)
-            if height != 0:
-                bmi = weight/height**2
-            else:
-                bmi = 0
-
-            needP = calcNeedOfProtein(weight, age)
-            needC = calcNeedOfCals(weight, age)
-            needPh = calcNeedOfPhe(age, weight)
-            st.write(f'Age: {age} mo, BMI: {bmi:.1f}')
-            st.write(f'Protein: {needP:.1f}g, Calories: {needC:.0f}, PHE: {needPh:.0f}')
+def display_baby_diet_plan(result, weight_kg):
+    """Display formatted baby diet plan"""
     
-    tabD = st.tabs(["Milk and Formula Diet (<6 Months)", "Complementary Food (>6 Months)"])
-    with tabD[0]:
-        st.header('PHE Diet & Baby Food Calculator')
-        if st.session_state.diet_calculated:
-            if baby6 and baby8:
-                feed = st.selectbox('Feed with:', ['','Breast Milk','Formula'], index = 0)
-                if feed=='Breast Milk':
-                    amt=needPh*100/48
-                    prot=amt*1.07/100
-                    phenex = max((needP-prot)*100/15,0)
-                    st.write(f'{amt:.0f}g {feed} + {phenex:.0f}g Phenex')
-                if feed=='Formula':
-                    amt=needPh*100/395
-                    prot=amt*9.7/100
-                    phenex = max((needP-prot)*100/15,0)
-                    st.write(f'{amt:.0f}g {feed} + {phenex:.0f}g Phenex')
-            else:
-                st.info('Upload Baby Food CSVs in the sidebar')
-    with tabD[1]:
-        st.header("Custom Daily Meal Planner")
-
-        if not baby8:
-            st.warning("Please upload the Baby Food CSV file.")
-            st.stop()
-
-        try:
-            baby8.seek(0)
-            df8 = pd.read_csv(baby8)
-            df8.columns = df8.columns.str.strip().str.lower().str.replace(" ", "")
-            st.subheader("Baby Food File Preview")
-            st.dataframe(df8.head())
-            required_cols = ["ingredient", "phe(mg)", "protein(g)", "energy(kcal)", "servingsize(g)"]
-            if df8.empty or df8.columns.size == 0:
-                st.error("\u26a0\ufe0f Ingredient CSV file is empty or malformed.")
-                st.stop()
-            if not all(col in df8.columns for col in required_cols):
-                st.error("\u26a0\ufe0f Ingredient CSV missing required columns: " + ", ".join([col for col in required_cols if col not in ing_df.columns]))
-                st.stop()
-        except Exception as e:
-            st.error(f"\u26a0\ufe0f Failed to read ingredient file: {e}")
-            st.stop()
-        if st.session_state.diet_calculated:
-            milk = st.radio("Milk Type", ["Breast Milk", "Formula"])
-            need_p = needP
-            need_ph = needPh
-            need_c = needC
-            uFoodRange = st.slider("% of PHE from food", 10, 100, 50)
-            num_foods = st.number_input("Number of foods", 1, 10, step=1)
-            portion_type = st.radio("Portion style", ["Equal", "Custom"])
-
-            all_ing = df8['ingredient'].dropna().unique().tolist() if 'ingredient' in df8.columns else []
-            if not all_ing:
-                st.warning("No valid ingredients found in the uploaded file.")
-                st.stop()
-
-            foods = [st.selectbox(f"Food #{i+1}", all_ing, key=f"f{i}") for i in range(num_foods)]
-            portions = [st.slider(f"% {f}", 0, 100, 10, key=f"p{i}") if portion_type == "Custom" else uFoodRange / num_foods for i, f in enumerate(foods)]
-            st.text(f"Debug PHE: need_ph={need_ph}, uFoodRange={uFoodRange}")
-
-            def calc(food, portion):
-                row = df8[df8['ingredient'].str.lower() == food.lower()]
-                if row.empty: return 0, 0, 0
-                phe = float(row['phe(mg)'].values[0])
-                weight = float(row['servingsize(g)'].values[0])
-                grams = (need_ph * uFoodRange * portion) / (phe * 10000)
-                prot = grams * float(row['protein(g)'].values[0]) / weight
-                cal = grams * float(row['energy(kcal)'].values[0]) / weight
-                return grams, prot, cal
-
-            if st.button("Calculate Plan"):
-                total_p, total_c = 0, 0
-                grams_list = []
-                food_summary = []
-                for f, pct in zip(foods, portions):
-                    g, p, c = calc(f, pct)
-                    grams_list.append((f, g))
-                    total_p += p
-                    total_c += c
-                    food_summary.append({"Food": f, "Grams": g, "Protein": p, "Calories": c})
-
-                milk_p = (1.07 if milk == "Breast Milk" else 1.54)
-                milk_cal = (70 if milk == "Breast Milk" else 68)
-                phe_per_100 = (48 if milk == "Breast Milk" else 67.8)
-                milk_g = (100 - uFoodRange) * need_ph / phe_per_100
-                milk_total_p = milk_g * milk_p / 100
-                milk_total_c = milk_g * milk_cal / 100
-                phenex_g = max(0.0, need_p - total_p - milk_total_p) * 100 / 15
-                phenex_cal = phenex_g * 480 / 100
-
-                st.subheader("Daily Meal Summary")
-                st.write(f"Milk: {milk_g:.1f}g {milk}, {milk_total_c:.0f} kcal")
-                st.write(f"Phenex: {phenex_g:.1f}g, {phenex_cal:.0f} kcal")
-                for f, g in grams_list:
-                    st.write(f"{f}: {g:.1f}g")
-                total_kcal = total_c + milk_total_c + phenex_cal
-                st.write(f"Total Calories: {total_kcal:.0f} kcal")
-
-                # Show chart
-                df_chart = pd.DataFrame(food_summary)
-                df_chart.loc[len(df_chart)] = {"Food": "Milk", "Grams": milk_g, "Protein": milk_total_p, "Calories": milk_total_c}
-                df_chart.loc[len(df_chart)] = {"Food": "Phenex", "Grams": phenex_g, "Protein": need_p - total_p - milk_total_p, "Calories": phenex_cal}
-                fig = px.bar(df_chart, x="Food", y=["Protein", "Calories"], barmode="group")
-                st.plotly_chart(fig)
-
-                # Export CSV
-                if st.download_button("Download Meal Plan as CSV", df_chart.to_csv(index=False), file_name="meal_plan.csv"):
-                    st.success("CSV download triggered")
-            else:
-                st.info("Upload Cuisine and Ingredient CSVs first")
-
-    #-------------------------------------------- End of Bella Tab 5 :')
-with tabs[1]:
-    st.header('Profile')
-
-    units = st.radio("Units:", ["Metric", "Imperial"], index=0)
-    sex = st.radio("Sex:", ["Male", "Female"], index=0)
-
-    if(units == "Metric"):
-        weight = st.number_input('Weight (kg): ', min_value=0.0, step=1.0)
-        height = st.number_input('Height (m): ', min_value=0.0, step=.01)
-
-    elif(units == "Imperial"):
-        weight = st.number_input('Weight (lbs): ', min_value=0.0, step=1.0)
-        height = st.number_input('Height (inches): ', min_value=0.0, step=.01)
-
-        weight = weight * 0.453592
-        height = height * 0.0254
-
-    bmi = calculate_bmi(weight, height)
-    if height != 0:
-        bmi = weight/height**2
-    else:
-        bmi = 0
-    bmi_category = ""
-    if bmi < 18.5:
-            bmi_category = "underweight"
-    elif bmi < 25:
-            bmi_category = "normal"
-    elif bmi < 30:
-            bmi_category = "overweight"
-    elif bmi < 35:
-            bmi_category = "obesity - class I"
-    elif bmi < 40:
-            bmi_category = "obesity - class II"
-    else:
-            bmi_category = "obesity - class III"
-
-    def mean(n1, n2):
-        return (float(n1) + n2) / 2
-
-    year = st.number_input('Birth year:', 1900, datetime.now().year, key='diet1_year')
-    month = st.number_input('Birth month:', 1, 12, key='diet1_month')
-    day = st.number_input('Birth day:', 1, 31, key='diet1_day')
-    age_in_months = calcAge(year, month, day)
-    st.write(age_in_months)
-
-    if st.button('Calculate Nutrition', key='nutr'):
-        e1 = 0
-        e2 = 0
-        protein = 0
-        phe1 = 0
-        phe2 = 0
-        e3 = 0
-
-        if(age_in_months < 12):
-            st.write("Please refer to baby diet planner instead")
-        elif(age_in_months < 132):
-            if(age_in_months < 48):
-                e1 = 900
-                e2 = 1800
-                e3 = (e1+e2)/2
-                phe1 = 200
-                phe2 = 400
-                protein = 30
-            elif(age_in_months < 84):
-                e1 = 1300
-                e2 = 2300
-                e3 = 1700
-                phe1 = 210
-                phe2 = 450
-                protein = 35
-            else:
-                e1 = 1650
-                e2 = 3300
-                e3 = 2400
-                phe1 = 220
-                phe2 = 500
-                protein = 40
-            if(bmi_category == "underweight"):
-                energy = e2
-            if(bmi_category == "normal"):
-                energy = e3
-            if(bmi_category == "overweight" or bmi_category == "obesity - class I" or bmi_category == "obesity - class II" or bmi_category == "obesity - class III"):
-                energy = e1
-        else:
-            if(sex == "Female"):
-                if(age_in_months < 180):
-                    e1 = 1500
-                    e2 = 3000
-                    e3 = 2200
-                    phe1 = 250
-                    phe2 = 700
-                    protein = 50
-                elif(age_in_months < 228):
-                    e1 = 1200
-                    e2 = 3000
-                    e3 = 2100
-                    phe1 = 230
-                    phe2 = 700
-                    protein = 55
-                else:
-                    e1 = 1400
-                    e2 = 2500
-                    e3 = 2100
-                    phe1 = 220
-                    phe2 = 700
-                    protein = 60
-            if(sex == "Male"):
-                if(age_in_months < 180):
-                    e1 = 2000
-                    e2 = 3700
-                    e3 = 2700
-                    phe1 = 225
-                    phe2 = 900
-                    protein = 55
-                elif(age_in_months < 228):
-                    e1 = 2100
-                    e2 = 3900
-                    e3 = 2800
-                    phe1 = 295
-                    phe2 = 1100
-                    protein = 65
-                else:
-                    e1 = 2000
-                    e2 = 3300
-                    e3 = 2900
-                    phe1 = 290
-                    phe2 = 1200
-                    protein = 70
-            if(bmi_category == "underweight"):
-                energy = e2
-            if(bmi_category == "normal"):
-                energy = e3
-            if(bmi_category == "overweight" or bmi_category == "obesity - class I" or bmi_category == "obesity - class II" or bmi_category == "obesity - class III"):
-                energy = e1
-            phe = mean(phe1, phe2)
-
-            st.write(f"Daily Calorie Goal: {energy}")
-            st.write(f"Daily Protein Goal: {protein}")
-            st.write(f"Daily Phenylalanine Goal: {phe}")
-
-
-            st.session_state['protein'] = protein
-            st.session_state['phe1'] = phe1
-            st.session_state['phe2'] = phe2
-            st.session_state['e1'] = e1
-            st.session_state['e2'] = e2
-            st.session_state['phe'] = phe
-            st.session_state['energy'] = energy
-            st.write(f"Daily Phenylalanine Goal: {st.session_state['phe']}")
-
-
-with tabs[2]:
-    st.header('Cuisine Ratings')
-    if cuisine_df is not None:
-        meal_types = cuisine_df['MealType'].unique().tolist()
-        meal_type = st.selectbox('Meal Type', meal_types, key='rating_meal_type')
-        df_code = cuisine_df[cuisine_df['MealType']==meal_type]
-        dishes = df_code['MealGroup'].unique().tolist()
-        if dishes:
-            ratings = {d: st.slider(d,0,5,0,key=f'r_{d}') for d in dishes}
-            if st.button('Submit Ratings', key='submit_ratings'):
-                recs=[]
-                for d,r in ratings.items():
-                    recs.append({
-                        'user_id':user_id,
-                        'cuisine':choice,
-                        'meal_type':meal_type,
-                        'dish':d,
-                        'rating':r,
-                        'timestamp':datetime.now().isoformat()
-                    })
-                newdf = pd.DataFrame(recs)
-                st.session_state.ratings_session = pd.concat([st.session_state.ratings_session,newdf],ignore_index=True)
-                append_ratings_file(newdf)
-                st.success('Ratings saved')
-        else:
-            st.warning('No dishes available for this meal type.')
-        st.subheader('Session Ratings')
-        st.dataframe(st.session_state.ratings_session)
-        st.subheader('Permanent Ratings')
-        if os.path.exists(RATINGS_FILE): st.dataframe(pd.read_csv(RATINGS_FILE))
-        else: st.info('No permanent ratings file')
-    else:
-        st.info('Upload Cuisine CSVs in the sidebar')
-
-with tabs[3]:
-    serving_size = st.number_input('Serving Size (g): ', min_value=0.0, step=10.0)
-    rtabs = st.tabs(['Top 5 Recommendations', 'Single Food Recommendation'])
-    meal_category = "Lunch/Dinner"
-    protein = st.session_state['protein']
-    phe1 = st.session_state['phe1']
-    phe2 = st.session_state['phe2']
-    e1 = st.session_state['e1']
-    e2 = st.session_state['e2']
-
-    proteinM = mealtime_nutrition(protein, meal_category)
-    phe1M = mealtime_nutrition(phe1, meal_category)
-    phe2M = mealtime_nutrition(phe2, meal_category)
-    e1M = mealtime_nutrition(e1, meal_category)
-    e2M = mealtime_nutrition(e2, meal_category)
-    with rtabs[0]:
-        st.header('Recommendations')
-        if cuisine_df is not None and not st.session_state.ratings_session.empty:
-            if st.button('Recommend Top 5 Meals', key='Meals'):
-                all_meals = cuisine_df['Meal'].dropna().unique()
-
-                rated_meals = st.session_state.ratings_session[
-                    (st.session_state.ratings_session['user_id'] == user_id) &
-                    (st.session_state.ratings_session['rating'] > 0)
-                ]['dish'].unique()
-
-                unrated_meals = [meal for meal in all_meals if meal not in rated_meals]
-
-                predictions = []
-                for meal in unrated_meals:
-                    try:
-                        vector = meal_nutrition(meal, serving_size, cuisine_df, ing_df)
-                        meal_protein = vector[0]
-                        meal_phenyl = vector[1]
-                        meal_calories = vector[2]
-                        hyb_score = hybrid_filtering(meal, user_id, beta, st.session_state.ratings_session, cuisine_df)
-                        hesa_score = health_safety_score(meal_protein, meal_phenyl, meal_calories, proteinM, phe1M, phe2M, e1M, e2M)
-                        fi_score = final_score(hyb_score, hesa_score, pref_scale)
-                        predictions.append((meal, fi_score))
-                    except Exception as e:
-                        h = "h"
-                top5 = sorted(predictions, key=lambda x: x[1], reverse=True)[:5]
-
-                st.subheader("Top 5 Recommended Dishes")
-                for dish, score in top5:
-                    st.write(f"**{dish}**: {score:.2f}")
-                # for dish, score in predictions:
-                #     st.write(f"**{dish}**: {score:.2f}")
-
-
-                data = {
-                    'Meal': [],
-                    'Phenylalanine': [],
-                    'Protein': [],
-                    'Energy': []
-                }
-
-                for dish, score in top5:
-                    vec = meal_nutrition(dish, serving_size, cuisine_df, ing_df)
-                    protein = vec[0]
-                    phenyl = vec[1]
-                    energy = vec[2]
-
-                    data['Meal'].append(dish)
-                    data['Phenylalanine'].append(phenyl)
-                    data['Protein'].append(protein)
-                    data['Energy'].append(energy)
-
-                df = pd.DataFrame(data)
-
-                df.set_index('Meal').plot(kind='bar', stacked=True, figsize=(8,5))
-                plt.title('Nutritional Content per Food')
-                plt.ylabel('Amount (mg / g / kcal')
-                plt.xticks(rotation=45)
-                plt.tight_layout()
-                st.pyplot(plt)
-
-                fig = px.scatter(df, x="Protein", y="Phenylalanine",
-                                 size="Energy", color="Meal",
-                                 hover_name="Meal", size_max=60,
-                                 title="Protein vs. Phenylalanine (Bubble size = Energy)")
-                st.plotly_chart(fig)
-        else:
-            st.info('Upload cuisine CSVs and rate some dishes first')
-    with rtabs[1]:
-        st.header("Single Food Recommendation")
-        meal = st.text_input('Meal for recommendation:', key='rec_meal')
-        if meal:
-            cscore = predictedContentBased(st.session_state.ratings_session, user_id, meal)
-            colscore = predictedCollabRating(st.session_state.ratings_session, user_id, meal)
-            hscore = hybrid_filtering(meal, user_id, beta, st.session_state.ratings_session, cuisine_df)
-
-            vector = meal_nutrition(meal, serving_size, cuisine_df, ing_df)
-            meal_protein = vector[0]
-            meal_phenyl = vector[1]
-            meal_calories = vector[2]
-            # st.write(meal_protein, meal_phenyl, meal_calories)
-            # st.write(f"Protein: {proteinM} Phenyl: {phe1M} {phe2M} Energy {e1M} {e2M}")
-
-            hs_score = health_safety_score(meal_protein, meal_phenyl, meal_calories, proteinM, phe1M, phe2M, e1M, e2M)
-            f_score = final_score(hscore, hs_score, pref_scale)
-            st.write(f'Content Score: {cscore:.2f}, Collab Score: {colscore:.2f}, Hybrid Score: {hscore:.2f}, Health Safety Score: {hs_score:.2f}, Final Score: {f_score}')
-
-            labels = ['Phenylalanine', 'Protein', 'Energy']
-            user_limits = [100, 100, 100]
-            meal_values = []
-            vec = meal_nutrition(meal, serving_size, cuisine_df, ing_df)
-            meal_protein, meal_phenyl, meal_calories = vec
-
-            def percent(value, limit):
-                return round((value / limit) * 100, 1) if limit else 0
-            
-            phe = st.session_state['phe']
-            st.write(st.session_state['phe'])
-            st.write(meal_phenyl)
-
-            st.write(phe)
-            percent_phe = percent(meal_phenyl, st.session_state['phe'])
-            percent_protein = percent(meal_protein, st.session_state['protein'])
-            percent_calories = percent(meal_calories, st.session_state['energy'])
-
-            meal_values = [percent_phe, percent_protein, percent_calories]
-
-
-
-            fig = go.Figure()
-            fig.add_trace(go.Scatterpolar(
-                r = user_limits,
-                theta = labels,
-                fill='toself',
-                name='Daily Limit'
-            ))
-            fig.add_trace(go.Scatterpolar(
-                r=meal_values,
-                theta=labels,
-                fill='toself',
-                name='Selected Meal'
-            ))
-
-            fig.update_layout(
-                polar = dict(
-                    radialaxis=dict(visible=True, range=[0, 100])
-                ),
-                showlegend = True,
-                title = "Meal vs. Daily Nutrient Limits"
-            )
-
-            st.plotly_chart(fig)
-
-
-
-with tabs[4]:
-    st.header('Chat with PKU AI Assistant')
-    if chat_df is not None:
-        if 'chat_history' not in st.session_state: st.session_state.chat_history=[]
-        for msg in st.session_state.chat_history: st.write(f"**{msg['role'].capitalize()}:** {msg['content']}")
-        with st.form('chat_form', clear_on_submit=True):
-            chat_input = st.text_input('Ask PKU AI:', key='chat_input')
-            send = st.form_submit_button('Send')
-        if send and chat_input:
-            st.session_state.chat_history.append({'role':'user','content':chat_input})
-            genai.configure(api_key=st.secrets['GEMINI_API_KEY'])
-            model = genai.GenerativeModel('gemini-1.5-flash')
-            resp = model.generate_content(chat_input)
-            st.session_state.chat_history.append({'role':'assistant','content':resp.text})
-    else:
-        st.info('Upload Chat Ingredient CSV in the sidebar')
-
-#----------------------------------------------------------------------- Bella TAB 5 :)
-with tabs[5]:
-    st.header("Rule-Based Meal Recommendation")
-
-    if cuisine_df is None or ing_df is None:
-        st.warning("Please upload Cuisine and Ingredient CSVs in the sidebar.")
-        st.stop()
-
-    meal_type = st.radio("What type of meal?", ["Breakfast/Snack", "Lunch/Dinner"], key="rule_meal_type")
-    portion_ratio = 0.2 if meal_type == "Breakfast/Snack" else 0.3
-
-    # User input to override max daily PHE
-    use_manual_phe = st.checkbox("Use custom max daily PHE")
-    default_phe = float(st.session_state.get("phe", 0.0))
-    if use_manual_phe:
-        daily_phe = st.number_input("Enter your max daily PHE (mg):", min_value=0.0, value=default_phe, format="%.2f")
-    else:
-        daily_phe = default_phe
-
-    meal_phe_target = daily_phe * portion_ratio
-
-    serving_size = st.number_input("Serving size (grams)", min_value=1.0, value=100.0)
-
-    data = []
-    for dish in cuisine_df['Meal'].dropna().unique():
-        try:
-            vec = meal_nutrition(dish, serving_size, cuisine_df, ing_df)
-            phe, protein, energy = vec[1], vec[0], vec[2]
-            phe_per_gram = phe / serving_size if serving_size else 1
-            grams_allowed = meal_phe_target / phe_per_gram if phe_per_gram else 0
-            data.append({
-                "Dish": dish,
-                "Grams Allowed": round(grams_allowed, 1),
-                "Phenylalanine (mg)": round(phe, 1),
-                "Protein (g)": round(protein, 1),
-                "Calories": round(energy, 1)
-            })
-        except Exception:
-            continue
-
-    if data:
-        df_recommend = pd.DataFrame(data).sort_values("Grams Allowed", ascending=False)
-        st.subheader(f"Recommended Dishes for {meal_type} (max {meal_phe_target:.0f} mg PHE)")
-        st.dataframe(df_recommend.reset_index(drop=True))
-
-        fig = px.bar(df_recommend.head(10), x="Dish", y="Grams Allowed",
-                     title="Top 10 Dishes You Can Eat by Portion Size",
-                     labels={"Grams Allowed": "Grams"})
-        st.plotly_chart(fig)
-    else:
-        st.info("No valid dishes found for calculation.")
-
-    # Single dish calculator section
     st.markdown("---")
-    st.subheader("Single Dish Portion Calculator")
+    st.header("📋 Daily Diet Plan")
+    
+    # Display nutritional targets
+    needs = result['needs']
+    st.subheader(f"Nutritional Targets ({needs['age_group']})")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Protein", f"{needs['protein_g']:.1f} g")
+    with col2:
+        st.metric("PHE Range", f"{needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg")
+    with col3:
+        st.metric("Calories", f"{needs['energy_kcal']:.0f} kcal")
+    
+    # PHE Deletion Phase (if applicable)
+    if result['deletion_needed']:
+        st.markdown("---")
+        st.error("⚠️ **PHASE 1: PHE DELETION PROTOCOL**")
+        st.warning(f"Baby's PHE level ({result.get('current_phe_mg_dl', 0):.1f} mg/dL) requires immediate intervention")
+        
+        st.markdown(f"### Delete PHE for {result['deletion_hours']} hours")
+        st.info(result['deletion_note'])
+        
+        deletion = result['deletion_phase']
+        st.markdown("#### During Deletion Period (Phenex-1 ONLY):")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f"""
+            **{deletion['phenex']['phenex_type']}:**
+            - Powder: **{deletion['phenex']['phenex_grams']:.1f} g** per 24 hours
+            - Mix with water: **{deletion['water_ml']:.0f} mL**
+            - Feedings per day: **{deletion['feedings_per_day']}**
+            - Per feeding: **{deletion['water_ml'] / 7:.0f} mL** (approx)
+            """)
+        
+        with col2:
+            st.markdown(f"""
+            **Provides:**
+            - Protein: {deletion['phenex']['protein_g']:.1f} g
+            - Calories: {deletion['phenex']['calories_kcal']:.0f} kcal
+            - No PHE (PHE-free)
+            """)
+        
+        st.error("🩸 **CRITICAL: Check blood PHE DAILY during deletion**")
+        st.info("Stop deletion and begin Phase 2 when PHE drops to ≤5 mg/dL")
+        
+        st.markdown("---")
+        st.success(f"**PHASE 2: ADDING PHE BACK** (After blood PHE ≤5 mg/dL)")
+        st.info(f"Starting PHE dose: **{result['initial_phe_mg_per_kg']:.0f} mg/kg** = **{result['initial_phe_mg']:.0f} mg/day**")
+    
+    # Maintenance Diet (or Phase 2 after deletion)
+    st.markdown("### Daily Formula + Phenex Plan")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("#### Formula (Similac With Iron)")
+        st.markdown(f"""
+        - **{result['formula']['formula_ml']:.0f} mL** per day
+        - Provides:
+          - PHE: {result['formula']['phe_mg']:.0f} mg
+          - Protein: {result['formula']['protein_g']:.1f} g
+          - Calories: {result['formula']['calories_kcal']:.0f} kcal
+        - Divide into {result['feedings_per_day']} feedings
+        - Per feeding: ~{result['formula']['formula_ml'] / 7:.0f} mL
+        """)
+    
+    with col2:
+        st.markdown(f"#### {result['phenex']['phenex_type']}")
+        st.markdown(f"""
+        - **{result['phenex']['phenex_grams']:.1f} g** powder per day
+        - Provides:
+          - Protein: {result['phenex']['protein_g']:.1f} g
+          - Calories: {result['phenex']['calories_kcal']:.0f} kcal
+          - No PHE
+        """)
+    
+    st.markdown("#### Mixing Instructions")
+    st.info(f"""
+    1. Mix **{result['phenex']['phenex_grams']:.1f} g** {result['phenex']['phenex_type']} powder
+    2. Add **{result['formula']['formula_ml']:.0f} mL** Similac With Iron
+    3. Add **{result['water_ml']:.0f} mL** water
+    4. **Total volume: {result['total_volume_ml']:.0f} mL** ({result['total_volume_ml']/29.574:.1f} fl oz)
+    5. Divide into **{result['feedings_per_day']} feedings** per day
+    6. Each feeding: approximately **{result['ml_per_feeding']:.0f} mL**
+    """)
+    
+    # Daily Totals
+    st.markdown("---")
+    st.subheader("📊 Daily Nutrition Totals")
+    
+    totals = result['totals']
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        protein_status = "✅" if abs(totals['protein_g'] - needs['protein_g']) < 1 else "⚠️"
+        st.metric(
+            "Total Protein",
+            f"{totals['protein_g']:.1f} g",
+            f"Target: {needs['protein_g']:.1f} g {protein_status}"
+        )
+    
+    with col2:
+        phe_in_range = needs['phe_mg_min'] <= totals['phe_mg'] <= needs['phe_mg_max']
+        phe_status = "✅" if phe_in_range else "⚠️"
+        st.metric(
+            "Total PHE",
+            f"{totals['phe_mg']:.0f} mg",
+            f"Range: {needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg {phe_status}"
+        )
+    
+    with col3:
+        cal_status = "✅" if totals['calories_kcal'] >= needs['energy_kcal'] * 0.9 else "⚠️"
+        st.metric(
+            "Total Calories",
+            f"{totals['calories_kcal']:.0f} kcal",
+            f"Target: {needs['energy_kcal']:.0f} kcal {cal_status}"
+        )
+    
+    # Monitoring Schedule
+    st.markdown("---")
+    st.subheader("📅 Monitoring Schedule")
+    
+    if result['deletion_needed']:
+        st.warning("""
+        **During Deletion Phase:**
+        - Check blood PHE: **DAILY**
+        - Stop deletion when PHE ≤5 mg/dL
+        - If PHE drops below 2 mg/dL: Add formula immediately and contact clinic
+        """)
+    
+    st.info("""
+    **Ongoing Monitoring:**
+    - Blood PHE checks: **Twice weekly** initially, then weekly
+    - Target PHE range: **2-5 mg/dL** (120-300 µmol/L)
+    - Weight: Measure **monthly**
+    - Height: Measure **monthly**
+    - Adjust PHE every 3 days if out of range
+    """)
+    
+    with st.expander("📝 PHE Adjustment Guidelines"):
+        st.markdown("""
+        **If blood PHE is < 2 mg/dL:**
+        - ADD 15 mg PHE (approximately 25 mL more formula)
+        - Recheck in 3 days
+        
+        **If blood PHE is 5-10 mg/dL:**
+        - REDUCE 15 mg PHE (approximately 25 mL less formula)
+        - Recheck in 3 days
+        
+        **If blood PHE is > 10 mg/dL:**
+        - REDUCE 30 mg PHE (approximately 50 mL less formula)
+        - Recheck in 3 days
+        - Contact metabolic clinic
+        """)
 
-    selected_meal_type = st.selectbox("Select Meal Type", ["Breakfast", "Snack", "Lunch", "Dinner"], key="single_meal_type")
-    meal_ratio_map = {"Breakfast": 0.2, "Snack": 0.2, "Lunch": 0.3, "Dinner": 0.3}
-    single_portion_ratio = meal_ratio_map[selected_meal_type]
-    single_meal_phe_target = daily_phe * single_portion_ratio
+def display_child_adult_plan(needs, age_months, weight_kg):
+    """Display diet plan for children and adults"""
+    
+    st.markdown("---")
+    st.header("📋 Daily Nutritional Targets")
+    
+    st.subheader(f"{needs['age_group']}")
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Protein", f"{needs['protein_g']:.0f} g")
+    with col2:
+        st.metric("PHE Range", f"{needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg")
+    with col3:
+        st.metric("Calories", f"{needs['energy_kcal']:.0f} kcal")
+    
+    st.markdown("---")
+    st.subheader(f"🥫 Medical Food Requirement")
+    
+    # Calculate Phenex (assuming no protein from regular food initially)
+    phenex = calculate_phenex_amount(needs['protein_g'], 0, age_months)
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(f"#### {phenex['phenex_type']}")
+        st.markdown(f"""
+        - **{phenex['phenex_grams']:.1f} g** powder per day
+        - Divide into 4-6 servings
+        - Per serving: ~{phenex['phenex_grams']/5:.1f} g
+        """)
+    
+    with col2:
+        st.markdown("#### Provides:")
+        st.markdown(f"""
+        - Protein: {phenex['protein_g']:.1f} g
+        - Calories: {phenex['calories_kcal']:.0f} kcal
+        - No PHE
+        """)
+    
+    st.info(f"""
+    **Mixing Instructions:**
+    - Mix {phenex['phenex_grams']:.1f} g {phenex['phenex_type']} powder with water
+    - Divide into 4-6 servings throughout the day
+    - Chill to improve taste
+    - Can be mixed with allowed fruits or flavoring
+    """)
+    
+    st.markdown("---")
+    st.subheader("🍎 Regular Food Allowance")
+    
+    st.markdown(f"""
+    You can have **{needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg PHE** from regular foods per day.
+    
+    Use the **Custom Meal Planner** tab to:
+    - Select foods from low-PHE options
+    - Calculate PHE content of your meals
+    - Plan your daily menu within your PHE target
+    """)
+    
+    # Monitoring
+    st.markdown("---")
+    st.subheader("📅 Monitoring Schedule")
+    st.info("""
+    - Blood PHE checks: **Weekly** 
+    - Target PHE range: **2-5 mg/dL** for children, **2-10 mg/dL** for adults
+    - Weight: Check **monthly**
+    - Adjust diet if PHE is consistently out of range
+    """)
 
-    all_dishes = sorted(cuisine_df['Meal'].dropna().unique())
-    selected_dish = st.selectbox("Select Dish", all_dishes, key="single_dish")
+# STREAMLIT APP
 
-    try:
-        vec = meal_nutrition(selected_dish, serving_size, cuisine_df, ing_df)
-        protein, phe, energy = vec[0], vec[1], vec[2]
-        phe_per_gram = phe / serving_size if serving_size else 1
-        grams_allowed = single_meal_phe_target / phe_per_gram if phe_per_gram else 0
-
-        st.success(f"You can eat up to **{grams_allowed:.1f}g** of **{selected_dish}** for {selected_meal_type} (target {single_meal_phe_target:.0f} mg PHE)")
-        st.write(f"PHE per {serving_size:.0f}g: {phe:.1f} mg")
-        st.write(f"Protein per {serving_size:.0f}g: {protein:.1f} g")
-        st.write(f"Calories per {serving_size:.0f}g: {energy:.1f} kcal")
-
-    except KeyError as e:
-        st.error(f"Missing data: {e}. Check if all ingredients in the dish are present in the ingredient file.")
-    except Exception as e:
-        st.error(f"Could not calculate dish nutrition: {e}")
-
-# ----- end of the rule req tab 5
-
-# Gemini
-st.divider()
-st.subheader("💬 Chat with PKU AI Assistant")
-
-# ✅ Configure Gemini with updated model name
-try:
-    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
-except Exception as config_error:
-    st.error("❌ Failed to configure Gemini API.")
-    st.error(f"Configuration error: {config_error}")
-    st.stop()
-
-# Initialize chat history in session state
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
-
-# Display chat history
-for i, message in enumerate(st.session_state.chat_history):
-    if message["role"] == "user":
-        st.markdown(f"**You:** {message['content']}")
+def main():
+    st.set_page_config(page_title="PKU Diet Manager", layout="wide")
+    
+    # Initialize session state
+    if 'profile_created' not in st.session_state:
+        st.session_state.profile_created = False
+    
+    # Landing Page
+    if not st.session_state.profile_created:
+        st.title("🏥 PKU Diet Management System")
+        st.markdown("""
+        ### Welcome to your personalized PKU diet planner!
+        
+        This application helps manage phenylketonuria (PKU) diet by calculating:
+        - Daily phenylalanine (PHE) targets
+        - Phenex medical food requirements  
+        - Formula amounts for infants
+        - Meal planning for children and adults
+        
+        **Let's start by creating your profile.**
+        """)
+        
+        st.markdown("---")
+        st.header("Create Profile")
+        
+        # Age group selection
+        age_category = st.radio(
+            "Who is this profile for?",
+            ["Baby (0-12 months)", "Child (1-12 years)", "Adult (12+ years)"]
+        )
+        
+        st.markdown("---")
+        
+        # Common fields
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            units = st.radio("Units:", ["Metric", "Imperial"])
+            
+            if units == "Metric":
+                weight = st.number_input('Weight (kg):', min_value=0.0, step=0.1, key='weight')
+                height = st.number_input('Height (cm):', min_value=0.0, step=1.0, key='height') / 100
+            else:
+                weight_lbs = st.number_input('Weight (lbs):', min_value=0.0, step=0.1, key='weight_lbs')
+                weight = weight_lbs * 0.453592
+                height_in = st.number_input('Height (inches):', min_value=0.0, step=1.0, key='height_in')
+                height = height_in * 0.0254
+        
+        with col2:
+            st.markdown("**Birth Date:**")
+            birth_year = st.number_input('Year:', min_value=1900, max_value=datetime.now().year, value=2025, key='birth_year')
+            birth_month = st.number_input('Month:', min_value=1, max_value=12, value=1, key='birth_month')
+            birth_day = st.number_input('Day:', min_value=1, max_value=31, value=1, key='birth_day')
+            
+            current_phe = st.number_input(
+                'Current Blood PHE Level (mg/dL):', 
+                min_value=0.0, 
+                step=0.1,
+                help="Enter your most recent blood phenylalanine level",
+                key='current_phe'
+            )
+        
+        # Age-specific fields
+        sex = None
+        age_hours = None
+        
+        if age_category != "Baby (0-12 months)":
+            sex = st.radio("Biological Sex:", ["Male", "Female"])
+        else:
+            # For babies ≤96 hours, ask age in hours
+            age_months = calculate_age_months(birth_year, birth_month, birth_day)
+            if age_months:# Less than 1 month old
+                age_hours = st.number_input(
+                    'Baby\'s age (hours):', 
+                    min_value=0, 
+                    max_value=720,
+                    help="Enter age in hours (only needed if baby is 96 hours old or less)",
+                    key='age_hours'
+                )
+        
+        st.markdown("---")
+        
+        if st.button("Calculate Diet Plan", type="primary"):
+            if weight == 0 or height == 0:
+                st.error("Please enter valid weight and height")
+            else:
+                # Save to session state
+                st.session_state.user_age_category = age_category
+                st.session_state.user_age_category = age_category
+                st.session_state.user_weight = weight
+                st.session_state.user_height = height
+                st.session_state.user_birth_month = birth_month
+                st.session_state.user_birth_year = birth_year
+                st.session_state.user_birth_day = birth_day
+                st.session_state.user_current_phe = current_phe
+                st.session_state.user_sex = sex
+                st.session_state.user_age_hours = age_hours if age_category == "Baby (0-12 months)" else None
+                st.session_state.user_age_category = age_category
+                
+                st.rerun()
+    
+    # Main Application (after profile created)
     else:
-        st.markdown(f"**AI Assistant:** {message['content']}")
+        # Sidebar with profile summary
+        st.sidebar.header("👤 Profile")
+        age_months = calculate_age_months(
+            st.session_state.birth_year,
+            st.session_state.birth_month, 
+            st.session_state.birth_day
+        )
+        
+        st.sidebar.write(f"**Age:** {age_months} months ({age_months//12} years {age_months%12} months)")
+        st.sidebar.write(f"**Weight:** {st.session_state.weight:.1f} kg")
+        st.sidebar.write(f"**Height:** {st.session_state.height*100:.0f} cm")
+        st.sidebar.write(f"**Current PHE:** {st.session_state.current_phe:.1f} mg/dL")
+        
+        birth_date = date(int(birth_year), int(birth_month), int(birth_day))
+        age_display = format_age(birth_date)
+        st.write(f"👤 Profile")
+        st.write(f"Age: {age_display}")
 
-# Clear chat button
-if st.session_state.chat_history:
-    if st.button("🗑️ Clear Chat History"):
-        st.session_state.chat_history = []
-        st.rerun()
-
-# --- Input field ---
-# Use form to handle Enter key properly
-with st.form("chat_form", clear_on_submit=True):
-    chat_input = st.text_input("Ask a question about PKU nutrition:", key="chat_input_form")
-    send_clicked = st.form_submit_button("📤 Send Message", use_container_width=True)
-
-# Handle form submission
-if send_clicked and chat_input.strip():
-    # Add user message to history
-    st.session_state.chat_history.append({"role": "user", "content": chat_input})
-
-    with st.spinner("Thinking..."):
-        try:
-            # Build conversation context
-            conversation_context = "You are a helpful assistant specialized in low-phenylalanine diets and PKU nutrition.\n"
-
-            # Add CSV data context if available
-            if uploaded_file and 'df' in locals():
-                conversation_context += "\nAvailable PKU food data from uploaded CSV:\n"
-
-                # For questions asking for recommendations or comparisons, include more data
-                question_lower = chat_input.lower()
-                if any(word in question_lower for word in ['recommend', 'lowest', 'highest', 'compare', 'list', 'show', 'all', 'foods']):
-                    # Include full food list with nutritional data
-                    conversation_context += "Complete food database:\n"
-                    for _, row in df.iterrows():
-                        conversation_context += f"{row['Food']}: Phe {row['PHE(mg)']}mg, Protein {row['Protein(g)']}g, Energy {row['Energy(kcal)']}kcal\n"
-                else:
-                    # Just show sample for general questions
-                    conversation_context += f"Foods in database: {', '.join(df['Food'].head(10).tolist())}"
-                    if len(df) > 10:
-                        conversation_context += f" and {len(df)-10} more foods"
-
-                conversation_context += f"\nTotal foods in database: {len(df)}\n"
-                conversation_context += "Each food has data for: Phenylalanine (mg), Protein (g), Energy (kcal)\n"
-
-            conversation_context += "\nConversation history:\n"
-
-            # Include recent conversation history (last 10 messages to avoid token limits)
-            recent_history = st.session_state.chat_history[-10:]
-            for msg in recent_history[:-1]:  # Exclude the current message
-                if msg["role"] == "user":
-                    conversation_context += f"User: {msg['content']}\n"
-                else:
-                    conversation_context += f"Assistant: {msg['content']}\n"
-
-            conversation_context += f"\nCurrent question: {chat_input}"
-
-            # Add specific food data if the question mentions foods from the CSV
-            if uploaded_file and 'df' in locals():
-                # Check if the question mentions any specific foods
-                mentioned_foods = []
-                chat_lower = chat_input.lower()
-                for food in df['Food']:
-                    if food.lower() in chat_lower:
-                        mentioned_foods.append(food)
-
-                # If specific foods are mentioned, add their detailed data
-                if mentioned_foods:
-                    conversation_context += f"\n\nDetailed nutritional data for mentioned foods:\n"
-                    for food in mentioned_foods:
-                        food_data = df[df['Food'] == food].iloc[0]
-                        conversation_context += f"{food}: Phenylalanine {food_data['PHE(mg)']}mg, Protein {food_data['Protein(g)']}g, Energy {food_data['Energy(kcal)']}kcal\n"
-
-            response = model.generate_content(conversation_context)
-
-            # Add AI response to history
-            st.session_state.chat_history.append({"role": "assistant", "content": response.text})
-
-            # Rerun to show new messages
+        if st.sidebar.button("🔄 Create New Profile"):
+            st.session_state.profile_created = False
             st.rerun()
+        
+        st.sidebar.markdown("---")
+        
+        # Main content area
+        st.title("PKU Diet Plan")
+        
+        # Calculate and display appropriate diet plan
+        if st.session_state.age_category == "Baby (0-12 months)":
+            result = calculate_baby_diet(
+                age_months,
+                st.session_state.weight,
+                st.session_state.current_phe,
+                st.session_state.age_hours
+            )
+            result['current_phe_mg_dl'] = st.session_state.current_phe
+            display_baby_diet_plan(result, st.session_state.weight)
+            
+        else:
+            # Child or Adult
+            needs = get_child_adult_daily_needs(
+                age_months,
+                st.session_state.weight,
+                st.session_state.sex
+            )
+            display_child_adult_plan(needs, age_months, st.session_state.weight)
+        
+        # Additional tabs for meal planning, etc.
+        st.markdown("---")
+        tabs = st.tabs(["Custom Meal Planner", "Food Database", "Resources"])
+        
+        with tabs[0]:
+            st.header("🍽️ Custom Meal Planner")
+            
+            if st.session_state.age_category == "Baby (0-12 months)":
+                if age_months < 6:
+                    st.info("Babies under 6 months should only have formula and Phenex as calculated above. Complementary foods will be introduced after 6 months.")
+                else:
+                    st.markdown("""
+                    ### Adding Solid Foods (6-12 months)
+                    
+                    Your baby can now start eating solid foods! Use the calculator below to see how solid foods 
+                    affect the formula amount needed.
+                    """)
+                    
+                    # Load fruit/vegetable data if available
+                    try:
+                        # This would use your existing CSV files
+                        st.info("Feature coming soon: Select baby foods and automatically adjust formula amount")
+                    except:
+                        st.warning("Food database not loaded")
+            
+            else:
+                st.markdown("""
+                ### Plan Your Meals Within Your PHE Target
+                
+                Use this tool to select foods and track your daily PHE intake.
+                """)
+                
+                # Get user's PHE target
+                if st.session_state.age_category == "Child (1-12 years)":
+                    needs = get_child_adult_daily_needs(age_months, st.session_state.weight, st.session_state.sex)
+                else:
+                    needs = get_child_adult_daily_needs(age_months, st.session_state.weight, st.session_state.sex)
+                
+                st.metric("Your Daily PHE Target", f"{needs['phe_mg_min']:.0f} - {needs['phe_mg_max']:.0f} mg")
+                
+                # Meal tracker
+                if 'meal_tracker' not in st.session_state:
+                    st.session_state.meal_tracker = []
+                
+                st.subheader("Add Foods to Your Day")
+                
+                # Sample food additions (you would expand this with your CSV data)
+                food_categories = {
+                    "Fruits": [
+                        ("Apple (100g)", 5, 0.2, 59),
+                        ("Banana (100g)", 16, 0.4, 89),
+                        ("Orange (100g)", 14, 0.4, 47),
+                        ("Grapes (100g)", 16, 0.8, 86)
+                    ],
+                    "Vegetables": [
+                        ("Carrots (100g)", 15, 0.4, 18),
+                        ("Lettuce (100g)", 14, 0.3, 4),
+                        ("Tomato (100g)", 14, 0.5, 12),
+                        ("Cucumber (100g)", 16, 0.6, 14)
+                    ],
+                    "Grains (Limited)": [
+                        ("Rice (30g)", 32, 0.6, 33),
+                        ("Pasta (30g)", 33, 0.6, 21)
+                    ]
+                }
+                
+                col1, col2 = st.columns([2, 1])
+                
+                with col1:
+                    category = st.selectbox("Food Category:", list(food_categories.keys()))
+                    food_options = food_categories[category]
+                    food_names = [f[0] for f in food_options]
+                    selected_food = st.selectbox("Select Food:", food_names)
+                    servings = st.number_input("Servings:", min_value=0.5, max_value=10.0, value=1.0, step=0.5)
+                
+                with col2:
+                    if st.button("➕ Add to Day"):
+                        # Find the food data
+                        food_data = next(f for f in food_options if f[0] == selected_food)
+                        st.session_state.meal_tracker.append({
+                            'food': food_data[0],
+                            'servings': servings,
+                            'phe_mg': food_data[1] * servings,
+                            'protein_g': food_data[2] * servings,
+                            'calories': food_data[3] * servings
+                        })
+                        st.rerun()
+                
+                # Display meal tracker
+                if st.session_state.meal_tracker:
+                    st.markdown("---")
+                    st.subheader("Today's Foods")
+                    
+                    total_phe = 0
+                    total_protein = 0
+                    total_calories = 0
+                    
+                    for idx, item in enumerate(st.session_state.meal_tracker):
+                        col1, col2, col3, col4, col5 = st.columns([3, 1, 1, 1, 1])
+                        with col1:
+                            st.write(f"{item['food']}")
+                        with col2:
+                            st.write(f"×{item['servings']:.1f}")
+                        with col3:
+                            st.write(f"{item['phe_mg']:.0f} mg")
+                        with col4:
+                            st.write(f"{item['protein_g']:.1f}g")
+                        with col5:
+                            if st.button("🗑️", key=f"delete_{idx}"):
+                                st.session_state.meal_tracker.pop(idx)
+                                st.rerun()
+                        
+                        total_phe += item['phe_mg']
+                        total_protein += item['protein_g']
+                        total_calories += item['calories']
+                    
+                    st.markdown("---")
+                    st.subheader("Daily Totals")
+                    
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
+                        phe_status = "✅" if needs['phe_mg_min'] <= total_phe <= needs['phe_mg_max'] else "⚠️"
+                        st.metric(
+                            "PHE from Foods",
+                            f"{total_phe:.0f} mg {phe_status}",
+                            f"Target: {needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg"
+                        )
+                    
+                    with col2:
+                        # Calculate remaining protein needed from Phenex
+                        protein_from_phenex = needs['protein_g'] - total_protein
+                        phenex = calculate_phenex_amount(needs['protein_g'], total_protein, age_months)
+                        st.metric(
+                            f"{phenex['phenex_type']} Needed",
+                            f"{phenex['phenex_grams']:.1f} g"
+                        )
+                    
+                    with col3:
+                        total_cal_with_phenex = total_calories + phenex['calories_kcal']
+                        st.metric(
+                            "Total Calories",
+                            f"{total_cal_with_phenex:.0f} kcal",
+                            f"Target: {needs['energy_kcal']:.0f} kcal"
+                        )
+                    
+                    # Visual representation
+                    if total_phe > 0:
+                        fig = go.Figure()
+                        
+                        fig.add_trace(go.Bar(
+                            name='Current PHE',
+                            x=['PHE Intake'],
+                            y=[total_phe],
+                            marker_color='lightblue'
+                        ))
+                        
+                        fig.add_trace(go.Scatter(
+                            name='Target Range',
+                            x=['PHE Intake', 'PHE Intake'],
+                            y=[needs['phe_mg_min'], needs['phe_mg_max']],
+                            mode='lines',
+                            line=dict(color='green', width=3, dash='dash')
+                        ))
+                        
+                        fig.update_layout(
+                            title="PHE Intake vs Target Range",
+                            yaxis_title="PHE (mg)",
+                            showlegend=True,
+                            height=400
+                        )
+                        
+                        st.plotly_chart(fig, use_container_width=True)
+                    
+                    if st.button("🗑️ Clear All Foods"):
+                        st.session_state.meal_tracker = []
+                        st.rerun()
+        
+        with tabs[1]:
+            st.header("📚 Food Database")
+            st.markdown("""
+            ### Low-PHE Food Options
+            
+            Below are some examples of low-phenylalanine foods. Always check portion sizes!
+            """)
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.subheader("Very Low PHE (< 15 mg per serving)")
+                st.markdown("""
+                **Fruits:**
+                - Apples, pears, grapes
+                - Oranges, grapefruit
+                - Berries (strawberries, blueberries)
+                - Watermelon, cantaloupe
+                
+                **Vegetables:**
+                - Lettuce, cucumber
+                - Tomatoes, peppers
+                - Carrots, celery
+                - Green beans, squash
+                """)
+            
+            with col2:
+                st.subheader("Low PHE (15-30 mg per serving)")
+                st.markdown("""
+                **Grains (small portions):**
+                - Rice (30g cooked)
+                - Pasta (30g cooked)
+                - Corn (small amounts)
+                
+                **Other:**
+                - Special low-protein breads
+                - Special low-protein pasta
+                - Some cereals (limited)
+                """)
+            
+            st.warning("""
+            ⚠️ **HIGH PHE FOODS TO AVOID:**
+            - Meat, poultry, fish
+            - Eggs and dairy products
+            - Nuts and seeds
+            - Regular bread and pasta (large amounts)
+            - Beans and lentils
+            - Soy products
+            """)
+        
+        with tabs[2]:
+            st.header("📖 PKU Management Resources")
+            
+            st.subheader("Understanding Your Numbers")
+            st.markdown("""
+            **Blood PHE Levels:**
+            - **Target for children:** 2-5 mg/dL (120-300 µmol/L)
+            - **Target for adults:** 2-10 mg/dL (120-600 µmol/L)
+            - Levels should be checked regularly (weekly to monthly depending on age and control)
+            
+            **What affects PHE levels:**
+            - Amount of PHE eaten from foods
+            - Adequate calorie and protein intake
+            - Illness or stress
+            - Growth spurts in children
+            """)
+            
+            st.subheader("Tips for Success")
+            st.markdown("""
+            **For Babies:**
+            1. Mix Phenex fresh daily and refrigerate
+            2. Warm bottles to room temperature (never microwave)
+            3. Keep accurate records of all feedings
+            4. Watch for signs of PHE deficiency: poor weight gain, lethargy, rash
+            5. Never skip blood tests - they guide your baby's diet
+            
+            **For Children & Adults:**
+            1. Take Phenex medical food consistently (divide throughout the day)
+            2. Measure foods with a food scale for accuracy
+            3. Plan meals in advance
+            4. Keep emergency low-PHE snacks available
+            5. Communicate with your metabolic team regularly
+            """)
+            
+            st.subheader("When to Contact Your Metabolic Clinic")
+            st.error("""
+            **Contact immediately if:**
+            - Blood PHE > 15 mg/dL
+            - Blood PHE < 1 mg/dL
+            - Baby is refusing feedings
+            - Unexpected weight loss
+            - Persistent vomiting or diarrhea
+            - Unusual lethargy or behavior changes
+            """)
+            
+            st.info("""
+            **Routine Contact:**
+            - Before making major diet changes
+            - When starting new medications
+            - If having trouble following the diet
+            - For recipe ideas and support
+            - When planning pregnancy (females)
+            """)
+            
+            st.subheader("Important Reminders")
+            st.warning("""
+            - This app is a tool to help manage your PKU diet
+            - Always follow your metabolic team's specific recommendations
+            - Never make major diet changes without consulting your doctor/dietitian
+            - Blood PHE monitoring is essential - never skip tests
+            - PKU is manageable with proper diet and monitoring
+            """)
 
-        except Exception as e:
-            st.error("❌ Gemini API error.")
-            st.error(f"Error details: {str(e)}")
-            st.info("💡 Try checking if your API key is valid and has access to Gemini models.")
+# RUN APPLICATION
+
+if __name__ == "__main__":
+    main()
