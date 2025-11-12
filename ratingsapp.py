@@ -372,8 +372,8 @@ elif st.session_state.page == 1.5:
                 if meals_dict:
                     # Get all meal names from this cuisine
                     meal_names = list(meals_dict.keys())
-                    # Sample up to 15 random meals
-                    sampled_meals = random.sample(meal_names, min(15, len(meal_names)))
+                    # Sample up to 20 random meals
+                    sampled_meals = random.sample(meal_names, min(20, len(meal_names)))
                     
                     # Add to our list with cuisine prefix
                     for meal in sampled_meals:
