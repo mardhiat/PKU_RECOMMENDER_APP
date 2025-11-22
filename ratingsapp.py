@@ -504,12 +504,30 @@ elif st.session_state.page == 3:
         
         # Display all three types
         tab1, tab2, tab3 = st.tabs([
+            "🔀 Hybrid (Recommended)",
             "🎯 Content-Based", 
-            "👥 Collaborative", 
-            "🔀 Hybrid (Recommended)"
+            "👥 Collaborative"
         ])
         
         with tab1:
+            st.write("**Method:** Combined content-based + collaborative (60% content, 40% collaborative)")
+            top_5 = sorted(hybrid_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
+            if top_5 and top_5[0][1] > 0:
+                for i, (food, score) in enumerate(top_5, 1):
+                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                    st.write("*Ingredients:* " + ", ".join(selected_cuisine_foods.get(food, [])))
+                    feedback = st.radio(
+                        "Do you like this recommendation?",
+                        ("👍 Thumbs Up", "👎 Thumbs Down"),
+                        key=f"hybrid_sel_{i}",
+                        horizontal=True
+                    )
+                    st.session_state.user_data[f"Hybrid_Selected_{food}"] = feedback
+                    st.divider()
+            else:
+                st.info("Not enough data for hybrid recommendations.")
+        
+        with tab2:
             st.write("**Method:** Ingredient similarity analysis")
             top_5 = sorted(content_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
             if top_5 and top_5[0][1] > 0:
@@ -527,7 +545,7 @@ elif st.session_state.page == 3:
             else:
                 st.info("Not enough data for content-based recommendations.")
         
-        with tab2:
+        with tab3:
             st.write("**Method:** Similar users' preferences")
             if not historical_df.empty:
                 top_5 = sorted(collaborative_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
@@ -548,53 +566,85 @@ elif st.session_state.page == 3:
             else:
                 st.info("No historical data available yet. Collaborative filtering requires multiple users.")
         
-        with tab3:
-            st.write("**Method:** Combined content-based + collaborative (60% content, 40% collaborative)")
-            top_5 = sorted(hybrid_scores_selected.items(), key=lambda x: x[1], reverse=True)[:5]
-            if top_5 and top_5[0][1] > 0:
-                for i, (food, score) in enumerate(top_5, 1):
-                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
-                    st.write("*Ingredients:* " + ", ".join(selected_cuisine_foods.get(food, [])))
-                    feedback = st.radio(
-                        "Do you like this recommendation?",
-                        ("👍 Thumbs Up", "👎 Thumbs Down"),
-                        key=f"hybrid_sel_{i}",
-                        horizontal=True
-                    )
-                    st.session_state.user_data[f"Hybrid_Selected_{food}"] = feedback
-                    st.divider()
-            else:
-                st.info("Not enough data for hybrid recommendations.")
-        
         st.markdown("---")
         
         # === RECOMMENDATIONS FROM ALL CUISINES ===
         st.markdown("### 🌍 Top 5 Dishes Across All Cuisines")
         st.write("Expanding recommendations to include all available cuisines")
         
+        # Filter to EXCLUDE selected cuisines (prioritize new cuisines)
+        unrated_other_cuisines = [
+            f for f in unrated_all 
+            if not any(cuisine in f for cuisine in st.session_state.selected_cuisines)
+        ]
+        
+        # If we have dishes from other cuisines, use those; otherwise fall back to all
+        unrated_for_global = unrated_other_cuisines if unrated_other_cuisines else unrated_all
+        
         # Content-Based
         content_scores_all = content_based_recommendation(
-            all_cuisine_foods, liked_foods, unrated_all
+            all_cuisine_foods, liked_foods, unrated_for_global
         )
         
         # Collaborative
         collaborative_scores_all = collaborative_filtering_recommendation(
-            historical_df, rated_foods, unrated_all
+            historical_df, rated_foods, unrated_for_global
         )
         
-        # Hybrid
+        # Hybrid - use different weighting for exploration (more collaborative)
         hybrid_scores_all = hybrid_recommendation(
-            content_scores_all, collaborative_scores_all, alpha=0.6
+            content_scores_all, collaborative_scores_all, alpha=0.4
         )
         
         # Display all three types
         tab4, tab5, tab6 = st.tabs([
+            "🔀 Hybrid (Recommended)",
             "🎯 Content-Based", 
-            "👥 Collaborative", 
-            "🔀 Hybrid (Recommended)"
+            "👥 Collaborative"
         ])
         
         with tab4:
+            st.write("**Method:** Combined content-based + collaborative (40% content, 60% collaborative)")
+            
+            # Get diversified recommendations - ensure variety across cuisines
+            def get_diverse_recommendations(scores_dict, max_items=5, max_per_cuisine=2):
+                """Select diverse recommendations with limited items per cuisine"""
+                sorted_items = sorted(scores_dict.items(), key=lambda x: x[1], reverse=True)
+                selected = []
+                cuisine_count = {}
+                
+                for food, score in sorted_items:
+                    if len(selected) >= max_items:
+                        break
+                    
+                    # Extract cuisine name from food (format: "Dish Name (Cuisine)")
+                    cuisine = food.split('(')[-1].strip(')')
+                    
+                    # Check if we haven't exceeded max for this cuisine
+                    if cuisine_count.get(cuisine, 0) < max_per_cuisine:
+                        selected.append((food, score))
+                        cuisine_count[cuisine] = cuisine_count.get(cuisine, 0) + 1
+                
+                return selected
+            
+            top_5 = get_diverse_recommendations(hybrid_scores_all, max_items=5, max_per_cuisine=2)
+            
+            if top_5 and top_5[0][1] > 0:
+                for i, (food, score) in enumerate(top_5, 1):
+                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
+                    st.write("*Ingredients:* " + ", ".join(all_cuisine_foods.get(food, [])))
+                    feedback = st.radio(
+                        "Do you like this recommendation?",
+                        ("👍 Thumbs Up", "👎 Thumbs Down"),
+                        key=f"hybrid_all_{i}",
+                        horizontal=True
+                    )
+                    st.session_state.user_data[f"Hybrid_All_{food}"] = feedback
+                    st.divider()
+            else:
+                st.info("Not enough data for hybrid recommendations.")
+        
+        with tab5:
             st.write("**Method:** Ingredient similarity analysis")
             top_5 = sorted(content_scores_all.items(), key=lambda x: x[1], reverse=True)[:5]
             if top_5 and top_5[0][1] > 0:
@@ -612,7 +662,7 @@ elif st.session_state.page == 3:
             else:
                 st.info("Not enough data for content-based recommendations.")
         
-        with tab5:
+        with tab6:
             st.write("**Method:** Similar users' preferences")
             if not historical_df.empty:
                 top_5 = sorted(collaborative_scores_all.items(), key=lambda x: x[1], reverse=True)[:5]
@@ -632,24 +682,6 @@ elif st.session_state.page == 3:
                     st.info("Not enough similar users found.")
             else:
                 st.info("No historical data available yet. Collaborative filtering requires multiple users.")
-        
-        with tab6:
-            st.write("**Method:** Combined content-based + collaborative (60% content, 40% collaborative)")
-            top_5 = sorted(hybrid_scores_all.items(), key=lambda x: x[1], reverse=True)[:5]
-            if top_5 and top_5[0][1] > 0:
-                for i, (food, score) in enumerate(top_5, 1):
-                    st.markdown(f"**{i}. {food}** (Score: {score:.3f})")
-                    st.write("*Ingredients:* " + ", ".join(all_cuisine_foods.get(food, [])))
-                    feedback = st.radio(
-                        "Do you like this recommendation?",
-                        ("👍 Thumbs Up", "👎 Thumbs Down"),
-                        key=f"hybrid_all_{i}",
-                        horizontal=True
-                    )
-                    st.session_state.user_data[f"Hybrid_All_{food}"] = feedback
-                    st.divider()
-            else:
-                st.info("Not enough data for hybrid recommendations.")
     else:
         st.info("Please rate at least one food with 4 or 5 stars to receive recommendations.")
     
