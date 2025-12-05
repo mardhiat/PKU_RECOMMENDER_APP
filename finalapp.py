@@ -17,16 +17,38 @@ def load_consolidated_foods():
     """Load consolidated nutrient database."""
     try:
         df = pd.read_csv("consolidated_chat_ingredients.csv")
+        print(f"COLUMNS BEFORE: {df.columns.tolist()}")
         df.columns = [c.strip().lower() for c in df.columns]
-        if "name" not in df.columns and "Ingredient" in df.columns:
-            df = df.rename(columns={"Ingredient": "name"})
-        # Normalize numerics
-        for c in ["PHE(mg)", "Protein(g)", "Energy(kcal)", "Serving_Size(g)"]:
+        print(f"COLUMNS AFTER: {df.columns.tolist()}")
+        
+        # Rename 'ingredient' to 'name' for consistency
+        if "ingredient" in df.columns:
+            df = df.rename(columns={"ingredient": "name"})
+            
+        # Check mint row before normalization
+        mint_rows = df[df["name"].str.lower() == "mint"]
+        if not mint_rows.empty:
+            print(f"MINT ROW BEFORE NUMERIC CONVERSION: {mint_rows.iloc[0].to_dict()}")
+            
+        # Normalize numerics (using lowercase column names after normalization)
+        for c in ["phe(mg)", "protein(g)", "energy(kcal)", "serving_size(g)"]:
             if c in df.columns:
                 df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0.0)
-        # Ensure 'name' is string
+                
+        # Check mint row after normalization
+        mint_rows = df[df["name"].str.lower() == "mint"]
+        if not mint_rows.empty:
+            print(f"MINT ROW AFTER NUMERIC CONVERSION: {mint_rows.iloc[0].to_dict()}")
+            
+        # Ensure 'name' is string, stripped, and LOWERCASE for matching
         if "name" in df.columns:
-            df["name"] = df["name"].astype(str)
+            df["name"] = df["name"].astype(str).str.strip().str.lower()
+
+         # After loading, check for duplicate names
+        duplicates = df[df.duplicated(subset=['name'], keep=False)]
+        if not duplicates.empty:
+            print(f"DUPLICATE INGREDIENTS FOUND:\n{duplicates[['name', 'phe(mg)', 'protein(g)', 'energy(kcal)', 'serving_size(g)']].to_string()}")
+
         return df
     except Exception as e:
         st.warning(f"Could not load consolidated_chat_ingredients.csv: {e}")
@@ -259,45 +281,80 @@ def normalize_name(s):
 
 def parse_portion(text):
     """Parse simple amount strings that start with a number (interpreted as grams)."""
-    if not isinstance(text, str):
+    if text is None or text == "" or str(text).lower() == "nan":
         return None
-    s = text.strip().lower()
-    if not s:
+    
+    # If it's already a number, return it
+    if isinstance(text, (int, float)):
+        return float(text) if text > 0 else None
+    
+    # If it's a string, try to extract the first number
+    s = str(text).strip().lower()
+    if not s or s == "nan":
         return None
+    
     tokens = s.split()
     try:
         qty = float(tokens[0])
-        return qty
-    except Exception:
+        return qty if qty > 0 else None
+    except (ValueError, IndexError):
         return None
 
 def select_best_match(name, food_db):
-    """Find best matching ingredient in database."""
+    """Find best matching ingredient in database (case-insensitive)."""
     if food_db.empty or "name" not in food_db.columns:
         return None
+    
     target = normalize_name(name)
-    names_col = food_db["name"].str.lower()
+    names_col = food_db["name"]
+    
+    # Helper to prefer non-zero entries
+    def prefer_nonzero(matches):
+        if matches.empty:
+            return None
+        non_zero = matches[(matches["phe(mg)"] > 0) | (matches["protein(g)"] > 0) | (matches["energy(kcal)"] > 0)]
+        return non_zero.iloc[0] if not non_zero.empty else matches.iloc[0]
+    
+    # Try exact match
     exact = food_db[names_col == target]
-    if len(exact) == 1:
-        return exact.iloc[0]
-    sw = food_db[names_col.str.startswith(target)]
+    if len(exact) >= 1:
+        return prefer_nonzero(exact)
+    
+    # Try startswith (e.g., "mint" matches "mint, fresh")
+    sw = food_db[names_col.str.startswith(target, na=False)]
     if len(sw) >= 1:
-        return sw.iloc[0]
-    ct = food_db[names_col.str.contains(target)]
+        return prefer_nonzero(sw)
+    
+    # Try contains (e.g., "garlic" matches "garlic, raw")
+    ct = food_db[names_col.str.contains(target, na=False, regex=False)]
     if len(ct) >= 1:
-        return ct.iloc[0]
+        return prefer_nonzero(ct)
+    
+    # Try reverse contains with minimum length
+    for idx, db_name in enumerate(names_col):
+        if db_name and len(db_name) > 3 and db_name in target:
+            match_row = food_db.iloc[idx]
+            if match_row["phe(mg)"] > 0 or match_row["protein(g)"] > 0 or match_row["energy(kcal)"] > 0:
+                return match_row
+    
     return None
 
 def scale_nutrients(row, weight_g):
     """Scale nutrients per ingredient by grams."""
     serving_size = row.get("serving_size(g)", 100.0)
-    phe_serv     = row.get("phe(mg)", 0.0)
-    prot_serv    = row.get("protein(g)", 0.0)
-    cal_serv     = row.get("energy(kcal)", 0.0)
+    if serving_size == 0:
+        serving_size = 100.0
+    
+    phe_serv = row.get("phe(mg)", 0.0)
+    prot_serv = row.get("protein(g)", 0.0)
+    cal_serv = row.get("energy(kcal)", 0.0)
+    
+    print(f"SCALE DEBUG: serving={serving_size}, phe={phe_serv}, prot={prot_serv}, cal={cal_serv}")
 
-    phe_per_g = (phe_serv / serving_size) if serving_size else 0.0
-    prot_per_g = (prot_serv / serving_size) if serving_size else 0.0
-    cal_per_g = (cal_serv / serving_size) if serving_size else 0.0
+    phe_per_g = (phe_serv / serving_size)
+    prot_per_g = (prot_serv / serving_size)
+    cal_per_g = (cal_serv / serving_size)
+    
     return {
         "weight_g": weight_g,
         "phe_mg": phe_per_g * weight_g,
@@ -317,7 +374,9 @@ def compute_dish_nutrients(dish_df, food_db):
         amount = parse_portion(str(row.get("amount", "")))
         if not ing_name or amount is None:
             continue
+        print(f"DEBUG: ingredient='{ing_name}', raw_amount='{row.get('amount', 'MISSING')}', parsed={amount}")
         match = select_best_match(ing_name, food_db)
+        print(f"MATCH RESULT: {match['name'] if match is not None else 'NOT FOUND'}")
         if match is None:
             ingredients_list.append({
                 "name": ing_name,
@@ -344,6 +403,14 @@ def compute_dish_nutrients(dish_df, food_db):
             "weight_g": total_weight
         }
     }
+
+def update_daily_totals():
+    totals = {"phe_mg": 0.0, "protein_g": 0.0, "calories": 0.0}
+    for food in st.session_state.selected_foods_list:
+        totals["phe_mg"] += food.get("phe_mg", 0.0)
+        totals["protein_g"] += food.get("protein_g", 0.0)
+        totals["calories"] += food.get("calories", 0.0)
+    st.session_state.daily_totals = totals
 
 # -------------------------------------------------------
 # Baby diet computation (beikost + milk + medical food gap)
@@ -392,54 +459,8 @@ def calculate_baby_diet_with_solids(age_months, weight_kg, milk_type, solid_food
 
 def display_baby_diet_plan(result):
     st.markdown("---")
-    st.header("📋 Daily diet plan")
-    needs = result['needs']
-    st.subheader(f"Nutritional targets ({needs['age_group']})")
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.metric("Protein", f"{needs['protein_g']:.1f} g")
-    with c2:
-        st.metric("PHE range", f"{needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg")
-    with c3:
-        st.metric("Calories", f"{needs['energy_kcal']:.0f} kcal")
-
-    if result['solid_foods']['foods']:
-        st.markdown("---")
-        st.markdown("### 🍽️ Solid foods (beikost)")
-        for food in result['solid_foods']['foods']:
-            with st.expander(f"{food['meal']}: {food['name']}"):
-                cc1, cc2 = st.columns(2)
-                with cc1:
-                    st.write(f"**Amount:** {food['weight_g']:.0f} g")
-                    st.write(f"**PHE:** {food['phe_mg']:.0f} mg")
-                with cc2:
-                    st.write(f"**Protein:** {food['protein_g']:.2f} g")
-                    st.write(f"**Calories:** {food['calories']:.0f} kcal")
-        st.markdown(
-            f"**Total from solids:** PHE {result['solid_foods']['total_phe_mg']:.0f} mg | "
-            f"Protein {result['solid_foods']['total_protein_g']:.2f} g | "
-            f"Calories {result['solid_foods']['total_calories']:.0f} kcal"
-        )
-
-    st.markdown("---")
-    c1, c2 = st.columns(2)
-    with c1:
-        st.markdown(f"#### {result['milk']['milk_type']}")
-        st.markdown(f"- **{result['milk']['milk_ml']:.0f} mL** per day")
-        st.markdown(f"- PHE: {result['milk']['phe_mg']:.0f} mg")
-        st.markdown(f"- Protein: {result['milk']['protein_g']:.2f} g")
-        st.markdown(f"- Calories: {result['milk']['calories_kcal']:.0f} kcal")
-    with c2:
-        st.markdown("#### Medical food (needs only)")
-        gap = result['medical_food_gap']
-        st.markdown(f"- Protein gap to fill: **{gap['protein_gap_g']:.2f} g**")
-        st.markdown(f"- Estimated powder: {gap['estimated_powder_g']:.1f} g")
-        st.markdown(f"- Estimated calories: {gap['estimated_calories_kcal']:.0f} kcal")
-        st.markdown("- Phenylalanine: 0 mg (no PHE)")
-
-    st.markdown("---")
     st.subheader("📈 Daily totals")
-    totals = result['totals']
+    totals = st.session_state.get("daily_totals", result['totals'])
     c1, c2, c3 = st.columns(3)
     with c1:
         st.metric("Total protein", f"{totals['protein_g']:.2f} g", f"Target: {needs['protein_g']:.2f} g")
@@ -458,7 +479,7 @@ def add_custom_dish_ui(consolidated_db):
     st.markdown("#### Add a custom dish")
     with st.form("custom_dish_form", clear_on_submit=False):
         dish_name = st.text_input("Dish name")
-        meal_type_label = st.selectbox("Assign to meal", ["Breakfast", "Lunch", "Dinner", "Snack"])
+        meal_type_label = st.selectbox("Assign to meal", ["Breakfast", "Lunch", "Dinner", "Snack", "ALL"], index=4)
         st.markdown("Enter ingredients (name and grams). If not found in DB, you may add PHE/protein/kcal per 100 g.")
         ing_cols = st.columns([3, 1, 1, 1, 1])
         # Collect up to 8 ingredients for simplicity
@@ -664,79 +685,83 @@ def main():
 
         # Child/Adult flow (1+ years)
         else:
+            # Get daily nutritional needs based on age
             needs = get_child_adult_daily_needs(age_months, st.session_state.user_weight, st.session_state.user_sex)
 
-            st.markdown("---")
-            st.header("🌍 Select meals from cuisines")
+            cuisine_choice = st.selectbox("Choose cuisine:", ["All Foods"] + list(cuisine_db.keys()))
 
-            if not cuisine_db:
-                st.error("No cuisine databases loaded. Please ensure cuisine CSV files are in the current directory.")
+            if cuisine_choice == "All Foods":
+                # Use consolidated ingredients database
+                cuisine_df = consolidated_db
+                search_space = consolidated_db["name"].unique().tolist()
             else:
-                cuisine_choice = st.selectbox("Choose cuisine:", list(cuisine_db.keys()))
-                if cuisine_choice:
-                    cuisine_df = cuisine_db[cuisine_choice]
-                    # BS/LD handling
-                    cuisine_without_types = cuisine_choice in ["Japanese", "Mediterranean", "Mexican"]
-                    meal_category = st.radio("Meal category:", ["Breakfast/Snack", "Lunch/Dinner"])
-                    if not cuisine_without_types and "Meal Type" in cuisine_df.columns and cuisine_df["Meal Type"].nunique() > 1:
-                        filtered_df = cuisine_df[cuisine_df["Meal Type"] == ("BS" if meal_category == "Breakfast/Snack" else "LD")]
-                    else:
-                        # For cuisines without BS/LD, show ALL for both
-                        filtered_df = cuisine_df
+                # Use the selected cuisine database
+                cuisine_df = cuisine_db[cuisine_choice]
+                search_space = cuisine_df["dish"].unique().tolist() if "dish" in cuisine_df.columns else []
 
-                    # Type-ahead search for dishes
-                    st.markdown("#### Search and select a dish")
-                    search_query = st.text_input("Type to search dishes:", "")
-                    unique_dishes = filtered_df["dish"].dropna().astype(str).unique().tolist()
-                    matching_dishes = [d for d in unique_dishes if search_query.lower() in d.lower()] if search_query else unique_dishes
-                    selected_dish = st.selectbox("Available dishes:", matching_dishes) if matching_dishes else None
+            # BS/LD handling
+            cuisine_without_types = cuisine_choice in ["Japanese", "Mediterranean", "Mexican"]
+            meal_category = st.radio("Meal category:", ["Breakfast/Snack", "Lunch/Dinner"])
+            if not cuisine_without_types and "Meal Type" in cuisine_df.columns and cuisine_df["Meal Type"].nunique() > 1:
+                filtered_df = cuisine_df[cuisine_df["Meal Type"] == ("BS" if meal_category == "Breakfast/Snack" else "LD")]
+            else:
+                # For cuisines without BS/LD, show ALL for both
+                filtered_df = cuisine_df
 
-                    if selected_dish:
-                        dish_rows = filtered_df[filtered_df["dish"] == selected_dish]
-                        dish_nutrients = compute_dish_nutrients(dish_rows, consolidated_db)
+            # Type-ahead search for dishes
+            st.markdown("#### Search and select a dish")
+            search_query = st.text_input("Type to search dishes:", "")
+            unique_dishes = filtered_df["dish"].dropna().astype(str).unique().tolist() if "dish" in filtered_df.columns else []
+            matching_dishes = [d for d in unique_dishes if search_query.lower() in d.lower()] if search_query else unique_dishes
+            selected_dish = st.selectbox("Available dishes:", matching_dishes) if matching_dishes else None
 
-                        with st.expander(f"📖 View ingredients for '{selected_dish}'", expanded=True):
-                            st.markdown("**Ingredients:**")
-                            for ing in dish_nutrients["ingredients"]:
-                                line = f"- {ing['name']}: {ing['weight_g']:.0f} g"
-                                line += f" (PHE: {ing['phe_mg']:.0f} mg, Protein: {ing['protein_g']:.2f} g, Calories: {ing['calories']:.0f} kcal)"
-                                if ing.get("note"):
-                                    line += f" ⚠️ {ing['note']}"
-                                st.write(line)
-                            st.markdown("---")
-                            tot = dish_nutrients["totals"]
-                            st.markdown(f"**Dish totals:** PHE {tot['phe_mg']:.0f} mg | Protein {tot['protein_g']:.2f} g | Calories {tot['calories']:.0f} kcal | Weight {tot['weight_g']:.0f} g")
+            if selected_dish:
+                dish_rows = filtered_df[filtered_df["dish"] == selected_dish] if "dish" in filtered_df.columns else pd.DataFrame()
+                dish_nutrients = compute_dish_nutrients(dish_rows, consolidated_db)
 
-                        assign_meal = st.selectbox("Assign to meal:", ["Breakfast", "Lunch", "Dinner", "Snack"])
-                        if st.button(f"➕ Add '{selected_dish}' to my plan", type="primary"):
-                            st.session_state.selected_foods_list.append({
-                                "meal": assign_meal,
-                                "name": selected_dish,
-                                "weight_g": dish_nutrients["totals"]["weight_g"],
-                                "phe_mg": dish_nutrients["totals"]["phe_mg"],
-                                "protein_g": dish_nutrients["totals"]["protein_g"],
-                                "calories": dish_nutrients["totals"]["calories"],
-                            })
-                            st.success(f"✅ Added '{selected_dish}' to your plan!")
-                            st.rerun()
-                    elif search_query:
-                        st.info("No dishes match your search. Try different keywords.")
+                with st.expander(f"📖 View ingredients for '{selected_dish}'", expanded=True):
+                    st.markdown("**Ingredients:**")
+                    for ing in dish_nutrients["ingredients"]:
+                        line = f"- {ing['name']}: {ing['weight_g']:.0f} g"
+                        line += f" (PHE: {ing['phe_mg']:.0f} mg, Protein: {ing['protein_g']:.2f} g, Calories: {ing['calories']:.0f} kcal)"
+                        if ing.get("note"):
+                            line += f" ⚠️ {ing['note']}"
+                        st.write(line)
+                    st.markdown("---")
+                    tot = dish_nutrients["totals"]
+                    st.markdown(f"**Dish totals:** PHE {tot['phe_mg']:.0f} mg | Protein {tot['protein_g']:.2f} g | Calories {tot['calories']:.0f} kcal | Weight {tot['weight_g']:.0f} g")
 
-                # Add custom dish
-                st.markdown("---")
-                if st.button("➕ Add a custom dish"):
-                    custom_dish = add_custom_dish_ui(consolidated_db)
-                    if custom_dish:
-                        st.session_state.selected_foods_list.append({
-                            "meal": custom_dish["meal"],
-                            "name": custom_dish["name"],
-                            "weight_g": custom_dish["weight_g"],
-                            "phe_mg": custom_dish["phe_mg"],
-                            "protein_g": custom_dish["protein_g"],
-                            "calories": custom_dish["calories"],
-                        })
-                        st.rerun()
+                assign_meal = st.selectbox("Assign to meal:", ["Breakfast", "Lunch", "Dinner", "Snack"])
+                if st.button(f"➕ Add '{selected_dish}' to my plan", type="primary"):
+                    st.session_state.selected_foods_list.append({
+                        "meal": assign_meal,
+                        "name": selected_dish,
+                        "weight_g": dish_nutrients["totals"]["weight_g"],
+                        "phe_mg": dish_nutrients["totals"]["phe_mg"],
+                        "protein_g": dish_nutrients["totals"]["protein_g"],
+                        "calories": dish_nutrients["totals"]["calories"],
+                    })
+                    update_daily_totals()
+                    st.success(f"✅ Added '{selected_dish}' to your plan!")
+                    st.rerun()
+            elif search_query:
+                st.info("No dishes match your search. Try different keywords.")
 
+            # Add custom dish
+            st.markdown("---")
+            with st.expander("➕ Add a custom dish"):
+                custom_dish = add_custom_dish_ui(consolidated_db)
+                if custom_dish:
+                    st.session_state.selected_foods_list.append({
+                        "meal": custom_dish["meal"],
+                        "name": custom_dish["name"],
+                        "weight_g": custom_dish["weight_g"],
+                        "phe_mg": custom_dish["phe_mg"],
+                        "protein_g": custom_dish["protein_g"],
+                        "calories": custom_dish["calories"],
+                    })
+                    update_daily_totals()
+                    st.rerun()
 
             # Current meal plan list
             if st.session_state.selected_foods_list:
@@ -751,9 +776,11 @@ def main():
                     with c3:
                         if st.button("🗑️", key=f"del_{i}"):
                             st.session_state.selected_foods_list.pop(i)
+                            update_daily_totals()
                             st.rerun()
                 if st.button("🗑️ Clear all meals"):
                     st.session_state.selected_foods_list = []
+                    update_daily_totals()
                     st.rerun()
 
             # Totals and medical food needs
@@ -778,6 +805,7 @@ def main():
             total_protein = total_food_protein + gap['protein_gap_g']
             total_calories = total_food_calories + gap['estimated_calories_kcal']
 
+            st.markdown("---")
             st.markdown("#### Medical food (needs only)")
             st.markdown(f"- Protein gap to fill: **{gap['protein_gap_g']:.1f} g**")
             st.markdown(f"- Estimated powder: {gap['estimated_powder_g']:.1f} g")
@@ -788,12 +816,19 @@ def main():
             st.subheader("📈 Daily nutrition totals")
             c1, c2, c3 = st.columns(3)
             with c1:
-                st.metric("Total protein", f"{total_protein:.1f} g", f"Target: {needs['protein_g']:.0f} g")
+                delta_protein = total_protein - needs['protein_g']
+                st.metric("Total protein", f"{total_protein:.1f} g", 
+                         f"{'+'if delta_protein >= 0 else ''}{delta_protein:.1f} g",
+                         delta_color="normal" if abs(delta_protein) < 5 else "off")
             with c2:
-                st.metric("Total PHE", f"{total_food_phe:.0f} mg",
-                          f"Range: {needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg" + (" ✅" if phe_ok else " ⚠️"))
+                phe_status = " ✅" if phe_ok else " ⚠️"
+                st.metric("Total PHE", f"{total_food_phe:.0f} mg{phe_status}",
+                          f"Range: {needs['phe_mg_min']:.0f}-{needs['phe_mg_max']:.0f} mg")
             with c3:
-                st.metric("Total calories", f"{total_calories:.0f} kcal", f"Target: {needs['energy_kcal']:.0f} kcal")
+                delta_cal = total_calories - needs['energy_kcal']
+                st.metric("Total calories", f"{total_calories:.0f} kcal", 
+                         f"{'+'if delta_cal >= 0 else ''}{delta_cal:.0f} kcal",
+                         delta_color="normal" if abs(delta_cal) < 200 else "off")
 
             remaining_cal = needs['energy_kcal'] - total_calories
             if remaining_cal > 500:
@@ -803,6 +838,17 @@ def main():
                     "- Low-protein breads and pastas\n"
                     "- PKU-safe fruits and vegetables"
                 )
+            elif remaining_cal < -500:
+                st.warning(
+                    f"⚠️ {abs(remaining_cal):.0f} kcal over target.\n\n"
+                    "Consider reducing portion sizes or adjusting meal plan."
+                )
+
+            if not phe_ok:
+                if total_food_phe < needs['phe_mg_min']:
+                    st.info(f"ℹ️ PHE is {needs['phe_mg_min'] - total_food_phe:.0f} mg below minimum. Consider adding more protein-containing foods.")
+                else:
+                    st.warning(f"⚠️ PHE is {total_food_phe - needs['phe_mg_max']:.0f} mg above maximum. Reduce protein-containing foods.")
 
         # Info
         st.markdown("---")
