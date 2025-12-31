@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime, date
 import os
+import requests
 
 # -------------------------------------------------------
 # App config
@@ -9,49 +10,111 @@ import os
 st.set_page_config(page_title="PKU Diet Manager", layout="wide")
 
 # -------------------------------------------------------
+# USDA API Integration
+# -------------------------------------------------------
+
+# 🔑 Get API key from secrets
+try:
+    USDA_API_KEY = st.secrets["USDA_API_KEY"]
+except (KeyError, FileNotFoundError):
+    USDA_API_KEY = None
+    st.warning("⚠️ USDA API key not found in secrets.toml. Add it to enable food database search.")
+
+@st.cache_data(ttl=86400)  # Cache for 24 hours
+def search_usda_foods(query):
+    """Search USDA FoodData Central"""
+    if not query or USDA_API_KEY is None:
+        return []
+    
+    url = "https://api.nal.usda.gov/fdc/v1/foods/search"
+    params = {
+        "query": query,
+        "pageSize": 20,
+        "api_key": USDA_API_KEY
+    }
+    try:
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        return response.json().get('foods', [])
+    except Exception as e:
+        st.warning(f"USDA API error: {e}")
+        return []
+
+@st.cache_data(ttl=86400)
+def get_usda_food_details(fdc_id):
+    """Get detailed nutrition for a specific food"""
+    if USDA_API_KEY is None:
+        return None
+        
+    url = f"https://api.nal.usda.gov/fdc/v1/food/{fdc_id}"
+    params = {"api_key": USDA_API_KEY}
+    try:
+        response = requests.get(url, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        
+        nutrients = {
+            "phe(mg)": 0.0,
+            "protein(g)": 0.0,
+            "energy(kcal)": 0.0,
+            "serving_size(g)": 100.0,
+            "name": data.get('description', '').strip().lower()
+        }
+        
+        for nutrient in data.get('foodNutrients', []):
+            nutrient_name = nutrient.get('nutrient', {}).get('name', '').lower()
+            amount = nutrient.get('amount', 0)
+            
+            if 'phenylalanine' in nutrient_name:
+                nutrients['phe(mg)'] = float(amount)
+            elif nutrient_name == 'protein':
+                nutrients['protein(g)'] = float(amount)
+            elif nutrient_name == 'energy':
+                # Convert kJ to kcal if needed
+                unit = nutrient.get('nutrient', {}).get('unitName', '').lower()
+                if 'kj' in unit:
+                    nutrients['energy(kcal)'] = float(amount) * 0.239006
+                else:
+                    nutrients['energy(kcal)'] = float(amount)
+        
+        # If PHE not provided by USDA, calculate from protein
+        # PHE makes up approximately 5% of total protein (50 mg per gram of protein)
+        if nutrients['phe(mg)'] == 0.0 and nutrients['protein(g)'] > 0:
+            nutrients['phe(mg)'] = nutrients['protein(g)'] * 50.0
+            nutrients['phe_calculated'] = True  # Flag that this was calculated
+        else:
+            nutrients['phe_calculated'] = False
+        
+        return pd.Series(nutrients)
+    except Exception as e:
+        st.warning(f"Error fetching food details: {e}")
+        return None
+
+# -------------------------------------------------------
 # Data loading
 # -------------------------------------------------------
 
 @st.cache_data
 def load_consolidated_foods():
-    """Load consolidated nutrient database."""
+    """Load consolidated nutrient database - OPTIONAL fallback only"""
     try:
         df = pd.read_csv("consolidated_chat_ingredients.csv")
-        print(f"COLUMNS BEFORE: {df.columns.tolist()}")
         df.columns = [c.strip().lower() for c in df.columns]
-        print(f"COLUMNS AFTER: {df.columns.tolist()}")
         
-        # Rename 'ingredient' to 'name' for consistency
         if "ingredient" in df.columns:
             df = df.rename(columns={"ingredient": "name"})
             
-        # Check mint row before normalization
-        mint_rows = df[df["name"].str.lower() == "mint"]
-        if not mint_rows.empty:
-            print(f"MINT ROW BEFORE NUMERIC CONVERSION: {mint_rows.iloc[0].to_dict()}")
-            
-        # Normalize numerics (using lowercase column names after normalization)
         for c in ["phe(mg)", "protein(g)", "energy(kcal)", "serving_size(g)"]:
             if c in df.columns:
                 df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0.0)
                 
-        # Check mint row after normalization
-        mint_rows = df[df["name"].str.lower() == "mint"]
-        if not mint_rows.empty:
-            print(f"MINT ROW AFTER NUMERIC CONVERSION: {mint_rows.iloc[0].to_dict()}")
-            
-        # Ensure 'name' is string, stripped, and LOWERCASE for matching
         if "name" in df.columns:
             df["name"] = df["name"].astype(str).str.strip().str.lower()
 
-         # After loading, check for duplicate names
-        duplicates = df[df.duplicated(subset=['name'], keep=False)]
-        if not duplicates.empty:
-            print(f"DUPLICATE INGREDIENTS FOUND:\n{duplicates[['name', 'phe(mg)', 'protein(g)', 'energy(kcal)', 'serving_size(g)']].to_string()}")
-
         return df
     except Exception as e:
-        st.warning(f"Could not load consolidated_chat_ingredients.csv: {e}")
+        # If CSV doesn't exist or is bad, return empty DataFrame - we'll use USDA instead
+        st.info("💡 Using USDA database for all ingredient nutrition data")
         return pd.DataFrame()
 
 @st.cache_data
@@ -77,7 +140,6 @@ def load_cuisine_files():
                 df = pd.read_csv(filename)
                 df.columns = [c.strip().lower() for c in df.columns]
 
-                # Canonicalize columns
                 rename_map = {}
                 for c in df.columns:
                     cl = c.lower()
@@ -93,10 +155,9 @@ def load_cuisine_files():
                 if "dish" in df.columns:
                     df["dish"] = df["dish"].ffill()
 
-                # If Meal Type missing, mark ALL
                 if "Meal Type" not in df.columns:
                     df["Meal Type"] = "ALL"
-                # Ensure required minimal columns exist
+                    
                 for needed in ["dish", "ingredient", "amount", "Meal Type"]:
                     if needed not in df.columns:
                         df[needed] = None
@@ -109,8 +170,7 @@ consolidated_db = load_consolidated_foods()
 cuisine_db = load_cuisine_files()
 
 # -------------------------------------------------------
-# Static baby foods (for fast beikost planning)
-# Values reflect typical PKU planning lists (mg PHE, g protein, kcal, weights)
+# Static baby foods
 # -------------------------------------------------------
 
 BABY_FOODS = {
@@ -148,7 +208,7 @@ TABLE_FOODS = {
 }
 
 # -------------------------------------------------------
-# Helpers: age, targets, medical-food gap
+# Helpers
 # -------------------------------------------------------
 
 def calculate_age_months(y, m, d):
@@ -171,7 +231,6 @@ def format_age_display(birth_date):
     else:
         return f"{years} years {months % 12} months"
 
-# Infant ranges adapted from PKU protocol (Table 1-1): PHE mg/kg, protein g/kg, energy kcal/kg, fluid mL/kg
 def get_infant_daily_needs(age_months, weight_kg):
     needs = {}
     if age_months < 3:
@@ -190,7 +249,6 @@ def get_infant_daily_needs(age_months, weight_kg):
     needs['fluid_ml'] = needs['fluid_ml_per_kg'] * weight_kg
     return needs
 
-# Children/adults daily needs aligned to protocol ranges (Table 1-1); target is midpoint of min/max PHE
 def get_child_adult_daily_needs(age_months, weight_kg, sex):
     needs = {}
     if age_months < 48:
@@ -217,11 +275,9 @@ def get_child_adult_daily_needs(age_months, weight_kg, sex):
     needs['phe_mg_target'] = (needs['phe_mg_min'] + needs['phe_mg_max']) / 2
     return needs
 
-# Milk nutrient density (per 100 mL) aligned with PKU protocol Table 1-2; used to compute PHE from milk
 def calculate_milk_amount(phe_target_mg, milk_type, split_ratio=0.5):
-    # Handle None or invalid milk type
     if milk_type is None:
-        milk_type = "Breast Milk (Human Milk)"  # Default fallback
+        milk_type = "Breast Milk (Human Milk)"
     
     if milk_type == "Breast Milk (Human Milk)":
         phe_per_100ml, protein_per_100ml, energy_per_100ml = 48, 1.07, 72
@@ -237,7 +293,7 @@ def calculate_milk_amount(phe_target_mg, milk_type, split_ratio=0.5):
                 "phe_mg": phe_target_mg,
                 "protein_g": (ml/100.0)*protein_per_100ml,
                 "calories_kcal": (ml/100.0)*energy_per_100ml}
-    elif "Both" in str(milk_type):  # Handle "Both" with or without percentages
+    elif "Both" in str(milk_type):
         phe_breast = phe_target_mg * split_ratio
         phe_similac = phe_target_mg * (1 - split_ratio)
         breast = calculate_milk_amount(phe_breast, "Breast Milk (Human Milk)")
@@ -248,22 +304,17 @@ def calculate_milk_amount(phe_target_mg, milk_type, split_ratio=0.5):
                 "protein_g": breast["protein_g"] + similac["protein_g"],
                 "calories_kcal": breast["calories_kcal"] + similac["calories_kcal"]}
     else:
-        # Fallback for any other case
         return {"milk_type": "Breast Milk (Human Milk)", "milk_ml": 0,
                 "phe_mg": 0, "protein_g": 0, "calories_kcal": 0}
 
-# Compute medical food "gap" (protein and energy only), no product selection shown.
 def compute_medical_food_gap(protein_needed_g, protein_from_food_g, age_months):
-    """Return protein gap and estimated energy contribution if filled by amino-acid medical food."""
     protein_gap = max(0.0, protein_needed_g - protein_from_food_g)
-    # Approximate energy density based on age group mixtures (kcal per g powder)
-    # Phenylalanine-free amino acid medical foods typically ~4.1–4.8 kcal/g; we stay neutral here.
     if age_months < 24:
-        kcal_per_g_powder = 4.8  # infant blends often ~480 kcal/100 g
-        protein_per_100g = 15.0  # g protein equivalent per 100 g
+        kcal_per_g_powder = 4.8
+        protein_per_100g = 15.0
     else:
-        kcal_per_g_powder = 4.1  # children/adults blends ~410 kcal/100 g
-        protein_per_100g = 30.0  # g protein equivalent per 100 g
+        kcal_per_g_powder = 4.1
+        protein_per_100g = 30.0
     grams_powder = (protein_gap * 100.0) / protein_per_100g if protein_per_100g > 0 else 0.0
     calories_kcal = grams_powder * kcal_per_g_powder
     return {
@@ -273,22 +324,19 @@ def compute_medical_food_gap(protein_needed_g, protein_from_food_g, age_months):
     }
 
 # -------------------------------------------------------
-# Ingredient mapping & dish nutrient computation
+# Ingredient mapping with USDA
 # -------------------------------------------------------
 
 def normalize_name(s):
     return str(s).strip().lower()
 
 def parse_portion(text):
-    """Parse simple amount strings that start with a number (interpreted as grams)."""
     if text is None or text == "" or str(text).lower() == "nan":
         return None
     
-    # If it's already a number, return it
     if isinstance(text, (int, float)):
         return float(text) if text > 0 else None
     
-    # If it's a string, try to extract the first number
     s = str(text).strip().lower()
     if not s or s == "nan":
         return None
@@ -300,15 +348,106 @@ def parse_portion(text):
     except (ValueError, IndexError):
         return None
 
-def select_best_match(name, food_db):
-    """Find best matching ingredient in database (case-insensitive)."""
+def search_usda_fallback(name):
+    """Search USDA API for ingredient nutrition data with improved matching"""
+    
+    # Clean up the search term
+    search_term = name.lower().strip()
+    
+    # For common ingredients, use specific search terms
+    search_improvements = {
+        'mint': 'spearmint',
+        'basil': 'basil fresh',
+        'parsley': 'parsley fresh',
+        'cilantro': 'coriander',
+        'coriander': 'coriander',
+        'olive oil': 'oil olive',
+        'vegetable oil': 'oil vegetable',
+        'canola oil': 'oil canola',
+        'coconut oil': 'oil coconut',
+        'salt': 'salt table',
+        'pepper': 'pepper black',
+        'black pepper': 'pepper black',
+        'lemon': 'lemon raw without peel',
+        'lime': 'lime raw',
+        'garlic': 'garlic raw',
+        'onion': 'onion raw',
+        'tomato': 'tomato red ripe raw',
+        'ginger': 'ginger root raw',
+    }
+    
+    # Check if we have a better search term
+    for key, improved in search_improvements.items():
+        if key == search_term or key in search_term:
+            search_term = improved
+            break
+    
+    usda_results = search_usda_foods(search_term)
+    if not usda_results:
+        return None
+    
+    # Prioritize "Foundation" and "SR Legacy" foods (most complete data)
+    # Avoid branded foods and unwanted categories
+    exclude_keywords = ['candy', 'candies', 'nestle', 'kraft', 'kellogg', 'general mills', 
+                       'chocolate', 'snack', 'cookie', 'cake', 'ice cream', 'dessert',
+                       'egg', 'chicken', 'beef', 'pork', 'fish', 'cheese', 'milk', 'yogurt',
+                       'supplement', 'formula', 'beverage', 'drink', 'soda']
+    
+    # For herbs, require the original term to be in the description
+    original_term = name.lower().strip().split()[0]  # First word of original search
+    
+    priority_results = []
+    acceptable_results = []
+    
+    for result in usda_results[:10]:  # Check first 10 results
+        description = result.get('description', '').lower()
+        data_type = result.get('dataType', '')
+        
+        # For herbs/spices, ensure the original term is actually in the description
+        if original_term in ['mint', 'basil', 'parsley', 'cilantro', 'coriander', 'thyme', 
+                            'rosemary', 'oregano', 'sage', 'dill']:
+            # Check if the herb name is in the description
+            if original_term not in description and 'spearmint' not in description:
+                continue
+        
+        # Skip unwanted categories
+        if any(keyword in description for keyword in exclude_keywords):
+            continue
+            
+        if data_type in ['Foundation', 'SR Legacy']:
+            priority_results.append(result)
+        elif data_type in ['Survey (FNDDS)']:
+            acceptable_results.append(result)
+    
+    # Try priority results first, then acceptable ones
+    for result in (priority_results + acceptable_results):
+        fdc_id = result.get('fdcId')
+        if fdc_id:
+            details = get_usda_food_details(fdc_id)
+            if details is not None:
+                # Store which USDA food was matched for debugging
+                details['usda_match'] = result.get('description', 'Unknown')
+                details['usda_data_type'] = result.get('dataType', 'Unknown')
+                return details
+    
+    return None
+
+def select_best_match(name, food_db, use_usda=True):
+    """Find best matching ingredient - prioritize USDA API over local DB"""
+    
+    # First try USDA API (most accurate and up-to-date)
+    if use_usda and USDA_API_KEY is not None:
+        usda_result = search_usda_fallback(name)
+        if usda_result is not None:
+            return usda_result
+    
+    # Fallback to local CSV if USDA fails or API unavailable
     if food_db.empty or "name" not in food_db.columns:
         return None
     
     target = normalize_name(name)
     names_col = food_db["name"]
     
-    # Helper to prefer non-zero entries
     def prefer_nonzero(matches):
         if matches.empty:
             return None
@@ -320,17 +459,17 @@ def select_best_match(name, food_db):
     if len(exact) >= 1:
         return prefer_nonzero(exact)
     
-    # Try startswith (e.g., "mint" matches "mint, fresh")
+    # Try startswith
     sw = food_db[names_col.str.startswith(target, na=False)]
     if len(sw) >= 1:
         return prefer_nonzero(sw)
     
-    # Try contains (e.g., "garlic" matches "garlic, raw")
+    # Try contains
     ct = food_db[names_col.str.contains(target, na=False, regex=False)]
     if len(ct) >= 1:
         return prefer_nonzero(ct)
     
-    # Try reverse contains with minimum length
+    # Try reverse contains
     for idx, db_name in enumerate(names_col):
         if db_name and len(db_name) > 3 and db_name in target:
             match_row = food_db.iloc[idx]
@@ -340,7 +479,6 @@ def select_best_match(name, food_db):
     return None
 
 def scale_nutrients(row, weight_g):
-    """Scale nutrients per ingredient by grams."""
     serving_size = row.get("serving_size(g)", 100.0)
     if serving_size == 0:
         serving_size = 100.0
@@ -348,8 +486,6 @@ def scale_nutrients(row, weight_g):
     phe_serv = row.get("phe(mg)", 0.0)
     prot_serv = row.get("protein(g)", 0.0)
     cal_serv = row.get("energy(kcal)", 0.0)
-    
-    print(f"SCALE DEBUG: serving={serving_size}, phe={phe_serv}, prot={prot_serv}, cal={cal_serv}")
 
     phe_per_g = (phe_serv / serving_size)
     prot_per_g = (prot_serv / serving_size)
@@ -363,20 +499,20 @@ def scale_nutrients(row, weight_g):
     }
 
 def compute_dish_nutrients(dish_df, food_db):
-    """Calculate total nutrients for a dish from its rows (ingredient, amount)."""
     total_phe = 0.0
     total_protein = 0.0
     total_calories = 0.0
     total_weight = 0.0
     ingredients_list = []
+    
     for _, row in dish_df.iterrows():
         ing_name = str(row.get("ingredient", "")).strip()
         amount = parse_portion(str(row.get("amount", "")))
         if not ing_name or amount is None:
             continue
-        print(f"DEBUG: ingredient='{ing_name}', raw_amount='{row.get('amount', 'MISSING')}', parsed={amount}")
-        match = select_best_match(ing_name, food_db)
-        print(f"MATCH RESULT: {match['name'] if match is not None else 'NOT FOUND'}")
+            
+        match = select_best_match(ing_name, food_db, use_usda=True)
+        
         if match is None:
             ingredients_list.append({
                 "name": ing_name,
@@ -384,16 +520,25 @@ def compute_dish_nutrients(dish_df, food_db):
                 "phe_mg": 0.0,
                 "protein_g": 0.0,
                 "calories": 0.0,
-                "note": "Not found in database"
+                "note": "Not found in USDA database",
+                "usda_match": None
             })
             total_weight += amount
             continue
+            
         scaled = scale_nutrients(match, amount)
-        ingredients_list.append({"name": match["name"], **scaled})
+        ingredient_entry = {
+            "name": match["name"],
+            "usda_match": match.get("usda_match", None),
+            "usda_data_type": match.get("usda_data_type", None),
+            **scaled
+        }
+        ingredients_list.append(ingredient_entry)
         total_phe += scaled["phe_mg"]
         total_protein += scaled["protein_g"]
         total_calories += scaled["calories"]
         total_weight += scaled["weight_g"]
+        
     return {
         "ingredients": ingredients_list,
         "totals": {
@@ -412,29 +557,29 @@ def update_daily_totals():
         totals["calories"] += food.get("calories", 0.0)
     st.session_state.daily_totals = totals
 
-# -------------------------------------------------------
-# Baby diet computation (beikost + milk + medical food gap)
-# -------------------------------------------------------
-
 def calculate_baby_diet_with_solids(age_months, weight_kg, milk_type, solid_foods):
     needs = get_infant_daily_needs(age_months, weight_kg)
     total_solid_phe = sum(food['phe_mg'] for food in solid_foods)
     total_solid_protein = sum(food['protein_g'] for food in solid_foods)
     total_solid_calories = sum(food['calories'] for food in solid_foods)
-    # Aim at upper bound safely, then adjust if over
+    
     phe_target = needs['phe_mg_max']
     remaining_phe = phe_target - total_solid_phe
     if remaining_phe < 0:
         remaining_phe = max(needs['phe_mg_min'] - total_solid_phe, 0)
+        
     milk = calculate_milk_amount(remaining_phe,
                              st.session_state.user_milk_type,
                              st.session_state.get("milk_split_ratio", 0.5))
     total_phe = total_solid_phe + milk['phe_mg']
+    
     if total_phe > needs['phe_mg_max']:
         safe_remaining = max(needs['phe_mg_max'] - total_solid_phe, 0)
         milk = calculate_milk_amount(safe_remaining, milk_type)
+        
     total_protein_food_milk = total_solid_protein + milk['protein_g']
     medical_gap = compute_medical_food_gap(needs['protein_g'], total_protein_food_milk, age_months)
+    
     result = {
         'needs': needs,
         'solid_foods': {
@@ -446,21 +591,19 @@ def calculate_baby_diet_with_solids(age_months, weight_kg, milk_type, solid_food
         'milk': milk,
         'medical_food_gap': medical_gap,
         'totals': {
-            'protein_g': total_protein_food_milk + medical_gap['protein_gap_g'],  # after gap is filled
-            'phe_mg': total_solid_phe + milk['phe_mg'],  # medical food has no PHE
+            'protein_g': total_protein_food_milk + medical_gap['protein_gap_g'],
+            'phe_mg': total_solid_phe + milk['phe_mg'],
             'calories_kcal': total_solid_calories + milk['calories_kcal'] + medical_gap['estimated_calories_kcal']
         }
     }
     return result
 
-# -------------------------------------------------------
-# UI: display functions
-# -------------------------------------------------------
-
 def display_baby_diet_plan(result):
     st.markdown("---")
     st.subheader("📈 Daily totals")
-    totals = st.session_state.get("daily_totals", result['totals'])
+    totals = result['totals']
+    needs = result['needs']
+    
     c1, c2, c3 = st.columns(3)
     with c1:
         st.metric("Total protein", f"{totals['protein_g']:.2f} g", f"Target: {needs['protein_g']:.2f} g")
@@ -471,66 +614,35 @@ def display_baby_diet_plan(result):
     with c3:
         st.metric("Total calories", f"{totals['calories_kcal']:.0f} kcal", f"Target: {needs['energy_kcal']:.0f} kcal")
 
-# -------------------------------------------------------
-# Custom dish entry
-# -------------------------------------------------------
-
 def add_custom_dish_ui(consolidated_db):
     st.markdown("#### Add a custom dish")
     with st.form("custom_dish_form", clear_on_submit=False):
         dish_name = st.text_input("Dish name")
         meal_type_label = st.selectbox("Assign to meal", ["Breakfast", "Lunch", "Dinner", "Snack", "ALL"], index=4)
-        st.markdown("Enter ingredients (name and grams). If not found in DB, you may add PHE/protein/kcal per 100 g.")
-        ing_cols = st.columns([3, 1, 1, 1, 1])
-        # Collect up to 8 ingredients for simplicity
+        st.markdown("Enter ingredients (name and grams).")
+        
+        ing_cols = st.columns([3, 1])
         ingredients = []
         for i in range(8):
             with ing_cols[0]:
                 n = st.text_input(f"Ingredient {i+1} name", key=f"c_ing_{i}")
             with ing_cols[1]:
                 g = st.number_input(f"g {i+1}", min_value=0.0, step=1.0, value=0.0, key=f"c_g_{i}")
-            with ing_cols[2]:
-                phe100 = st.number_input(f"PHE/100g {i+1}", min_value=0.0, step=1.0, value=0.0, key=f"c_phe100_{i}")
-            with ing_cols[3]:
-                pro100 = st.number_input(f"Prot/100g {i+1}", min_value=0.0, step=0.1, value=0.0, key=f"c_pro100_{i}")
-            with ing_cols[4]:
-                kcal100 = st.number_input(f"kcal/100g {i+1}", min_value=0.0, step=1.0, value=0.0, key=f"c_kcal100_{i}")
             if n and g > 0:
-                ingredients.append({"ingredient": n, "amount": g, "phe100": phe100, "pro100": pro100, "kcal100": kcal100})
+                ingredients.append({"ingredient": n, "amount": g})
+                
         submitted = st.form_submit_button("➕ Add custom dish")
+        
     if submitted and dish_name and ingredients:
-        # Build a DataFrame mimicking cuisine rows
         rows = []
         for ing in ingredients:
             row = {"dish": dish_name, "ingredient": ing["ingredient"], "amount": ing["amount"], "Meal Type": "ALL"}
             rows.append(row)
         dish_df = pd.DataFrame(rows)
-        # Compute nutrients; override for missing ingredients if user supplied per-100g
-        totals = {"phe_mg": 0.0, "protein_g": 0.0, "calories": 0.0, "weight_g": 0.0}
-        ing_list = []
-        for ing in ingredients:
-            match = select_best_match(ing["ingredient"], consolidated_db)
-            if match is None and (ing["phe100"] > 0 or ing["pro100"] > 0 or ing["kcal100"] > 0):
-                # Scale using provided per-100g
-                weight_g = ing["amount"]
-                phe_mg = (ing["phe100"]/100.0)*weight_g
-                protein_g = (ing["pro100"]/100.0)*weight_g
-                calories = (ing["kcal100"]/100.0)*weight_g
-                record = {"name": ing["ingredient"], "weight_g": weight_g, "phe_mg": phe_mg,
-                          "protein_g": protein_g, "calories": calories, "note": "User-supplied values"}
-            else:
-                if match is None:
-                    # Not found and no overrides
-                    record = {"name": ing["ingredient"], "weight_g": ing["amount"], "phe_mg": 0.0,
-                              "protein_g": 0.0, "calories": 0.0, "note": "Not found"}
-                else:
-                    record = scale_nutrients(match, ing["amount"])
-                    record["name"] = match["name"]
-            ing_list.append(record)
-            totals["phe_mg"] += record["phe_mg"]
-            totals["protein_g"] += record["protein_g"]
-            totals["calories"] += record["calories"]
-            totals["weight_g"] += record["weight_g"]
+        
+        dish_nutrients = compute_dish_nutrients(dish_df, consolidated_db)
+        totals = dish_nutrients["totals"]
+        
         st.success(f"✅ Added custom dish '{dish_name}'")
         return {
             "meal": meal_type_label,
@@ -539,7 +651,7 @@ def add_custom_dish_ui(consolidated_db):
             "phe_mg": totals["phe_mg"],
             "protein_g": totals["protein_g"],
             "calories": totals["calories"],
-            "ingredients": ing_list
+            "ingredients": dish_nutrients["ingredients"]
         }
     return None
 
@@ -555,9 +667,14 @@ def main():
     if 'selected_foods_list' not in st.session_state:
         st.session_state.selected_foods_list = []
 
+    # Check API key
+    if USDA_API_KEY is None:
+        st.info("💡 To enable USDA food database search, add your API key to `.streamlit/secrets.toml`. Get one free at: https://fdc.nal.usda.gov/api-key-signup.html")
+
     if not st.session_state.profile_created:
         st.title("PKU Diet Management System")
-        st.markdown("Plan safe PKU diets with culturally diverse foods and medical food needs only.")
+        st.markdown("Plan safe PKU diets with USDA nutrition database and medical food calculations.")
+        st.info("🌍 Nutrition data from USDA FoodData Central")
         st.markdown("---")
         st.header("Create profile")
 
@@ -636,7 +753,6 @@ def main():
                     meal_type = st.selectbox("Meal:", ["Breakfast", "Lunch", "Dinner", "Snack"])
                     available_foods = BABY_FOODS if age_months < 9 else {**BABY_FOODS, **TABLE_FOODS}
                     category = st.selectbox("Food category:", list(available_foods.keys()))
-                    # Type-ahead: filter options by query
                     query = st.text_input("Type to search foods:", "")
                     options = list(available_foods[category].keys())
                     filtered = [o for o in options if query.lower() in o.lower()] if query else options
@@ -674,7 +790,6 @@ def main():
                             st.session_state.solid_foods_list = []
                             st.rerun()
 
-            # Calculate and display baby plan
             baby_result = calculate_baby_diet_with_solids(
                 age_months,
                 st.session_state.user_weight,
@@ -683,36 +798,95 @@ def main():
             )
             display_baby_diet_plan(baby_result)
 
-        # Child/Adult flow (1+ years)
+        # Child/Adult flow
         else:
-            # Get daily nutritional needs based on age
             needs = get_child_adult_daily_needs(age_months, st.session_state.user_weight, st.session_state.user_sex)
 
+            # Add USDA search option
+            with st.expander("🔍 Search USDA database for any food"):
+                search_query = st.text_input("Search for a food (e.g., 'chicken breast', 'brown rice', 'spinach'):")
+                if search_query:
+                    with st.spinner("Searching USDA database..."):
+                        usda_results = search_usda_foods(search_query)
+                    
+                    if usda_results:
+                        st.success(f"Found {len(usda_results)} results:")
+                        for result in usda_results[:10]:
+                            col1, col2 = st.columns([4, 1])
+                            with col1:
+                                st.write(f"**{result.get('description')}**")
+                                if result.get('brandName'):
+                                    st.caption(f"Brand: {result['brandName']}")
+                            with col2:
+                                if st.button("Select", key=f"usda_{result.get('fdcId')}"):
+                                    with st.spinner("Loading nutrition info..."):
+                                        details = get_usda_food_details(result.get('fdcId'))
+                                    if details is not None:
+                                        st.session_state.usda_selected_food = {
+                                            "name": result.get('description'),
+                                            "details": details
+                                        }
+                                        st.rerun()
+                    elif USDA_API_KEY is not None:
+                        st.info("No results found. Try different keywords.")
+
+            # Handle selected USDA food
+            if 'usda_selected_food' in st.session_state:
+                food = st.session_state.usda_selected_food
+                st.success(f"✅ Selected: {food['name']}")
+                
+                details = food['details']
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("PHE (per 100g)", f"{details['phe(mg)']:.1f} mg")
+                with col2:
+                    st.metric("Protein (per 100g)", f"{details['protein(g)']:.1f} g")
+                with col3:
+                    st.metric("Calories (per 100g)", f"{details['energy(kcal)']:.0f} kcal")
+                
+                grams = st.number_input("How many grams?", min_value=1.0, value=100.0, step=10.0)
+                meal_choice = st.selectbox("Add to meal:", ["Breakfast", "Lunch", "Dinner", "Snack"])
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("➕ Add to plan", type="primary"):
+                        scaled = scale_nutrients(details, grams)
+                        st.session_state.selected_foods_list.append({
+                            "meal": meal_choice,
+                            "name": food['name'],
+                            "weight_g": scaled["weight_g"],
+                            "phe_mg": scaled["phe_mg"],
+                            "protein_g": scaled["protein_g"],
+                            "calories": scaled["calories"],
+                        })
+                        update_daily_totals()
+                        del st.session_state.usda_selected_food
+                        st.success(f"Added {grams}g of {food['name']}!")
+                        st.rerun()
+                with col2:
+                    if st.button("Cancel"):
+                        del st.session_state.usda_selected_food
+                        st.rerun()
+
+            st.markdown("---")
             cuisine_choice = st.selectbox("Choose cuisine:", ["All Foods"] + list(cuisine_db.keys()))
 
             if cuisine_choice == "All Foods":
-                # Use consolidated ingredients database
                 cuisine_df = consolidated_db
-                search_space = consolidated_db["name"].unique().tolist()
             else:
-                # Use the selected cuisine database
                 cuisine_df = cuisine_db[cuisine_choice]
-                search_space = cuisine_df["dish"].unique().tolist() if "dish" in cuisine_df.columns else []
 
-            # BS/LD handling
             cuisine_without_types = cuisine_choice in ["Japanese", "Mediterranean", "Mexican"]
             meal_category = st.radio("Meal category:", ["Breakfast/Snack", "Lunch/Dinner"])
             if not cuisine_without_types and "Meal Type" in cuisine_df.columns and cuisine_df["Meal Type"].nunique() > 1:
                 filtered_df = cuisine_df[cuisine_df["Meal Type"] == ("BS" if meal_category == "Breakfast/Snack" else "LD")]
             else:
-                # For cuisines without BS/LD, show ALL for both
                 filtered_df = cuisine_df
 
-            # Type-ahead search for dishes
             st.markdown("#### Search and select a dish")
-            search_query = st.text_input("Type to search dishes:", "")
+            search_query_dish = st.text_input("Type to search dishes:", "", key="dish_search")
             unique_dishes = filtered_df["dish"].dropna().astype(str).unique().tolist() if "dish" in filtered_df.columns else []
-            matching_dishes = [d for d in unique_dishes if search_query.lower() in d.lower()] if search_query else unique_dishes
+            matching_dishes = [d for d in unique_dishes if search_query_dish.lower() in d.lower()] if search_query_dish else unique_dishes
             selected_dish = st.selectbox("Available dishes:", matching_dishes) if matching_dishes else None
 
             if selected_dish:
@@ -722,14 +896,18 @@ def main():
                 with st.expander(f"📖 View ingredients for '{selected_dish}'", expanded=True):
                     st.markdown("**Ingredients:**")
                     for ing in dish_nutrients["ingredients"]:
-                        line = f"- {ing['name']}: {ing['weight_g']:.0f} g"
-                        line += f" (PHE: {ing['phe_mg']:.0f} mg, Protein: {ing['protein_g']:.2f} g, Calories: {ing['calories']:.0f} kcal)"
-                        if ing.get("note"):
-                            line += f" ⚠️ {ing['note']}"
+                        line = f"- **{ing['name']}**: {ing['weight_g']:.0f} g → "
+                        line += f"PHE: {ing['phe_mg']:.1f} mg, Protein: {ing['protein_g']:.2f} g, Calories: {ing['calories']:.0f} kcal"
                         st.write(line)
+                        if ing.get("usda_match"):
+                            data_type = ing.get("usda_data_type", "")
+                            st.caption(f"   ↳ USDA: {ing['usda_match']} [{data_type}]")
+                        if ing.get("note"):
+                            st.caption(f"   ⚠️ {ing['note']}")
                     st.markdown("---")
                     tot = dish_nutrients["totals"]
-                    st.markdown(f"**Dish totals:** PHE {tot['phe_mg']:.0f} mg | Protein {tot['protein_g']:.2f} g | Calories {tot['calories']:.0f} kcal | Weight {tot['weight_g']:.0f} g")
+                    st.markdown(f"**Dish totals:** PHE {tot['phe_mg']:.1f} mg | Protein {tot['protein_g']:.2f} g | Calories {tot['calories']:.0f} kcal | Weight {tot['weight_g']:.0f} g")
+                    st.caption("💡 PHE values calculated from protein content (50 mg PHE per gram protein)")
 
                 assign_meal = st.selectbox("Assign to meal:", ["Breakfast", "Lunch", "Dinner", "Snack"])
                 if st.button(f"➕ Add '{selected_dish}' to my plan", type="primary"):
@@ -744,10 +922,9 @@ def main():
                     update_daily_totals()
                     st.success(f"✅ Added '{selected_dish}' to your plan!")
                     st.rerun()
-            elif search_query:
+            elif search_query_dish:
                 st.info("No dishes match your search. Try different keywords.")
 
-            # Add custom dish
             st.markdown("---")
             with st.expander("➕ Add a custom dish"):
                 custom_dish = add_custom_dish_ui(consolidated_db)
@@ -763,7 +940,6 @@ def main():
                     update_daily_totals()
                     st.rerun()
 
-            # Current meal plan list
             if st.session_state.selected_foods_list:
                 st.markdown("---")
                 st.subheader("📝 Your current meal plan")
@@ -783,7 +959,6 @@ def main():
                     update_daily_totals()
                     st.rerun()
 
-            # Totals and medical food needs
             total_food_phe = sum(f['phe_mg'] for f in st.session_state.selected_foods_list)
             total_food_protein = sum(f['protein_g'] for f in st.session_state.selected_foods_list)
             total_food_calories = sum(f['calories'] for f in st.session_state.selected_foods_list)
@@ -799,7 +974,6 @@ def main():
             with c3:
                 st.metric("Calories", f"{needs['energy_kcal']:.0f} kcal")
 
-            # Medical food gap only (no picker)
             gap = compute_medical_food_gap(needs['protein_g'], total_food_protein, age_months)
             phe_ok = needs['phe_mg_min'] <= total_food_phe <= needs['phe_mg_max']
             total_protein = total_food_protein + gap['protein_gap_g']
@@ -850,22 +1024,21 @@ def main():
                 else:
                     st.warning(f"⚠️ PHE is {total_food_phe - needs['phe_mg_max']:.0f} mg above maximum. Reduce protein-containing foods.")
 
-        # Info
         st.markdown("---")
         st.header("📖 Important information")
+        
+        with st.expander("Data attribution"):
+            st.markdown(
+                "**Recipe data:** Culturally diverse cuisine databases\n\n"
+                "**Nutrition data:** USDA FoodData Central - https://fdc.nal.usda.gov\n\n"
+                "**Phenylalanine calculation:** PHE content is calculated as 50 mg per gram of protein (5% of total protein), "
+                "which is the standard estimation used in PKU dietary management when direct PHE data is unavailable."
+            )
         with st.expander("Understanding your numbers"):
             st.markdown(
                 "- Children target blood PHE: 2–5 mg/dL; adults: 2–10 mg/dL\n"
                 "- Levels should be checked regularly\n"
                 "- Adequate energy and protein help stabilize PHE levels"
-            )
-        with st.expander("Introducing solid foods (babies)"):
-            st.markdown(
-                "- Start when developmentally ready (often ~6 months; follow clinic guidance)\n"
-                "- Weigh foods in grams for accuracy\n"
-                "- Keep records of food intake\n"
-                "- Adjust milk and medical food as solids increase\n"
-                "- Monitor blood PHE closely with changes"
             )
         with st.expander("⚠️ When to contact your metabolic clinic"):
             st.markdown(
