@@ -1,0 +1,389 @@
+food_name,phe_mg_per_100g,protein_g_per_100g,energy_kcal_per_100g,serving_size_g,name,usda_match,usda_data_type
+sweet date and fig bites,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
+cucumber yogurt dip,25.0,0.5,34.0,100.0,cucumber salad made with cucumber and vinegar,Cucumber salad made with cucumber and vinegar,Survey (FNDDS)
+low-protein pasta with olive oil and basil,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
+stewed zucchini with tomato,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+citrus herb carrot ribbons,0.251,8.1,341.061562,100.0,"carrot, dehydrated","Carrot, dehydrated",SR Legacy
+lemon herb roasted artichokes,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
+grilled peach and mint salad,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
+cinnamon date pudding,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
+fresh fig and mint salad,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
+apple and pomegranate salad,83.5,1.67,82.696076,100.0,"pomegranates, raw","Pomegranates, raw",SR Legacy
+baked zucchini fries,740.0,14.8,325.0,100.0,"mozzarella sticks, breaded, baked, or fried","Mozzarella sticks, breaded, baked, or fried",Survey (FNDDS)
+cinnamon roasted pears,0.011,0.36,57.122434,100.0,"pears, raw","Pears, raw",SR Legacy
+watermelon and mint skewers,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
+roasted vegetable stack,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
+grilled eggplant with lemon tahini,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
+roasted cauliflower with paprika,0.61,14.14,282.266086,100.0,"spices, paprika","Spices, paprika",SR Legacy
+chilled tomato and watermelon soup,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+artichoke and lemon salad,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
+garlic lemon roasted bell peppers,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+lemon basil quinoa-free pilaf,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
+bharta with peas,1061.25,21.225,0.0,100.0,"blackeye pea, dry","Blackeye pea, dry",Foundation
+spiced corn,288.0,5.76,342.017586,100.0,"spices, pumpkin pie spice","Spices, pumpkin pie spice",SR Legacy
+plain uttapam,0.586,11.9,407.027218,100.0,"croutons, plain","Croutons, plain",SR Legacy
+dal-free rasam,40.0,0.8,51.147284,100.0,"syrups, sugar free","Syrups, sugar free",SR Legacy
+sweet suji balls,42.0,0.84,32.982828,100.0,"melon balls, frozen","Melon balls, frozen",SR Legacy
+rice porridge,256.0,5.12,112.0,100.0,dirty rice,Dirty rice,Survey (FNDDS)
+malai toast,605.0,12.1,390.0,100.0,melba toast,Melba toast,Survey (FNDDS)
+cabbage poriyal,55.00000000000001,1.1,15.53539,100.0,"cabbage, kimchi","Cabbage, kimchi",SR Legacy
+tamarind rice,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
+sambar,216.5,4.33,86.0,100.0,"sambar, vegetable stew","Sambar, vegetable stew",Survey (FNDDS)
+cucumber raita,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
+papaya sabzi,0.009,0.47,42.782074,100.0,"papayas, raw","Papayas, raw",SR Legacy
+cabbage stir fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
+dry aloo matar,0.58,12.29,342.017586,100.0,"bulgur, dry","Bulgur, dry",SR Legacy
+tamarind aloo,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
+lauki curry,69.5,1.39,95.0,100.0,curry sauce,Curry sauce,Survey (FNDDS)
+masala french fries,165.5,3.31,289.91427799999997,100.0,"applebee's, french fries","APPLEBEE'S, french fries",SR Legacy
+stir-fried yam with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+pumpkin congee,40.0,0.8,39.0,100.0,congee,Congee,Survey (FNDDS)
+stir-fried tomato with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried kailan with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried eggplant with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+spicy pickled napa cabbage,55.00000000000001,1.1,11.9503,100.0,"cabbage, napa, cooked","Cabbage, napa, cooked",SR Legacy
+cabbage and apple slaw,55.00000000000001,1.1,15.53539,100.0,"cabbage, kimchi","Cabbage, kimchi",SR Legacy
+stir-fried carrots with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried bamboo shoots with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried cabbage core shreds with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+low-protein dumplings,435.50000000000006,8.71,100.86053199999999,100.0,"stew, dumpling with mutton (navajo)","Stew, dumpling with mutton (Navajo)",SR Legacy
+garlic bok choy stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried bok choy with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried cilantro with garlic sauce,618.5,12.37,297.56247,100.0,"spices, coriander seed","Spices, coriander seed",SR Legacy
+stir-fried spinach with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried wood ear mushroom with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried tatsoi with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried napa cabbage with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+chayote stir-fry with garlic,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried chinese broccoli with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried pickled radish with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried green cabbage with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried kabocha squash with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+lotus root stir-fry,0.047,2.6,74.330866,100.0,"lotus root, raw","Lotus root, raw",SR Legacy
+stir-fried pickled cabbage with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+chinese cucumber salad,56.99999999999999,1.14,22.466563999999998,100.0,"broccoli, chinese, cooked","Broccoli, chinese, cooked",SR Legacy
+stir-fried cucumber with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried celery & wood ear mushrooms,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
+stir-fried chinese celery with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+braised daikon with shitake mushrooms,1219.0,24.38,155.3539,100.0,"moose, liver, braised (alaska native)","Moose, liver, braised (Alaska Native)",SR Legacy
+stir-fried beets with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried peas,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
+stir-fried bell pepper with garlic sauce,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+sweet and sour vegetables,5.0,0.1,15.057378,100.0,"salad dressing, sweet and sour","Salad dressing, sweet and sour",SR Legacy
+stir-fried zha cai,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
+vegetable low-protein fried rice,640.0,12.8,359.0,100.0,"meat substitute, cereal- and vegetable protein-based, fried","Meat substitute, cereal- and vegetable protein-based, fried",Survey (FNDDS)
+stir-fried shanghai greens with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried taro,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
+stir-fried sweet corn,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
+stir-fried enoki mushroom with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried lotus root with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried parsley with garlic sauce,0.145,2.97,36.089906,100.0,"parsley, fresh","Parsley, fresh",SR Legacy
+steamed eggplant,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
+dry-fried green beans,75.0,1.5,309.034758,100.0,"plantains, green, fried","Plantains, green, fried",SR Legacy
+rice and beans,325.0,6.5,164.0,100.0,beans and white rice,Beans and white rice,Survey (FNDDS)
+sweet potato chips,146.0,2.92,529.0,100.0,sweet potato chips,Sweet potato chips,Survey (FNDDS)
+boiled yam,0.069,1.49,114.005862,100.0,"yam, cooked, boiled, drained, or baked, with salt","Yam, cooked, boiled, drained, or baked, with salt",SR Legacy
+millet flatbread with veggies,0.675,10.75,381.692582,100.0,millet flour,Millet flour,SR Legacy
+tomato and cucumber salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+boiled plantains,0.03,1.09,121.176042,100.0,"plantains, green, boiled","Plantains, green, boiled",SR Legacy
+sweet corn and pepper hash,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+stuffed bell peppers,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+roasted chili-lime carrots,35.0,0.7,30.114756,100.0,"limes, raw","Limes, raw",SR Legacy
+lettuce wrapped veggie tacos with pineapple slaw,98.5,1.97,123.0,100.0,broccoli slaw salad,Broccoli slaw salad,Survey (FNDDS)
+sweet potato tacos with paprika aioli,0.61,14.14,282.266086,100.0,"spices, paprika","Spices, paprika",SR Legacy
+crispy potato tacos,0.34,6.69,169.69425999999999,100.0,"taco bell, taco salad","TACO BELL, Taco Salad",SR Legacy
+cactus and tomato salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+jicama tostadas with mango salsa,0.017,0.72,38.001954,100.0,"yambean (jicama), raw","Yambean (jicama), raw",SR Legacy
+chilled avocado cucumber soup,25.0,0.5,34.0,100.0,cucumber salad made with cucumber and vinegar,Cucumber salad made with cucumber and vinegar,Survey (FNDDS)
+refried zucchini,365.0,7.3,144.359624,100.0,"on the border, refried beans","ON THE BORDER, refried beans",SR Legacy
+baobab leaf stew,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
+boiled pumpkin leaves,0.148,2.72,21.032528,100.0,"pumpkin leaves, cooked, boiled, drained, with salt","Pumpkin leaves, cooked, boiled, drained, with salt",SR Legacy
+funghi al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+stir-fried garlic sprouts with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+braised kabocha squash,1219.0,24.38,155.3539,100.0,"moose, liver, braised (alaska native)","Moose, liver, braised (Alaska Native)",SR Legacy
+baked plantains,0.053,1.52,155.3539,100.0,"plantains, yellow, baked","Plantains, yellow, baked",SR Legacy
+baobab leaf salad,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
+baobab fruit drink,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
+boiled green bananas,0.03,1.09,121.176042,100.0,"plantains, green, boiled","Plantains, green, boiled",SR Legacy
+boiled cassava,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
+pumpkin porridge,0.032,1.0,26.051654,100.0,"pumpkin, raw","Pumpkin, raw",SR Legacy
+avocado salad,0.0,0.0,884.0831939999999,100.0,"oil, avocado","Oil, avocado",SR Legacy
+tamarind juice,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
+watermelon salad,0.015,0.61,30.353762,100.0,"watermelon, raw","Watermelon, raw",SR Legacy
+boiled sweet cassava,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
+mashed pumpkin,82.5,1.65,88.43222,100.0,"fast foods, potato, mashed","Fast foods, potato, mashed",SR Legacy
+verdure al vapore,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+fave e cicoria,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
+zucca al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+cavolfiore gratinate,445.0,8.9,314.053884,100.0,"potatoes, au gratin, dry mix, unprepared","Potatoes, au gratin, dry mix, unprepared",SR Legacy
+pomodori al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+zucchini alla scapece,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
+insalata di radicchio,0.034,1.43,22.944575999999998,100.0,"radicchio, raw","Radicchio, raw",SR Legacy
+bruschetta,214.5,4.29,171.0,100.0,bruschetta,Bruschetta,Survey (FNDDS)
+finocchi al limone,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+stir-fried fuzzy melon with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried water chestnut with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried lettuce with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried garlic chives with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried fennel with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried daikon radish with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried snow peas with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+mexican mashed sweet potato,0.119,1.98,100.621526,100.0,"sweet potato, canned, mashed","Sweet potato, canned, mashed",SR Legacy
+tomatillo salsa verde,56.49999999999999,1.13,38.001954,100.0,"sauce, salsa, verde, ready-to-serve","Sauce, salsa, verde, ready-to-serve",SR Legacy
+corn and veggie tacos,0.34,6.69,169.69425999999999,100.0,"taco bell, taco salad","TACO BELL, Taco Salad",SR Legacy
+cucumber-chili snack cups,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
+mango-cucumber lime salad,35.0,0.7,30.114756,100.0,"limes, raw","Limes, raw",SR Legacy
+low-protein breakfast burrito,199.5,3.99,371.893336,100.0,"tart, breakfast, low fat","Tart, breakfast, low fat",SR Legacy
+chayote squash salad with lime and chili,35.0,0.7,30.114756,100.0,"limes, raw","Limes, raw",SR Legacy
+vegetarian winter melon soup,0.081,1.72,59.034482,100.0,"soup, vegetarian vegetable, canned, condensed","Soup, vegetarian vegetable, canned, condensed",SR Legacy
+chinese-style steamed zucchini,0.13,2.88,152.96384,100.0,"nuts, chestnuts, chinese, boiled and steamed","Nuts, chestnuts, chinese, boiled and steamed",SR Legacy
+stir-fried zucchini with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir fry bean sprouts and garlic chives,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+cold garlic green beans,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+garlic daikon stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+pumpkin soup,0.032,1.0,26.051654,100.0,"pumpkin, raw","Pumpkin, raw",SR Legacy
+daikon citrus salad,89.0,1.78,247.0,100.0,"fruit salad, excluding citrus fruits, with salad dressing or mayonnaise","Fruit salad, excluding citrus fruits, with salad dressing or mayonnaise",Survey (FNDDS)
+chili vinegar cucumber,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
+risotto al limone,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+pasta al pomodoro,0.173,4.26,102.294568,100.0,"olive garden, spaghetti with pomodoro sauce","OLIVE GARDEN, spaghetti with pomodoro sauce",SR Legacy
+stir-fried winter melon with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried komatsuna with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+yu choy sum,51.1875,1.02375,0.0,100.0,"cabbage, bok choy, raw","Cabbage, bok choy, raw",Foundation
+stir-fried turnip with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+stir-fried pickled mustard greens with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+focaccia,438.5,8.77,249.522264,100.0,"focaccia, italian flatbread, plain","Focaccia, Italian flatbread, plain",SR Legacy
+insalata di finocchi e arance,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
+patate al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+cavolfiore al vapore,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+quick kabocha pickles,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
+simple daikon miso soup,0.486,12.79,197.896968,100.0,miso,Miso,SR Legacy
+carrot cucumber salad,25.0,0.5,34.0,100.0,cucumber salad made with cucumber and vinegar,Cucumber salad made with cucumber and vinegar,Survey (FNDDS)
+charred bell pepper mix,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+garlic komatsuna stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+sweet carrot slaw,0.251,8.1,341.061562,100.0,"carrot, dehydrated","Carrot, dehydrated",SR Legacy
+spicy pickled cucumber,0.009,0.33,10.516264,100.0,"pickles, cucumber, sour","Pickles, cucumber, sour",SR Legacy
+sweet pickled radish,55.00000000000001,1.1,27.963701999999998,100.0,"radishes, hawaiian style, pickled","Radishes, hawaiian style, pickled",SR Legacy
+cucumber miso slaw,0.486,12.79,197.896968,100.0,miso,Miso,SR Legacy
+sauteed water spinach,0.024,0.95,123.327096,100.0,"onions, yellow, sauteed","Onions, yellow, sauteed",SR Legacy
+cucumber sesame salad,0.0,0.0,884.0831939999999,100.0,"oil, sesame, salad or cooking","Oil, sesame, salad or cooking",SR Legacy
+japanese veggie hot pot,0.063,1.38,273.900876,100.0,"persimmons, japanese, dried","Persimmons, japanese, dried",SR Legacy
+scallion oil rice,0.0,0.0,884.0831939999999,100.0,"oil, rice bran","Oil, rice bran",SR Legacy
+stir-fried seaweed,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
+beet and radish salad,0.036,0.68,15.774396,100.0,"radishes, raw","Radishes, raw",SR Legacy
+turnip and apple salad,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
+potato-cauliflower bake,0.087,1.96,93.21234,100.0,"potatoes, baked, flesh, with salt","Potatoes, baked, flesh, with salt",SR Legacy
+fried zucchini rounds,1.129,27.29,237.571964,100.0,"veal, leg (top round), separable lean and fat, cooked, pan-fried, breaded","Veal, leg (top round), separable lean and fat, cooked, pan-fried, breaded",SR Legacy
+cabbage stew with caraway,0.867,19.77,332.935358,100.0,"spices, caraway seed","Spices, caraway seed",SR Legacy
+simple potato and pickle salad,0.135,2.68,142.925588,100.0,"potato salad, home-prepared","Potato salad, home-prepared",SR Legacy
+veggie-stuffed potato cakes satsibeli sauce,245.00000000000003,4.9,185.0,100.0,"fried stuffed potatoes, puerto rican style","Fried stuffed potatoes, Puerto Rican style",Survey (FNDDS)
+beetroot horseradish dip,59.0,1.18,48.040206,100.0,"horseradish, prepared","Horseradish, prepared",SR Legacy
+sauteed zucchini with fresh dill,0.065,3.46,43.02108,100.0,"dill weed, fresh","Dill weed, fresh",SR Legacy
+stuffed apples with jam,0.021,0.37,277.963978,100.0,jams and preserves,Jams and preserves,SR Legacy
+polish apple beet slaw,84.375,1.6875,0.0,100.0,"beets, raw","Beets, raw",Foundation
+beet and apple salad,84.375,1.6875,0.0,100.0,"beets, raw","Beets, raw",Foundation
+stuffed bell peppers with white rice,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+pickled pumpkin main,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
+sauerkraut with carrot,0.023,0.91,18.642468,100.0,"sauerkraut, canned, solids and liquids","Sauerkraut, canned, solids and liquids",SR Legacy
+mashed potatoes with garlic oil,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+sweet carrot and apple bake,15.0,0.3,46.60617,100.0,"babyfood, juice, apple-sweet potato","Babyfood, juice, apple-sweet potato",SR Legacy
+baked cauliflower with paprika,0.61,14.14,282.266086,100.0,"spices, paprika","Spices, paprika",SR Legacy
+flatbread,438.5,8.77,249.522264,100.0,"focaccia, italian flatbread, plain","Focaccia, Italian flatbread, plain",SR Legacy
+baobab leaf juice,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
+cooked waterleaf,0.145,3.08,82.935082,100.0,"bulgur, cooked","Bulgur, cooked",SR Legacy
+millet stew,0.675,10.75,381.692582,100.0,millet flour,Millet flour,SR Legacy
+vegetable stir fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
+boiled sweet potatoes,0.078,1.37,76.48192,100.0,"sweet potato, cooked, boiled, without skin","Sweet potato, cooked, boiled, without skin",SR Legacy
+boiled cassava leaves,0.114,2.11,21.032528,100.0,"amaranth leaves, cooked, boiled, drained, with salt","Amaranth leaves, cooked, boiled, drained, with salt",SR Legacy
+fried cassava,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
+sweet potato porridge,112.99999999999999,2.26,191.0,100.0,sweet potato tots,Sweet potato tots,Survey (FNDDS)
+boiled taro,0.082,1.5,112.093814,100.0,"taro, raw","Taro, raw",SR Legacy
+steamed waterleaf,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
+okra and tomato soup,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+fried sauerkraut with apples,0.023,0.91,18.642468,100.0,"sauerkraut, canned, solids and liquids","Sauerkraut, canned, solids and liquids",SR Legacy
+steamed green beans and carrots,70.0,1.4,36.567918,100.0,"vegetables, mixed (corn, lima beans, peas, green beans, carrots) canned, no salt added","Vegetables, mixed (corn, lima beans, peas, green beans, carrots) canned, no salt added",SR Legacy
+tomato cucumber salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+stir-fried baby bok choy,51.1875,1.02375,0.0,100.0,"cabbage, bok choy, raw","Cabbage, bok choy, raw",Foundation
+daikon & carrot pickles,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
+lemon pepper bok choy,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+cucumber sunomono salad,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
+stir-fried okra with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+yuzu daikon salad,66.0,1.32,430.0,100.0,"salad dressing, nfs, for salads","Salad dressing, NFS, for salads",Survey (FNDDS)
+tomato garlic stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+umeboshi rice,256.0,5.12,112.0,100.0,dirty rice,Dirty rice,Survey (FNDDS)
+sweet and sour cabbage,5.0,0.1,15.057378,100.0,"salad dressing, sweet and sour","Salad dressing, sweet and sour",SR Legacy
+cabbage daikon stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
+roasted garlic red beets,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+carrot and apples salad,0.042,1.1,63.575596,100.0,"babyfood, gerber, 2nd foods, apple, carrot and squash, organic","Babyfood, GERBER, 2nd Foods, apple, carrot and squash, organic",SR Legacy
+potato-carrot hash,0.133,3.0,265.057654,100.0,"potatoes, hash brown, home-prepared","Potatoes, hash brown, home-prepared",SR Legacy
+sweet roasted apples,15.0,0.3,46.60617,100.0,"babyfood, juice, apple-sweet potato","Babyfood, juice, apple-sweet potato",SR Legacy
+beet and cucumber salad,84.375,1.6875,0.0,100.0,"beets, raw","Beets, raw",Foundation
+zucchini and pepper stir fry,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+swiss turnip gratin,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
+beet and horseradish slaw,59.0,1.18,48.040206,100.0,"horseradish, prepared","Horseradish, prepared",SR Legacy
+roasted fennel and carrots,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
+garlic mashed potatoes,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+radish and apples slaw,0.036,0.68,15.774396,100.0,"radishes, raw","Radishes, raw",SR Legacy
+fried turnip cakes,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
+carrot slaw with mustard,0.0,0.0,884.0831939999999,100.0,"oil, mustard","Oil, mustard",SR Legacy
+pickled beet salad,0.023,0.8,65.009632,100.0,"beets, pickled, canned, solids and liquids","Beets, pickled, canned, solids and liquids",SR Legacy
+"pickled kohlrabi, sliced, raw",0.039,1.7,27.007678,100.0,"kohlrabi, raw","Kohlrabi, raw",SR Legacy
+stewed cabbage with tomatoes,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+steamed kohlrabi with carrots,0.039,1.7,27.007678,100.0,"kohlrabi, raw","Kohlrabi, raw",SR Legacy
+celery root and apples puree,24.609375,0.4921875,0.0,100.0,"celery, raw","Celery, raw",Foundation
+grilled corn with lime and cilantro,618.5,12.37,297.56247,100.0,"spices, coriander seed","Spices, coriander seed",SR Legacy
+garlic and roasted plantains with cilantro dip,618.5,12.37,297.56247,100.0,"spices, coriander seed","Spices, coriander seed",SR Legacy
+stir-fried pumpkin with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+pickled vegetable mix,0.055,1.4,36.089906,100.0,"babyfood, vegetables, mix vegetables junior","Babyfood, vegetables, mix vegetables junior",SR Legacy
+patate e cipolle,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
+patate e rosmarino,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
+finocchi al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+pomodori e cipolle,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
+patate al rosmarino,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+insalata di radicchio e arance,0.034,1.43,22.944575999999998,100.0,"radicchio, raw","Radicchio, raw",SR Legacy
+broccoli saltati,0.0,0.0,0.0,100.0,"salt, table","Salt, table",SR Legacy
+broccoli al forno,0.117,2.82,33.699846,100.0,"broccoli, raw","Broccoli, raw",SR Legacy
+pumpkin leaves stew,0.171,3.15,18.881474,100.0,"pumpkin leaves, raw","Pumpkin leaves, raw",SR Legacy
+"fried cabbage and onions, raws",0.025,1.1,39.674996,100.0,"onions, raw","Onions, raw",SR Legacy
+"stewed kohlrabi, sliced, raw and carrots",0.039,1.7,27.007678,100.0,"kohlrabi, raw","Kohlrabi, raw",SR Legacy
+baobab fruit smoothie,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
+steamed waterleaf with tomatoes,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+sweet potato leaves soup,124.50000000000001,2.49,41.82605,100.0,"sweet potato leaves, raw","Sweet potato leaves, raw",SR Legacy
+roasted maize with chili,437.5,8.75,364.245144,100.0,"corn flour, whole-grain, blue (harina de maiz morado)","Corn flour, whole-grain, blue (harina de maiz morado)",SR Legacy
+grilled plantains,0.03,1.09,121.176042,100.0,"plantains, green, boiled","Plantains, green, boiled",SR Legacy
+cassava leaf soup,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
+sweet potato and peanut soup,75.5,1.51,90.0,100.0,"soup, potato","Soup, potato",Survey (FNDDS)
+stir-fried chinese leek with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+vegetable soup,42.0,0.84,27.0,100.0,"soup, vegetable","Soup, vegetable",Survey (FNDDS)
+"pickled red onions, raws",0.025,1.1,39.674996,100.0,"onions, raw","Onions, raw",SR Legacy
+warm sauerkraut and apples salad,0.023,0.91,18.642468,100.0,"sauerkraut, canned, solids and liquids","Sauerkraut, canned, solids and liquids",SR Legacy
+bavarian turnip stir-fry,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
+german cabbage medley,55.00000000000001,1.1,15.53539,100.0,"cabbage, kimchi","Cabbage, kimchi",SR Legacy
+cucumber and fennel salad,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
+"potato and onions, raw hash",0.025,1.1,39.674996,100.0,"onions, raw","Onions, raw",SR Legacy
+cucumber fresh dill salad,0.017,0.5,12.428312,100.0,"pickles, cucumber, dill or kosher dill","Pickles, cucumber, dill or kosher dill",SR Legacy
+marinated zucchini,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
+steamed komatsuna & daikon,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
+stir-fried jicama with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+steamed kabocha,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
+okra carrot side dish,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+squash stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
+zesty tomato cucumber,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+masala dosa,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
+tomato rasam,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+tamarind potatoes,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
+coconut chutney,806.9250000000001,16.1385,0.0,100.0,"flour, coconut","Flour, coconut",Foundation
+curry leaf rice,164.0,3.28,118.0,100.0,lentil curry with rice,Lentil curry with rice,Survey (FNDDS)
+chana-free chaat,10.0,0.2,64.0,100.0,"mayonnaise, fat free","Mayonnaise, fat free",Survey (FNDDS)
+vegetable kurma,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
+lemon rice,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
+simple sweet rice,0.0,0.0,184.0,100.0,simple syrup,Simple syrup,Survey (FNDDS)
+chilli potato,0.285,12.5,266.49169,100.0,"bread, potato","Bread, potato",SR Legacy
+roti roll,562.5,11.25,297.56247,100.0,"bread, chapati or roti, plain, commercially prepared","Bread, chapati or roti, plain, commercially prepared",SR Legacy
+kachumber salad,66.0,1.32,430.0,100.0,"salad dressing, nfs, for salads","Salad dressing, NFS, for salads",Survey (FNDDS)
+spinaci saltati,0.0,0.0,0.0,100.0,"salt, table","Salt, table",SR Legacy
+minestrone,85.0,1.7,39.914001999999996,100.0,"smart soup, greek minestrone","SMART SOUP, Greek Minestrone",SR Legacy
+stir-fried scallion with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+warm spinach garlic sauté,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+cavolfiore al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+zucchine al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+daikon spinach rice bowl,0.406,7.89,171.845314,100.0,spinach souffle,Spinach souffle,SR Legacy
+chilled okra salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+carrot apple slaw,0.042,1.1,63.575596,100.0,"babyfood, gerber, 2nd foods, apple, carrot and squash, organic","Babyfood, GERBER, 2nd Foods, apple, carrot and squash, organic",SR Legacy
+chilled tomato vinegar,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+roasted sweet kabocha,28.999999999999996,0.58,91.0,100.0,"pickles, sweet","Pickles, sweet",Survey (FNDDS)
+garlic spinach saute,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+sweet and sour bell peppers,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+carote al vapore,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+steamed okra,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+okra and tomato salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+fried plantains,75.0,1.5,309.034758,100.0,"plantains, green, fried","Plantains, green, fried",SR Legacy
+roasted yam,0.071,1.53,118.068964,100.0,"yam, raw","Yam, raw",SR Legacy
+yam porridge,0.071,1.53,118.068964,100.0,"yam, raw","Yam, raw",SR Legacy
+millet couscous,0.675,10.75,381.692582,100.0,millet flour,Millet flour,SR Legacy
+okra stew,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+okra and eggplant stew,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+roasted pumpkin,1.711,29.84,573.853406,100.0,"seeds, pumpkin and squash seed kernels, roasted, with salt added","Seeds, pumpkin and squash seed kernels, roasted, with salt added",SR Legacy
+ugali with vegetable stew,70.5,1.41,47.0,100.0,"stew, vegetable","Stew, vegetable",Survey (FNDDS)
+steamed green beans,115.5,2.31,32.743822,100.0,"beans, snap, green, microwaved","Beans, snap, green, microwaved",SR Legacy
+vegetable curry,80.0,1.6,86.0,100.0,vegetable curry,Vegetable curry,Survey (FNDDS)
+potato capsicum fry,0.285,5.7,217.973472,100.0,"tortillas, ready-to-bake or -fry, corn","Tortillas, ready-to-bake or -fry, corn",SR Legacy
+mint rice,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
+bananass fritters,368.5,7.37,404.0,100.0,"fritter, corn","Fritter, corn",Survey (FNDDS)
+tomato sevai,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+vegetable tehri,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
+tandoori potatoes,0.285,12.5,266.49169,100.0,"bread, potato","Bread, potato",SR Legacy
+jaggery poha,95.0,1.9,53.059332,100.0,"groundcherries, (cape-gooseberries or poha), raw","Groundcherries, (cape-gooseberries or poha), raw",SR Legacy
+tindora stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
+quick pickled carrots,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
+zucchini garlic stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+daikon wakame salad,0.112,3.03,44.933127999999996,100.0,"seaweed, wakame, raw","Seaweed, wakame, raw",SR Legacy
+polenta con funghi,290.0,5.8,106.83568199999999,100.0,"chili con carne with beans, canned entree","Chili con carne with beans, canned entree",SR Legacy
+steamed eggplant with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+okra and seaweed salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+snow peas daikon mix,20.0,0.4,128.0,100.0,snow cone,Snow cone,Survey (FNDDS)
+spiced zucchini slices,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
+stir-fried chayote with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+roasted sweet potatoes,112.99999999999999,2.26,191.0,100.0,sweet potato tots,Sweet potato tots,Survey (FNDDS)
+okra salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+porridge with baobab,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
+vegetable stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
+radicchio alla griglia,0.034,1.43,22.944575999999998,100.0,"radicchio, raw","Radicchio, raw",SR Legacy
+peas garlic saute,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+cipolle al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
+stir-fried celery with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+gobhi masala,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
+vegetable pulao,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
+upma,99.0,1.98,87.0,100.0,upma,Upma,Survey (FNDDS)
+plain khichdi,0.586,11.9,407.027218,100.0,"croutons, plain","Croutons, plain",SR Legacy
+peas pulao,1061.25,21.225,0.0,100.0,"blackeye pea, dry","Blackeye pea, dry",Foundation
+masala idli fry,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
+jeera aloo rice,256.0,5.12,112.0,100.0,dirty rice,Dirty rice,Survey (FNDDS)
+garlic snow peas,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+okra cucumber salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
+baked spiced apple slices,0.005,0.18,66.92168,100.0,"apples, canned, sweetened, sliced, drained, heated","Apples, canned, sweetened, sliced, drained, heated",SR Legacy
+roasted red pepper puree,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+tomato basil salad,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
+grilled peach with balsamic,24.5,0.49,88.193214,100.0,"vinegar, balsamic","Vinegar, balsamic",SR Legacy
+lemon roasted potatoes,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
+sauteed spinach with garlic,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+bulgur-free tabbouleh,0.145,3.08,82.935082,100.0,"bulgur, cooked","Bulgur, cooked",SR Legacy
+fattoush salad,66.0,1.32,430.0,100.0,"salad dressing, nfs, for salads","Salad dressing, NFS, for salads",Survey (FNDDS)
+chilled citrus melon soup,89.0,1.78,43.738098,100.0,horned melon (kiwano),Horned melon (Kiwano),SR Legacy
+zucchini and mint salad,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
+herbed potato wedges,128.0,2.56,161.807062,100.0,"potatoes, french fried, wedge cut, frozen, unprepared","Potatoes, french fried, wedge cut, frozen, unprepared",SR Legacy
+roasted fennel with citrus glaze,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
+baked apples with pomegranate drizzle,83.5,1.67,82.696076,100.0,"pomegranates, raw","Pomegranates, raw",SR Legacy
+garlic sautéed greens,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+cassava leaf and pumpkin soup,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
+garden egg stew,409.5,8.19,117.0,100.0,"stew, lamb","Stew, lamb",Survey (FNDDS)
+grilled fennel and orange salad,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
+stuffed grape leaves,113.99999999999999,2.28,168.0,100.0,grape leaves stuffed with rice,Grape leaves stuffed with rice,Survey (FNDDS)
+roasted zucchini boats,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
+fig and olive tapenade,36.5,0.73,282.0,100.0,olive tapenade,Olive tapenade,Survey (FNDDS)
+grilled zucchini and tomato platter,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+sauteed green beans with lemon zest,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
+avocado cucumber gazpacho,40.5,0.81,26.0,100.0,"soup, gazpacho","Soup, gazpacho",Survey (FNDDS)
+stewed zucchini and tomatoes,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+melon and cucumber salad with mint,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
+chickpea-free hummus,1119.5,22.39,386.950714,100.0,chickpea flour (besan),Chickpea flour (besan),SR Legacy
+olive tapenade,36.5,0.73,282.0,100.0,olive tapenade,Olive tapenade,Survey (FNDDS)
+grilled eggplant with garlic and herbs,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
+cucumber and tomato olive salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+date and coconut rolls,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
+orange cinnamon compote,352.5,7.05,253.34636,100.0,"bread, cinnamon","Bread, cinnamon",SR Legacy
+tomato and basil bruschetta topping,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
+apricot and orange salad,40.0,0.8,45.889151999999996,100.0,"babyfood, juice, orange and apricot","Babyfood, juice, orange and apricot",SR Legacy
+marinated zucchini ribbons,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
+palak curry,271.0,5.42,101.0,100.0,palak paneer,Palak Paneer,Survey (FNDDS)
+bhindi masala,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
+bread upma,99.0,1.98,87.0,100.0,upma,Upma,Survey (FNDDS)
+roasted fig and walnut bites,714.5,14.29,642.92614,100.0,"nuts, walnuts, dry roasted, with salt added","Nuts, walnuts, dry roasted, with salt added",SR Legacy
+roasted carrots with cumin,890.4999999999999,17.81,374.522402,100.0,"spices, cumin seed","Spices, cumin seed",SR Legacy
+baked cinnamon apples,0.343,7.91,240.20103,100.0,"muffins, english, raisin-cinnamon (includes apple-cinnamon)","Muffins, English, raisin-cinnamon (includes apple-cinnamon)",SR Legacy
+roasted bell pepper dip,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
+dosa base,273.0,5.46,184.0,100.0,"dosa, with filling","Dosa, with filling",Survey (FNDDS)
+ghee rice,0.0,0.0,900.096596,100.0,"butter, clarified butter (ghee)","Butter, Clarified butter (ghee)",SR Legacy
+bombay sandwich,575.0,11.5,494.0,100.0,"crackers, sandwich","Crackers, sandwich",Survey (FNDDS)
+beetroot curry,69.5,1.39,95.0,100.0,curry sauce,Curry sauce,Survey (FNDDS)
+simple tomato salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
+carrot and date salad,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
