@@ -1,0 +1,34 @@
+precision,recall,f1,ndcg,hit_rate,num_hits,num_liked_in_test,num_available,coverage,user_name
+0,0.0,0,0,0,0,4,0,0.0,Malihe
+0,0.0,0,0,0,0,3,0,0.0,Tianyi Zhang
+0,0.0,0,0,0,0,2,0,0.0,Yuchen Zhou
+0,0.0,0,0,0,0,3,0,0.0,zhuohang sh
+0,0.0,0,0,0,0,7,0,0.0,Ethan Asante-Danso
+0,0.0,0,0,0,0,3,0,0.0,Yuexi Ding
+0,0.0,0,0,0,0,3,0,0.0,Yao Li
+0,0.0,0,0,0,0,1,0,0.0,Kelly Zixuan
+0,0.0,0,0,0,0,3,0,0.0,Ania Sokolowski
+0,0.0,0,0,0,0,5,0,0.0,Youyi Lei
+0,0.0,0,0,0,0,4,0,0.0,Jayden Cruz
+0,0.0,0,0,0,0,1,0,0.0,Ashley Davila
+0,0.0,0,0,0,0,1,0,0.0,Aiden Velez
+0,0.0,0,0,0,0,2,0,0.0,Kathy Valle Reyes
+0,0.0,0,0,0,0,9,0,0.0,Jayden DeSagun-Pineda
+0,0.0,0,0,0,0,1,0,0.0,Spencer Neary
+0,0.0,0,0,0,0,6,0,0.0,Jonathan Valentin
+0,0.0,0,0,0,0,1,0,0.0,Jose Portillo 
+0,0.0,0,0,0,0,2,0,0.0,Gabriel Mantilla
+0,0.0,0,0,0,0,2,0,0.0,Gabriel Cunha Medeiros
+0,0.0,0,0,0,0,2,0,0.0,Richard Micheal
+0,0.0,0,0,0,0,9,0,0.0,Deepta Tejasa Vuppalapaty
+0,0.0,0,0,0,0,5,0,0.0,Kevin Thai
+0,0.0,0,0,0,0,3,0,0.0,Roman McCoy
+0,0.0,0,0,0,0,5,0,0.0,Alvin Loi
+0,0.0,0,0,0,0,1,0,0.0,Jhony Pellicer
+0,0.0,0,0,0,0,6,0,0.0,Sarah Hug
+0,0.0,0,0,0,0,2,0,0.0,Emmanuel Babayemi
+0,0.0,0,0,0,0,7,0,0.0,Brandon Mirabal
+0,0.0,0,0,0,0,4,0,0.0,Mysara Elsayed
+0,0.0,0,0,0,0,2,0,0.0,Kyle Humlen
+0,0.0,0,0,0,0,2,0,0.0,Olivia Tirso 
+0,0.0,0,0,0,0,4,0,0.0,Karina Ponze
