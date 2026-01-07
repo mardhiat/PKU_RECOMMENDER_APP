@@ -12,7 +12,7 @@ African Foods,Kachumbari (fresh salad),Kachumbari (fresh salad) (African Foods),
 African Foods,Avocado Salad,Avocado Salad (African Foods),Avocado|Tomato|Onion,200.0|30.0|20.0
 African Foods,Okra Stew (without meat),Okra Stew (without meat) (African Foods),Okra|Tomatoes|Onion|Palm oil,250.0|50.0|30.0|20.0
 African Foods,Pumpkin Leaves Stew,Pumpkin Leaves Stew (African Foods),Pumpkin leaves|Tomatoes|Onion|Palm oil,250.0|50.0|30.0|20.0
-African Foods,Baobab Leaf Stew,Baobab Leaf Stew (African Foods),Baobab leaves|Tomato|Onion,250.0|50.0|50.0
+African Foods,Baobab Leaf Stew ,Baobab Leaf Stew  (African Foods),Baobab leaves|Tomato|Onion,250.0|50.0|50.0
 African Foods,Coconut Rice,Coconut Rice (African Foods),Rice|Coconut milk|Water,250.0|70.0|30.0
 African Foods,Fried Plantains,Fried Plantains (African Foods),Plantains|Oil,270.0|30.0
 African Foods,Sweet Potato Chips,Sweet Potato Chips (African Foods),Sweet potatoes|Oil,180.0|20.0
@@ -33,7 +33,7 @@ African Foods,Millet Couscous,Millet Couscous (African Foods),Millet flour|Water
 African Foods,Roasted Pumpkin,Roasted Pumpkin (African Foods),Pumpkin|Oil,270.0|30.0
 African Foods,Boiled Taro,Boiled Taro (African Foods),Taro root|Salt,280.0|20.0
 African Foods,Grilled Plantains,Grilled Plantains (African Foods),Plantains|Oil,280.0|20.0
-African Foods,Roasted Sweet Potatoes,Roasted Sweet Potatoes (African Foods),Sweet potatoes|Oil,270.0|30.0
+African Foods,Roasted Sweet Potatoes,Roasted Sweet Potatoes (African Foods),Sweet potatoes|Oil|Sweet potatoes|Olive oil,270.0|30.0|270.0|30.0
 African Foods,Boiled Pumpkin Leaves,Boiled Pumpkin Leaves (African Foods),Pumpkin leaves|Oil|Olive oil,300.0|50.0|30.0
 African Foods,Fried Sweet Potato Chips,Fried Sweet Potato Chips (African Foods),Sweet potatoes|Oil,180.0|20.0
 African Foods,Yam Porridge,Yam Porridge (African Foods),Yam|Water,320.0|30.0
@@ -56,7 +56,6 @@ African Foods,Cooked Waterleaf,Cooked Waterleaf (African Foods),Waterleaf|Palm o
 African Foods,Boiled Sweet Cassava,Boiled Sweet Cassava (African Foods),Cassava|Salt,280.0|20.0
 African Foods,Okra and Tomato Soup,Okra and Tomato Soup (African Foods),Okra|Tomato|Onion|Palm oil,250.0|50.0|30.0|20.0
 African Foods,Steamed Green Beans,Steamed Green Beans (African Foods),Green beans|Olive oil,270.0|30.0
-African Foods,Roasted Sweet Potatoes,Roasted Sweet Potatoes (African Foods),Sweet potatoes|Olive oil,270.0|30.0
 African Foods,Baobab Leaf Juice,Baobab Leaf Juice (African Foods),Baobab leaves|Water|Lemon juice,200.0|80.0|20.0
 African Foods,Rice and Beans (low-protein beans or substituted),Rice and Beans (low-protein beans or substituted) (African Foods),Low-protein beans|Rice|Tomatoes|Oil,150.0|150.0|30.0|20.0
 African Foods,Ugali with Vegetable Stew,Ugali with Vegetable Stew (African Foods),Low-protein flour|Mixed vegetables|Tomato|Onion|Oil,200.0|100.0|20.0|20.0|10.0
@@ -126,157 +125,157 @@ Central European Foods,Fried Turnip Cakes,Fried Turnip Cakes (Central European F
 Central European Foods,Steamed Green Beans and Carrots,Steamed Green Beans and Carrots (Central European Foods),Green Beans|Carrots|Olive Oil|Salt|Lemon Zest,400.0|300.0|100.0|5.0|55.0
 Central European Foods,Zucchini and Potato RÃ¶sti,Zucchini and Potato RÃ¶sti (Central European Foods),"Zucchini|Potatoes|onions, raw|Olive Oil|Salt|White Pepper",400.0|300.0|100.0|50.0|10.0|10.0
 Central European Foods,Fried Sauerkraut with Apples,Fried Sauerkraut with Apples (Central European Foods),"Sauerkraut|Apples|onions, raw|Olive Oil|Caraway Seeds|Salt|Sugar",500.0|250.0|100.0|50.0|2.0|3.0|15.0
-Chinese Foods,Sweet and Sour Vegetables,Sweet and Sour Vegetables (Chinese Foods),Pineapple|Red bell pepper|Green bell pepper|Carrots|Cornstarch|Rice vinegar|Sugar,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Vegetable Low-Protein Fried Rice,Vegetable Low-Protein Fried Rice (Chinese Foods),Low-protein rice|Peas|Carrots|Garlic|Sesame oil,100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Steamed Eggplant,Steamed Eggplant (Chinese Foods),Eggplant|Garlic|Rice vinegar,100.0|100.0|100.0
-Chinese Foods,Cabbage and Apple Slaw,Cabbage and Apple Slaw (Chinese Foods),"Chinese cabbage (Pak-choi), raw|Apple|Carrots|Rice vinegar|Sugar|Salt & Pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Low-Protein Dumplings,Low-Protein Dumplings (Chinese Foods),"Low-protein flour|Chinese cabbage (Pak-choi), raw|Chives|Garlic|Sesame oil",100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Peas,Stir-Fried Peas (Chinese Foods),Peas|Ginger|Garlic|Sesame oil,100.0|100.0|100.0|100.0
-Chinese Foods,Pumpkin Congee,Pumpkin Congee (Chinese Foods),Low-protein rice|Pumpkin|Sugar|Salt & Pepper,100.0|100.0|100.0|100.0
-Chinese Foods,Garlic Bok Choy Stir-Fry,Garlic Bok Choy Stir-Fry (Chinese Foods),Baby bok choy|Oil|Garlic|Salt|White pepper|Sugar,100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Braised Daikon with Shitake Mushrooms,Braised Daikon with Shitake Mushrooms (Chinese Foods),"Shiitake mushrooms, dried|water|Oil, vegetable|Ginger, raw|Daikon|Star anise|Bay leaf|soy sauce|Cornstarch|scallion greens",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Spicy Pickled Napa Cabbage (Simple Kimchi-style),Spicy Pickled Napa Cabbage (Simple Kimchi-style) (Chinese Foods),"Chinese cabbage (Pak-choi), raw|kosher salt|garlic|ginger|Korean red pepper flakes|water|daikon|scallion greens|sugar",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Vegetarian Winter Melon Soup,Vegetarian Winter Melon Soup (Chinese Foods),Water|Scallions|Cilantro|Ginger|Garlic|White pepper|Winter melon|dried shiitake mushrooms|Soy sauce|Salt,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Dry-Fried Green Beans,Dry-Fried Green Beans (Chinese Foods),Green beans|Salt|Oil|Garlic|Dried red chili peppers|preserved vegetables|wine|Soy sauce|Sugar|Sesame oil,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Lotus Root Stir-Fry,Lotus Root Stir-Fry (Chinese Foods),Lotus root|Wood ear mushrooms|Red bell pepper|Vegetable Broth|Salt|Sugar|White pepper|Oil|Ginger|Garlic|Scallions|Wine|Cornstarch|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir Fry Bean Sprouts and Garlic Chives,Stir Fry Bean Sprouts and Garlic Chives (Chinese Foods),Vegetable oil|Bean sprouts|Garlic chives|Salt,100.0|100.0|100.0|100.0
-Chinese Foods,Chinese Cucumber Salad,Chinese Cucumber Salad (Chinese Foods),Japanese/Lebanese cucumbers|Garlic|Thai chili|Rice vinegar|Water|Sugar|Salt,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Braised Kabocha Squash,Braised Kabocha Squash (Chinese Foods),"Kabocha squash (roasted, chopped)|Olive oil|ginger|scallion greens|garlic|Water|sugar|soy sauce|wine|Rice vinegar|chili flakes|sesame oil",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Yu Choy Sum,Yu Choy Sum (Chinese Foods),choy sum|Canola oil|soy sauce|Sesame oil|Ground white pepper,100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Celery & Wood Ear Mushrooms,Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),wood ear mushrooms|celery|Red bell pepper|Vegetable broth|Salt|Sugar|wine|Vegetable oil|Ginger|Dried chili peppers|Garlic|Cornstarch|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Chayote Stir-Fry with Garlic,Chayote Stir-Fry with Garlic (Chinese Foods),"Chayote, cooked|Canola oil|Shallots, chopped|Garlic|Ginger, raw|Vegetable Broth|salt",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Chinese-Style Steamed Zucchini,Chinese-Style Steamed Zucchini (Chinese Foods),Zucchini|soy sauce|vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Zucchini with Garlic Sauce,Stir-Fried Zucchini with Garlic Sauce (Chinese Foods),Zucchini|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Cucumber with Garlic Sauce,Stir-Fried Cucumber with Garlic Sauce (Chinese Foods),Cucumber|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Sesame seeds|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Tomato with Garlic Sauce,Stir-Fried Tomato with Garlic Sauce (Chinese Foods),Tomato|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Daikon Radish with Garlic Sauce,Stir-Fried Daikon Radish with Garlic Sauce (Chinese Foods),Daikon|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Winter Melon with Garlic Sauce,Stir-Fried Winter Melon with Garlic Sauce (Chinese Foods),Winter Melon|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Chayote with Garlic Sauce,Stir-Fried Chayote with Garlic Sauce (Chinese Foods),"Chayote, cooked|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Napa Cabbage with Garlic Sauce,Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),Napa Cabbage|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Green Cabbage with Garlic Sauce,Stir-Fried Green Cabbage with Garlic Sauce (Chinese Foods),Green Cabbage|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Carrots with Garlic Sauce,Stir-Fried Carrots with Garlic Sauce (Chinese Foods),Carrots|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Beets with Garlic Sauce,Stir-Fried Beets with Garlic Sauce (Chinese Foods),Red beets|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Bell Pepper with Garlic Sauce,Stir-Fried Bell Pepper with Garlic Sauce (Chinese Foods),Bell Pepper|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Celery with Garlic Sauce,Stir-Fried Celery with Garlic Sauce (Chinese Foods),Celery|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Snow Peas with Garlic Sauce,Stir-Fried Snow Peas with Garlic Sauce (Chinese Foods),Snow Peas|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Wood Ear Mushroom with Garlic Sauce,Stir-Fried Wood Ear Mushroom with Garlic Sauce (Chinese Foods),Wood Ear Mushroom|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Enoki Mushroom with Garlic Sauce,Stir-Fried Enoki Mushroom with Garlic Sauce (Chinese Foods),Enoki Mushroom|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Kabocha Squash with Garlic Sauce,Stir-Fried Kabocha Squash with Garlic Sauce (Chinese Foods),Kabocha Squash|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Eggplant with Garlic Sauce,Stir-Fried Eggplant with Garlic Sauce (Chinese Foods),Eggplant|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Lettuce with Garlic Sauce,Stir-Fried Lettuce with Garlic Sauce (Chinese Foods),Lettuce|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Chinese Broccoli with Garlic Sauce,Stir-Fried Chinese Broccoli with Garlic Sauce (Chinese Foods),Chinese Broccoli|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Garlic Chives with Garlic Sauce,Stir-Fried Garlic Chives with Garlic Sauce (Chinese Foods),Garlic Chives|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Spinach with Garlic Sauce,Stir-Fried Spinach with Garlic Sauce (Chinese Foods),Spinach|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Okra with Garlic Sauce,Stir-Fried Okra with Garlic Sauce (Chinese Foods),Okra|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Fuzzy Melon with Garlic Sauce,Stir-Fried Fuzzy Melon with Garlic Sauce (Chinese Foods),Fuzzy Melon|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Tatsoi with Garlic Sauce,Stir-Fried Tatsoi with Garlic Sauce (Chinese Foods),Tatsoi|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Bok Choy with Garlic Sauce,Stir-Fried Bok Choy with Garlic Sauce (Chinese Foods),Bok Choy|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Bamboo Shoots with Garlic Sauce,Stir-Fried Bamboo Shoots with Garlic Sauce (Chinese Foods),Bamboo Shoots|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Water Chestnut with Garlic Sauce,Stir-Fried Water Chestnut with Garlic Sauce (Chinese Foods),Water Chestnut|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Lotus Root with Garlic Sauce,Stir-Fried Lotus Root with Garlic Sauce (Chinese Foods),Lotus Root|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Pumpkin with Garlic Sauce,Stir-Fried Pumpkin with Garlic Sauce (Chinese Foods),Pumpkin|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Zha Cai (preserved mustard) with Garlic Sauce,Stir-Fried Zha Cai (preserved mustard) with Garlic Sauce (Chinese Foods),Zha Cai|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Scallion with Garlic Sauce,Stir-Fried Scallion with Garlic Sauce (Chinese Foods),Scallions|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Parsley with Garlic Sauce,Stir-Fried Parsley with Garlic Sauce (Chinese Foods),Parsley|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Yam with Garlic Sauce,Stir-Fried Yam with Garlic Sauce (Chinese Foods),Yam|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Pickled Radish with Garlic Sauce,Stir-Fried Pickled Radish with Garlic Sauce (Chinese Foods),Pickled Radish|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Pickled Cabbage with Garlic Sauce,Stir-Fried Pickled Cabbage with Garlic Sauce (Chinese Foods),Pickled Cabbage|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Seaweed (rehydrated) with Garlic Sauce,Stir-Fried Seaweed (rehydrated) with Garlic Sauce (Chinese Foods),Seaweed (rehydrated)|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Chinese Leek with Garlic Sauce,Stir-Fried Chinese Leek with Garlic Sauce (Chinese Foods),Chinese Leek|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Fennel with Garlic Sauce,Stir-Fried Fennel with Garlic Sauce (Chinese Foods),Fennel|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Garlic Sprouts with Garlic Sauce,Stir-Fried Garlic Sprouts with Garlic Sauce (Chinese Foods),Garlic Sprouts|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Taro (limited) with Garlic Sauce,Stir-Fried Taro (limited) with Garlic Sauce (Chinese Foods),"Taro, cooked|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Cilantro with Garlic Sauce,Stir-Fried Cilantro with Garlic Sauce (Chinese Foods),Cilantro|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Shanghai Greens with Garlic Sauce,Stir-Fried Shanghai Greens with Garlic Sauce (Chinese Foods),Shanghai Greens|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Kailan with Garlic Sauce,Stir-Fried Kailan with Garlic Sauce (Chinese Foods),Kailan|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Sweet Corn (limited) with Garlic Sauce,Stir-Fried Sweet Corn (limited) with Garlic Sauce (Chinese Foods),Sweet Corn|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Pickled Mustard Greens with Garlic Sauce,Stir-Fried Pickled Mustard Greens with Garlic Sauce (Chinese Foods),"Mustard greens, cooked|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Jicama with Garlic Sauce,Stir-Fried Jicama with Garlic Sauce (Chinese Foods),"Jicama slices, raw|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Turnip with Garlic Sauce,Stir-Fried Turnip with Garlic Sauce (Chinese Foods),raw turnips|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Komatsuna with Garlic Sauce,Stir-Fried Komatsuna with Garlic Sauce (Chinese Foods),Komatsuna|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Cabbage Core Shreds with Garlic Sauce,Stir-Fried Cabbage Core Shreds with Garlic Sauce (Chinese Foods),Cabbage Core Shreds|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Chinese Foods,Stir-Fried Chinese Celery with Garlic Sauce,Stir-Fried Chinese Celery with Garlic Sauce (Chinese Foods),Chinese Celery|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Stuffed Bell Peppers with White Rice,Stuffed Bell Peppers with White Rice (Eastern European Foods),"Red Bell Peppers|White Rice|onions, raw|Garlic|Vegetable Broth|Curry Powder|Cinnamon|Sage (dried)|Cloves|Salt and Pepper|Parsley",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Vegan Borscht,Vegan Borscht (Eastern European Foods),"Olive Oil|Red red beets|Carrots|onions, raw|Garlic|Vegetable Broth|Tomato Paste|Green Cabbage|Potatoes|Lemon Juice|Fresh fresh dill|Salt and Pepper|chives",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Korean Style Carrot Salad,Korean Style Carrot Salad (Eastern European Foods),Carrots|Garlic|Balsamic Vinegar|Salt and Pepper|Paprika|Cayenne|Avocado Oil,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Braised Cabbage with White Rice,Braised Cabbage with White Rice (Eastern European Foods),"Olive Oil|onions, raw|Tomato puree|Green Cabbage|White Rice|Salt and Pepper|Red Bell Peppers|Vegetable Broth",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Veggie-Stuffed Potato Cakes Dough Base,Veggie-Stuffed Potato Cakes Dough Base (Eastern European Foods),Potatoes|vegan butter|Salt|Flour|White Pepper|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Veggie-Stuffed Potato Cakes Mushroom Filling,Veggie-Stuffed Potato Cakes Mushroom Filling (Eastern European Foods),"Portobello Mushrooms|onions, raws|Garlic|Salt and Pepper",100.0|100.0|100.0|100.0
-Eastern European Foods,Veggie-Stuffed Potato Cakes Satsibeli Sauce,Veggie-Stuffed Potato Cakes Satsibeli Sauce (Eastern European Foods),"Tomatoes|onions, raw|Garlic|Coriander|Vinegar/oil dressing|Chili Sauce|Sugar|Salt",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Baked Apples,Baked Apples (Eastern European Foods),"Granny Smith Golden Apples|Lemon Juice|vegan butter|Raisins, seedless|Water|Honey|Cinnamon|Allspice|Nutmeg",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Stuffed Cabage Main,Stuffed Cabage Main (Eastern European Foods),Green Cabbage|Tomato|Marinara sauce,100.0|100.0|100.0
-Eastern European Foods,Stuffed Cabbage Filling,Stuffed Cabbage Filling (Eastern European Foods),"onions, raw|Carrots|Portobello Mushrooms|Cauliflower, raw|Garlic|soy sauce|Vegan Worcestershire sauce|White Rice|Tomato paste|Parsley|Italian seasoning|onion powder|Garlic powder|salt and pepper|Water",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Pickled Pumpkin Main,Pickled Pumpkin Main (Eastern European Foods),"Pumpkin|Salt|Water|Vinegar/oil dressing|Sugar|Ginger, raw|Chili flakes|cloves|Allspice berries|Floral honey",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Pickled Pumpkin Cherry Dressing,Pickled Pumpkin Cherry Dressing (Eastern European Foods),Cherry jam|Pickle brine|Olive oil|mustard|Salt,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Pickled Pumpkin Salad,Pickled Pumpkin Salad (Eastern European Foods),Cherry jam|Salad mix|Pickled pumpkin,100.0|100.0|100.0
-Eastern European Foods,Vinegret Salad,Vinegret Salad (Eastern European Foods),"Potatoes|Carrots|sweet peas|fresh dill pickles|Red red beets|onions, raw|Olive oil|onions, raw|Salt and Pepper",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Potato and fresh dill Soup,Potato and fresh dill Soup (Eastern European Foods),"Potatoes|Vegetable Broth|onions, raw|Garlic|fresh dill|Bay Leaf|Olive Oil|Salt|Pepper",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Carrot and Apple Salad,Carrot and Apple Salad (Eastern European Foods),Carrots|Apples|Lemon Juice|Olive Oil|Salt|Sugar,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Roasted Root Vegetables,Roasted Root Vegetables (Eastern European Foods),Carrots|Parsnips|Potatoes|red beets|Olive Oil|Salt|Thyme,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Cabbage and Apple Slaw,Cabbage and Apple Slaw (Eastern European Foods),Green Cabbage|Apple|Carrots|Vinegar|Sugar|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Mashed Potatoes with Garlic Oil,Mashed Potatoes with Garlic Oil (Eastern European Foods),Potatoes|Olive Oil|Garlic|Salt,100.0|100.0|100.0|100.0
-Eastern European Foods,Beet and Apple Salad,Beet and Apple Salad (Eastern European Foods),red beets|Apples|Olive Oil|Lemon Juice|Salt,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Cabbage Stew with Caraway,Cabbage Stew with Caraway (Eastern European Foods),"Cabbage|onions, raw|Garlic|Caraway Seeds|Olive Oil|Salt|Vegetable Broth",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Sweet Braised Red Cabbage,Sweet Braised Red Cabbage (Eastern European Foods),Red Cabbage|Apple|Vinegar|Sugar|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Potato and Cucumber Salad,Potato and Cucumber Salad (Eastern European Foods),Potatoes|Cucumber|fresh dill|Vinegar|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Herbed Carrot Mash,Herbed Carrot Mash (Eastern European Foods),Carrots|Olive Oil|Parsley|Garlic|Salt|White Pepper,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Polish Apple Beet Slaw,Polish Apple Beet Slaw (Eastern European Foods),red beets|Apples|Lemon Juice|Olive Oil|fresh dill|Salt,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Potato-Cauliflower Bake,Potato-Cauliflower Bake (Eastern European Foods),Potatoes|Cauliflower|Olive Oil|Garlic|vegan butter|Salt and Pepper,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Stewed Green Beans with Tomato,Stewed Green Beans with Tomato (Eastern European Foods),"Green Beans|Tomato Puree|onions, raw|Garlic|Olive Oil|Salt and Pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Warm Cabbage-Apple SautâÂ©,Warm Cabbage-Apple SautâÂ© (Eastern European Foods),"Cabbage|Apples|onions, raw|Olive Oil|Vinegar|Salt and pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Horseradish Beet Salad,Horseradish Beet Salad (Eastern European Foods),red beets|Horseradish|Lemon Juice|Olive Oil|Salt,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Simple Potato and Pickle Salad,Simple Potato and Pickle Salad (Eastern European Foods),"Potatoes|dill Pickles|onions, raw|Vinegar|Olive Oil|Salt and Pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Sauteed Zucchini with fresh dill,Sauteed Zucchini with fresh dill (Eastern European Foods),Zucchini|Olive Oil|Garlic|fresh dill|Salt and Pepper,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Carrot-Potato Latkes,Carrot-Potato Latkes (Eastern European Foods),"Carrots|Potatoes|onions, raw|Olive Oil|Salt|White Pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Beet and Cabbage Stir-Fry,Beet and Cabbage Stir-Fry (Eastern European Foods),"red beets|Cabbage|onions, raw|Olive Oil|Vinegar|Salt|Caraway Seeds",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Apple-Cabbage Slaw,Apple-Cabbage Slaw (Eastern European Foods),Apples|Green Cabbage|Carrots|Olive Oil|Lemon Juice|Salt|Sugar,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Mushroom-Buckwheat Pilaf (limited),Mushroom-Buckwheat Pilaf (limited) (Eastern European Foods),"Buckwheat|Mushrooms|onions, raw|Garlic|Olive Oil|Salt and Pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Cucumber-Vinegar Salad,Cucumber-Vinegar Salad (Eastern European Foods),Cucumber|Vinegar|Salt|fresh dill|Sugar,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Baked Cauliflower with Paprika,Baked Cauliflower with Paprika (Eastern European Foods),Cauliflower|Olive Oil|Paprika|Garlic|Salt,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Sweet Carrot Pudding,Sweet Carrot Pudding (Eastern European Foods),"Carrots|Sugar|Coconut Oil|Lemon Zest|Raisins, seedless|Cinnamon|Salt",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Cabbage-Potato Mash,Cabbage-Potato Mash (Eastern European Foods),Green Cabbage|Potatoes|Olive Oil|Salt|White Pepper,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Caraway Beet Wedges,Caraway Beet Wedges (Eastern European Foods),red beets|Olive Oil|Caraway Seeds|Salt|Vinegar,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Stuffed Apples with Jam,Stuffed Apples with Jam (Eastern European Foods),Apples|Cherry Jam|Cinnamon|Sugar|vegan butter,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Savory Pumpkin Mash,Savory Pumpkin Mash (Eastern European Foods),Pumpkin|Garlic|Olive Oil|Salt|Sage|White Pepper,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Zucchini and Apple Salad,Zucchini and Apple Salad (Eastern European Foods),Zucchini|Apples|Lemon Juice|fresh dill|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Beetroot Horseradish Dip,Beetroot Horseradish Dip (Eastern European Foods),red beets|Horseradish|Lemon Juice|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Mashed Pumpkin with Carrots,Mashed Pumpkin with Carrots (Eastern European Foods),Pumpkin|Carrots|Olive Oil|Garlic|Salt|Pepper,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Sauerkraut with Carrot,Sauerkraut with Carrot (Eastern European Foods),"Sauerkraut|Carrots|Olive Oil|onions, raw|Bay Leaf|Salt|Pepper",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Roasted Cabbage Steaks,Roasted Cabbage Steaks (Eastern European Foods),Green Cabbage|Olive Oil|Garlic Powder|Paprika|Salt|Pepper,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Turnip and Apple Salad,Turnip and Apple Salad (Eastern European Foods),Turnips|Apples|Lemon Juice|fresh dill|Olive Oil|Salt,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Fried Zucchini Rounds,Fried Zucchini Rounds (Eastern European Foods),Zucchini|Olive Oil|Salt|Garlic Powder|White Pepper,100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Potato and fresh dill Patties,Potato and fresh dill Patties (Eastern European Foods),"Potatoes|fresh dill|onions, raw|Olive Oil|Salt|Flour",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Mushroom-Cabbage Mix,Mushroom-Cabbage Mix (Eastern European Foods),"Mushrooms|Cabbage|onions, raw|Garlic|Olive Oil|Salt|Pepper",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Spiced Apple Slices,Spiced Apple Slices (Eastern European Foods),Apples|Cinnamon|Nutmeg|Lemon Juice|Sugar|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Cucumber Beet Salad,Cucumber Beet Salad (Eastern European Foods),red beets|Cucumber|fresh dill|Vinegar|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Sweet Carrot and Apple Bake,Sweet Carrot and Apple Bake (Eastern European Foods),Carrots|Apples|Sugar|Cinnamon|Olive Oil|Nutmeg,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Cold Marinated Vegetables,Cold Marinated Vegetables (Eastern European Foods),Cauliflower|Carrots|Red Bell Peppers|Vinegar|Salt|Garlic|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Polish Celery Root Slaw,Polish Celery Root Slaw (Eastern European Foods),Celery Root|Apples|Lemon Juice|Vinegar|Salt|Olive Oil,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,"Warm Zucchini and onions, raw SautâÂ©","Warm Zucchini and onions, raw SautâÂ© (Eastern European Foods)","Zucchini|onions, raw|Garlic|Olive Oil|Salt|Black Pepper",100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Beet and Radish Salad,Beet and Radish Salad (Eastern European Foods),red beets|Radishes|Olive Oil|Salt|fresh dill|Lemon Juice,100.0|100.0|100.0|100.0|100.0|100.0
-Eastern European Foods,Pan-Fried Pumpkin Slices,Pan-Fried Pumpkin Slices (Eastern European Foods),Pumpkin|Olive Oil|Garlic|Salt|Sage,100.0|100.0|100.0|100.0|100.0
+Chinese Foods,Sweet and Sour Vegetables,Sweet and Sour Vegetables (Chinese Foods),Pineapple|Red bell pepper|Green bell pepper|Carrots|Cornstarch|Rice vinegar|Sugar,100.0|80.0|80.0|60.0|10.0|15.0|15.0
+Chinese Foods,Vegetable Low-Protein Fried Rice,Vegetable Low-Protein Fried Rice (Chinese Foods),Low-protein rice|Peas|Carrots|Garlic|Sesame oil,300.0|60.0|60.0|20.0|10.0
+Chinese Foods,Steamed Eggplant,Steamed Eggplant (Chinese Foods),Eggplant|Garlic|Rice vinegar,200.0|5.0|10.0
+Chinese Foods,Cabbage and Apple Slaw,Cabbage and Apple Slaw (Chinese Foods),"Chinese cabbage (Pak-choi), raw|Apple|Carrots|Rice vinegar|Sugar|Salt & Pepper",150.0|100.0|50.0|15.0|10.0|5.0
+Chinese Foods,Low-Protein Dumplings,Low-Protein Dumplings (Chinese Foods),"Low-protein flour|Chinese cabbage (Pak-choi), raw|Chives|Garlic|Sesame oil",80.0|100.0|10.0|5.0|5.0
+Chinese Foods,Stir-Fried Peas,Stir-Fried Peas (Chinese Foods),Peas|Ginger|Garlic|Sesame oil,150.0|5.0|5.0|5.0
+Chinese Foods,Pumpkin Congee,Pumpkin Congee (Chinese Foods),Low-protein rice|Pumpkin|Sugar|Salt & Pepper,60.0|150.0|5.0|5.0
+Chinese Foods,Garlic Bok Choy Stir-Fry,Garlic Bok Choy Stir-Fry (Chinese Foods),Baby bok choy|Oil|Garlic|Salt|White pepper|Sugar,450.0|28.0|15.0|1.5|0.75|0.5
+Chinese Foods,Braised Daikon with Shitake Mushrooms,Braised Daikon with Shitake Mushrooms (Chinese Foods),"Shiitake mushrooms, dried|water|Oil, vegetable|Ginger, raw|Daikon|Star anise|Bay leaf|soy sauce|Cornstarch|scallion greens",15.0|360.0|14.0|10.0|565.0|1.0|0.2|10.0|3.0|6.0
+Chinese Foods,Spicy Pickled Napa Cabbage (Simple Kimchi-style),Spicy Pickled Napa Cabbage (Simple Kimchi-style) (Chinese Foods),"Chinese cabbage (Pak-choi), raw|kosher salt|garlic|ginger|Korean red pepper flakes|water|daikon|scallion greens|sugar",1100.0|72.0|15.0|5.0|17.0|45.0|225.0|60.0|4.0
+Chinese Foods,Vegetarian Winter Melon Soup,Vegetarian Winter Melon Soup (Chinese Foods),Water|Scallions|Cilantro|Ginger|Garlic|White pepper|Winter melon|dried shiitake mushrooms|Soy sauce|Salt,960.0|30.0|10.0|10.0|3.0|1.0|680.0|10.0|5.0|1.5
+Chinese Foods,Dry-Fried Green Beans,Dry-Fried Green Beans (Chinese Foods),Green beans|Salt|Oil|Garlic|Dried red chili peppers|preserved vegetables|wine|Soy sauce|Sugar|Sesame oil,450.0|3.0|28.0|6.0|2.0|25.0|5.0|7.5|0.5|4.5
+Chinese Foods,Lotus Root Stir-Fry,Lotus Root Stir-Fry (Chinese Foods),Lotus root|Wood ear mushrooms|Red bell pepper|Vegetable Broth|Salt|Sugar|White pepper|Oil|Ginger|Garlic|Scallions|Wine|Cornstarch|Water,340.0|40.0|75.0|60.0|2.5|1.0|0.3|28.0|10.0|6.0|20.0|15.0|6.0|15.0
+Chinese Foods,Stir Fry Bean Sprouts and Garlic Chives,Stir Fry Bean Sprouts and Garlic Chives (Chinese Foods),Vegetable oil|Bean sprouts|Garlic chives|Salt,28.0|180.0|30.0|1.5
+Chinese Foods,Chinese Cucumber Salad ,Chinese Cucumber Salad  (Chinese Foods),Japanese/Lebanese cucumbers|Garlic|Thai chili|Rice vinegar|Water|Sugar|Salt,350.0|9.0|2.0|60.0|15.0|25.0|9.0
+Chinese Foods,Braised Kabocha Squash,Braised Kabocha Squash (Chinese Foods),"Kabocha squash (roasted, chopped)|Olive oil|ginger|scallion greens|garlic|Water|sugar|soy sauce|wine|Rice vinegar|chili flakes|sesame oil",600.0|14.0|10.0|20.0|18.0|60.0|50.0|80.0|60.0|15.0|6.0|14.0
+Chinese Foods,Yu Choy Sum,Yu Choy Sum (Chinese Foods),choy sum|Canola oil|soy sauce|Sesame oil|Ground white pepper,450.0|28.0|15.0|2.5|0.3
+Chinese Foods,Stir-Fried Celery & Wood Ear Mushrooms,Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),wood ear mushrooms|celery|Red bell pepper|Vegetable broth|Salt|Sugar|wine|Vegetable oil|Ginger|Dried chili peppers|Garlic|Cornstarch|Water,40.0|150.0|55.0|80.0|1.5|1.0|15.0|28.0|8.0|2.0|9.0|6.0|15.0
+Chinese Foods,Chayote Stir-Fry with Garlic,Chayote Stir-Fry with Garlic (Chinese Foods),"Chayote, cooked|Canola oil|Shallots, chopped|Garlic|Ginger, raw|Vegetable Broth|salt",600.0|21.0|35.0|6.0|6.0|300.0|2.5
+Chinese Foods,Chinese-Style Steamed Zucchini,Chinese-Style Steamed Zucchini (Chinese Foods),Zucchini|soy sauce|vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,800.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Zucchini with Garlic Sauce,Stir-Fried Zucchini with Garlic Sauce (Chinese Foods),Zucchini|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,800.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Cucumber with Garlic Sauce,Stir-Fried Cucumber with Garlic Sauce (Chinese Foods),Cucumber|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Sesame seeds|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|28.0|28.0|12.0|12.0|6.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Tomato with Garlic Sauce,Stir-Fried Tomato with Garlic Sauce (Chinese Foods),Tomato|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,600.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Daikon Radish with Garlic Sauce,Stir-Fried Daikon Radish with Garlic Sauce (Chinese Foods),Daikon|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Winter Melon with Garlic Sauce,Stir-Fried Winter Melon with Garlic Sauce (Chinese Foods),Winter Melon|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro,750.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Chayote with Garlic Sauce,Stir-Fried Chayote with Garlic Sauce (Chinese Foods),"Chayote, cooked|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|sugar|Garlic|Scallions|Chili oil|Cilantro",700.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Napa Cabbage with Garlic Sauce,Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),Napa Cabbage|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,850.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Green Cabbage with Garlic Sauce,Stir-Fried Green Cabbage with Garlic Sauce (Chinese Foods),Green Cabbage|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,800.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Carrots with Garlic Sauce,Stir-Fried Carrots with Garlic Sauce (Chinese Foods),Carrots|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,650.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Beets with Garlic Sauce,Stir-Fried Beets with Garlic Sauce (Chinese Foods),Red beets|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Bell Pepper with Garlic Sauce,Stir-Fried Bell Pepper with Garlic Sauce (Chinese Foods),Bell Pepper|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,600.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Celery with Garlic Sauce,Stir-Fried Celery with Garlic Sauce (Chinese Foods),Celery|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Snow Peas with Garlic Sauce,Stir-Fried Snow Peas with Garlic Sauce (Chinese Foods),Snow Peas|soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Wood Ear Mushroom with Garlic Sauce,Stir-Fried Wood Ear Mushroom with Garlic Sauce (Chinese Foods),Wood Ear Mushroom|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,400.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Enoki Mushroom with Garlic Sauce,Stir-Fried Enoki Mushroom with Garlic Sauce (Chinese Foods),Enoki Mushroom|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,350.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Kabocha Squash with Garlic Sauce,Stir-Fried Kabocha Squash with Garlic Sauce (Chinese Foods),Kabocha Squash|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,750.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Eggplant with Garlic Sauce,Stir-Fried Eggplant with Garlic Sauce (Chinese Foods),Eggplant|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Lettuce with Garlic Sauce,Stir-Fried Lettuce with Garlic Sauce (Chinese Foods),Lettuce|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Chinese Broccoli with Garlic Sauce,Stir-Fried Chinese Broccoli with Garlic Sauce (Chinese Foods),Chinese Broccoli|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,600.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Garlic Chives with Garlic Sauce,Stir-Fried Garlic Chives with Garlic Sauce (Chinese Foods),Garlic Chives|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Spinach with Garlic Sauce,Stir-Fried Spinach with Garlic Sauce (Chinese Foods),Spinach|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,450.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Okra with Garlic Sauce,Stir-Fried Okra with Garlic Sauce (Chinese Foods),Okra|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,400.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Fuzzy Melon with Garlic Sauce,Stir-Fried Fuzzy Melon with Garlic Sauce (Chinese Foods),Fuzzy Melon|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Tatsoi with Garlic Sauce,Stir-Fried Tatsoi with Garlic Sauce (Chinese Foods),Tatsoi|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Bok Choy with Garlic Sauce,Stir-Fried Bok Choy with Garlic Sauce (Chinese Foods),Bok Choy|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,650.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Bamboo Shoots with Garlic Sauce,Stir-Fried Bamboo Shoots with Garlic Sauce (Chinese Foods),Bamboo Shoots|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,550.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Water Chestnut with Garlic Sauce,Stir-Fried Water Chestnut with Garlic Sauce (Chinese Foods),Water Chestnut|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,450.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Lotus Root with Garlic Sauce,Stir-Fried Lotus Root with Garlic Sauce (Chinese Foods),Lotus Root|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,600.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Pumpkin with Garlic Sauce,Stir-Fried Pumpkin with Garlic Sauce (Chinese Foods),Pumpkin|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Zha Cai (preserved mustard) with Garlic Sauce,Stir-Fried Zha Cai (preserved mustard) with Garlic Sauce (Chinese Foods),Zha Cai|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,100.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Scallion with Garlic Sauce,Stir-Fried Scallion with Garlic Sauce (Chinese Foods),Scallions|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,200.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Parsley with Garlic Sauce,Stir-Fried Parsley with Garlic Sauce (Chinese Foods),Parsley|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,150.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Yam with Garlic Sauce,Stir-Fried Yam with Garlic Sauce (Chinese Foods),Yam|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,700.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Pickled Radish with Garlic Sauce,Stir-Fried Pickled Radish with Garlic Sauce (Chinese Foods),Pickled Radish|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,300.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Pickled Cabbage with Garlic Sauce,Stir-Fried Pickled Cabbage with Garlic Sauce (Chinese Foods),Pickled Cabbage|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,300.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Seaweed (rehydrated) with Garlic Sauce,Stir-Fried Seaweed (rehydrated) with Garlic Sauce (Chinese Foods),Seaweed (rehydrated)|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,80.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Chinese Leek with Garlic Sauce,Stir-Fried Chinese Leek with Garlic Sauce (Chinese Foods),Chinese Leek|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Fennel with Garlic Sauce,Stir-Fried Fennel with Garlic Sauce (Chinese Foods),Fennel|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,400.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Garlic Sprouts with Garlic Sauce,Stir-Fried Garlic Sprouts with Garlic Sauce (Chinese Foods),Garlic Sprouts|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,350.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Taro (limited) with Garlic Sauce,Stir-Fried Taro (limited) with Garlic Sauce (Chinese Foods),"Taro, cooked|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro",400.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Cilantro with Garlic Sauce,Stir-Fried Cilantro with Garlic Sauce (Chinese Foods),Cilantro|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,150.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Shanghai Greens with Garlic Sauce,Stir-Fried Shanghai Greens with Garlic Sauce (Chinese Foods),Shanghai Greens|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Kailan with Garlic Sauce,Stir-Fried Kailan with Garlic Sauce (Chinese Foods),Kailan|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,600.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Sweet Corn (limited) with Garlic Sauce,Stir-Fried Sweet Corn (limited) with Garlic Sauce (Chinese Foods),Sweet Corn|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,200.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Pickled Mustard Greens with Garlic Sauce,Stir-Fried Pickled Mustard Greens with Garlic Sauce (Chinese Foods),"Mustard greens, cooked|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro",300.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Jicama with Garlic Sauce,Stir-Fried Jicama with Garlic Sauce (Chinese Foods),"Jicama slices, raw|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro",600.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Turnip with Garlic Sauce,Stir-Fried Turnip with Garlic Sauce (Chinese Foods),raw turnips|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,650.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Komatsuna with Garlic Sauce,Stir-Fried Komatsuna with Garlic Sauce (Chinese Foods),Komatsuna|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Cabbage Core Shreds with Garlic Sauce,Stir-Fried Cabbage Core Shreds with Garlic Sauce (Chinese Foods),Cabbage Core Shreds|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,400.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Chinese Foods,Stir-Fried Chinese Celery with Garlic Sauce,Stir-Fried Chinese Celery with Garlic Sauce (Chinese Foods),Chinese Celery|soy sauce|Dark soy sauce|Chinese black vinegar|Sesame oil|Canola oil|Granulated sugar|Garlic|Scallions|Chili oil|Cilantro,500.0|60.0|15.0|15.0|28.0|28.0|12.0|12.0|20.0|10.0|5.0
+Eastern European Foods,Stuffed Bell Peppers with White Rice,Stuffed Bell Peppers with White Rice (Eastern European Foods),"Red Bell Peppers|White Rice|onions, raw|Garlic|Vegetable Broth|Curry Powder|Cinnamon|Sage (dried)|Cloves|Salt and Pepper|Parsley",300.0|95.0|110.0|6.0|360.0|1.0|2.6|0.3|0.2|5.0|3.0
+Eastern European Foods,Vegan Borscht,Vegan Borscht (Eastern European Foods),"Olive Oil|Red red beets|Carrots|onions, raw|Garlic|Vegetable Broth|Tomato Paste|Green Cabbage|Potatoes|Lemon Juice|Fresh fresh dill|Salt and Pepper|chives",27.0|375.0|120.0|100.0|6.0|950.0|30.0|150.0|200.0|22.5|4.0|5.0|3.0
+Eastern European Foods,Korean Style Carrot Salad,Korean Style Carrot Salad (Eastern European Foods),Carrots|Garlic|Balsamic Vinegar|Salt and Pepper|Paprika|Cayenne|Avocado Oil,825.0|18.0|80.0|4.0|1.0|0.3|55.0
+Eastern European Foods,Braised Cabbage with White Rice,Braised Cabbage with White Rice (Eastern European Foods),"Olive Oil|onions, raw|Tomato puree|Green Cabbage|White Rice|Salt and Pepper|Red Bell Peppers|Vegetable Broth",27.0|150.0|340.0|1000.0|25.0|6.0|4.0|750.0
+Eastern European Foods,Veggie-Stuffed Potato Cakes Dough Base,Veggie-Stuffed Potato Cakes Dough Base (Eastern European Foods),Potatoes|vegan butter|Salt|Flour|White Pepper|Olive Oil,600.0|150.0|5.0|100.0|1.0|45.0
+Eastern European Foods,Veggie-Stuffed Potato Cakes Mushroom Filling,Veggie-Stuffed Potato Cakes Mushroom Filling (Eastern European Foods),"Portobello Mushrooms|onions, raws|Garlic|Salt and Pepper",300.0|200.0|18.0|5.0
+Eastern European Foods,Veggie-Stuffed Potato Cakes Satsibeli Sauce,Veggie-Stuffed Potato Cakes Satsibeli Sauce (Eastern European Foods),"Tomatoes|onions, raw|Garlic|Coriander|Vinegar/oil dressing|Chili Sauce|Sugar|Salt",250.0|50.0|6.0|5.0|15.0|15.0|2.0|2.5
+Eastern European Foods,Baked Apples,Baked Apples (Eastern European Foods),"Granny Smith Golden Apples|Lemon Juice|vegan butter|Raisins, seedless|Water|Honey|Cinnamon|Allspice|Nutmeg",800.0|10.0|40.0|50.0|30.0|85.0|2.6|0.5|0.3
+Eastern European Foods,Stuffed Cabage Main,Stuffed Cabage Main (Eastern European Foods),Green Cabbage|Tomato|Marinara sauce,1000.0|795.0|800.0
+Eastern European Foods,Stuffed Cabbage Filling,Stuffed Cabbage Filling (Eastern European Foods),"onions, raw|Carrots|Portobello Mushrooms|Cauliflower, raw|Garlic|soy sauce|Vegan Worcestershire sauce|White Rice|Tomato paste|Parsley|Italian seasoning|onion powder|Garlic powder|salt and pepper|Water",150.0|55.0|70.0|100.0|7.0|15.0|15.0|190.0|30.0|30.0|1.0|1.5|1.5|4.0|30.0
+Eastern European Foods,Pickled Pumpkin Main,Pickled Pumpkin Main (Eastern European Foods),"Pumpkin|Salt|Water|Vinegar/oil dressing|Sugar|Ginger, raw|Chili flakes|cloves|Allspice berries|Floral honey",600.0|5.0|600.0|120.0|70.0|10.0|0.5|1.0|0.4|50.0
+Eastern European Foods,Pickled Pumpkin Cherry Dressing,Pickled Pumpkin Cherry Dressing (Eastern European Foods),Cherry jam|Pickle brine|Olive oil|mustard|Salt,40.0|30.0|27.0|2.0|0.3
+Eastern European Foods,Pickled Pumpkin Salad,Pickled Pumpkin Salad (Eastern European Foods),Cherry jam|Salad mix|Pickled pumpkin,99.0|60.0|90.0
+Eastern European Foods,Vinegret Salad,Vinegret Salad (Eastern European Foods),"Potatoes|Carrots|sweet peas|fresh dill pickles|Red red beets|onions, raw|Olive oil|onions, raw|Salt and Pepper",675.0|250.0|120.0|140.0|235.0|120.0|27.0|20.0|4.0
+Eastern European Foods,Potato and fresh dill Soup,Potato and fresh dill Soup (Eastern European Foods),"Potatoes|Vegetable Broth|onions, raw|Garlic|fresh dill|Bay Leaf|Olive Oil|Salt|Pepper",600.0|500.0|100.0|10.0|5.0|1.0|20.0|2.0|2.0
+Eastern European Foods,Carrot and Apple Salad,Carrot and Apple Salad (Eastern European Foods),Carrots|Apples|Lemon Juice|Olive Oil|Salt|Sugar,400.0|250.0|20.0|30.0|2.0|18.0
+Eastern European Foods,Roasted Root Vegetables,Roasted Root Vegetables (Eastern European Foods),Carrots|Parsnips|Potatoes|red beets|Olive Oil|Salt|Thyme,300.0|200.0|400.0|250.0|40.0|4.0|2.0
+Eastern European Foods,Cabbage and Apple Slaw,Cabbage and Apple Slaw (Eastern European Foods),Green Cabbage|Apple|Carrots|Vinegar|Sugar|Salt|Olive Oil,450.0|200.0|150.0|60.0|40.0|5.0|55.0
+Eastern European Foods,Mashed Potatoes with Garlic Oil,Mashed Potatoes with Garlic Oil (Eastern European Foods),Potatoes|Olive Oil|Garlic|Salt,600.0|100.0|30.0|20.0
+Eastern European Foods,Beet and Apple Salad,Beet and Apple Salad (Eastern European Foods),red beets|Apples|Olive Oil|Lemon Juice|Salt,300.0|300.0|30.0|30.0|10.0
+Eastern European Foods,Cabbage Stew with Caraway,Cabbage Stew with Caraway (Eastern European Foods),"Cabbage|onions, raw|Garlic|Caraway Seeds|Olive Oil|Salt|Vegetable Broth",700.0|200.0|20.0|2.0|30.0|3.0|245.0
+Eastern European Foods,Sweet Braised Red Cabbage,Sweet Braised Red Cabbage (Eastern European Foods),Red Cabbage|Apple|Vinegar|Sugar|Salt|Olive Oil,600.0|200.0|60.0|50.0|5.0|35.0
+Eastern European Foods,Potato and Cucumber Salad,Potato and Cucumber Salad (Eastern European Foods),Potatoes|Cucumber|fresh dill|Vinegar|Salt|Olive Oil,500.0|300.0|10.0|50.0|5.0|115.0
+Eastern European Foods,Herbed Carrot Mash,Herbed Carrot Mash (Eastern European Foods),Carrots|Olive Oil|Parsley|Garlic|Salt|White Pepper,600.0|80.0|10.0|10.0|5.0|5.0
+Eastern European Foods,Polish Apple Beet Slaw,Polish Apple Beet Slaw (Eastern European Foods),red beets|Apples|Lemon Juice|Olive Oil|fresh dill|Salt,350.0|300.0|30.0|50.0|5.0|5.0
+Eastern European Foods,Potato-Cauliflower Bake,Potato-Cauliflower Bake (Eastern European Foods),Potatoes|Cauliflower|Olive Oil|Garlic|vegan butter|Salt and Pepper,500.0|300.0|50.0|15.0|120.0|10.0
+Eastern European Foods,Stewed Green Beans with Tomato,Stewed Green Beans with Tomato (Eastern European Foods),"Green Beans|Tomato Puree|onions, raw|Garlic|Olive Oil|Salt and Pepper",600.0|250.0|120.0|10.0|80.0|10.0
+Eastern European Foods,Warm Cabbage-Apple SautâÂ©,Warm Cabbage-Apple SautâÂ© (Eastern European Foods),"Cabbage|Apples|onions, raw|Olive Oil|Vinegar|Salt and pepper",500.0|250.0|100.0|50.0|15.0|5.0
+Eastern European Foods,Horseradish Beet Salad,Horseradish Beet Salad (Eastern European Foods),red beets|Horseradish|Lemon Juice|Olive Oil|Salt,400.0|50.0|30.0|100.0|10.0
+Eastern European Foods,Simple Potato and Pickle Salad,Simple Potato and Pickle Salad (Eastern European Foods),"Potatoes|dill Pickles|onions, raw|Vinegar|Olive Oil|Salt and Pepper",500.0|200.0|100.0|30.0|30.0|10.0
+Eastern European Foods,Sauteed Zucchini with fresh dill,Sauteed Zucchini with fresh dill (Eastern European Foods),Zucchini|Olive Oil|Garlic|fresh dill|Salt and Pepper,500.0|80.0|10.0|10.0|10.0
+Eastern European Foods,Carrot-Potato Latkes,Carrot-Potato Latkes (Eastern European Foods),"Carrots|Potatoes|onions, raw|Olive Oil|Salt|White Pepper",400.0|300.0|80.0|50.0|5.0|5.0
+Eastern European Foods,Beet and Cabbage Stir-Fry,Beet and Cabbage Stir-Fry (Eastern European Foods),"red beets|Cabbage|onions, raw|Olive Oil|Vinegar|Salt|Caraway Seeds",350.0|300.0|120.0|80.0|60.0|5.0|2.0
+Eastern European Foods,Apple-Cabbage Slaw,Apple-Cabbage Slaw (Eastern European Foods),Apples|Green Cabbage|Carrots|Olive Oil|Lemon Juice|Salt|Sugar,300.0|300.0|100.0|40.0|30.0|5.0|5.0
+Eastern European Foods,Mushroom-Buckwheat Pilaf (limited),Mushroom-Buckwheat Pilaf (limited) (Eastern European Foods),"Buckwheat|Mushrooms|onions, raw|Garlic|Olive Oil|Salt and Pepper",250.0|300.0|150.0|10.0|100.0|10.0
+Eastern European Foods,Cucumber-Vinegar Salad,Cucumber-Vinegar Salad (Eastern European Foods),Cucumber|Vinegar|Salt|fresh dill|Sugar,500.0|80.0|5.0|5.0|60.0
+Eastern European Foods,Baked Cauliflower with Paprika,Baked Cauliflower with Paprika (Eastern European Foods),Cauliflower|Olive Oil|Paprika|Garlic|Salt,700.0|120.0|4.0|6.0|5.0
+Eastern European Foods,Sweet Carrot Pudding,Sweet Carrot Pudding (Eastern European Foods),"Carrots|Sugar|Coconut Oil|Lemon Zest|Raisins, seedless|Cinnamon|Salt",500.0|90.0|60.0|5.0|60.0|2.0|3.0
+Eastern European Foods,Cabbage-Potato Mash,Cabbage-Potato Mash (Eastern European Foods),Green Cabbage|Potatoes|Olive Oil|Salt|White Pepper,400.0|400.0|60.0|5.0|5.0
+Eastern European Foods,Caraway Beet Wedges,Caraway Beet Wedges (Eastern European Foods),red beets|Olive Oil|Caraway Seeds|Salt|Vinegar,500.0|80.0|2.0|3.0|85.0
+Eastern European Foods,Stuffed Apples with Jam,Stuffed Apples with Jam (Eastern European Foods),Apples|Cherry Jam|Cinnamon|Sugar|vegan butter,500.0|120.0|1.0|40.0|49.0
+Eastern European Foods,Savory Pumpkin Mash,Savory Pumpkin Mash (Eastern European Foods),Pumpkin|Garlic|Olive Oil|Salt|Sage|White Pepper,600.0|10.0|80.0|5.0|3.0|5.0
+Eastern European Foods,Zucchini and Apple Salad,Zucchini and Apple Salad (Eastern European Foods),Zucchini|Apples|Lemon Juice|fresh dill|Salt|Olive Oil,400.0|250.0|30.0|5.0|5.0|30.0
+Eastern European Foods,Beetroot Horseradish Dip,Beetroot Horseradish Dip (Eastern European Foods),red beets|Horseradish|Lemon Juice|Salt|Olive Oil,400.0|50.0|30.0|5.0|115.0
+Eastern European Foods,Mashed Pumpkin with Carrots,Mashed Pumpkin with Carrots (Eastern European Foods),Pumpkin|Carrots|Olive Oil|Garlic|Salt|Pepper,500.0|300.0|80.0|10.0|5.0|5.0
+Eastern European Foods,Sauerkraut with Carrot,Sauerkraut with Carrot (Eastern European Foods),"Sauerkraut|Carrots|Olive Oil|onions, raw|Bay Leaf|Salt|Pepper",400.0|200.0|60.0|100.0|1.0|3.0|2.0
+Eastern European Foods,Roasted Cabbage Steaks,Roasted Cabbage Steaks (Eastern European Foods),Green Cabbage|Olive Oil|Garlic Powder|Paprika|Salt|Pepper,700.0|80.0|5.0|5.0|5.0|5.0
+Eastern European Foods,Turnip and Apple Salad,Turnip and Apple Salad (Eastern European Foods),Turnips|Apples|Lemon Juice|fresh dill|Olive Oil|Salt,400.0|250.0|30.0|5.0|40.0|5.0
+Eastern European Foods,Fried Zucchini Rounds,Fried Zucchini Rounds (Eastern European Foods),Zucchini|Olive Oil|Salt|Garlic Powder|White Pepper,600.0|100.0|5.0|5.0|5.0
+Eastern European Foods,Potato and fresh dill Patties,Potato and fresh dill Patties (Eastern European Foods),"Potatoes|fresh dill|onions, raw|Olive Oil|Salt|Flour",500.0|10.0|100.0|80.0|5.0|195.0
+Eastern European Foods,Mushroom-Cabbage Mix,Mushroom-Cabbage Mix (Eastern European Foods),"Mushrooms|Cabbage|onions, raw|Garlic|Olive Oil|Salt|Pepper",400.0|300.0|150.0|10.0|150.0|10.0|20.0
+Eastern European Foods,Spiced Apple Slices,Spiced Apple Slices (Eastern European Foods),Apples|Cinnamon|Nutmeg|Lemon Juice|Sugar|Olive Oil,500.0|2.0|1.0|10.0|40.0|30.0
+Eastern European Foods,Cucumber Beet Salad,Cucumber Beet Salad (Eastern European Foods),red beets|Cucumber|fresh dill|Vinegar|Salt|Olive Oil,400.0|300.0|10.0|50.0|5.0|55.0
+Eastern European Foods,Sweet Carrot and Apple Bake,Sweet Carrot and Apple Bake (Eastern European Foods),Carrots|Apples|Sugar|Cinnamon|Olive Oil|Nutmeg,400.0|400.0|60.0|2.0|30.0|8.0
+Eastern European Foods,Cold Marinated Vegetables,Cold Marinated Vegetables (Eastern European Foods),Cauliflower|Carrots|Red Bell Peppers|Vinegar|Salt|Garlic|Olive Oil,300.0|300.0|200.0|100.0|5.0|5.0|90.0
+Eastern European Foods,Polish Celery Root Slaw,Polish Celery Root Slaw (Eastern European Foods),Celery Root|Apples|Lemon Juice|Vinegar|Salt|Olive Oil,400.0|200.0|30.0|40.0|5.0|45.0
+Eastern European Foods,"Warm Zucchini and onions, raw SautâÂ©","Warm Zucchini and onions, raw SautâÂ© (Eastern European Foods)","Zucchini|onions, raw|Garlic|Olive Oil|Salt|Black Pepper",500.0|250.0|10.0|80.0|5.0|5.0
+Eastern European Foods,Beet and Radish Salad,Beet and Radish Salad (Eastern European Foods),red beets|Radishes|Olive Oil|Salt|fresh dill|Lemon Juice,400.0|250.0|40.0|5.0|5.0|50.0
+Eastern European Foods,Pan-Fried Pumpkin Slices,Pan-Fried Pumpkin Slices (Eastern European Foods),Pumpkin|Olive Oil|Garlic|Salt|Sage,600.0|100.0|10.0|5.0|5.0
 Indian Foods,Tomato Rasam,Tomato Rasam (Indian Foods),"Tomato, fresh juice|Garlic|Tamarind paste|Black pepper|Water",50.0|2.0|5.0|1.0|92.0
 Indian Foods,Vegetable Stew,Vegetable Stew (Indian Foods),"Potatoes, boiled|Carrots|Green beans|Coconut cream|Raw Ginger (Fresh)",60.0|40.0|30.0|30.0|2.0
-Indian Foods,Sambar,Sambar (Indian Foods),"Eggplant, cooked|Tomatoes, cooked|Onion, raw|Tamarind paste|Water",30.0|30.0|20.0|5.0|65.0
-Indian Foods,Masala Dosa,Masala Dosa (Indian Foods),"Potatoes, boiled|Onions|Mustard|Turmeric|Green chili",70.0|40.0|3.0|2.0|5.0
+Indian Foods,Sambar ,Sambar  (Indian Foods),"Eggplant, cooked|Tomatoes, cooked|Onion, raw|Tamarind paste|Water",30.0|30.0|20.0|5.0|65.0
+Indian Foods,Masala Dosa ,Masala Dosa  (Indian Foods),"Potatoes, boiled|Onions|Mustard|Turmeric|Green chili",70.0|40.0|3.0|2.0|5.0
 Indian Foods,Dosa Base,Dosa Base (Indian Foods),Cream of Rice|Water|Salt,60.0|60.0|100.0
-Indian Foods,Lemon Rice,Lemon Rice (Indian Foods),"Rice, long-grain|Lemon juice|Mustard|Curry leaves|Turmeric",50.0|10.0|5.0|2.0|2.0
+Indian Foods,Lemon Rice,Lemon Rice (Indian Foods),"Rice, long-grain|Lemon juice|Mustard|Curry leaves|Turmeric|Rice|Lemon juice|Cumin|Mustard|Oil",50.0|10.0|5.0|2.0|2.0|100.0|20.0|2.0|2.0|10.0
 Indian Foods,Upma,Upma (Indian Foods),Cream of Wheat regular|Green bell pepper|Onions|Raw Ginger (Fresh)|Mustard,60.0|30.0|20.0|2.0|3.0
 Indian Foods,Coconut Chutney,Coconut Chutney (Indian Foods),Coconut cream|Green chili|Raw Ginger (Fresh)|Water,25.0|5.0|3.0|17.0
 Indian Foods,Vegetable Kurma,Vegetable Kurma (Indian Foods),"Potatoes, boiled|Carrots, cooked|Green beans|Coconut cream|Turmeric",50.0|40.0|30.0|30.0|1.0
-Indian Foods,Aloo Tamatar Curry,Aloo Tamatar Curry (Indian Foods),Potatoes|Tomato|Garlic|Cumin,100.0|40.0|3.0|2.0
-Indian Foods,Bhindi Masala,Bhindi Masala (Indian Foods),Okra|Tomato|Onions|Garlic|Mustard,100.0|30.0|10.0|5.0|5.0
-Indian Foods,Baingan Bharta,Baingan Bharta (Indian Foods),Eggplant|Tomato|Onions|Garlic|Cilantro,120.0|30.0|15.0|10.0|5.0
-Indian Foods,Jeera Aloo,Jeera Aloo (Indian Foods),Potatoes|Garlic|Cumin,90.0|5.0|2.0
-Indian Foods,Tinda Sabzi,Tinda Sabzi (Indian Foods),Zucchini|Tomato|Garlic|Mustard,100.0|30.0|5.0|5.0
-Indian Foods,Gajar Matar,Gajar Matar (Indian Foods),Carrots|Peas|Garlic|Cumin,80.0|40.0|5.0|2.0
-Indian Foods,Kachumber Salad,Kachumber Salad (Indian Foods),Cucumber|Tomato|Onions,60.0|30.0|10.0
-Indian Foods,Lauki Sabzi,Lauki Sabzi (Indian Foods),Zucchini|Tomato|Garlic|Cumin,100.0|40.0|5.0|2.0
-Indian Foods,Tamarind Potatoes,Tamarind Potatoes (Indian Foods),Potatoes|Tamarind|Garlic|Cumin|Mustard,100.0|10.0|5.0|2.0|3.0
-Indian Foods,Aloo Capsicum,Aloo Capsicum (Indian Foods),Potatoes|Green bell peppers|Onions|Cumin,90.0|60.0|10.0|2.0
-Indian Foods,Beetroot Curry,Beetroot Curry (Indian Foods),Beet root|Tomato|Cumin|Garlic,100.0|30.0|2.0|5.0
-Indian Foods,Aloo Methi,Aloo Methi (Indian Foods),Potatoes|Cilantro|Garlic|Cumin|Mustard,90.0|10.0|5.0|2.0|3.0
-Indian Foods,Aloo Baingan,Aloo Baingan (Indian Foods),Potatoes|Eggplant|Tomato|Garlic|Cumin,80.0|60.0|20.0|5.0|2.0
+Indian Foods,Aloo Tamatar Curry,Aloo Tamatar Curry (Indian Foods),Potatoes|Tomato|Garlic|Cumin|Potatoes|Tomato|Garlic|Cumin,100.0|40.0|3.0|2.0|100.0|40.0|3.0|2.0
+Indian Foods,Bhindi Masala,Bhindi Masala (Indian Foods),Okra|Tomato|Onions|Garlic|Mustard|Okra|Tomato|Onions|Garlic|Mustard,100.0|30.0|10.0|5.0|5.0|100.0|30.0|10.0|5.0|5.0
+Indian Foods,Baingan Bharta,Baingan Bharta (Indian Foods),Eggplant|Tomato|Onions|Garlic|Cilantro|Eggplant|Tomato|Onions|Garlic|Cilantro,120.0|30.0|15.0|10.0|5.0|120.0|30.0|15.0|10.0|5.0
+Indian Foods,Jeera Aloo,Jeera Aloo (Indian Foods),Potatoes|Garlic|Cumin|Potatoes|Garlic|Cumin,90.0|5.0|2.0|90.0|5.0|2.0
+Indian Foods,Tinda Sabzi,Tinda Sabzi (Indian Foods),Zucchini|Tomato|Garlic|Mustard|Zucchini|Tomato|Garlic|Mustard,100.0|30.0|5.0|5.0|100.0|30.0|5.0|5.0
+Indian Foods,Gajar Matar,Gajar Matar (Indian Foods),Carrots|Peas|Garlic|Cumin|Carrots|Peas|Garlic|Cumin,80.0|40.0|5.0|2.0|80.0|40.0|5.0|2.0
+Indian Foods,Kachumber Salad,Kachumber Salad (Indian Foods),Cucumber|Tomato|Onions|Cucumber|Tomato|Onion|Cucumber|Tomato|Onions,60.0|30.0|10.0|60.0|60.0|60.0|60.0|30.0|10.0
+Indian Foods,Lauki Sabzi,Lauki Sabzi (Indian Foods),Zucchini|Tomato|Garlic|Cumin|Zucchini|Tomato|Garlic|Cumin,100.0|40.0|5.0|2.0|100.0|40.0|5.0|2.0
+Indian Foods,Tamarind Potatoes,Tamarind Potatoes (Indian Foods),Potatoes|Tamarind|Garlic|Cumin|Mustard|Potatoes|Lemon juice|Garlic|Cumin|Mustard,100.0|10.0|5.0|2.0|3.0|100.0|10.0|5.0|2.0|3.0
+Indian Foods,Aloo Capsicum,Aloo Capsicum (Indian Foods),Potatoes|Green bell peppers|Onions|Cumin|Potatoes|Green bell peppers|Onions|Cumin,90.0|60.0|10.0|2.0|90.0|60.0|10.0|2.0
+Indian Foods,Beetroot Curry,Beetroot Curry (Indian Foods),Beet root|Tomato|Cumin|Garlic|Beet root|Tomato|Cumin|Garlic,100.0|30.0|2.0|5.0|100.0|30.0|2.0|5.0
+Indian Foods,Aloo Methi,Aloo Methi (Indian Foods),Potatoes|Cilantro|Garlic|Cumin|Mustard|Potatoes|Cilantro|Garlic|Cumin|Mustard,90.0|10.0|5.0|2.0|3.0|90.0|10.0|5.0|2.0|3.0
+Indian Foods,Aloo Baingan,Aloo Baingan (Indian Foods),Potatoes|Eggplant|Tomato|Garlic|Cumin|Potatoes|Eggplant|Tomato|Garlic|Cumin,80.0|60.0|20.0|5.0|2.0|80.0|60.0|20.0|5.0|2.0
 Indian Foods,Simple Dahi Chawal,Simple Dahi Chawal (Indian Foods),Rice|Yogurt,150.0|100.0
 Indian Foods,Bhindi Stir Fry,Bhindi Stir Fry (Indian Foods),Okra|Mustard Seeds|Oil|Turmeric,150.0|5.0|40.0|25.0
 Indian Foods,Vegetable Pulao,Vegetable Pulao (Indian Foods),Basmati Rice (Cooked)|Peas|Carrot|Onion|Oil,150.0|50.0|50.0|30.0|20.0
@@ -286,50 +285,27 @@ Indian Foods,Coconut Rice,Coconut Rice (Indian Foods),Cooked Rice|Fresh Grated C
 Indian Foods,Cucumber Raita,Cucumber Raita (Indian Foods),Yogurt|Cucumber|Cumin Powder,100.0|50.0|30.0
 Indian Foods,Vegetable Curry,Vegetable Curry (Indian Foods),Mixed Vegetables|Onion|Tomato|Curry Masala|Oil,200.0|30.0|30.0|20.0|20.0
 Indian Foods,Tamarind Rice,Tamarind Rice (Indian Foods),Rice|Tamarind Paste|Curry Leaves|Oil,150.0|30.0|40.0|50.0
-Indian Foods,Kachumber Salad,Kachumber Salad (Indian Foods),Cucumber|Tomato|Onion,60.0|60.0|60.0
 Indian Foods,Bombay Sandwich,Bombay Sandwich (Indian Foods),White Bread|Boiled Potato|Green Chutney|Tomato,120.0|40.0|20.0|20.0
 Indian Foods,Jaggery Poha,Jaggery Poha (Indian Foods),Flattened PKU Rice (Poha)|Jaggery|Coconut,150.0|50.0|20.0
 Indian Foods,Chilli Potato,Chilli Potato (Indian Foods),Potato|Bell Pepper|Soy-Free Sauce|Oil,150.0|40.0|30.0|20.0
 Indian Foods,Masala French Fries,Masala French Fries (Indian Foods),Potato|Oil|Chaat Masala,180.0|50.0|20.0
-Indian Foods,Aloo Gobhi,Aloo Gobhi (Indian Foods),Potatoes|Cauliflower|Garlic|Cumin|Turmeric,80.0|70.0|5.0|2.0|2.0
-Indian Foods,Gobhi Masala,Gobhi Masala (Indian Foods),Cauliflower|Tomato|Garlic|Mustard|Cumin,100.0|30.0|5.0|2.0|3.0
-Indian Foods,Vegetable Tehri,Vegetable Tehri (Indian Foods),Rice|Carrots|Peas|Potatoes|Cumin,100.0|30.0|30.0|30.0|2.0
-Indian Foods,Kadhi (Mock),Kadhi (Mock) (Indian Foods),Coconut cream|Lemon juice|Garlic|Mustard|Turmeric,80.0|20.0|5.0|2.0|2.0
-Indian Foods,Baingan Tamatar,Baingan Tamatar (Indian Foods),Eggplant|Tomato|Garlic|Cumin|Cilantro,90.0|50.0|5.0|2.0|3.0
-Indian Foods,Cabbage Poriyal,Cabbage Poriyal (Indian Foods),Green cabbage|Coconut|Garlic|Mustard|Cumin,100.0|20.0|5.0|2.0|2.0
-Indian Foods,Lauki Chana (Mock),Lauki Chana (Mock) (Indian Foods),Zucchini|Peas|Garlic|Mustard|Cumin,100.0|40.0|5.0|3.0|2.0
-Indian Foods,Bharta with Peas,Bharta with Peas (Indian Foods),Eggplant|Peas|Garlic|Cumin|Onions,90.0|40.0|5.0|2.0|10.0
+Indian Foods,Aloo Gobhi,Aloo Gobhi (Indian Foods),Potatoes|Cauliflower|Garlic|Cumin|Turmeric|Potatoes|Cauliflower|Garlic|Cumin|Turmeric,80.0|70.0|5.0|2.0|2.0|80.0|70.0|5.0|2.0|2.0
+Indian Foods,Gobhi Masala,Gobhi Masala (Indian Foods),Cauliflower|Tomato|Garlic|Mustard|Cumin|Cauliflower|Tomato|Garlic|Mustard|Cumin,100.0|30.0|5.0|2.0|3.0|100.0|30.0|5.0|2.0|3.0
+Indian Foods,Vegetable Tehri,Vegetable Tehri (Indian Foods),Rice|Carrots|Peas|Potatoes|Cumin|Rice|Carrots|Peas|Potatoes|Cumin,100.0|30.0|30.0|30.0|2.0|100.0|30.0|30.0|30.0|2.0
+Indian Foods,Kadhi (Mock),Kadhi (Mock) (Indian Foods),Coconut cream|Lemon juice|Garlic|Mustard|Turmeric|Coconut cream|Lemon juice|Garlic|Mustard|Turmeric,80.0|20.0|5.0|2.0|2.0|80.0|20.0|5.0|2.0|2.0
+Indian Foods,Baingan Tamatar,Baingan Tamatar (Indian Foods),Eggplant|Tomato|Garlic|Cumin|Cilantro|Eggplant|Tomato|Garlic|Cumin|Cilantro,90.0|50.0|5.0|2.0|3.0|90.0|50.0|5.0|2.0|3.0
+Indian Foods,Cabbage Poriyal,Cabbage Poriyal (Indian Foods),Green cabbage|Coconut|Garlic|Mustard|Cumin|Green cabbage|Coconut|Garlic|Mustard|Cumin,100.0|20.0|5.0|2.0|2.0|100.0|20.0|5.0|2.0|2.0
+Indian Foods,Lauki Chana (Mock),Lauki Chana (Mock) (Indian Foods),Zucchini|Peas|Garlic|Mustard|Cumin|Zucchini|Peas|Garlic|Mustard|Cumin,100.0|40.0|5.0|3.0|2.0|100.0|40.0|5.0|3.0|2.0
+Indian Foods,Bharta with Peas,Bharta with Peas (Indian Foods),Eggplant|Peas|Garlic|Cumin|Onions|Eggplant|Peas|Garlic|Cumin|Onions|Mustard,90.0|40.0|5.0|2.0|10.0|90.0|40.0|5.0|2.0|10.0|3.0
 Indian Foods,Methi Aloo,Methi Aloo (Indian Foods),Potatoes|Cilantro|Garlic|Cumin|Mustard,90.0|10.0|5.0|2.0|3.0
 Indian Foods,Tamarind Aloo,Tamarind Aloo (Indian Foods),Potatoes|Lemon juice|Garlic|Mustard|Cumin,100.0|20.0|5.0|2.0|2.0
-Indian Foods,Aloo Tamatar Curry,Aloo Tamatar Curry (Indian Foods),Potatoes|Tomato|Garlic|Cumin,100.0|40.0|3.0|2.0
-Indian Foods,Bhindi Masala,Bhindi Masala (Indian Foods),Okra|Tomato|Onions|Garlic|Mustard,100.0|30.0|10.0|5.0|5.0
-Indian Foods,Baingan Bharta,Baingan Bharta (Indian Foods),Eggplant|Tomato|Onions|Garlic|Cilantro,120.0|30.0|15.0|10.0|5.0
-Indian Foods,Jeera Aloo,Jeera Aloo (Indian Foods),Potatoes|Garlic|Cumin,90.0|5.0|2.0
-Indian Foods,Tinda Sabzi,Tinda Sabzi (Indian Foods),Zucchini|Tomato|Garlic|Mustard,100.0|30.0|5.0|5.0
-Indian Foods,Gajar Matar,Gajar Matar (Indian Foods),Carrots|Peas|Garlic|Cumin,80.0|40.0|5.0|2.0
-Indian Foods,Kachumber Salad,Kachumber Salad (Indian Foods),Cucumber|Tomato|Onions,60.0|30.0|10.0
-Indian Foods,Lauki Sabzi,Lauki Sabzi (Indian Foods),Zucchini|Tomato|Garlic|Cumin,100.0|40.0|5.0|2.0
-Indian Foods,Tamarind Potatoes,Tamarind Potatoes (Indian Foods),Potatoes|Lemon juice|Garlic|Cumin|Mustard,100.0|10.0|5.0|2.0|3.0
-Indian Foods,Aloo Capsicum,Aloo Capsicum (Indian Foods),Potatoes|Green bell peppers|Onions|Cumin,90.0|60.0|10.0|2.0
-Indian Foods,Beetroot Curry,Beetroot Curry (Indian Foods),Beet root|Tomato|Cumin|Garlic,100.0|30.0|2.0|5.0
 Indian Foods,Palak Curry,Palak Curry (Indian Foods),Spinach|Coconut cream|Garlic|Cumin|Onions,90.0|30.0|5.0|2.0|10.0
-Indian Foods,Aloo Methi,Aloo Methi (Indian Foods),Potatoes|Cilantro|Garlic|Cumin|Mustard,90.0|10.0|5.0|2.0|3.0
-Indian Foods,Aloo Baingan,Aloo Baingan (Indian Foods),Potatoes|Eggplant|Tomato|Garlic|Cumin,80.0|60.0|20.0|5.0|2.0
 Indian Foods,Peas Pulao,Peas Pulao (Indian Foods),Rice|Peas|Cumin|Bay leaf|Oil,100.0|40.0|2.0|1.0|10.0
-Indian Foods,Lemon Rice,Lemon Rice (Indian Foods),Rice|Lemon juice|Cumin|Mustard|Oil,100.0|20.0|2.0|2.0|10.0
 Indian Foods,Chana Aloo (Mock),Chana Aloo (Mock) (Indian Foods),Potatoes|Peas|Onions|Cumin|Garlic,90.0|40.0|20.0|2.0|3.0
 Indian Foods,Aloo Shimla Mirch,Aloo Shimla Mirch (Indian Foods),Potatoes|Green bell peppers|Onions|Garlic,90.0|60.0|15.0|5.0
 Indian Foods,Aloo Tamatar Bhujia,Aloo Tamatar Bhujia (Indian Foods),Potatoes|Tomato|Garlic|Cumin,100.0|40.0|5.0|2.0
 Indian Foods,Dry Aloo Matar,Dry Aloo Matar (Indian Foods),Potatoes|Peas|Cumin|Garlic,90.0|40.0|2.0|3.0
 Indian Foods,Tindora Stir-Fry,Tindora Stir-Fry (Indian Foods),Zucchini|Cumin|Garlic|Mustard,100.0|2.0|5.0|3.0
-Indian Foods,Aloo Gobhi,Aloo Gobhi (Indian Foods),Potatoes|Cauliflower|Garlic|Cumin|Turmeric,80.0|70.0|5.0|2.0|2.0
-Indian Foods,Gobhi Masala,Gobhi Masala (Indian Foods),Cauliflower|Tomato|Garlic|Mustard|Cumin,100.0|30.0|5.0|2.0|3.0
-Indian Foods,Vegetable Tehri,Vegetable Tehri (Indian Foods),Rice|Carrots|Peas|Potatoes|Cumin,100.0|30.0|30.0|30.0|2.0
-Indian Foods,Kadhi (Mock),Kadhi (Mock) (Indian Foods),Coconut cream|Lemon juice|Garlic|Mustard|Turmeric,80.0|20.0|5.0|2.0|2.0
-Indian Foods,Baingan Tamatar,Baingan Tamatar (Indian Foods),Eggplant|Tomato|Garlic|Cumin|Cilantro,90.0|50.0|5.0|2.0|3.0
-Indian Foods,Cabbage Poriyal,Cabbage Poriyal (Indian Foods),Green cabbage|Coconut|Garlic|Mustard|Cumin,100.0|20.0|5.0|2.0|2.0
-Indian Foods,Lauki Chana (Mock),Lauki Chana (Mock) (Indian Foods),Zucchini|Peas|Garlic|Mustard|Cumin,100.0|40.0|5.0|3.0|2.0
-Indian Foods,Bharta with Peas,Bharta with Peas (Indian Foods),Eggplant|Peas|Garlic|Cumin|Onions|Mustard,90.0|40.0|5.0|2.0|10.0|3.0
 Indian Foods,Ghee Rice,Ghee Rice (Indian Foods),Rice|Ghee|Cumin Seeds,160.0|50.0|30.0
 Indian Foods,Cabbage Stir Fry,Cabbage Stir Fry (Indian Foods),Shredded Cabbage|Mustard Seeds|Oil|Turmeric,180.0|10.0|40.0|20.0
 Indian Foods,Tomato Upma,Tomato Upma (Indian Foods),Semolina|Tomato|Onion|Mustard Seeds|Oil,180.0|50.0|40.0|10.0|20.0
@@ -356,79 +332,76 @@ Indian Foods,Tandoori Potatoes,Tandoori Potatoes (Indian Foods),Potato|Tandoori 
 Indian Foods,Lauki Curry,Lauki Curry (Indian Foods),Squash|Tomato|Oil|Mustard Seeds,200.0|50.0|30.0|20.0
 Indian Foods,Rice Idli,Rice Idli (Indian Foods),Idli Batter|Oil,200.0|50.0
 Indian Foods,Simple Sweet Rice,Simple Sweet Rice (Indian Foods),Rice|Sugar (table)|Ghee,150.0|50.0|30.0
-Italian Foods,Minestrone (vegetable soup),Minestrone (vegetable soup) (Italian Foods),Carrots|Zucchini|Tomatoes|Celery|Potatoes|Onion|Olive oil,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Italian Foods,Panzanella (bread salad),Panzanella (bread salad) (Italian Foods),PKU bread|Tomatoes|Cucumber|Basil|Olive oil,100.0|100.0|100.0|100.0|100.0
-Italian Foods,"Risotto al Limone (lemon risotto, no cheese)","Risotto al Limone (lemon risotto, no cheese) (Italian Foods)",Low-protein rice|Vegetable broth|Lemon zest|Olive oil,100.0|100.0|100.0|100.0
-Italian Foods,Pasta al Pomodoro (no cheese),Pasta al Pomodoro (no cheese) (Italian Foods),Pasta|Tomatoes|Garlic|Olive oil,100.0|100.0|100.0|100.0
-Italian Foods,Caponata (eggplant stew),Caponata (eggplant stew) (Italian Foods),Eggplant|Tomatoes|Celery|Onion|Capers|Olive oil|Vinegar,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Italian Foods,Focaccia (plain),Focaccia (plain) (Italian Foods),Flour|Water|Olive oil,100.0|100.0|100.0
-Italian Foods,Polenta,Polenta (Italian Foods),Cornmeal|Water,100.0|100.0
-Italian Foods,Verdure Grigliate (grilled vegetables),Verdure Grigliate (grilled vegetables) (Italian Foods),Zucchini|Peppers|Eggplant|Olive oil|Salt,100.0|100.0|100.0|100.0|100.0
-Italian Foods,Bruschetta (no cheese),Bruschetta (no cheese) (Italian Foods),PKU Bread|Tomatoes|Basil,100.0|100.0|100.0
-Italian Foods,Ribollita (Tuscan vegetable soup),Ribollita (Tuscan vegetable soup) (Italian Foods),Cabbage|Beans (low protein option)|Carrots|Celery|Tomatoes|Onion|Olive oil,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Italian Foods,Pomodori al Forno (baked tomatoes),Pomodori al Forno (baked tomatoes) (Italian Foods),Tomatoes|Olive oil|Garlic,100.0|100.0|100.0
-Italian Foods,Cicoria Ripassata (sautÃ©ed chicory),Cicoria Ripassata (sautÃ©ed chicory) (Italian Foods),Chicory|Garlic|Olive oil,100.0|100.0|100.0
-Italian Foods,Ribollita (without beans),Ribollita (without beans) (Italian Foods),Cabbage|Carrots|Celery|Tomatoes|Olive oil,100.0|100.0|100.0|100.0|100.0
-Italian Foods,Patate al Rosmarino,Patate al Rosmarino (Italian Foods),Potatoes|Rosemary|Olive oil,100.0|100.0|100.0
-Italian Foods,Insalata di Finocchi,Insalata di Finocchi (Italian Foods),Fennel|Lemon juice|Olive oil,100.0|100.0|100.0
-Italian Foods,Verdure al Vapore,Verdure al Vapore (Italian Foods),Broccoli|Carrots|Cauliflower|Olive oil,100.0|100.0|100.0|100.0
-Italian Foods,Pomodori e Cipolle,Pomodori e Cipolle (Italian Foods),Tomatoes|Onions|Olive oil,100.0|100.0|100.0
-Italian Foods,Melanzane alla Griglia,Melanzane alla Griglia (Italian Foods),Eggplant|Olive oil,100.0|100.0
-Italian Foods,Zuppa di Verdure,Zuppa di Verdure (Italian Foods),Mixed vegetables|Vegetable broth|Olive oil,100.0|100.0|100.0
-Italian Foods,Insalata di Rucola,Insalata di Rucola (Italian Foods),Arugula|Lemon juice|Olive oil,100.0|100.0|100.0
-Italian Foods,Pasta Aglio e Olio,Pasta Aglio e Olio (Italian Foods),Spaghetti (low-protein if possible)|Garlic|Olive oil|Parsley,100.0|100.0|100.0|100.0
-Italian Foods,Fagiolini lessati,Fagiolini lessati (Italian Foods),Green beans|Olive oil,100.0|100.0
-Italian Foods,Patate Bollite,Patate Bollite (Italian Foods),Boiled potatoes|Olive oil,100.0|100.0
-Italian Foods,Insalata di Cetrioli,Insalata di Cetrioli (Italian Foods),Cucumbers|Vinegar|Olive oil,100.0|100.0|100.0
-Italian Foods,Carote al Vapore,Carote al Vapore (Italian Foods),Steamed carrots|Olive oil,100.0|100.0
-Italian Foods,Minestra di Zucca,Minestra di Zucca (Italian Foods),Pumpkin|Onion|Vegetable broth|Olive oil,100.0|100.0|100.0|100.0
-Italian Foods,Polenta con Funghi,Polenta con Funghi (Italian Foods),Polenta|Mushrooms|Olive oil,100.0|100.0|100.0
-Italian Foods,Cipolle al Forno,Cipolle al Forno (Italian Foods),Baked onions|Olive oil,100.0|100.0
-Italian Foods,Zucchine trifolate,Zucchine trifolate (Italian Foods),Zucchini|Garlic|Olive oil,100.0|100.0|100.0
-Italian Foods,Radicchio alla Griglia,Radicchio alla Griglia (Italian Foods),Grilled radicchio|Olive oil,100.0|100.0
-Italian Foods,Carciofi alla Romana,Carciofi alla Romana (Italian Foods),Artichokes|Garlic|Olive oil|Parsley,100.0|100.0|100.0|100.0
-Italian Foods,Finocchi al Forno,Finocchi al Forno (Italian Foods),Fennel|Olive oil|Lemon juice,100.0|100.0|100.0
-Italian Foods,Cipolline in Agrodolce,Cipolline in Agrodolce (Italian Foods),Pearl onions|Vinegar|Sugar|Olive oil,100.0|100.0|100.0|100.0
-Italian Foods,Cavolfiore al Vapore,Cavolfiore al Vapore (Italian Foods),Steamed cauliflower|Olive oil,100.0|100.0
-Italian Foods,Zuppa di Lenticchie (without legumes if strict PKU),Zuppa di Lenticchie (without legumes if strict PKU) (Italian Foods),Lentils|Carrots|Celery|Onion|Olive oil,100.0|100.0|100.0|100.0|100.0
-Italian Foods,Fagioli Lessati (green beans),Fagioli Lessati (green beans) (Italian Foods),Green beans|Olive oil,100.0|100.0
-Italian Foods,Pomodori Secchi,Pomodori Secchi (Italian Foods),Sun-dried tomatoes|Olive oil,100.0|100.0
-Italian Foods,Broccoli Saltati,Broccoli Saltati (Italian Foods),Broccoli|Garlic|Olive oil,100.0|100.0|100.0
-Italian Foods,Peperoni Arrostiti,Peperoni Arrostiti (Italian Foods),Roasted red peppers|Olive oil,100.0|100.0
-Italian Foods,Zucchini alla Scapece,Zucchini alla Scapece (Italian Foods),Zucchini|Vinegar|Olive oil,100.0|100.0|100.0
-Italian Foods,Insalata di Pomodori,Insalata di Pomodori (Italian Foods),Tomatoes|Basil|Olive oil,100.0|100.0|100.0
-Italian Foods,Brodetto di Verdure,Brodetto di Verdure (Italian Foods),Mixed vegetables|Tomato broth|Olive oil,100.0|100.0|100.0
-Italian Foods,Patate al Forno,Patate al Forno (Italian Foods),Roasted potatoes|Olive oil,100.0|100.0
-Italian Foods,Insalata di Radicchio,Insalata di Radicchio (Italian Foods),Radicchio|Balsamic vinegar|Olive oil,100.0|100.0|100.0
-Italian Foods,Zucca al Forno,Zucca al Forno (Italian Foods),Roasted pumpkin|Olive oil,100.0|100.0
-Italian Foods,Insalata di Cetrioli,Insalata di Cetrioli (Italian Foods),Cucumbers|Vinegar|Olive oil,100.0|100.0|100.0
-Italian Foods,Cicoria Ripassata,Cicoria Ripassata (Italian Foods),Chicory|Garlic|Olive oil,100.0|100.0|100.0
-Italian Foods,Peperonata,Peperonata (Italian Foods),Bell peppers|Tomatoes|Olive oil|Onion,100.0|100.0|100.0|100.0
-Italian Foods,Fagioli all'Uccelletto,Fagioli all'Uccelletto (Italian Foods),Cannellini beans (small amount)|Sage|Garlic|Olive oil|Tomato sauce|Onion,100.0|100.0|100.0|100.0|100.0|100.0
-Italian Foods,Insalata di Carote,Insalata di Carote (Italian Foods),Carrots|Lemon juice|Olive oil,100.0|100.0|100.0
-Italian Foods,Zucchine al Forno,Zucchine al Forno (Italian Foods),Zucchini|Olive oil,100.0|100.0
-Italian Foods,Patate e Cipolle,Patate e Cipolle (Italian Foods),Potatoes|Onions|Olive oil,100.0|100.0|100.0
-Italian Foods,Fave e Cicoria,Fave e Cicoria (Italian Foods),Fava beans|Chicory|Olive oil,100.0|100.0|100.0
-Italian Foods,Spinaci Saltati,Spinaci Saltati (Italian Foods),Spinach|Olive oil,100.0|100.0
-Italian Foods,Pomodori Ripieni (without cheese),Pomodori Ripieni (without cheese) (Italian Foods),Tomatoes|Breadcrumbs|Olive oil,100.0|100.0|100.0
-Italian Foods,Insalata di Radicchio e Arance,Insalata di Radicchio e Arance (Italian Foods),Radicchio|Oranges|Olive oil|Balsamic vinegar,100.0|100.0|100.0|100.0
-Italian Foods,Broccoli al Forno,Broccoli al Forno (Italian Foods),Broccoli|Olive oil,100.0|100.0
-Italian Foods,Carciofi alla Giudia,Carciofi alla Giudia (Italian Foods),Artichokes|Olive oil,100.0|100.0
-Italian Foods,Insalata di Finocchi e Arance,Insalata di Finocchi e Arance (Italian Foods),Fennel|Oranges|Olive oil,100.0|100.0|100.0
-Italian Foods,Cavolfiore al Forno,Cavolfiore al Forno (Italian Foods),Cauliflower|Olive oil,100.0|100.0
-Italian Foods,Cicoria Lessata,Cicoria Lessata (Italian Foods),Boiled chicory|Olive oil,100.0|100.0
-Italian Foods,Insalata di Pomodorini,Insalata di Pomodorini (Italian Foods),Cherry tomatoes|Basil|Olive oil,100.0|100.0|100.0
-Italian Foods,Funghi trifolati,Funghi trifolati (Italian Foods),Mushrooms|Garlic|Olive oil,100.0|100.0|100.0
-Italian Foods,Insalata di Cetrioli e Menta,Insalata di Cetrioli e Menta (Italian Foods),Cucumbers|Mint|Olive oil,100.0|100.0|100.0
-Italian Foods,Finocchi al Forno,Finocchi al Forno (Italian Foods),Fennel|Olive oil|Lemon juice,100.0|100.0|100.0
-Italian Foods,Carciofi alla Romana,Carciofi alla Romana (Italian Foods),Artichokes|Garlic|Olive oil|Parsley,100.0|100.0|100.0|100.0
-Italian Foods,Insalata di Carote e Limone,Insalata di Carote e Limone (Italian Foods),Carrots|Lemon juice|Olive oil,100.0|100.0|100.0
-Italian Foods,Zucchine Ripiene (without cheese),Zucchine Ripiene (without cheese) (Italian Foods),Zucchini|Breadcrumbs|Olive oil,100.0|100.0|100.0
-Italian Foods,Carciofi Grigliati,Carciofi Grigliati (Italian Foods),Artichokes|Olive oil,100.0|100.0
-Italian Foods,Funghi al Forno,Funghi al Forno (Italian Foods),Mushrooms|Garlic|Olive oil,100.0|100.0|100.0
-Italian Foods,Patate e Rosmarino,Patate e Rosmarino (Italian Foods),Potatoes|Olive oil|Rosemary,100.0|100.0|100.0
-Italian Foods,Cavolfiore Gratinate,Cavolfiore Gratinate (Italian Foods),Cauliflower|Olive oil|Breadcrumbs,100.0|100.0|100.0
-Italian Foods,Finocchi al Limone,Finocchi al Limone (Italian Foods),Fennel|Lemon juice|Olive oil,100.0|100.0|100.0
+Italian Foods,Minestrone (vegetable soup),Minestrone (vegetable soup) (Italian Foods),Carrots|Zucchini|Tomatoes|Celery|Potatoes|Onion|Olive oil,80.0|80.0|80.0|40.0|50.0|20.0|10.0
+Italian Foods,Panzanella (bread salad),Panzanella (bread salad) (Italian Foods),PKU bread|Tomatoes|Cucumber|Basil|Olive oil,100.0|100.0|50.0|30.0|20.0
+Italian Foods,"Risotto al Limone (lemon risotto, no cheese)","Risotto al Limone (lemon risotto, no cheese) (Italian Foods)",Low-protein rice|Vegetable broth|Lemon zest|Olive oil,150.0|150.0|30.0|20.0
+Italian Foods,Pasta al Pomodoro (no cheese),Pasta al Pomodoro (no cheese) (Italian Foods),Pasta|Tomatoes|Garlic|Olive oil,150.0|150.0|30.0|20.0
+Italian Foods,Caponata (eggplant stew),Caponata (eggplant stew) (Italian Foods),Eggplant|Tomatoes|Celery|Onion|Capers|Olive oil|Vinegar,150.0|80.0|30.0|30.0|10.0|30.0|20.0
+Italian Foods,Focaccia (plain),Focaccia (plain) (Italian Foods),Flour|Water|Olive oil,150.0|80.0|20.0
+Italian Foods,Polenta,Polenta (Italian Foods),Cornmeal|Water,200.0|100.0
+Italian Foods,Verdure Grigliate (grilled vegetables),Verdure Grigliate (grilled vegetables) (Italian Foods),Zucchini|Peppers|Eggplant|Olive oil|Salt,67.0|67.0|67.0|50.0|10.0
+Italian Foods,Bruschetta (no cheese),Bruschetta (no cheese) (Italian Foods),PKU Bread|Tomatoes|Basil,100.0|80.0|20.0
+Italian Foods,Ribollita (Tuscan vegetable soup),Ribollita (Tuscan vegetable soup) (Italian Foods),Cabbage|Beans (low protein option)|Carrots|Celery|Tomatoes|Onion|Olive oil,80.0|50.0|60.0|40.0|40.0|30.0|20.0
+Italian Foods,Pomodori al Forno (baked tomatoes),Pomodori al Forno (baked tomatoes) (Italian Foods),Tomatoes|Olive oil|Garlic,200.0|30.0|20.0
+Italian Foods,Cicoria Ripassata (sautÃ©ed chicory),Cicoria Ripassata (sautÃ©ed chicory) (Italian Foods),Chicory|Garlic|Olive oil,200.0|40.0|30.0
+Italian Foods,Ribollita (without beans),Ribollita (without beans) (Italian Foods),Cabbage|Carrots|Celery|Tomatoes|Olive oil,120.0|60.0|40.0|30.0|20.0
+Italian Foods,Patate al Rosmarino,Patate al Rosmarino (Italian Foods),Potatoes|Rosemary|Olive oil,250.0|30.0|20.0
+Italian Foods,Insalata di Finocchi,Insalata di Finocchi (Italian Foods),Fennel|Lemon juice|Olive oil,150.0|50.0|20.0
+Italian Foods,Verdure al Vapore,Verdure al Vapore (Italian Foods),Broccoli|Carrots|Cauliflower|Olive oil,100.0|100.0|80.0|20.0
+Italian Foods,Pomodori e Cipolle,Pomodori e Cipolle (Italian Foods),Tomatoes|Onions|Olive oil,150.0|70.0|20.0
+Italian Foods,Melanzane alla Griglia,Melanzane alla Griglia (Italian Foods),Eggplant|Olive oil,250.0|30.0
+Italian Foods,Zuppa di Verdure,Zuppa di Verdure (Italian Foods),Mixed vegetables|Vegetable broth|Olive oil,250.0|80.0|20.0
+Italian Foods,Insalata di Rucola,Insalata di Rucola (Italian Foods),Arugula|Lemon juice|Olive oil,150.0|30.0|20.0
+Italian Foods,Pasta Aglio e Olio,Pasta Aglio e Olio (Italian Foods),Spaghetti (low-protein if possible)|Garlic|Olive oil|Parsley,150.0|30.0|50.0|20.0
+Italian Foods,Fagiolini lessati,Fagiolini lessati (Italian Foods),Green beans|Olive oil,200.0|30.0
+Italian Foods,Patate Bollite,Patate Bollite (Italian Foods),Boiled potatoes|Olive oil,250.0|20.0
+Italian Foods,Insalata di Cetrioli,Insalata di Cetrioli (Italian Foods),Cucumbers|Vinegar|Olive oil|Cucumbers|Vinegar|Olive oil,150.0|30.0|20.0|150.0|30.0|20.0
+Italian Foods,Carote al Vapore,Carote al Vapore (Italian Foods),Steamed carrots|Olive oil,220.0|20.0
+Italian Foods,Minestra di Zucca,Minestra di Zucca (Italian Foods),Pumpkin|Onion|Vegetable broth|Olive oil,250.0|50.0|50.0|20.0
+Italian Foods,Polenta con Funghi,Polenta con Funghi (Italian Foods),Polenta|Mushrooms|Olive oil,200.0|100.0|30.0
+Italian Foods,Cipolle al Forno,Cipolle al Forno (Italian Foods),Baked onions|Olive oil,220.0|30.0
+Italian Foods,Zucchine trifolate,Zucchine trifolate (Italian Foods),Zucchini|Garlic|Olive oil,200.0|20.0|30.0
+Italian Foods,Radicchio alla Griglia,Radicchio alla Griglia (Italian Foods),Grilled radicchio|Olive oil,250.0|30.0
+Italian Foods,Carciofi alla Romana,Carciofi alla Romana (Italian Foods),Artichokes|Garlic|Olive oil|Parsley|Artichokes|Garlic|Olive oil|Parsley,250.0|20.0|30.0|20.0|250.0|20.0|30.0|20.0
+Italian Foods,Finocchi al Forno,Finocchi al Forno (Italian Foods),Fennel|Olive oil|Lemon juice|Fennel|Olive oil|Lemon juice,250.0|30.0|20.0|250.0|30.0|20.0
+Italian Foods,Cipolline in Agrodolce,Cipolline in Agrodolce (Italian Foods),Pearl onions|Vinegar|Sugar|Olive oil,200.0|20.0|20.0|20.0
+Italian Foods,Cavolfiore al Vapore,Cavolfiore al Vapore (Italian Foods),Steamed cauliflower|Olive oil,270.0|30.0
+Italian Foods,Zuppa di Lenticchie (without legumes if strict PKU),Zuppa di Lenticchie (without legumes if strict PKU) (Italian Foods),Lentils|Carrots|Celery|Onion|Olive oil,100.0|100.0|80.0|50.0|20.0
+Italian Foods,Fagioli Lessati (green beans),Fagioli Lessati (green beans) (Italian Foods),Green beans|Olive oil,220.0|30.0
+Italian Foods,Pomodori Secchi,Pomodori Secchi (Italian Foods),Sun-dried tomatoes|Olive oil,150.0|50.0
+Italian Foods,Broccoli Saltati,Broccoli Saltati (Italian Foods),Broccoli|Garlic|Olive oil,250.0|20.0|30.0
+Italian Foods,Peperoni Arrostiti,Peperoni Arrostiti (Italian Foods),Roasted red peppers|Olive oil,280.0|20.0
+Italian Foods,Zucchini alla Scapece,Zucchini alla Scapece (Italian Foods),Zucchini|Vinegar|Olive oil,250.0|30.0|20.0
+Italian Foods,Insalata di Pomodori,Insalata di Pomodori (Italian Foods),Tomatoes|Basil|Olive oil,150.0|30.0|20.0
+Italian Foods,Brodetto di Verdure,Brodetto di Verdure (Italian Foods),Mixed vegetables|Tomato broth|Olive oil,250.0|80.0|20.0
+Italian Foods,Patate al Forno,Patate al Forno (Italian Foods),Roasted potatoes|Olive oil,270.0|30.0
+Italian Foods,Insalata di Radicchio,Insalata di Radicchio (Italian Foods),Radicchio|Balsamic vinegar|Olive oil,150.0|30.0|20.0
+Italian Foods,Zucca al Forno,Zucca al Forno (Italian Foods),Roasted pumpkin|Olive oil,270.0|30.0
+Italian Foods,Cicoria Ripassata,Cicoria Ripassata (Italian Foods),Chicory|Garlic|Olive oil,250.0|20.0|30.0
+Italian Foods,Peperonata,Peperonata (Italian Foods),Bell peppers|Tomatoes|Olive oil|Onion,250.0|30.0|20.0|10.0
+Italian Foods,Fagioli all'Uccelletto,Fagioli all'Uccelletto (Italian Foods),Cannellini beans (small amount)|Sage|Garlic|Olive oil|Tomato sauce|Onion,100.0|10.0|30.0|30.0|50.0|30.0
+Italian Foods,Insalata di Carote,Insalata di Carote (Italian Foods),Carrots|Lemon juice|Olive oil,150.0|20.0|30.0
+Italian Foods,Zucchine al Forno,Zucchine al Forno (Italian Foods),Zucchini|Olive oil,250.0|30.0
+Italian Foods,Patate e Cipolle,Patate e Cipolle (Italian Foods),Potatoes|Onions|Olive oil,200.0|70.0|30.0
+Italian Foods,Fave e Cicoria,Fave e Cicoria (Italian Foods),Fava beans|Chicory|Olive oil,100.0|150.0|50.0
+Italian Foods,Spinaci Saltati,Spinaci Saltati (Italian Foods),Spinach|Olive oil,250.0|30.0
+Italian Foods,Pomodori Ripieni (without cheese),Pomodori Ripieni (without cheese) (Italian Foods),Tomatoes|Breadcrumbs|Olive oil,250.0|30.0|20.0
+Italian Foods,Insalata di Radicchio e Arance,Insalata di Radicchio e Arance (Italian Foods),Radicchio|Oranges|Olive oil|Balsamic vinegar,150.0|60.0|20.0|20.0
+Italian Foods,Broccoli al Forno,Broccoli al Forno (Italian Foods),Broccoli|Olive oil,270.0|30.0
+Italian Foods,Carciofi alla Giudia,Carciofi alla Giudia (Italian Foods),Artichokes|Olive oil,270.0|30.0
+Italian Foods,Insalata di Finocchi e Arance,Insalata di Finocchi e Arance (Italian Foods),Fennel|Oranges|Olive oil,150.0|80.0|20.0
+Italian Foods,Cavolfiore al Forno,Cavolfiore al Forno (Italian Foods),Cauliflower|Olive oil,270.0|30.0
+Italian Foods,Cicoria Lessata,Cicoria Lessata (Italian Foods),Boiled chicory|Olive oil,270.0|30.0
+Italian Foods,Insalata di Pomodorini,Insalata di Pomodorini (Italian Foods),Cherry tomatoes|Basil|Olive oil,150.0|30.0|20.0
+Italian Foods,Funghi trifolati,Funghi trifolati (Italian Foods),Mushrooms|Garlic|Olive oil,250.0|20.0|30.0
+Italian Foods,Insalata di Cetrioli e Menta,Insalata di Cetrioli e Menta (Italian Foods),Cucumbers|Mint|Olive oil,150.0|30.0|20.0
+Italian Foods,Insalata di Carote e Limone,Insalata di Carote e Limone (Italian Foods),Carrots|Lemon juice|Olive oil,150.0|30.0|20.0
+Italian Foods,Zucchine Ripiene (without cheese),Zucchine Ripiene (without cheese) (Italian Foods),Zucchini|Breadcrumbs|Olive oil,250.0|30.0|20.0
+Italian Foods,Carciofi Grigliati,Carciofi Grigliati (Italian Foods),Artichokes|Olive oil,250.0|30.0
+Italian Foods,Funghi al Forno,Funghi al Forno (Italian Foods),Mushrooms|Garlic|Olive oil,250.0|20.0|30.0
+Italian Foods,Patate e Rosmarino,Patate e Rosmarino (Italian Foods),Potatoes|Olive oil|Rosemary,250.0|30.0|20.0
+Italian Foods,Cavolfiore Gratinate,Cavolfiore Gratinate (Italian Foods),Cauliflower|Olive oil|Breadcrumbs,270.0|30.0|20.0
+Italian Foods,Finocchi al Limone,Finocchi al Limone (Italian Foods),Fennel|Lemon juice|Olive oil,250.0|30.0|20.0
 Japanese Foods,Stir-Fried Baby Bok Choy,Stir-Fried Baby Bok Choy (Japanese Foods),Baby bok choy|garlic|vegetable oil|water|salt|sesame oil,120.0|3.0|5.0|20.0|1.0|1.0
 Japanese Foods,Garlic Snow Peas,Garlic Snow Peas (Japanese Foods),peas|garlic|vegetable oil|water|salt,100.0|4.0|5.0|20.0|1.0
 Japanese Foods,sweet and sour bell peppers,sweet and sour bell peppers (Japanese Foods),pepper|rice vinegar|sugar|cornstarch|water|oil salt,120.0|10.0|8.0|20.0|5.0|1.0
@@ -438,7 +411,7 @@ Japanese Foods,vegetable stir-fry,vegetable stir-fry (Japanese Foods),cabbage|ca
 Japanese Foods,sauteed water spinach,sauteed water spinach (Japanese Foods),spinach|garlic|oil|salt|water,100.0|4.0|5.0|1.0|40.0
 Japanese Foods,scallion oil rice,scallion oil rice (Japanese Foods),low-protein rice|scallions|oil|salt|water,100.0|10.0|6.0|1.0|23.0
 Japanese Foods,spicy pickled cucumber,spicy pickled cucumber (Japanese Foods),cucumber|vinegar|sugar|chili flakes|sesame oil|salt|water,100.0|10.0|5.0|2.0|3.0|1.0|9.0
-Japanese Foods,japanese veggie hot pot,japanese veggie hot pot (Japanese Foods),cabbage|carrot|mushroom|daikon|squash|water|garlic|salt,90.0|30.0|10.0|5.0|5.0|1.0|9.0|100.0
+Japanese Foods,japanese veggie hot pot,japanese veggie hot pot (Japanese Foods),cabbage|carrot|mushroom|daikon|squash|water|garlic,90.0|30.0|10.0|5.0|5.0|1.0|9.0
 Japanese Foods,Cucumber Sunomono Salad,Cucumber Sunomono Salad (Japanese Foods),"Cucumber, sliced|Rice Vinegar|Sugar (table)",150.0|30.0|15.0
 Japanese Foods,Steamed Eggplant,Steamed Eggplant (Japanese Foods),"Eggplant, cooked|Rice Vinegar|Sugar (table)",150.0|20.0|10.0
 Japanese Foods,Garlic Komatsuna Stir-Fry,Garlic Komatsuna Stir-Fry (Japanese Foods),Komatsuna|Garlic|Olive Oil|Salt,150.0|10.0|20.0|5.0
@@ -494,211 +467,173 @@ Japanese Foods,Pan-Seared Eggplant,Pan-Seared Eggplant (Japanese Foods),Eggplant
 Japanese Foods,Simple Daikon Miso Soup,Simple Daikon Miso Soup (Japanese Foods),Daikon|miso substitute|Water|Salt,100.0|40.0|50.0|10.0
 Japanese Foods,Cold Garlic Green Beans,Cold Garlic Green Beans (Japanese Foods),Green beans|Garlic|Olive oil,120.0|20.0|20.0
 Japanese Foods,Quick Kabocha Pickles,Quick Kabocha Pickles (Japanese Foods),Kabocha|Rice vinegar|Sugar|Salt,120.0|30.0|10.0|10.0
-Mediterranean Foods,Zucchini and mint salad,Zucchini and mint salad (Mediterranean Foods),Zucchini|Olive oil|Lemon|Mint|Salt|Garlic,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Roasted bell pepper dip,Roasted bell pepper dip (Mediterranean Foods),Pepper|Olive oil|Lemon|Garlic|Salt|Paprika|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Tomato and cucumber salad,Tomato and cucumber salad (Mediterranean Foods),Tomato|Cucumber|Olive oil|Lemon|Parsley|Salt,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Grilled eggplant with garlic and herbs,Grilled eggplant with garlic and herbs (Mediterranean Foods),Eggplant|Olive oil|Garlic|Lemon juice|Thyme|Salt|Water (soaking),100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Artichoke and lemon salad,Artichoke and lemon salad (Mediterranean Foods),Artichoke hearts|Lemon|Olive oil|Parsley|Salt|Water,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Olive tapenade,Olive tapenade (Mediterranean Foods),Olives|Olive oil|Capers|Lemon|Garlic|Parsley|Salt|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Roasted carrots with cumin,Roasted carrots with cumin (Mediterranean Foods),Carrots|Olive oil|Lemon|Cumin powder|Garlic|Salt|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Herbed potato wedges,Herbed potato wedges (Mediterranean Foods),Potatoes|Olive oil|Rosemary|Garlic powder|Salt|Lemon juice,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Marinated zucchini ribbons,Marinated zucchini ribbons (Mediterranean Foods),Zucchini|Olive oil|Lemon|Basil|Garlic|Salt|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Tomato and basil bruschetta topping,Tomato and basil bruschetta topping (Mediterranean Foods),Tomato|Olive oil|Basil|Garlic|Sal|Balsamic vinegar|Water,100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Fattoush Salad,Fattoush Salad (Mediterranean Foods),oregano|zucchini|honey|radish,100.0|100.0|100.0|100.0
-Mediterranean Foods,Grilled Eggplant with Herbs,Grilled Eggplant with Herbs (Mediterranean Foods),watermelon|pumpkin|fig|arugula|garlic|grapes,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,Tomato Basil Salad,Tomato Basil Salad (Mediterranean Foods),tomato|grapes|basil|arugula|low-protein pasta,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,watermelon and mint skewers,watermelon and mint skewers (Mediterranean Foods),watermelon|mint|zucchini|cherry tomato|lemon juice,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,baked cinnamon apples,baked cinnamon apples (Mediterranean Foods),apple|cinnamon|maple syrup|fennel|date paste,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,polenta with roasted veggies,polenta with roasted veggies (Mediterranean Foods),polenta(low-protein)|eggplant|zucchini|garlic|pepper,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,zaalouk(moroccan eggplant dip),zaalouk(moroccan eggplant dip) (Mediterranean Foods),eggplant|tomato|olive oil|garlic|paprika|parsley,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted garlic carrots,roasted garlic carrots (Mediterranean Foods),carrrot|garlic|olive oil|lemon|basil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,chickpea-free hummus,chickpea-free hummus (Mediterranean Foods),cauliflower|garlic|lemon juice|olive oil|tahini|parsley,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,stewed zucchini and tomatoes,stewed zucchini and tomatoes (Mediterranean Foods),zucchini|tomato|garlic|onion|olive oil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,lemon roasted potatoes,lemon roasted potatoes (Mediterranean Foods),potato|olive oil|lemon juice|garlic|oregano,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,bulgur-free tabbouleh,bulgur-free tabbouleh (Mediterranean Foods),low-protein rice|cucumber|parsley|tomato|lemon juice,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,sauteed spinach with garlic,sauteed spinach with garlic (Mediterranean Foods),spinach|garlic|olive oil|lemon juice|onion,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,avocado cucumber gazpacho,avocado cucumber gazpacho (Mediterranean Foods),avocado|cucumber|lemon juice|garlic|water,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,sweet date and fig bites,sweet date and fig bites (Mediterranean Foods),date paste|fig|cinnamon|maple syrup|orange,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,low-protein pasta with olive oil and basil,low-protein pasta with olive oil and basil (Mediterranean Foods),low-protein pasta|olive oil|basil|garlic|tomato,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted cauliflower with paprika,roasted cauliflower with paprika (Mediterranean Foods),cauliflower|paprika|olive oil|lemon juice|onion|zucchini,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,grilled peach with balsamic,grilled peach with balsamic (Mediterranean Foods),peach|balsamic vinegar|mint|olive oil|arugula,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,apple and pomegranate salad,apple and pomegranate salad (Mediterranean Foods),apple|pomegranate|lettuce|lemon juice|olive oil|mint,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,minted melon bowl,minted melon bowl (Mediterranean Foods),melon|mint|lemon juice|watermelon,100.0|100.0|100.0|100.0
-Mediterranean Foods,orange cinnamon compote,orange cinnamon compote (Mediterranean Foods),orange|cinnamon|sugar|water|date paste,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,cinnamon roasted pears,cinnamon roasted pears (Mediterranean Foods),pear|cinnamon|maple syrup|olive oil|fennel,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,sauteed green beans with lemon zest,sauteed green beans with lemon zest (Mediterranean Foods),green beans|lemon|olive oil|garlic|tomato,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted fennel with citrus glaze,roasted fennel with citrus glaze (Mediterranean Foods),fennel|orange|olive oil|maple syrup|lemon zest,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,garlic lemon roasted bell peppers,garlic lemon roasted bell peppers (Mediterranean Foods),peppers|garlic|olive oil|lemon juice|basil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,cucumber and tomato olive salad,cucumber and tomato olive salad (Mediterranean Foods),cucumber|tomato|olive oil|lemon juice|olives|parsley,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted vegetable stack,roasted vegetable stack (Mediterranean Foods),eggplant|zucchini|tomato|olive oil|garlic|basil,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,melon and cucumber salad with mint,melon and cucumber salad with mint (Mediterranean Foods),melon|cucumber|mint|lemon juice|olive oil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,baked apples with pomegranate drizzle,baked apples with pomegranate drizzle (Mediterranean Foods),apple|pomegranate|cinnamon|maple syrup|date paste,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,mediterranean beet salad,mediterranean beet salad (Mediterranean Foods),beet|orange|lemon|olive oil|mint,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,eggplant with tomato garlic sauce,eggplant with tomato garlic sauce (Mediterranean Foods),eggplant|tomato|garlic|olive oil|basil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,citrus herb carrot ribbons,citrus herb carrot ribbons (Mediterranean Foods),carrot|orange|olive oil|parsley|lemon,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,grilled zucchini and tomato platter,grilled zucchini and tomato platter (Mediterranean Foods),zucchini|tomato|olive oil|garlic|basil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,chilled tomato and watermelon soup,chilled tomato and watermelon soup (Mediterranean Foods),tomato|watermelon|cucumber|lemon juice|mint,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,olive oil roasted turnips,olive oil roasted turnips (Mediterranean Foods),turnip|olive oil|garlic|lemon juice|thyme,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,date and coconut rolls,date and coconut rolls (Mediterranean Foods),date paste|coconut|cinnamon|orange|maple syrup,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,baked zucchini fries,baked zucchini fries (Mediterranean Foods),zucchini|olive oil|garlic powder|lemon|rice flour|paprika,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,apricot and orange salad,apricot and orange salad (Mediterranean Foods),apricot|orange|mint|lemon|maple syrup,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,carrot and orange smoothie,carrot and orange smoothie (Mediterranean Foods),carrot|orange|date paste|water,100.0|100.0|100.0|100.0
-Mediterranean Foods,grilled eggplant with lemon tahini,grilled eggplant with lemon tahini (Mediterranean Foods),eggplant|tahini|lemon juice|olive oil|garlic|parsley,100.0|100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,lemon herb roasted artichokes,lemon herb roasted artichokes (Mediterranean Foods),artichoke|lemon juice|olive oil|garlic|thyme,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,fresh fig and mint salad,fresh fig and mint salad (Mediterranean Foods),fig|mint|lemon juice|arugula|olive oil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted red pepper puree,roasted red pepper puree (Mediterranean Foods),pepper|garlic|olive oil|lemon|basil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,stewed zucchini with tomato,stewed zucchini with tomato (Mediterranean Foods),zucchini|tomato|onion|olive oil|garlic,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,grape and mint fruit bowl,grape and mint fruit bowl (Mediterranean Foods),grapes|mint|lemon juice,100.0|100.0|100.0
-Mediterranean Foods,olive oil and lemon roasted carrots,olive oil and lemon roasted carrots (Mediterranean Foods),carrots|olive oil|lemon juice|parsley|garlic,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,chilled citrus melon soup,chilled citrus melon soup (Mediterranean Foods),melon|orange|lemon|mint|water,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,cinnamon date pudding,cinnamon date pudding (Mediterranean Foods),date paste|rice milk|cinnamon|cornstarch|maple syrup,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,stewed zucchini with tomato,stewed zucchini with tomato (Mediterranean Foods),zucchini|tomato|onion|olive oil|garlic,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,grape and mint fruit bowl,grape and mint fruit bowl (Mediterranean Foods),red grapes|mint|lemon juice,100.0|100.0|100.0
-Mediterranean Foods,olive oil and lemon roasted carrots,olive oil and lemon roasted carrots (Mediterranean Foods),olive oil|lemon juice|parsley|garlic,100.0|100.0|100.0|100.0
-Mediterranean Foods,chilled citrus melon soup,chilled citrus melon soup (Mediterranean Foods),melon|orange|lemon|mint|water,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,cinnamon date pudding,cinnamon date pudding (Mediterranean Foods),date paste|rice milk|cinnamon|cornstarch|maple syrup,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,grilled fennel and orange salad,grilled fennel and orange salad (Mediterranean Foods),fennel|orange|olive oil|lemon juice|dill,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,cucumber yogurt dip,cucumber yogurt dip (Mediterranean Foods),cucumber|rice yogurt|mint|lemon juice|garlic,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,lemony lentil-free tabbouleh,lemony lentil-free tabbouleh (Mediterranean Foods),cauliflower rice|parsley|tomato|cucumber|lemon juice,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted fig and walnut bites,roasted fig and walnut bites (Mediterranean Foods),fig|walnut|maple syrup|cinnamon|lemon zest,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,garlic sautÃ©ed greens,garlic sautÃ©ed greens (Mediterranean Foods),spinach|olive oil|garlic|lemon juice|chard,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,baked spiced apple slices,baked spiced apple slices (Mediterranean Foods),apple|cinnamon|maple syrup|lemon juice|clove,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,beet and orange salad,beet and orange salad (Mediterranean Foods),beet|orange|olive oil|mint|lemon juice,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,roasted zucchini boats,roasted zucchini boats (Mediterranean Foods),zucchini|tomato|olive oil|basil|garlic,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,date and almond energy bites,date and almond energy bites (Mediterranean Foods),date paste|almond|coconut|maple syrup|cinnamon,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,lemon basil quinoa-free pilaf,lemon basil quinoa-free pilaf (Mediterranean Foods),cauliflower rice|basil|olive oil|lemon juice|garlic,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,baba ghanoush-style eggplant mash,baba ghanoush-style eggplant mash (Mediterranean Foods),eggplant|olive oil|lemon juice|garlic|parsley,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,grilled peach and mint salad,grilled peach and mint salad (Mediterranean Foods),peach|mint|lemon juice|olive oil|arugula,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,stuffed grape leaves (no rice),stuffed grape leaves (no rice) (Mediterranean Foods),cabbage|cauliflower rice|lemon juice|olive oil|dill,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,chickpea-free hummus,chickpea-free hummus (Mediterranean Foods),zucchini|tahini|lemon juice|garlic|olive oil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,carrot and date salad,carrot and date salad (Mediterranean Foods),carrot|date|lemon juice|mint|olive oil,100.0|100.0|100.0|100.0|100.0
-Mediterranean Foods,fig and olive tapenade,fig and olive tapenade (Mediterranean Foods),fig|olives|olive oil|garlic|lemon juice,100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Corn and Veggie Tacos,Corn and Veggie Tacos (Mexican Foods),"Corn Tortilla (6"" diameter)|Zucchini|red bell peppers|Onions, cooked|Avocados, all varieties, mashed|Lemon juice|cilantro|Olive Oil",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Chilled Avocado Cucumber Soup,Chilled Avocado Cucumber Soup (Mexican Foods),"Avocados, all varieties, mashed|Cucumber, sliced|Coconut milk|Lemon juice|Olive Oil|cilantro|Salt",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Mexican Street Corn Salad,Mexican Street Corn Salad (Mexican Foods),Corn|Mayonaise|Lemon juice|paprika|cilantro,100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Stuffed Bell peppers,Stuffed Bell peppers (Mexican Foods),"red bell peppers|Cauliflower, cooked|Zucchini|Tomato, whole|Olive Oil|Onions, cooked",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Jicama Tostadas with Mango Salsa,Jicama Tostadas with Mango Salsa (Mexican Foods),"Jicama slices, raw|Mangoes, sliced|Tomato, whole|Onions, raw|cilantro|Lemon juice|Olive Oil",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Chayote Squash Salad with Lime and Chili,Chayote Squash Salad with Lime and Chili (Mexican Foods),"Chayote, cooked|Lemon juice|Olive Oil|paprika|Salt",100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Taco Lettuce Wraps with Spiced Veggies,Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),"Romaine and cos lettuce, raw|Zucchini|green bell peppers|Onions, cooked|Tomato, whole|Avocados, all varieties, mashed|Olive Oil|Salt",100.0|100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Cactus and Tomato Salad,Cactus and Tomato Salad (Mexican Foods),"Nopales, cooked, chopped|Tomato, whole|Onions, raw|Lemon juice|Olive Oil|Cilantro",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Sweet Potato Tacos with Paprika Aioli,Sweet Potato Tacos with Paprika Aioli (Mexican Foods),"Corn Tortilla (6"" diameter)|Sweet Potatoes|Red cabbage, raw|Avocados, all varieties, mashed|Vegan Aioli|Lemon juice",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Garlic and Roasted Plantains with Cilantro Dip,Garlic and Roasted Plantains with Cilantro Dip (Mexican Foods),"Plantains, cooked|Olive Oil|garlic powder|coconut cream|Lemon juice|Cilantro",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Roasted Chili-Lime Carrots,Roasted Chili-Lime Carrots (Mexican Foods),Carrots|Olive Oil|Lemon juice|paprika|Cumin,100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Tomatillo Salsa Verde,Tomatillo Salsa Verde (Mexican Foods),"Tomatillos (boiled)|Onions, raw|jalapeno|Lemon juice|Cilantro|Salt",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Lettuce Wrapped Veggie Tacos with Pineapple Slaw,Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),"Romaine and cos lettuce, raw|Pineapple diced|Red cabbage, raw|Carrots|red bell peppers|Lemon juice|Olive Oil",100.0|100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Sweet Corn and Pepper Hash,Sweet Corn and Pepper Hash (Mexican Foods),"Corn|red bell peppers|Onions, raw|Olive Oil|Paprika",100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Mexican Mashed Sweet Potato,Mexican Mashed Sweet Potato (Mexican Foods),Sweet Potatoes|Lemon juice|Olive Oil|garlic powder|Paprika,100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Agua Fresca,Agua Fresca (Mexican Foods),"Watermelon, cubed|Water|Lemon juice",100.0|100.0|100.0
-Mexican Foods,Cucumber-Chili Snack Cups,Cucumber-Chili Snack Cups (Mexican Foods),"Cucumber, sliced|Lemon juice|Paprika|Salt",100.0|100.0|100.0|100.0
-Mexican Foods,Crispy Potato Tacos,Crispy Potato Tacos (Mexican Foods),"Corn Tortilla (6"" diameter)|Potatoes|Olive Oil|garlic powder|Romaine and cos lettuce, raw",100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Mango-Cucumber Lime Salad,Mango-Cucumber Lime Salad (Mexican Foods),"Mangoes, sliced|Cucumber, sliced|Lemon juice|paprika|cilantro",100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Low-Protein Breakfast Burrito,Low-Protein Breakfast Burrito (Mexican Foods),"Corn Tortilla (6"" diameter)|Plantains, cooked|Avocados, all varieties, mashed|Tomato, whole|Olive Oil|Cinnamon",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Pickled Vegetable Mix,Pickled Vegetable Mix (Mexican Foods),"Carrots|jalapeno|Cauliflower, raw|Vinegar/oil dressing|Water|Salt",100.0|100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Grilled Corn with Lime and Cilantro,Grilled Corn with Lime and Cilantro (Mexican Foods),Corn|Lemon juice|Olive Oil|cilantro|paprika,100.0|100.0|100.0|100.0|100.0
-Mexican Foods,Refried Zucchini,Refried Zucchini (Mexican Foods),"Zucchini|Olive Oil|Onions, cooked|garlic powder|Cumin|Salt",100.0|100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Scottish Neeps & Tatties,Scottish Neeps & Tatties (Scottish-Irish Foods),"raw turnip|Potatoes|butter, stick|Chives",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Colcannon (PKU-friendly),Irish Colcannon (PKU-friendly) (Scottish-Irish Foods),"Potatoes|Green Cabbage|butter, stick|Spring onions|Oat milk",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Leek & Potatoes Soup,Leek & Potatoes Soup (Scottish-Irish Foods),"Leek|Potatoes|butter, stick|Vegetable broth|Parsley",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Scottish Oatcakes (Low-Protein Mix),Scottish Oatcakes (Low-Protein Mix) (Scottish-Irish Foods),"flour|butter, stick|Oat fiber|Water|Salt",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Root Veggie Stew,Irish Root Veggie Stew (Scottish-Irish Foods),"Carrots|Parsnip, raw|Potatoes|Onion|Vegetable broth",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Scottish Raspberry Cranachan,Scottish Raspberry Cranachan (Scottish-Irish Foods),oat|Coconut cream|raspberries raw|Maple syrup|Lemon zest,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Apple Mash,Irish Apple Mash (Scottish-Irish Foods),"Green apple|Potatoes|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Carrots & Ginger Soup,Irish Carrots & Ginger Soup (Scottish-Irish Foods),"Carrots|Onion|Raw Ginger (Fresh)|vegetable broth|butter, stick",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Sweet Leek Mash,Sweet Leek Mash (Scottish-Irish Foods),"Leek|Potatoes|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Vegetable Boxty,Irish Vegetable Boxty (Scottish-Irish Foods),"Potatoes|Carrots|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Scottish Barley-Free Veggie Broth,Scottish Barley-Free Veggie Broth (Scottish-Irish Foods),Leek|Carrots|raw turnip|Vegetable broth|Parsley,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Honey-Glazed Carrotss,Irish Honey-Glazed Carrotss (Scottish-Irish Foods),"Carrots|Honey|butter, stick|Thyme Fresh|Lemon juice",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Green Cabbage and Onion Cakes,Crispy Green Cabbage and Onion Cakes (Scottish-Irish Foods),"Green Cabbage|Onion|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Herb Roasted raw turnips,Herb Roasted raw turnips (Scottish-Irish Foods),raw turnip|Olive oil|Rosemary|Garlic|Lemon zest,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Sweet Potatoes Mash,Irish Sweet Potatoes Mash (Scottish-Irish Foods),"Sweet Potatoes|butter, stick|Oat milk",100.0|100.0|100.0
-Scottish-Irish Foods,Simple Scottish Pea Soup,Simple Scottish Pea Soup (Scottish-Irish Foods),Green peas|Leek|Potatoes|Vegetable broth,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Carrots and Parsnip, raw Mash","Carrots and Parsnip, raw Mash (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Oven-Roasted Swede Wedges,Oven-Roasted Swede Wedges (Scottish-Irish Foods),raw turnip|Olive oil|Smoked paprika|Garlic powder|parsley,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Herbed Potatoes Wedges,Irish Herbed Potatoes Wedges (Scottish-Irish Foods),Potatoes|Olive oil|rosemary|Garlic powder|Chives,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Scottish Honey-Braised Green Cabbage,Scottish Honey-Braised Green Cabbage (Scottish-Irish Foods),"Green Cabbage|Honey|Apple cider vinegar|butter, stick|dill",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Creamy Leek and Carrots Mix,Creamy Leek and Carrots Mix (Scottish-Irish Foods),"Leek|Carrots|Oat milk|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Mustard Mashed raw turnips,Irish Mustard Mashed raw turnips (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk|Mustard",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Pan-Fried Zucchini Fritters,Pan-Fried Zucchini Fritters (Scottish-Irish Foods),"Zucchini|flour|butter, stick|Chives",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Stewed Rhubarb & Apples,Stewed Rhubarb & Apples (Scottish-Irish Foods),Rhubarb|Green apple|Sugar|Lemon juice,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Root Veggie Chips,Irish Root Veggie Chips (Scottish-Irish Foods),"Carrots|Parsnip, raw|raw turnips|Olive oil",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Sweet Potatoes and Carrots Patties,Sweet Potatoes and Carrots Patties (Scottish-Irish Foods),"Sweet Potatoes|Carrots|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Apple with Cinnamon,Baked Apple with Cinnamon (Scottish-Irish Foods),Green apple|Mapl,100.0|100.0
-Scottish-Irish Foods,Mashed Carrots and Swede,Mashed Carrots and Swede (Scottish-Irish Foods),"Carrots|raw turnip|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Potatoes & Leek Cakes,Crispy Potatoes & Leek Cakes (Scottish-Irish Foods),"Potatoes|Leek|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Oven-Baked Spiced Parsnip, raws","Oven-Baked Spiced Parsnip, raws (Scottish-Irish Foods)","Parsnip, raw|Olive oil|Smoked paprika|Garlic|Lemon zest",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Honey-Balsamic Glazed Root Veggies,Honey-Balsamic Glazed Root Veggies (Scottish-Irish Foods),"Carrots|Parsnip, raw|Honey|Balsamic vinegar|butter, stick",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rustic Irish Onion Gravy,Rustic Irish Onion Gravy (Scottish-Irish Foods),"Onion|Vegetable broth|butter, stick|Balsamic vinegar",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Garlic Green Cabbage,Crispy Garlic Green Cabbage (Scottish-Irish Foods),Green Cabbage|Garlic|Olive oil|Lemon juice,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Spiced Apple Compote,Irish Spiced Apple Compote (Scottish-Irish Foods),Green apple|Cinnamon powder|Sugar|Lemon juice|Vanilla extract,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Simple Herbed Swede Mash,Simple Herbed Swede Mash (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk|Fresh thyme",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Roasted Carrots & Leek Traybake,Roasted Carrots & Leek Traybake (Scottish-Irish Foods),Carrots|Leek|Olive oil|rosemary|Lemon zest,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Zucchini Boats,Baked Zucchini Boats (Scottish-Irish Foods),Zucchini|tomato|Olive oil|basil,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Cinnamon Apples,Baked Cinnamon Apples (Scottish-Irish Foods),Green apple|Maple syrup|Cinnamon|Lemon juice|Tahini,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Green Cabbage & Potatoes Dumplings,Green Cabbage & Potatoes Dumplings (Scottish-Irish Foods),"Potatoes|Green Cabbage|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Zesty Roasted Swede Cubes,Zesty Roasted Swede Cubes (Scottish-Irish Foods),raw turnip|Olive oil|Lemon zest|parsley,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Carrots & Apple Slaw,Carrots & Apple Slaw (Scottish-Irish Foods),Carrots|Green apple|Oat milk dressing,100.0|100.0|100.0
-Scottish-Irish Foods,"Golden Mashed Parsnip, raws","Golden Mashed Parsnip, raws (Scottish-Irish Foods)","Parsnip, raw|butter, stick|Oat milk|Nutmeg",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Zucchini & Potatoes Patties,Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),"Zucchini|Potatoes|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rhubarb & Berry Compote,Rhubarb & Berry Compote (Scottish-Irish Foods),Rhubarb|Strawberries|Maple syrup|Lemon zest,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Honey-Mustard Roasted Carrotss,Honey-Mustard Roasted Carrotss (Scottish-Irish Foods),Carrots|Honey|Mustard|Olive oil|Chives,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Creamy Swede & Leek Bake,Creamy Swede & Leek Bake (Scottish-Irish Foods),"Swede|Leek|Oat milk|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Parsnip, raw & Carrots Puree","Parsnip, raw & Carrots Puree (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Zucchini & Potatoes Patties,Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),"Zucchini|Potatoes|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Roasted Carrotss & Parsnip, raws","Roasted Carrotss & Parsnip, raws (Scottish-Irish Foods)","Carrots|Parsnip, raw|Olive oil",100.0|100.0|100.0
-Scottish-Irish Foods,Honey-Glazed Swede Cubes,Honey-Glazed Swede Cubes (Scottish-Irish Foods),"Swede|Honey|butter, stick|Lemon zest",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Carrots & Apple Slaw,Carrots & Apple Slaw (Scottish-Irish Foods),Carrots|Green apple|Oat milk dressing,100.0|100.0|100.0
-Scottish-Irish Foods,Creamy raw turnip Mash,Creamy raw turnip Mash (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk",100.0|100.0|100.0
-Scottish-Irish Foods,Oven-Baked Sweet Potatoes Cubes,Oven-Baked Sweet Potatoes Cubes (Scottish-Irish Foods),Sweet Potatoes|Olive oil|Smoked paprika|Lemon juice,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rhubarb & Strawberry Stew,Rhubarb & Strawberry Stew (Scottish-Irish Foods),Rhubarb|Strawberries|Maple syrup|Lemon zest,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Herbed Potatoes Wedges,Baked Herbed Potatoes Wedges (Scottish-Irish Foods),Potatoes|Olive oil|Fresh rosemary|Garlic powder,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Zesty Green Cabbage & Carrots Salad,Zesty Green Cabbage & Carrots Salad (Scottish-Irish Foods),Green Cabbage|Carrots|Apple cider vinegar,100.0|100.0|100.0
-Scottish-Irish Foods,Mashed Carrots and Swede,Mashed Carrots and Swede (Scottish-Irish Foods),"Carrots|raw turnip|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Potatoes & Leek Cakes,Crispy Potatoes & Leek Cakes (Scottish-Irish Foods),"Potatoes|Leek|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Oven-Baked Spiced Parsnip, raws","Oven-Baked Spiced Parsnip, raws (Scottish-Irish Foods)","Parsnip, raw|Olive oil|Smoked paprika|Garlic|Lemon zest",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Honey-Balsamic Glazed Root Veggies,Honey-Balsamic Glazed Root Veggies (Scottish-Irish Foods),"Carrots|Parsnip, raw|Honey|Balsamic vinegar|butter, stick",100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rustic Irish Onion Gravy,Rustic Irish Onion Gravy (Scottish-Irish Foods),"Onion|Vegetable broth|butter, stick|Balsamic vinegar",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Garlic Green Cabbage,Crispy Garlic Green Cabbage (Scottish-Irish Foods),Green Cabbage|Garlic|Olive oil|Lemon juice,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Irish Spiced Apple Compote,Irish Spiced Apple Compote (Scottish-Irish Foods),Green apple|Cinnamon powder|Sugar|Lemon juice|Vanilla extract,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Simple Herbed Swede Mash,Simple Herbed Swede Mash (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk|Fresh thyme",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Roasted Carrots & Leek Traybake,Roasted Carrots & Leek Traybake (Scottish-Irish Foods),Carrots|Leek|Olive oil|rosemary|Lemon zest,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Zucchini Boats,Baked Zucchini Boats (Scottish-Irish Foods),Zucchini|tomato|Olive oil|basil,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Cinnamon Apples,Baked Cinnamon Apples (Scottish-Irish Foods),Green apple|Maple syrup|Cinnamon|Lemon juice|Tahini,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Green Cabbage & Potatoes Dumplings,Green Cabbage & Potatoes Dumplings (Scottish-Irish Foods),"Potatoes|Green Cabbage|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Zesty Roasted Swede Cubes,Zesty Roasted Swede Cubes (Scottish-Irish Foods),raw turnip|Olive oil|Lemon zest|parsley,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Carrots & Apple Slaw,Carrots & Apple Slaw (Scottish-Irish Foods),Carrots|Green apple|Oat milk dressing,100.0|100.0|100.0
-Scottish-Irish Foods,"Golden Mashed Parsnip, raws","Golden Mashed Parsnip, raws (Scottish-Irish Foods)","Parsnip, raw|butter, stick|Oat milk|Nutmeg",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Zucchini & Potatoes Patties,Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),"Zucchini|Potatoes|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rhubarb & Berry Compote,Rhubarb & Berry Compote (Scottish-Irish Foods),Rhubarb|Strawberries|Maple syrup|Lemon zest,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Honey-Mustard Roasted Carrotss,Honey-Mustard Roasted Carrotss (Scottish-Irish Foods),Carrots|Honey|Mustard|Olive oil|Chives,100.0|100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Creamy Swede & Leek Bake,Creamy Swede & Leek Bake (Scottish-Irish Foods),"Swede|Leek|Oat milk|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Parsnip, raw & Carrots Puree","Parsnip, raw & Carrots Puree (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Zucchini & Potatoes Patties,Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),"Zucchini|Potatoes|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Roasted Carrotss & Parsnip, raws","Roasted Carrotss & Parsnip, raws (Scottish-Irish Foods)","Carrots|Parsnip, raw|Olive oil",100.0|100.0|100.0
-Scottish-Irish Foods,Honey-Glazed Swede Cubes,Honey-Glazed Swede Cubes (Scottish-Irish Foods),"Swede|Honey|butter, stick|Lemon zest",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Carrots & Apple Slaw,Carrots & Apple Slaw (Scottish-Irish Foods),Carrots|Green apple|Oat milk dressing,100.0|100.0|100.0
-Scottish-Irish Foods,Creamy raw turnip Mash,Creamy raw turnip Mash (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk",100.0|100.0|100.0
-Scottish-Irish Foods,Oven-Baked Sweet Potatoes Cubes,Oven-Baked Sweet Potatoes Cubes (Scottish-Irish Foods),Sweet Potatoes|Olive oil|Smoked paprika|Lemon juice,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rhubarb & Strawberry Stew,Rhubarb & Strawberry Stew (Scottish-Irish Foods),Rhubarb|Strawberries|Maple syrup|Lemon zest,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Herbed Potatoes Wedges,Baked Herbed Potatoes Wedges (Scottish-Irish Foods),Potatoes|Olive oil|Fresh rosemary|Garlic powder,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Zesty Green Cabbage & Carrots Salad,Zesty Green Cabbage & Carrots Salad (Scottish-Irish Foods),Green Cabbage|Carrots|Apple cider vinegar,100.0|100.0|100.0
-Scottish-Irish Foods,Mashed Carrots & Swede,Mashed Carrots & Swede (Scottish-Irish Foods),"Carrots|Swede|butter, stick",100.0|100.0|100.0
-Scottish-Irish Foods,"Carrots & Parsnip, raw Puree","Carrots & Parsnip, raw Puree (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Sweet Potatoes & Green Cabbage Bake,Sweet Potatoes & Green Cabbage Bake (Scottish-Irish Foods),"Sweet Potatoes|Green Cabbage|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Zesty Roasted raw turnips,Zesty Roasted raw turnips (Scottish-Irish Foods),raw turnip|Olive oil|Lemon juice|parsley,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Rhubarb Apple Compote,Rhubarb Apple Compote (Scottish-Irish Foods),Rhubarb|Green apple|Maple syrup|Lemon zest,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Potatoes Green Cabbage Cakes,Baked Potatoes Green Cabbage Cakes (Scottish-Irish Foods),"Potatoes|Green Cabbage|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Honey Mustard Roasted Carrotss,Honey Mustard Roasted Carrotss (Scottish-Irish Foods),Carrots|Honey|Mustard|Olive oil,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Apple & Green Cabbage Slaw,Apple & Green Cabbage Slaw (Scottish-Irish Foods),Green apple|Green Cabbage|Oat milk dressing,100.0|100.0|100.0
-Scottish-Irish Foods,Roasted Swede Wedges,Roasted Swede Wedges (Scottish-Irish Foods),Swede|Olive oil|Smoked paprika,100.0|100.0|100.0
-Scottish-Irish Foods,Crispy Potatoes Leek Cakes,Crispy Potatoes Leek Cakes (Scottish-Irish Foods),"Potatoes|Leek|flour|butter, stick",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Baked Zucchini Boats,Baked Zucchini Boats (Scottish-Irish Foods),Zucchini|tomato|Olive oil|basil,100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Herbed Roasted Root Medley,Herbed Roasted Root Medley (Scottish-Irish Foods),"Parsnip, raw|Carrots|raw turnip|Olive oil",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,Mashed Potatoes & Swede,Mashed Potatoes & Swede (Scottish-Irish Foods),"Potatoes|Swede|butter, stick|Oat milk",100.0|100.0|100.0|100.0
-Scottish-Irish Foods,"Honey-Balsamic Glazed Parsnip, raw","Honey-Balsamic Glazed Parsnip, raw (Scottish-Irish Foods)","Parsnip, raw|Honey|Balsamic vinegar",100.0|100.0|100.0
-Scottish-Irish Foods,Roasted Green Cabbage Steaks,Roasted Green Cabbage Steaks (Scottish-Irish Foods),Green Cabbage|Olive oil|Lemon juice,100.0|100.0|100.0
-Scottish-Irish Foods,Carrots Apple Mash,Carrots Apple Mash (Scottish-Irish Foods),"Carrots|Green apple|butter, stick",100.0|100.0|100.0
-Scottish-Irish Foods,Crispy raw turnip Chips,Crispy raw turnip Chips (Scottish-Irish Foods),raw turnip|Olive oil|Sea salt,100.0|100.0|100.0
-Scottish-Irish Foods,Sweet Carrots & Apple Stew,Sweet Carrots & Apple Stew (Scottish-Irish Foods),Carrots|Apple|Maple syrup,100.0|100.0|100.0
-Scottish-Irish Foods,Zucchini Fritters,Zucchini Fritters (Scottish-Irish Foods),"Zucchini|flour|butter, stick",100.0|100.0|100.0
-Scottish-Irish Foods,"Steamed Parsnip, raw with Chive Butter","Steamed Parsnip, raw with Chive Butter (Scottish-Irish Foods)","Parsnip, raw|butter, stick|Fresh chives",100.0|100.0|100.0
-Scottish-Irish Foods,Irish Apple Porridge,Irish Apple Porridge (Scottish-Irish Foods),oats|Green apple|Oat milk,100.0|100.0|100.0
+Mediterranean Foods,Zucchini and mint salad,Zucchini and mint salad (Mediterranean Foods),Zucchini|Olive oil|Lemon|Mint|Salt|Garlic,15.0|10.0|10.0|5.0|1.0|2.0
+Mediterranean Foods,Roasted bell pepper dip ,Roasted bell pepper dip  (Mediterranean Foods),Pepper|Olive oil|Lemon|Garlic|Salt|Paprika|Water,120.0|15.0|10.0|2.0|1.0|2.0|30.0
+Mediterranean Foods,Tomato and cucumber salad,Tomato and cucumber salad (Mediterranean Foods),Tomato|Cucumber|Olive oil|Lemon|Parsley|Salt,120.0|100.0|10.0|10.0|8.0|2.0
+Mediterranean Foods,Grilled eggplant with garlic and herbs ,Grilled eggplant with garlic and herbs  (Mediterranean Foods),Eggplant|Olive oil|Garlic|Lemon juice|Thyme|Salt|Water (soaking),150.0|20.0|5.0|10.0|5.0|2.0|28.0
+Mediterranean Foods,Artichoke and lemon salad,Artichoke and lemon salad (Mediterranean Foods),Artichoke hearts|Lemon|Olive oil|Parsley|Salt|Water,120.0|15.0|10.0|10.0|1.0|24.0
+Mediterranean Foods,Olive tapenade ,Olive tapenade  (Mediterranean Foods),Olives|Olive oil|Capers|Lemon|Garlic|Parsley|Salt|Water,100.0|25.0|10.0|10.0|2.0|8.0|1.0|4.0
+Mediterranean Foods,Roasted carrots with cumin,Roasted carrots with cumin (Mediterranean Foods),Carrots|Olive oil|Lemon|Cumin powder|Garlic|Salt|Water,180.0|15.0|10.0|2.0|2.0|1.0|30.0
+Mediterranean Foods,Herbed potato wedges,Herbed potato wedges (Mediterranean Foods),Potatoes|Olive oil|Rosemary|Garlic powder|Salt|Lemon juice,220.0|20.0|5.0|2.0|2.0|10.0
+Mediterranean Foods,Marinated zucchini ribbons,Marinated zucchini ribbons (Mediterranean Foods),Zucchini|Olive oil|Lemon|Basil|Garlic|Salt|Water,140.0|10.0|10.0|5.0|2.0|1.0|22.0
+Mediterranean Foods,Tomato and basil bruschetta topping,Tomato and basil bruschetta topping (Mediterranean Foods),Tomato|Olive oil|Basil|Garlic|Sal|Balsamic vinegar|Water,100.0|15.0|10.0|2.0|1.0|7.0|25.0
+Mediterranean Foods,Fattoush Salad,Fattoush Salad (Mediterranean Foods),oregano|zucchini|honey|radish,87.0|80.0|111.0|118.0
+Mediterranean Foods,Grilled Eggplant with Herbs,Grilled Eggplant with Herbs (Mediterranean Foods),watermelon|pumpkin|fig|arugula|garlic|grapes,89.0|42.0|28.0|47.0|21.0|88.0
+Mediterranean Foods,Tomato Basil Salad,Tomato Basil Salad (Mediterranean Foods),tomato|grapes|basil|arugula|low-protein pasta,82.0|61.0|39.0|77.0|68.0
+Mediterranean Foods,watermelon and mint skewers,watermelon and mint skewers (Mediterranean Foods),watermelon|mint|zucchini|cherry tomato|lemon juice,89.0|17.0|55.0|74.0|48.0
+Mediterranean Foods,baked cinnamon apples,baked cinnamon apples (Mediterranean Foods),apple|cinnamon|maple syrup|fennel|date paste,83.0|6.0|58.0|84.0|95.0
+Mediterranean Foods,polenta with roasted veggies,polenta with roasted veggies (Mediterranean Foods),polenta(low-protein)|eggplant|zucchini|garlic|pepper,60.0|79.0|52.0|58.0|47.0
+Mediterranean Foods,zaalouk(moroccan eggplant dip),zaalouk(moroccan eggplant dip) (Mediterranean Foods),eggplant|tomato|olive oil|garlic|paprika|parsley,94.0|63.0|21.0|59.0|7.0|40.0
+Mediterranean Foods,roasted garlic carrots,roasted garlic carrots (Mediterranean Foods),carrrot|garlic|olive oil|lemon|basil,103.0|47.0|18.0|56.0|48.0
+Mediterranean Foods,chickpea-free hummus,chickpea-free hummus (Mediterranean Foods),cauliflower|garlic|lemon juice|olive oil|tahini|parsley|zucchini|tahini|lemon juice|garlic|olive oil,118.0|54.0|45.0|31.0|10.0|70.0|108.0|14.0|41.0|43.0|64.0
+Mediterranean Foods,stewed zucchini and tomatoes,stewed zucchini and tomatoes (Mediterranean Foods),zucchini|tomato|garlic|onion|olive oil,102.0|87.0|41.0|37.0|36.0
+Mediterranean Foods,lemon roasted potatoes,lemon roasted potatoes (Mediterranean Foods),potato|olive oil|lemon juice|garlic|oregano,102.0|87.0|41.0|46.0|67.0
+Mediterranean Foods,bulgur-free tabbouleh,bulgur-free tabbouleh (Mediterranean Foods),low-protein rice|cucumber|parsley|tomato|lemon juice,78.0|57.0|41.0|61.0|55.0
+Mediterranean Foods,sauteed spinach with garlic,sauteed spinach with garlic (Mediterranean Foods),spinach|garlic|olive oil|lemon juice|onion,113.0|59.0|19.0|38.0|34.0
+Mediterranean Foods,avocado cucumber gazpacho,avocado cucumber gazpacho (Mediterranean Foods),avocado|cucumber|lemon juice|garlic|water,52.0|88.0|44.0|41.0|63.0
+Mediterranean Foods,sweet date and fig bites,sweet date and fig bites (Mediterranean Foods),date paste|fig|cinnamon|maple syrup|orange,113.0|91.0|6.0|43.0|40.0
+Mediterranean Foods,low-protein pasta with olive oil and basil,low-protein pasta with olive oil and basil (Mediterranean Foods),low-protein pasta|olive oil|basil|garlic|tomato,112.0|23.0|36.0|41.0|85.0
+Mediterranean Foods,roasted cauliflower with paprika,roasted cauliflower with paprika (Mediterranean Foods),cauliflower|paprika|olive oil|lemon juice|onion|zucchini,108.0|6.0|22.0|41.0|53.0|48.0
+Mediterranean Foods,grilled peach with balsamic,grilled peach with balsamic (Mediterranean Foods),peach|balsamic vinegar|mint|olive oil|arugula,103.0|21.0|12.0|19.0|90.0
+Mediterranean Foods,apple and pomegranate salad,apple and pomegranate salad (Mediterranean Foods),apple|pomegranate|lettuce|lemon juice|olive oil|mint,88.0|42.0|54.0|41.0|25.0|25.0
+Mediterranean Foods,minted melon bowl,minted melon bowl (Mediterranean Foods),melon|mint|lemon juice|watermelon,120.0|22.0|44.0|74.0
+Mediterranean Foods,orange cinnamon compote,orange cinnamon compote (Mediterranean Foods),orange|cinnamon|sugar|water|date paste,96.0|6.0|34.0|47.0|66.0
+Mediterranean Foods,cinnamon roasted pears,cinnamon roasted pears (Mediterranean Foods),pear|cinnamon|maple syrup|olive oil|fennel,114.0|7.0|52.0|18.0|70.0
+Mediterranean Foods,sauteed green beans with lemon zest,sauteed green beans with lemon zest (Mediterranean Foods),green beans|lemon|olive oil|garlic|tomato,101.0|7.0|19.0|44.0|98.0
+Mediterranean Foods,roasted fennel with citrus glaze,roasted fennel with citrus glaze (Mediterranean Foods),fennel|orange|olive oil|maple syrup|lemon zest,111.0|63.0|22.0|41.0|45.0
+Mediterranean Foods,garlic lemon roasted bell peppers,garlic lemon roasted bell peppers (Mediterranean Foods),peppers|garlic|olive oil|lemon juice|basil,113.0|51.0|27.0|49.0|33.0
+Mediterranean Foods,cucumber and tomato olive salad,cucumber and tomato olive salad (Mediterranean Foods),cucumber|tomato|olive oil|lemon juice|olives|parsley,68.0|74.0|21.0|47.0|25.0|50.0
+Mediterranean Foods,roasted vegetable stack,roasted vegetable stack (Mediterranean Foods),eggplant|zucchini|tomato|olive oil|garlic|basil,63.0|55.0|76.0|23.0|47.0|33.0
+Mediterranean Foods,melon and cucumber salad with mint,melon and cucumber salad with mint (Mediterranean Foods),melon|cucumber|mint|lemon juice|olive oil,97.0|77.0|27.0|34.0|23.0
+Mediterranean Foods,baked apples with pomegranate drizzle,baked apples with pomegranate drizzle (Mediterranean Foods),apple|pomegranate|cinnamon|maple syrup|date paste,101.0|54.0|5.0|53.0|62.0
+Mediterranean Foods,mediterranean beet salad,mediterranean beet salad (Mediterranean Foods),beet|orange|lemon|olive oil|mint,102.0|65.0|44.0|21.0|31.0
+Mediterranean Foods,eggplant with tomato garlic sauce,eggplant with tomato garlic sauce (Mediterranean Foods),eggplant|tomato|garlic|olive oil|basil,96.0|88.0|53.0|24.0|47.0
+Mediterranean Foods,citrus herb carrot ribbons,citrus herb carrot ribbons (Mediterranean Foods),carrot|orange|olive oil|parsley|lemon,117.0|61.0|19.0|36.0|39.0
+Mediterranean Foods,grilled zucchini and tomato platter,grilled zucchini and tomato platter (Mediterranean Foods),zucchini|tomato|olive oil|garlic|basil,104.0|84.0|22.0|49.0|32.0
+Mediterranean Foods,chilled tomato and watermelon soup,chilled tomato and watermelon soup (Mediterranean Foods),tomato|watermelon|cucumber|lemon juice|mint,98.0|86.0|44.0|39.0|29.0
+Mediterranean Foods,olive oil roasted turnips,olive oil roasted turnips (Mediterranean Foods),turnip|olive oil|garlic|lemon juice|thyme,116.0|21.0|44.0|38.0|55.0
+Mediterranean Foods,date and coconut rolls,date and coconut rolls (Mediterranean Foods),date paste|coconut|cinnamon|orange|maple syrup,121.0|53.0|6.0|41.0|30.0
+Mediterranean Foods,baked zucchini fries,baked zucchini fries (Mediterranean Foods),zucchini|olive oil|garlic powder|lemon|rice flour|paprika,102.0|19.0|6.0|38.0|45.0|57.0
+Mediterranean Foods,apricot and orange salad,apricot and orange salad (Mediterranean Foods),apricot|orange|mint|lemon|maple syrup,65.0|67.0|29.0|38.0|56.0
+Mediterranean Foods,carrot and orange smoothie,carrot and orange smoothie (Mediterranean Foods),carrot|orange|date paste|water,96.0|84.0|52.0|59.0
+Mediterranean Foods,grilled eggplant with lemon tahini,grilled eggplant with lemon tahini (Mediterranean Foods),eggplant|tahini|lemon juice|olive oil|garlic|parsley,103.0|14.0|51.0|22.0|46.0|61.0
+Mediterranean Foods,lemon herb roasted artichokes ,lemon herb roasted artichokes  (Mediterranean Foods),artichoke|lemon juice|olive oil|garlic|thyme,111.0|53.0|21.0|42.0|58.0
+Mediterranean Foods,fresh fig and mint salad,fresh fig and mint salad (Mediterranean Foods),fig|mint|lemon juice|arugula|olive oil,103.0|36.0|44.0|56.0|30.0
+Mediterranean Foods,roasted red pepper puree,roasted red pepper puree (Mediterranean Foods),pepper|garlic|olive oil|lemon|basil,118.0|47.0|21.0|39.0|35.0
+Mediterranean Foods,stewed zucchini with tomato,stewed zucchini with tomato (Mediterranean Foods),zucchini|tomato|onion|olive oil|garlic|zucchini|tomato|onion|olive oil|garlic,113.0|83.0|49.0|21.0|22.0|113.0|83.0|49.0|21.0|22.0
+Mediterranean Foods,grape and mint fruit bowl,grape and mint fruit bowl (Mediterranean Foods),grapes|mint|lemon juice|red grapes|mint|lemon juice,198.0|25.0|40.0|96.0|25.0|40.0
+Mediterranean Foods,olive oil and lemon roasted carrots,olive oil and lemon roasted carrots (Mediterranean Foods),carrots|olive oil|lemon juice|parsley|garlic|olive oil|lemon juice|parsley|garlic,117.0|22.0|44.0|47.0|46.0|22.0|44.0|47.0|46.0
+Mediterranean Foods,chilled citrus melon soup,chilled citrus melon soup (Mediterranean Foods),melon|orange|lemon|mint|water|melon|orange|lemon|mint|water,116.0|71.0|49.0|24.0|33.0|116.0|71.0|49.0|24.0|33.0
+Mediterranean Foods,cinnamon date pudding,cinnamon date pudding (Mediterranean Foods),date paste|rice milk|cinnamon|cornstarch|maple syrup|date paste|rice milk|cinnamon|cornstarch|maple syrup,109.0|83.0|6.0|43.0|48.0|109.0|83.0|6.0|43.0|48.0
+Mediterranean Foods,grilled fennel and orange salad,grilled fennel and orange salad (Mediterranean Foods),fennel|orange|olive oil|lemon juice|dill,103.0|89.0|28.0|34.0|24.0
+Mediterranean Foods,cucumber yogurt dip,cucumber yogurt dip (Mediterranean Foods),cucumber|rice yogurt|mint|lemon juice|garlic,88.0|91.0|23.0|34.0|39.0
+Mediterranean Foods,lemony lentil-free tabbouleh,lemony lentil-free tabbouleh (Mediterranean Foods),cauliflower rice|parsley|tomato|cucumber|lemon juice,97.0|64.0|52.0|47.0|36.0
+Mediterranean Foods,roasted fig and walnut bites,roasted fig and walnut bites (Mediterranean Foods),fig|walnut|maple syrup|cinnamon|lemon zest,107.0|18.0|43.0|7.0|31.0
+Mediterranean Foods,garlic sautÃ©ed greens,garlic sautÃ©ed greens (Mediterranean Foods),spinach|olive oil|garlic|lemon juice|chard,92.0|26.0|33.0|31.0|78.0
+Mediterranean Foods,baked spiced apple slices,baked spiced apple slices (Mediterranean Foods),apple|cinnamon|maple syrup|lemon juice|clove,111.0|7.0|46.0|39.0|16.0
+Mediterranean Foods,beet and orange salad,beet and orange salad (Mediterranean Foods),beet|orange|olive oil|mint|lemon juice,103.0|89.0|29.0|33.0|33.0
+Mediterranean Foods,roasted zucchini boats,roasted zucchini boats (Mediterranean Foods),zucchini|tomato|olive oil|basil|garlic,121.0|84.0|26.0|34.0|27.0
+Mediterranean Foods,date and almond energy bites,date and almond energy bites (Mediterranean Foods),date paste|almond|coconut|maple syrup|cinnamon,101.0|16.0|39.0|49.0|60.0
+Mediterranean Foods,lemon basil quinoa-free pilaf,lemon basil quinoa-free pilaf (Mediterranean Foods),cauliflower rice|basil|olive oil|lemon juice|garlic,113.0|47.0|28.0|42.0|40.0
+Mediterranean Foods,baba ghanoush-style eggplant mash,baba ghanoush-style eggplant mash (Mediterranean Foods),eggplant|olive oil|lemon juice|garlic|parsley,116.0|31.0|38.0|48.0|43.0
+Mediterranean Foods,grilled peach and mint salad,grilled peach and mint salad (Mediterranean Foods),peach|mint|lemon juice|olive oil|arugula,109.0|33.0|47.0|33.0|61.0
+Mediterranean Foods,stuffed grape leaves (no rice),stuffed grape leaves (no rice) (Mediterranean Foods),cabbage|cauliflower rice|lemon juice|olive oil|dill,99.0|93.0|34.0|29.0|36.0
+Mediterranean Foods,carrot and date salad,carrot and date salad (Mediterranean Foods),carrot|date|lemon juice|mint|olive oil,104.0|91.0|38.0|27.0|20.0
+Mediterranean Foods,fig and olive tapenade,fig and olive tapenade (Mediterranean Foods),fig|olives|olive oil|garlic|lemon juice,97.0|22.0|29.0|41.0|79.0
+Mexican Foods,Corn and Veggie Tacos,Corn and Veggie Tacos (Mexican Foods),"Corn Tortilla (6"" diameter)|Zucchini|red bell peppers|Onions, cooked|Avocados, all varieties, mashed|Lemon juice|cilantro|Olive Oil",28.0|40.0|30.0|20.0|15.0|5.0|2.0|5.0
+Mexican Foods,Chilled Avocado Cucumber Soup,Chilled Avocado Cucumber Soup (Mexican Foods),"Avocados, all varieties, mashed|Cucumber, sliced|Coconut milk|Lemon juice|Olive Oil|cilantro|Salt",25.0|100.0|50.0|10.0|5.0|2.0|1.0
+Mexican Foods,Mexican Street Corn Salad,Mexican Street Corn Salad (Mexican Foods),Corn|Mayonaise|Lemon juice|paprika|cilantro,60.0|20.0|10.0|1.0|2.0
+Mexican Foods,Stuffed Bell peppers,Stuffed Bell peppers (Mexican Foods),"red bell peppers|Cauliflower, cooked|Zucchini|Tomato, whole|Olive Oil|Onions, cooked",80.0|50.0|30.0|20.0|5.0|10.0
+Mexican Foods,Jicama Tostadas with Mango Salsa,Jicama Tostadas with Mango Salsa (Mexican Foods),"Jicama slices, raw|Mangoes, sliced|Tomato, whole|Onions, raw|cilantro|Lemon juice|Olive Oil",60.0|30.0|20.0|10.0|2.0|5.0|3.0
+Mexican Foods,Chayote Squash Salad with Lime and Chili,Chayote Squash Salad with Lime and Chili (Mexican Foods),"Chayote, cooked|Lemon juice|Olive Oil|paprika|Salt",100.0|10.0|5.0|1.0|1.0
+Mexican Foods,Taco Lettuce Wraps with Spiced Veggies,Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),"Romaine and cos lettuce, raw|Zucchini|green bell peppers|Onions, cooked|Tomato, whole|Avocados, all varieties, mashed|Olive Oil|Salt",40.0|30.0|30.0|20.0|15.0|10.0|5.0|2.0
+Mexican Foods,Cactus and Tomato Salad,Cactus and Tomato Salad (Mexican Foods),"Nopales, cooked, chopped|Tomato, whole|Onions, raw|Lemon juice|Olive Oil|Cilantro",80.0|30.0|10.0|10.0|5.0|2.0
+Mexican Foods,Sweet Potato Tacos with Paprika Aioli,Sweet Potato Tacos with Paprika Aioli (Mexican Foods),"Corn Tortilla (6"" diameter)|Sweet Potatoes|Red cabbage, raw|Avocados, all varieties, mashed|Vegan Aioli|Lemon juice",28.0|60.0|20.0|15.0|10.0|3.0
+Mexican Foods,Garlic and Roasted Plantains with Cilantro Dip,Garlic and Roasted Plantains with Cilantro Dip (Mexican Foods),"Plantains, cooked|Olive Oil|garlic powder|coconut cream|Lemon juice|Cilantro",80.0|5.0|1.0|20.0|5.0|2.0
+Mexican Foods,Roasted Chili-Lime Carrots,Roasted Chili-Lime Carrots (Mexican Foods),Carrots|Olive Oil|Lemon juice|paprika|Cumin,100.0|5.0|5.0|1.0|0.5
+Mexican Foods,Tomatillo Salsa Verde,Tomatillo Salsa Verde (Mexican Foods),"Tomatillos (boiled)|Onions, raw|jalapeno|Lemon juice|Cilantro|Salt",80.0|15.0|5.0|5.0|3.0|1.0
+Mexican Foods,Lettuce Wrapped Veggie Tacos with Pineapple Slaw,Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),"Romaine and cos lettuce, raw|Pineapple diced|Red cabbage, raw|Carrots|red bell peppers|Lemon juice|Olive Oil",40.0|30.0|20.0|15.0|20.0|5.0|5.0
+Mexican Foods,Sweet Corn and Pepper Hash,Sweet Corn and Pepper Hash (Mexican Foods),"Corn|red bell peppers|Onions, raw|Olive Oil|Paprika",60.0|30.0|20.0|5.0|1.0
+Mexican Foods,Mexican Mashed Sweet Potato,Mexican Mashed Sweet Potato (Mexican Foods),Sweet Potatoes|Lemon juice|Olive Oil|garlic powder|Paprika,100.0|5.0|5.0|1.0|0.5
+Mexican Foods,Agua Fresca,Agua Fresca (Mexican Foods),"Watermelon, cubed|Water|Lemon juice",150.0|100.0|10.0
+Mexican Foods,Cucumber-Chili Snack Cups,Cucumber-Chili Snack Cups (Mexican Foods),"Cucumber, sliced|Lemon juice|Paprika|Salt",100.0|10.0|1.0|1.0
+Mexican Foods,Crispy Potato Tacos,Crispy Potato Tacos (Mexican Foods),"Corn Tortilla (6"" diameter)|Potatoes|Olive Oil|garlic powder|Romaine and cos lettuce, raw",28.0|70.0|5.0|1.0|15.0
+Mexican Foods,Mango-Cucumber Lime Salad,Mango-Cucumber Lime Salad (Mexican Foods),"Mangoes, sliced|Cucumber, sliced|Lemon juice|paprika|cilantro",50.0|60.0|10.0|1.0|2.0
+Mexican Foods,Low-Protein Breakfast Burrito,Low-Protein Breakfast Burrito (Mexican Foods),"Corn Tortilla (6"" diameter)|Plantains, cooked|Avocados, all varieties, mashed|Tomato, whole|Olive Oil|Cinnamon",28.0|50.0|15.0|20.0|5.0|1.0
+Mexican Foods,Pickled Vegetable Mix,Pickled Vegetable Mix (Mexican Foods),"Carrots|jalapeno|Cauliflower, raw|Vinegar/oil dressing|Water|Salt",40.0|10.0|30.0|20.0|20.0|2.0
+Mexican Foods,Grilled Corn with Lime and Cilantro,Grilled Corn with Lime and Cilantro (Mexican Foods),Corn|Lemon juice|Olive Oil|cilantro|paprika,70.0|10.0|5.0|2.0|1.0
+Mexican Foods,Refried Zucchini,Refried Zucchini (Mexican Foods),"Zucchini|Olive Oil|Onions, cooked|garlic powder|Cumin|Salt",100.0|5.0|10.0|1.0|1.0|1.0
+Scottish-Irish Foods,Scottish Neeps & Tatties,Scottish Neeps & Tatties (Scottish-Irish Foods),"raw turnip|Potatoes|butter, stick|Chives",150.0|200.0|20.0|5.0
+Scottish-Irish Foods,Irish Colcannon (PKU-friendly),Irish Colcannon (PKU-friendly) (Scottish-Irish Foods),"Potatoes|Green Cabbage|butter, stick|Spring onions|Oat milk",250.0|100.0|20.0|30.0|50.0
+Scottish-Irish Foods,Leek & Potatoes Soup,Leek & Potatoes Soup (Scottish-Irish Foods),"Leek|Potatoes|butter, stick|Vegetable broth|Parsley",120.0|180.0|15.0|400.0|5.0
+Scottish-Irish Foods,Scottish Oatcakes (Low-Protein Mix),Scottish Oatcakes (Low-Protein Mix) (Scottish-Irish Foods),"flour|butter, stick|Oat fiber|Water|Salt",150.0|50.0|15.0|50.0|3.0
+Scottish-Irish Foods,Irish Root Veggie Stew,Irish Root Veggie Stew (Scottish-Irish Foods),"Carrots|Parsnip, raw|Potatoes|Onion|Vegetable broth",100.0|100.0|150.0|80.0|500.0
+Scottish-Irish Foods,Scottish Raspberry Cranachan,Scottish Raspberry Cranachan (Scottish-Irish Foods),oat|Coconut cream|raspberries raw|Maple syrup|Lemon zest,50.0|100.0|80.0|20.0|3.0
+Scottish-Irish Foods,Irish Apple Mash,Irish Apple Mash (Scottish-Irish Foods),"Green apple|Potatoes|butter, stick|Oat milk",150.0|200.0|20.0|40.0
+Scottish-Irish Foods,Irish Carrots & Ginger Soup,Irish Carrots & Ginger Soup (Scottish-Irish Foods),"Carrots|Onion|Raw Ginger (Fresh)|vegetable broth|butter, stick",200.0|80.0|10.0|500.0|15.0
+Scottish-Irish Foods,Sweet Leek Mash,Sweet Leek Mash (Scottish-Irish Foods),"Leek|Potatoes|butter, stick|Oat milk",150.0|200.0|20.0|50.0
+Scottish-Irish Foods,Irish Vegetable Boxty,Irish Vegetable Boxty (Scottish-Irish Foods),"Potatoes|Carrots|flour|butter, stick",200.0|100.0|50.0|20.0
+Scottish-Irish Foods,Scottish Barley-Free Veggie Broth,Scottish Barley-Free Veggie Broth (Scottish-Irish Foods),Leek|Carrots|raw turnip|Vegetable broth|Parsley,100.0|100.0|100.0|130.0|10.0
+Scottish-Irish Foods,Irish Honey-Glazed Carrotss,Irish Honey-Glazed Carrotss (Scottish-Irish Foods),"Carrots|Honey|butter, stick|Thyme Fresh|Lemon juice",200.0|30.0|20.0|5.0|35.0
+Scottish-Irish Foods,Crispy Green Cabbage and Onion Cakes,Crispy Green Cabbage and Onion Cakes (Scottish-Irish Foods),"Green Cabbage|Onion|flour|butter, stick",150.0|100.0|40.0|20.0
+Scottish-Irish Foods,Herb Roasted raw turnips,Herb Roasted raw turnips (Scottish-Irish Foods),raw turnip|Olive oil|Rosemary|Garlic|Lemon zest,220.0|30.0|5.0|10.0|5.0
+Scottish-Irish Foods,Irish Sweet Potatoes Mash,Irish Sweet Potatoes Mash (Scottish-Irish Foods),"Sweet Potatoes|butter, stick|Oat milk",300.0|30.0|40.0
+Scottish-Irish Foods,Simple Scottish Pea Soup,Simple Scottish Pea Soup (Scottish-Irish Foods),Green peas|Leek|Potatoes|Vegetable broth,200.0|80.0|100.0|30.0
+Scottish-Irish Foods,"Carrots and Parsnip, raw Mash","Carrots and Parsnip, raw Mash (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk",180.0|150.0|20.0|10.0
+Scottish-Irish Foods,Oven-Roasted Swede Wedges,Oven-Roasted Swede Wedges (Scottish-Irish Foods),raw turnip|Olive oil|Smoked paprika|Garlic powder|parsley,250.0|30.0|5.0|5.0|10.0
+Scottish-Irish Foods,Irish Herbed Potatoes Wedges,Irish Herbed Potatoes Wedges (Scottish-Irish Foods),Potatoes|Olive oil|rosemary|Garlic powder|Chives,300.0|40.0|10.0|10.0|40.0
+Scottish-Irish Foods,Scottish Honey-Braised Green Cabbage,Scottish Honey-Braised Green Cabbage (Scottish-Irish Foods),"Green Cabbage|Honey|Apple cider vinegar|butter, stick|dill",250.0|30.0|30.0|20.0|50.0
+Scottish-Irish Foods,Creamy Leek and Carrots Mix,Creamy Leek and Carrots Mix (Scottish-Irish Foods),"Leek|Carrots|Oat milk|butter, stick",150.0|150.0|30.0|10.0
+Scottish-Irish Foods,Irish Mustard Mashed raw turnips,Irish Mustard Mashed raw turnips (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk|Mustard",250.0|30.0|40.0|10.0
+Scottish-Irish Foods,Pan-Fried Zucchini Fritters,Pan-Fried Zucchini Fritters (Scottish-Irish Foods),"Zucchini|flour|butter, stick|Chives",180.0|80.0|30.0|30.0
+Scottish-Irish Foods,Stewed Rhubarb & Apples,Stewed Rhubarb & Apples (Scottish-Irish Foods),Rhubarb|Green apple|Sugar|Lemon juice,200.0|100.0|20.0|10.0
+Scottish-Irish Foods,Irish Root Veggie Chips,Irish Root Veggie Chips (Scottish-Irish Foods),"Carrots|Parsnip, raw|raw turnips|Olive oil",120.0|120.0|80.0|20.0
+Scottish-Irish Foods,Sweet Potatoes and Carrots Patties,Sweet Potatoes and Carrots Patties (Scottish-Irish Foods),"Sweet Potatoes|Carrots|flour|butter, stick",200.0|120.0|40.0|20.0
+Scottish-Irish Foods,Baked Apple with Cinnamon,Baked Apple with Cinnamon (Scottish-Irish Foods),Green apple,220.0
+Scottish-Irish Foods,Mashed Carrots and Swede,Mashed Carrots and Swede (Scottish-Irish Foods),"Carrots|raw turnip|butter, stick|Oat milk|Carrots|raw turnip|butter, stick|Oat milk",180.0|130.0|20.0|10.0|180.0|130.0|20.0|10.0
+Scottish-Irish Foods,Crispy Potatoes & Leek Cakes,Crispy Potatoes & Leek Cakes (Scottish-Irish Foods),"Potatoes|Leek|flour|butter, stick|Potatoes|Leek|flour|butter, stick",220.0|100.0|20.0|20.0|220.0|100.0|20.0|20.0
+Scottish-Irish Foods,"Oven-Baked Spiced Parsnip, raws","Oven-Baked Spiced Parsnip, raws (Scottish-Irish Foods)","Parsnip, raw|Olive oil|Smoked paprika|Garlic|Lemon zest|Parsnip, raw|Olive oil|Smoked paprika|Garlic|Lemon zest",250.0|30.0|5.0|5.0|10.0|250.0|30.0|5.0|5.0|10.0
+Scottish-Irish Foods,Honey-Balsamic Glazed Root Veggies,Honey-Balsamic Glazed Root Veggies (Scottish-Irish Foods),"Carrots|Parsnip, raw|Honey|Balsamic vinegar|butter, stick|Carrots|Parsnip, raw|Honey|Balsamic vinegar|butter, stick",150.0|150.0|30.0|30.0|20.0|150.0|150.0|30.0|30.0|20.0
+Scottish-Irish Foods,Rustic Irish Onion Gravy,Rustic Irish Onion Gravy (Scottish-Irish Foods),"Onion|Vegetable broth|butter, stick|Balsamic vinegar|Onion|Vegetable broth|butter, stick|Balsamic vinegar",180.0|100.0|15.0|5.0|180.0|100.0|15.0|5.0
+Scottish-Irish Foods,Crispy Garlic Green Cabbage,Crispy Garlic Green Cabbage (Scottish-Irish Foods),Green Cabbage|Garlic|Olive oil|Lemon juice|Green Cabbage|Garlic|Olive oil|Lemon juice,200.0|20.0|50.0|20.0|200.0|20.0|50.0|20.0
+Scottish-Irish Foods,Irish Spiced Apple Compote,Irish Spiced Apple Compote (Scottish-Irish Foods),Green apple|Cinnamon powder|Sugar|Lemon juice|Vanilla extract|Green apple|Cinnamon powder|Sugar|Lemon juice|Vanilla extract,220.0|5.0|40.0|25.0|20.0|220.0|5.0|40.0|25.0|20.0
+Scottish-Irish Foods,Simple Herbed Swede Mash,Simple Herbed Swede Mash (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk|Fresh thyme|raw turnip|butter, stick|Oat milk|Fresh thyme",250.0|40.0|30.0|10.0|250.0|40.0|30.0|10.0
+Scottish-Irish Foods,Roasted Carrots & Leek Traybake,Roasted Carrots & Leek Traybake (Scottish-Irish Foods),Carrots|Leek|Olive oil|rosemary|Lemon zest|Carrots|Leek|Olive oil|rosemary|Lemon zest,180.0|100.0|40.0|10.0|20.0|180.0|100.0|40.0|10.0|20.0
+Scottish-Irish Foods,Baked Zucchini Boats,Baked Zucchini Boats (Scottish-Irish Foods),Zucchini|tomato|Olive oil|basil|Zucchini|tomato|Olive oil|basil|Zucchini|tomato|Olive oil|basil,250.0|40.0|20.0|10.0|250.0|40.0|20.0|10.0|260.0|50.0|20.0|20.0
+Scottish-Irish Foods,Baked Cinnamon Apples,Baked Cinnamon Apples (Scottish-Irish Foods),Green apple|Maple syrup|Cinnamon|Lemon juice|Tahini|Green apple|Maple syrup|Cinnamon|Lemon juice|Tahini,220.0|40.0|5.0|25.0|20.0|220.0|40.0|5.0|25.0|20.0
+Scottish-Irish Foods,Green Cabbage & Potatoes Dumplings,Green Cabbage & Potatoes Dumplings (Scottish-Irish Foods),"Potatoes|Green Cabbage|flour|butter, stick|Potatoes|Green Cabbage|flour|butter, stick",220.0|100.0|20.0|20.0|220.0|100.0|20.0|20.0
+Scottish-Irish Foods,Zesty Roasted Swede Cubes,Zesty Roasted Swede Cubes (Scottish-Irish Foods),raw turnip|Olive oil|Lemon zest|parsley|raw turnip|Olive oil|Lemon zest|parsley,250.0|40.0|30.0|20.0|250.0|40.0|30.0|20.0
+Scottish-Irish Foods,Carrots & Apple Slaw,Carrots & Apple Slaw (Scottish-Irish Foods),Carrots|Green apple|Oat milk dressing|Carrots|Green apple|Oat milk dressing|Carrots|Green apple|Oat milk dressing|Carrots|Green apple|Oat milk dressing,150.0|120.0|30.0|150.0|120.0|40.0|150.0|120.0|30.0|150.0|120.0|40.0
+Scottish-Irish Foods,"Golden Mashed Parsnip, raws","Golden Mashed Parsnip, raws (Scottish-Irish Foods)","Parsnip, raw|butter, stick|Oat milk|Nutmeg|Parsnip, raw|butter, stick|Oat milk|Nutmeg",250.0|40.0|30.0|10.0|250.0|40.0|30.0|10.0
+Scottish-Irish Foods,Crispy Zucchini & Potatoes Patties,Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),"Zucchini|Potatoes|flour|butter, stick|Zucchini|Potatoes|flour|butter, stick|Zucchini|Potatoes|flour|butter, stick|Zucchini|Potatoes|flour|butter, stick",180.0|120.0|30.0|20.0|180.0|120.0|30.0|20.0|180.0|120.0|30.0|20.0|180.0|120.0|30.0|20.0
+Scottish-Irish Foods,Rhubarb & Berry Compote,Rhubarb & Berry Compote (Scottish-Irish Foods),Rhubarb|Strawberries|Maple syrup|Lemon zest|Rhubarb|Strawberries|Maple syrup|Lemon zest,150.0|100.0|40.0|20.0|150.0|100.0|40.0|20.0
+Scottish-Irish Foods,Honey-Mustard Roasted Carrotss,Honey-Mustard Roasted Carrotss (Scottish-Irish Foods),Carrots|Honey|Mustard|Olive oil|Chives|Carrots|Honey|Mustard|Olive oil|Chives,200.0|40.0|10.0|30.0|40.0|200.0|40.0|10.0|30.0|40.0
+Scottish-Irish Foods,Creamy Swede & Leek Bake,Creamy Swede & Leek Bake (Scottish-Irish Foods),"Swede|Leek|Oat milk|butter, stick|Swede|Leek|Oat milk|butter, stick",250.0|100.0|30.0|20.0|250.0|100.0|30.0|20.0
+Scottish-Irish Foods,"Parsnip, raw & Carrots Puree","Parsnip, raw & Carrots Puree (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk|Parsnip, raw|Carrots|butter, stick|Oat milk",200.0|120.0|20.0|10.0|200.0|120.0|20.0|10.0
+Scottish-Irish Foods,"Roasted Carrotss & Parsnip, raws","Roasted Carrotss & Parsnip, raws (Scottish-Irish Foods)","Carrots|Parsnip, raw|Olive oil|Carrots|Parsnip, raw|Olive oil",180.0|130.0|30.0|180.0|130.0|30.0
+Scottish-Irish Foods,Honey-Glazed Swede Cubes,Honey-Glazed Swede Cubes (Scottish-Irish Foods),"Swede|Honey|butter, stick|Lemon zest|Swede|Honey|butter, stick|Lemon zest",280.0|30.0|30.0|20.0|280.0|30.0|30.0|20.0
+Scottish-Irish Foods,Creamy raw turnip Mash,Creamy raw turnip Mash (Scottish-Irish Foods),"raw turnip|butter, stick|Oat milk|raw turnip|butter, stick|Oat milk",250.0|40.0|40.0|250.0|40.0|40.0
+Scottish-Irish Foods,Oven-Baked Sweet Potatoes Cubes,Oven-Baked Sweet Potatoes Cubes (Scottish-Irish Foods),Sweet Potatoes|Olive oil|Smoked paprika|Lemon juice|Sweet Potatoes|Olive oil|Smoked paprika|Lemon juice,260.0|40.0|20.0|20.0|260.0|40.0|20.0|20.0
+Scottish-Irish Foods,Rhubarb & Strawberry Stew,Rhubarb & Strawberry Stew (Scottish-Irish Foods),Rhubarb|Strawberries|Maple syrup|Lemon zest|Rhubarb|Strawberries|Maple syrup|Lemon zest,160.0|130.0|30.0|10.0|160.0|130.0|30.0|10.0
+Scottish-Irish Foods,Baked Herbed Potatoes Wedges,Baked Herbed Potatoes Wedges (Scottish-Irish Foods),Potatoes|Olive oil|Fresh rosemary|Garlic powder|Potatoes|Olive oil|Fresh rosemary|Garlic powder,280.0|40.0|20.0|20.0|280.0|40.0|20.0|20.0
+Scottish-Irish Foods,Zesty Green Cabbage & Carrots Salad,Zesty Green Cabbage & Carrots Salad (Scottish-Irish Foods),Green Cabbage|Carrots|Apple cider vinegar|Green Cabbage|Carrots|Apple cider vinegar,180.0|100.0|30.0|180.0|100.0|30.0
+Scottish-Irish Foods,Mashed Carrots & Swede,Mashed Carrots & Swede (Scottish-Irish Foods),"Carrots|Swede|butter, stick",180.0|130.0|30.0
+Scottish-Irish Foods,"Carrots & Parsnip, raw Puree","Carrots & Parsnip, raw Puree (Scottish-Irish Foods)","Parsnip, raw|Carrots|butter, stick|Oat milk",200.0|120.0|20.0|10.0
+Scottish-Irish Foods,Sweet Potatoes & Green Cabbage Bake,Sweet Potatoes & Green Cabbage Bake (Scottish-Irish Foods),"Sweet Potatoes|Green Cabbage|butter, stick|Oat milk",250.0|100.0|30.0|20.0
+Scottish-Irish Foods,Zesty Roasted raw turnips,Zesty Roasted raw turnips (Scottish-Irish Foods),raw turnip|Olive oil|Lemon juice|parsley,250.0|30.0|20.0|20.0
+Scottish-Irish Foods,Rhubarb Apple Compote,Rhubarb Apple Compote (Scottish-Irish Foods),Rhubarb|Green apple|Maple syrup|Lemon zest,180.0|100.0|30.0|20.0
+Scottish-Irish Foods,Baked Potatoes Green Cabbage Cakes,Baked Potatoes Green Cabbage Cakes (Scottish-Irish Foods),"Potatoes|Green Cabbage|flour|butter, stick",200.0|100.0|40.0|20.0
+Scottish-Irish Foods,Honey Mustard Roasted Carrotss,Honey Mustard Roasted Carrotss (Scottish-Irish Foods),Carrots|Honey|Mustard|Olive oil,220.0|40.0|30.0|30.0
+Scottish-Irish Foods,Apple & Green Cabbage Slaw,Apple & Green Cabbage Slaw (Scottish-Irish Foods),Green apple|Green Cabbage|Oat milk dressing,150.0|130.0|30.0
+Scottish-Irish Foods,Roasted Swede Wedges,Roasted Swede Wedges (Scottish-Irish Foods),Swede|Olive oil|Smoked paprika,250.0|50.0|30.0
+Scottish-Irish Foods,Crispy Potatoes Leek Cakes,Crispy Potatoes Leek Cakes (Scottish-Irish Foods),"Potatoes|Leek|flour|butter, stick",220.0|100.0|20.0|20.0
+Scottish-Irish Foods,Herbed Roasted Root Medley,Herbed Roasted Root Medley (Scottish-Irish Foods),"Parsnip, raw|Carrots|raw turnip|Olive oil",150.0|120.0|50.0|20.0
+Scottish-Irish Foods,Mashed Potatoes & Swede,Mashed Potatoes & Swede (Scottish-Irish Foods),"Potatoes|Swede|butter, stick|Oat milk",200.0|100.0|30.0|10.0
+Scottish-Irish Foods,"Honey-Balsamic Glazed Parsnip, raw","Honey-Balsamic Glazed Parsnip, raw (Scottish-Irish Foods)","Parsnip, raw|Honey|Balsamic vinegar",250.0|40.0|40.0
+Scottish-Irish Foods,Roasted Green Cabbage Steaks,Roasted Green Cabbage Steaks (Scottish-Irish Foods),Green Cabbage|Olive oil|Lemon juice,260.0|50.0|20.0
+Scottish-Irish Foods,Carrots Apple Mash,Carrots Apple Mash (Scottish-Irish Foods),"Carrots|Green apple|butter, stick",180.0|120.0|30.0
+Scottish-Irish Foods,Crispy raw turnip Chips,Crispy raw turnip Chips (Scottish-Irish Foods),raw turnip|Olive oil|Sea salt,220.0|60.0|30.0
+Scottish-Irish Foods,Sweet Carrots & Apple Stew,Sweet Carrots & Apple Stew (Scottish-Irish Foods),Carrots|Apple|Maple syrup,180.0|130.0|40.0
+Scottish-Irish Foods,Zucchini Fritters,Zucchini Fritters (Scottish-Irish Foods),"Zucchini|flour|butter, stick",200.0|100.0|40.0
+Scottish-Irish Foods,"Steamed Parsnip, raw with Chive Butter","Steamed Parsnip, raw with Chive Butter (Scottish-Irish Foods)","Parsnip, raw|butter, stick|Fresh chives",250.0|40.0|30.0
+Scottish-Irish Foods,Irish Apple Porridge,Irish Apple Porridge (Scottish-Irish Foods),oats|Green apple|Oat milk,180.0|100.0|50.0

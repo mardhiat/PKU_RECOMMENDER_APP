@@ -2,34 +2,44 @@ import pandas as pd
 import numpy as np
 import os
 import requests
-import streamlit as st
-from datetime import datetime
+import json
+from pathlib import Path
+import toml
 
-
-print("STAGE 0: DATA PREPARATION FOR PKU RECOMMENDER EVALUATION (COMPLETE)")
-
+print("="*70)
+print("STAGE 0: DATA PREPARATION (WITH CACHING)")
+print("="*70)
 
 # ============================================================
-# STEP 0.0: CHECKING USDA API KEY
+# CONFIGURATION & CACHING
 # ============================================================
 
-print("\nSTEP 0.0: CHECKING USDA API KEY")
-
-USDA_API_KEY = None
+# Read from Streamlit secrets file
 try:
-    USDA_API_KEY = st.secrets["USDA_API_KEY"]
-    print("✓ Found USDA API key in Streamlit secrets")
-except:
-    USDA_API_KEY = os.environ.get('USDA_API_KEY')
+    secrets = toml.load(".streamlit/secrets.toml")
+    USDA_API_KEY = secrets.get("USDA_API_KEY")
     if USDA_API_KEY:
-        print("✓ Found USDA API key in environment variable")
+        print(f"✓ USDA API key loaded from secrets.toml: {USDA_API_KEY[:8]}...")
+    else:
+        print("⚠ No USDA_API_KEY in secrets.toml")
+        USDA_API_KEY = None
+except FileNotFoundError:
+    print("⚠ .streamlit/secrets.toml not found")
+    USDA_API_KEY = None
 
-if not USDA_API_KEY:
-    print("⚠ NO USDA API KEY FOUND!")
-    print("  Get one free at: https://fdc.nal.usda.gov/api-key-signup.html")
-    print("  Continuing with CSV fallback only...")
+# Cache for API results
+CACHE_FILE = Path("usda_cache.json")
+if CACHE_FILE.exists():
+    with open(CACHE_FILE) as f:
+        USDA_CACHE = json.load(f)
+    print(f"✓ Loaded {len(USDA_CACHE)} cached USDA results")
 else:
-    print(f"✓ USDA API key available: {USDA_API_KEY[:8]}...")
+    USDA_CACHE = {}
+    print("✓ Starting fresh USDA cache")
+
+def save_cache():
+    with open(CACHE_FILE, 'w') as f:
+        json.dump(USDA_CACHE, f, indent=2)
 
 
 # ============================================================
@@ -37,8 +47,7 @@ else:
 # ============================================================
 
 def search_usda_foods(query):
-    """Search USDA FoodData Central"""
-    if not query or USDA_API_KEY is None:
+    if not query or not USDA_API_KEY:
         return []
     
     url = "https://api.nal.usda.gov/fdc/v1/foods/search"
@@ -48,31 +57,30 @@ def search_usda_foods(query):
         "api_key": USDA_API_KEY
     }
     try:
-        response = requests.get(url, params=params, timeout=10)
+        response = requests.get(url, params=params, timeout=5)  # Reduced timeout
         response.raise_for_status()
         return response.json().get('foods', [])
     except Exception as e:
-        print(f"  USDA API error for '{query}': {e}")
         return []
 
+
 def get_usda_food_details(fdc_id):
-    """Get detailed nutrition for a specific food"""
-    if USDA_API_KEY is None:
+    if not USDA_API_KEY:
         return None
         
     url = f"https://api.nal.usda.gov/fdc/v1/food/{fdc_id}"
     params = {"api_key": USDA_API_KEY}
     try:
-        response = requests.get(url, params=params, timeout=10)
+        response = requests.get(url, params=params, timeout=3)  # Reduced timeout
         response.raise_for_status()
         data = response.json()
         
         nutrients = {
-            "phe_mg_per_100g": 0.0,
-            "protein_g_per_100g": 0.0,
-            "energy_kcal_per_100g": 0.0,
-            "usda_name": data.get('description', '').strip().lower(),
-            "source": "USDA"
+            "phe(mg)": 0.0,
+            "protein(g)": 0.0,
+            "energy(kcal)": 0.0,
+            "serving_size(g)": 100.0,
+            "name": data.get('description', '').strip().lower()
         }
         
         for nutrient in data.get('foodNutrients', []):
@@ -80,54 +88,52 @@ def get_usda_food_details(fdc_id):
             amount = nutrient.get('amount', 0)
             
             if 'phenylalanine' in nutrient_name:
-                nutrients['phe_mg_per_100g'] = float(amount)
+                nutrients['phe(mg)'] = float(amount)
             elif nutrient_name == 'protein':
-                nutrients['protein_g_per_100g'] = float(amount)
+                nutrients['protein(g)'] = float(amount)
             elif nutrient_name == 'energy':
                 unit = nutrient.get('nutrient', {}).get('unitName', '').lower()
                 if 'kj' in unit:
-                    nutrients['energy_kcal_per_100g'] = float(amount) * 0.239006
+                    nutrients['energy(kcal)'] = float(amount) * 0.239006
                 else:
-                    nutrients['energy_kcal_per_100g'] = float(amount)
+                    nutrients['energy(kcal)'] = float(amount)
         
-        # If PHE not provided, estimate from protein (50 mg per gram)
-        if nutrients['phe_mg_per_100g'] == 0.0 and nutrients['protein_g_per_100g'] > 0:
-            nutrients['phe_mg_per_100g'] = nutrients['protein_g_per_100g'] * 50.0
-            nutrients['phe_estimated'] = True
-        else:
-            nutrients['phe_estimated'] = False
+        if nutrients['phe(mg)'] == 0.0 and nutrients['protein(g)'] > 0:
+            nutrients['phe(mg)'] = nutrients['protein(g)'] * 50.0
         
-        return nutrients
+        return pd.Series(nutrients)
     except Exception as e:
-        print(f"  Error fetching details for ID {fdc_id}: {e}")
         return None
 
-def search_usda_fallback(ingredient_name):
-    """Search USDA for ingredient nutrition"""
-    search_term = ingredient_name.lower().strip()
+
+def search_usda_fallback(name):
+    # Check cache first
+    cache_key = name.lower().strip()
+    if cache_key in USDA_CACHE:
+        cached = USDA_CACHE[cache_key]
+        if cached is None:
+            return None
+        return pd.Series(cached)
     
-    # Improved search terms for common ingredients
+    search_term = name.lower().strip()
+    
     search_improvements = {
-        'mint': 'spearmint fresh',
+        'mint': 'spearmint',
         'basil': 'basil fresh',
         'parsley': 'parsley fresh',
-        'cilantro': 'coriander leaves',
-        'coriander': 'coriander leaves',
+        'cilantro': 'coriander',
         'olive oil': 'oil olive',
         'vegetable oil': 'oil vegetable',
         'salt': 'salt table',
         'pepper': 'pepper black',
-        'lemon': 'lemon raw',
+        'lemon': 'lemon raw without peel',
         'lime': 'lime raw',
         'garlic': 'garlic raw',
         'onion': 'onion raw',
-        'onions': 'onion raw',
         'tomato': 'tomato red ripe raw',
-        'tomatoes': 'tomato red ripe raw',
         'ginger': 'ginger root raw',
-        'potatoes': 'potato raw',
-        'carrots': 'carrot raw',
-        'cucumber': 'cucumber raw'
+        'low-protein flour': 'wheat flour white',
+        'water': 'water',
     }
     
     for key, improved in search_improvements.items():
@@ -137,12 +143,14 @@ def search_usda_fallback(ingredient_name):
     
     usda_results = search_usda_foods(search_term)
     if not usda_results:
+        USDA_CACHE[cache_key] = None
         return None
     
-    # Prioritize Foundation and SR Legacy foods
     exclude_keywords = ['candy', 'chocolate', 'cookie', 'cake', 'ice cream',
                        'egg', 'chicken', 'beef', 'pork', 'fish', 'cheese', 
                        'milk', 'yogurt', 'supplement', 'formula']
+    
+    original_term = name.lower().strip().split()[0]
     
     priority_results = []
     acceptable_results = []
@@ -150,6 +158,10 @@ def search_usda_fallback(ingredient_name):
     for result in usda_results[:10]:
         description = result.get('description', '').lower()
         data_type = result.get('dataType', '')
+        
+        if original_term in ['mint', 'basil', 'parsley', 'cilantro']:
+            if original_term not in description and 'spearmint' not in description:
+                continue
         
         if any(keyword in description for keyword in exclude_keywords):
             continue
@@ -159,253 +171,274 @@ def search_usda_fallback(ingredient_name):
         elif data_type in ['Survey (FNDDS)']:
             acceptable_results.append(result)
     
-    for result in (priority_results + acceptable_results):
-        fdc_id = result.get('fdcId')
+    result = None
+    for res in (priority_results + acceptable_results):
+        fdc_id = res.get('fdcId')
         if fdc_id:
             details = get_usda_food_details(fdc_id)
-            if details:
-                details['usda_match'] = result.get('description', 'Unknown')
-                details['usda_data_type'] = result.get('dataType', 'Unknown')
-                return details
+            if details is not None:
+                details['usda_match'] = res.get('description', 'Unknown')
+                details['usda_data_type'] = res.get('dataType', 'Unknown')
+                result = details
+                break
     
-    return None
+    # Cache result
+    if result is not None:
+        USDA_CACHE[cache_key] = result.to_dict()
+    else:
+        USDA_CACHE[cache_key] = None
+    
+    # Save cache periodically
+    if len(USDA_CACHE) % 50 == 0:
+        save_cache()
+        print(f"    [Cached {len(USDA_CACHE)} ingredients]")
+    
+    return result
 
 
 # ============================================================
 # CSV FALLBACK FUNCTIONS
 # ============================================================
 
-def normalize_name(s):
-    """Normalize ingredient name for matching"""
-    return str(s).strip().lower()
-
 def load_csv_databases():
-    """Load consolidated and nutritional CSV databases"""
+    """Load BOTH CSV files for fallback"""
     databases = []
     
-    # Load consolidated_chat_ingredients.csv
+    # Try consolidated_chat_ingredients.csv
     try:
         df = pd.read_csv("consolidated_chat_ingredients.csv")
-        df.columns = [c.strip().lower() for c in df.columns]
         
-        # Rename columns to standard format
-        rename_map = {}
+        df.columns = [str(c).strip() for c in df.columns]
+        
+        col_map = {}
         for col in df.columns:
-            if 'ingredient' in col:
-                rename_map[col] = 'name'
-            elif 'phe' in col and 'mg' in col:
-                rename_map[col] = 'phe_mg_per_100g'
-            elif 'protein' in col and 'g' in col:
-                rename_map[col] = 'protein_g_per_100g'
-            elif 'energy' in col or 'kcal' in col or 'calor' in col:
-                rename_map[col] = 'energy_kcal_per_100g'
-            elif 'serving' in col and 'size' in col:
-                rename_map[col] = 'serving_size_g'
+            col_lower = col.lower()
+            if 'ingredient' in col_lower:
+                col_map[col] = 'name'
+            elif 'phe' in col_lower and 'mg' in col_lower:
+                col_map[col] = 'phe(mg)'
+            elif 'protein' in col_lower and 'g' in col_lower:
+                col_map[col] = 'protein(g)'
+            elif 'energy' in col_lower or 'kcal' in col_lower:
+                col_map[col] = 'energy(kcal)'
+            elif 'serving' in col_lower and 'size' in col_lower:
+                col_map[col] = 'serving_size(g)'
         
-        if rename_map:
-            df = df.rename(columns=rename_map)
+        df = df.rename(columns=col_map)
         
-        # Standardize column names
-        if 'name' in df.columns:
-            df['name'] = df['name'].astype(str).str.strip().str.lower()
-        
-        # Convert numeric columns
-        for col in ['phe_mg_per_100g', 'protein_g_per_100g', 'energy_kcal_per_100g', 'serving_size_g']:
+        for col in ['phe(mg)', 'protein(g)', 'energy(kcal)', 'serving_size(g)']:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)
         
-        # Scale to per 100g if serving size is provided
-        if 'serving_size_g' in df.columns and 'phe_mg_per_100g' in df.columns:
-            mask = df['serving_size_g'] > 0
-            df.loc[mask, 'phe_mg_per_100g'] = (df.loc[mask, 'phe_mg_per_100g'] / df.loc[mask, 'serving_size_g']) * 100
-            df.loc[mask, 'protein_g_per_100g'] = (df.loc[mask, 'protein_g_per_100g'] / df.loc[mask, 'serving_size_g']) * 100
-            df.loc[mask, 'energy_kcal_per_100g'] = (df.loc[mask, 'energy_kcal_per_100g'] / df.loc[mask, 'serving_size_g']) * 100
-        
-        databases.append(('consolidated_chat_ingredients.csv', df))
-        print(f"✓ Loaded consolidated_chat_ingredients.csv: {len(df)} ingredients")
+        if 'name' in df.columns:
+            df['name'] = df['name'].astype(str).str.strip().str.lower()
+            databases.append(('consolidated_chat_ingredients.csv', df))
+            print(f"✓ Loaded consolidated_chat_ingredients.csv: {len(df)} ingredients")
     except Exception as e:
         print(f"⚠ Could not load consolidated_chat_ingredients.csv: {e}")
     
-    # Load Nutritional_Data.csv
+    # Try Nutritional_Data.csv
     try:
         df = pd.read_csv("Nutritional_Data.csv")
-        df.columns = [c.strip().lower() for c in df.columns]
         
-        # Rename columns to standard format
-        rename_map = {}
+        df.columns = [str(c).strip() for c in df.columns]
+        
+        col_map = {}
         for col in df.columns:
-            if 'ingredient' in col:
-                rename_map[col] = 'name'
-            elif 'phe' in col and '(' not in col:
-                rename_map[col] = 'phe_mg'
-            elif 'protein' in col and '(' not in col:
-                rename_map[col] = 'protein_g'
-            elif 'energy' in col or 'kcal' in col:
-                rename_map[col] = 'energy_kcal'
-            elif 'serving' in col and 'size' in col:
-                rename_map[col] = 'serving_size_g'
+            col_lower = col.lower()
+            if 'ingredient' in col_lower:
+                col_map[col] = 'name'
+            elif 'phe' in col_lower and '(' not in col_lower:
+                col_map[col] = 'phe_mg'
+            elif 'protein' in col_lower and '(' not in col_lower:
+                col_map[col] = 'protein_g'
+            elif 'energy' in col_lower or 'kcal' in col_lower:
+                col_map[col] = 'energy_kcal'
+            elif 'serving' in col_lower and 'size' in col_lower:
+                col_map[col] = 'serving_size_g'
         
-        if rename_map:
-            df = df.rename(columns=rename_map)
+        df = df.rename(columns=col_map)
         
-        # Standardize column names
-        if 'name' in df.columns:
-            df['name'] = df['name'].astype(str).str.strip().str.lower()
-        
-        # Convert numeric columns
         for col in ['phe_mg', 'protein_g', 'energy_kcal', 'serving_size_g']:
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0.0)
         
-        # Scale to per 100g
         if 'serving_size_g' in df.columns:
             mask = df['serving_size_g'] > 0
-            df['phe_mg_per_100g'] = 0.0
-            df['protein_g_per_100g'] = 0.0
-            df['energy_kcal_per_100g'] = 0.0
+            df['phe(mg)'] = 0.0
+            df['protein(g)'] = 0.0
+            df['energy(kcal)'] = 0.0
             
             if 'phe_mg' in df.columns:
-                df.loc[mask, 'phe_mg_per_100g'] = (df.loc[mask, 'phe_mg'] / df.loc[mask, 'serving_size_g']) * 100
+                df.loc[mask, 'phe(mg)'] = (df.loc[mask, 'phe_mg'] / df.loc[mask, 'serving_size_g']) * 100
             if 'protein_g' in df.columns:
-                df.loc[mask, 'protein_g_per_100g'] = (df.loc[mask, 'protein_g'] / df.loc[mask, 'serving_size_g']) * 100
+                df.loc[mask, 'protein(g)'] = (df.loc[mask, 'protein_g'] / df.loc[mask, 'serving_size_g']) * 100
             if 'energy_kcal' in df.columns:
-                df.loc[mask, 'energy_kcal_per_100g'] = (df.loc[mask, 'energy_kcal'] / df.loc[mask, 'serving_size_g']) * 100
+                df.loc[mask, 'energy(kcal)'] = (df.loc[mask, 'energy_kcal'] / df.loc[mask, 'serving_size_g']) * 100
+            
+            df['serving_size(g)'] = 100.0
         
-        databases.append(('Nutritional_Data.csv', df))
-        print(f"✓ Loaded Nutritional_Data.csv: {len(df)} ingredients")
+        if 'name' in df.columns:
+            df['name'] = df['name'].astype(str).str.strip().str.lower()
+            databases.append(('Nutritional_Data.csv', df))
+            print(f"✓ Loaded Nutritional_Data.csv: {len(df)} ingredients")
     except Exception as e:
         print(f"⚠ Could not load Nutritional_Data.csv: {e}")
     
     return databases
 
+
 def search_csv_fallback(ingredient_name, csv_databases):
-    """Search CSV databases for ingredient nutrition"""
+    """Search CSV databases for ingredient"""
     if not csv_databases:
         return None
     
-    target = normalize_name(ingredient_name)
+    target = ingredient_name.lower().strip()
     
-    # Try each database in order
     for db_name, df in csv_databases:
         if df.empty or 'name' not in df.columns:
             continue
         
         names_col = df['name']
         
-        # Try exact match
+        # Exact match
         exact = df[names_col == target]
         if len(exact) >= 1:
-            # Prefer non-zero values
-            non_zero = exact[(exact.get('phe_mg_per_100g', 0) > 0) | 
-                            (exact.get('protein_g_per_100g', 0) > 0) | 
-                            (exact.get('energy_kcal_per_100g', 0) > 0)]
-            match = non_zero.iloc[0] if not non_zero.empty else exact.iloc[0]
-            
-            result = {
-                'phe_mg_per_100g': match.get('phe_mg_per_100g', 0.0),
-                'protein_g_per_100g': match.get('protein_g_per_100g', 0.0),
-                'energy_kcal_per_100g': match.get('energy_kcal_per_100g', 0.0),
-                'usda_name': match.get('name', ingredient_name),
-                'source': db_name,
-                'match_type': 'exact'
-            }
-            
-            # Estimate PHE if missing
-            if result['phe_mg_per_100g'] == 0.0 and result['protein_g_per_100g'] > 0:
-                result['phe_mg_per_100g'] = result['protein_g_per_100g'] * 50.0
-                result['phe_estimated'] = True
-            else:
-                result['phe_estimated'] = False
-            
-            return result
+            match = exact.iloc[0]
+            return pd.Series({
+                'phe(mg)': match.get('phe(mg)', 0.0),
+                'protein(g)': match.get('protein(g)', 0.0),
+                'energy(kcal)': match.get('energy(kcal)', 0.0),
+                'serving_size(g)': match.get('serving_size(g)', 100.0),
+                'name': match.get('name', ingredient_name)
+            })
         
-        # Try startswith
+        # Startswith
         sw = df[names_col.str.startswith(target, na=False)]
         if len(sw) >= 1:
-            non_zero = sw[(sw.get('phe_mg_per_100g', 0) > 0) | 
-                         (sw.get('protein_g_per_100g', 0) > 0) | 
-                         (sw.get('energy_kcal_per_100g', 0) > 0)]
-            match = non_zero.iloc[0] if not non_zero.empty else sw.iloc[0]
-            
-            result = {
-                'phe_mg_per_100g': match.get('phe_mg_per_100g', 0.0),
-                'protein_g_per_100g': match.get('protein_g_per_100g', 0.0),
-                'energy_kcal_per_100g': match.get('energy_kcal_per_100g', 0.0),
-                'usda_name': match.get('name', ingredient_name),
-                'source': db_name,
-                'match_type': 'startswith'
-            }
-            
-            if result['phe_mg_per_100g'] == 0.0 and result['protein_g_per_100g'] > 0:
-                result['phe_mg_per_100g'] = result['protein_g_per_100g'] * 50.0
-                result['phe_estimated'] = True
-            else:
-                result['phe_estimated'] = False
-            
-            return result
+            match = sw.iloc[0]
+            return pd.Series({
+                'phe(mg)': match.get('phe(mg)', 0.0),
+                'protein(g)': match.get('protein(g)', 0.0),
+                'energy(kcal)': match.get('energy(kcal)', 0.0),
+                'serving_size(g)': match.get('serving_size(g)', 100.0),
+                'name': match.get('name', ingredient_name)
+            })
         
-        # Try contains
+        # Contains
         ct = df[names_col.str.contains(target, na=False, regex=False)]
         if len(ct) >= 1:
-            non_zero = ct[(ct.get('phe_mg_per_100g', 0) > 0) | 
-                         (ct.get('protein_g_per_100g', 0) > 0) | 
-                         (ct.get('energy_kcal_per_100g', 0) > 0)]
-            match = non_zero.iloc[0] if not non_zero.empty else ct.iloc[0]
-            
-            result = {
-                'phe_mg_per_100g': match.get('phe_mg_per_100g', 0.0),
-                'protein_g_per_100g': match.get('protein_g_per_100g', 0.0),
-                'energy_kcal_per_100g': match.get('energy_kcal_per_100g', 0.0),
-                'usda_name': match.get('name', ingredient_name),
-                'source': db_name,
-                'match_type': 'contains'
-            }
-            
-            if result['phe_mg_per_100g'] == 0.0 and result['protein_g_per_100g'] > 0:
-                result['phe_mg_per_100g'] = result['protein_g_per_100g'] * 50.0
-                result['phe_estimated'] = True
-            else:
-                result['phe_estimated'] = False
-            
-            return result
+            match = ct.iloc[0]
+            return pd.Series({
+                'phe(mg)': match.get('phe(mg)', 0.0),
+                'protein(g)': match.get('protein(g)', 0.0),
+                'energy(kcal)': match.get('energy(kcal)', 0.0),
+                'serving_size(g)': match.get('serving_size(g)', 100.0),
+                'name': match.get('name', ingredient_name)
+            })
     
     return None
 
 
+def select_best_match(name, csv_databases):
+    """Try USDA first, then CSV fallback"""
+    
+    # Try USDA
+    if USDA_API_KEY:
+        usda_result = search_usda_fallback(name)
+        if usda_result is not None:
+            return usda_result
+    
+    # Try CSV
+    csv_result = search_csv_fallback(name, csv_databases)
+    if csv_result is not None:
+        return csv_result
+    
+    return None
+
+
+def scale_nutrients(row, weight_g):
+    """Scale nutrition by weight"""
+    serving_size = row.get("serving_size(g)", 100.0)
+    if serving_size == 0:
+        serving_size = 100.0
+    
+    phe_per_g = (row.get("phe(mg)", 0.0) / serving_size)
+    prot_per_g = (row.get("protein(g)", 0.0) / serving_size)
+    cal_per_g = (row.get("energy(kcal)", 0.0) / serving_size)
+    
+    return {
+        "phe_mg": phe_per_g * weight_g,
+        "protein_g": prot_per_g * weight_g,
+        "calories": cal_per_g * weight_g,
+    }
+
+
+def compute_dish_nutrients(ingredients_list, weights_list, csv_databases):
+    """Calculate meal nutrition from ingredients"""
+    total_phe = 0.0
+    total_protein = 0.0
+    total_calories = 0.0
+    total_weight = 0.0
+    ingredients_found = 0
+    ingredients_missing = 0
+    
+    for ing_name, weight in zip(ingredients_list, weights_list):
+        if not ing_name or weight <= 0:
+            continue
+        
+        match = select_best_match(ing_name, csv_databases)
+        
+        if match is None:
+            ingredients_missing += 1
+            total_weight += weight
+            continue
+        
+        scaled = scale_nutrients(match, weight)
+        total_phe += scaled["phe_mg"]
+        total_protein += scaled["protein_g"]
+        total_calories += scaled["calories"]
+        total_weight += weight
+        ingredients_found += 1
+    
+    return {
+        "phe_mg_total": total_phe,
+        "protein_g_total": total_protein,
+        "calories_total": total_calories,
+        "weight_g_total": total_weight,
+        "ingredients_found": ingredients_found,
+        "ingredients_missing": ingredients_missing
+    }
+
+
 # ============================================================
-# STEP 0.1: LOAD AND ANALYZE RATINGS DATA
+# STEP 1: LOAD USER RATINGS
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 0.1: LOADING USER RATINGS DATA")
+print("STEP 1: LOADING USER RATINGS")
 print("="*70)
 
 ratings_file = "ratingsappdata - Sheet1.csv"
 
 if not os.path.exists(ratings_file):
-    print(f"❌ ERROR: File '{ratings_file}' not found!")
+    print(f"❌ ERROR: {ratings_file} not found!")
     exit()
 
 ratings_df = pd.read_csv(ratings_file)
 
-print(f"✓ Loaded {ratings_file}")
-print(f"  Total rows: {len(ratings_df)}")
-print(f"  Total columns: {len(ratings_df.columns)}")
-print(f"  Total users: {ratings_df['Name'].nunique()}")
+print(f"✓ Loaded {len(ratings_df)} rows")
 
-# Extract food ratings
 demographic_cols = [
     'Name', 'Email', 'Age', 'Gender', 'Height_cm', 'Weight_kg', 
     'PHE_tolerance', 'Dietary_tolerance_mg_per_day',
     'Selected_Cuisines', 'Timestamp'
 ]
 
-food_columns = []
-for col in ratings_df.columns:
-    if col not in demographic_cols and '(' in col and ')' in col:
-        food_columns.append(col)
+food_columns = [col for col in ratings_df.columns 
+                if col not in demographic_cols and '(' in col and ')' in col]
 
-print(f"✓ Found {len(food_columns)} food rating columns")
+print(f"✓ Found {len(food_columns)} food columns")
 
 user_food_ratings = []
 
@@ -432,19 +465,17 @@ for idx, row in ratings_df.iterrows():
 user_food_df = pd.DataFrame(user_food_ratings)
 
 print(f"✓ Extracted {len(user_food_df)} ratings")
-print(f"  Unique users: {user_food_df['user_name'].nunique()}")
-print(f"  Unique foods: {user_food_df['food'].nunique()}")
 
 user_food_df.to_csv('data_user_food_ratings.csv', index=False)
 print(f"✓ Saved: data_user_food_ratings.csv")
 
 
 # ============================================================
-# STEP 0.2: LOAD MEAL-INGREDIENT MAPPINGS FROM CUISINE CSVs
+# STEP 2: LOAD CUISINE FILES
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 0.2: LOADING MEAL-INGREDIENT MAPPINGS FROM CUISINE CSVs")
+print("STEP 2: LOADING CUISINE FILES")
 print("="*70)
 
 cuisine_files = {
@@ -464,207 +495,186 @@ meal_ingredients_list = []
 
 for cuisine_name, filename in cuisine_files.items():
     if not os.path.exists(filename):
-        print(f"  ⚠ {filename} not found, skipping...")
+        print(f"  ⚠ {filename} not found")
         continue
     
     print(f"  Processing {cuisine_name}...")
     
     try:
         df = pd.read_csv(filename, encoding='latin1')
+        df.columns = [c.strip().lower() for c in df.columns]
         
-        current_meal = None
-        current_ingredients = []
-        current_weights = []
+        rename_map = {}
+        for c in df.columns:
+            cl = c.lower()
+            if cl == "meal":
+                rename_map[c] = "dish"
+            elif cl == "ingredient":
+                rename_map[c] = "ingredient"
+            elif cl in ["grams", "weight (g)", "weight"]:
+                rename_map[c] = "amount"
         
-        for idx, row in df.iterrows():
-            meal_name = row.get('Meal', None)
-            ingredient = row.get('Ingredient', None)
-            weight = row.get('Weight (g)', None)
+        if rename_map:
+            df = df.rename(columns=rename_map)
+        
+        if "dish" in df.columns:
+            df["dish"] = df["dish"].ffill()
+        
+        for dish_name in df['dish'].unique():
+            if pd.isna(dish_name):
+                continue
             
-            # New meal starts
-            if pd.notna(meal_name) and meal_name.strip() != '':
-                # Save previous meal if exists
-                if current_meal and current_ingredients:
-                    meal_ingredients_list.append({
-                        'cuisine': cuisine_name,
-                        'meal': current_meal,
-                        'full_name': f"{current_meal} ({cuisine_name})",
-                        'ingredients': '|'.join(current_ingredients),
-                        'weights_g': '|'.join(map(str, current_weights))
-                    })
+            dish_rows = df[df['dish'] == dish_name]
+            ingredients = []
+            weights = []
+            
+            for _, row in dish_rows.iterrows():
+                ing = row.get('ingredient', None)
+                weight = row.get('amount', None)
                 
-                # Start new meal
-                current_meal = meal_name.strip()
-                current_ingredients = []
-                current_weights = []
-            
-            # Add ingredient to current meal
-            if pd.notna(ingredient) and ingredient.strip() != '' and current_meal:
-                current_ingredients.append(ingredient.strip())
-                # Handle weight (might be missing)
-                if pd.notna(weight):
+                if pd.notna(ing) and pd.notna(weight):
+                    ingredients.append(str(ing).strip())
                     try:
-                        current_weights.append(float(weight))
+                        weights.append(float(weight))
                     except:
-                        current_weights.append(100.0)  # Default
-                else:
-                    current_weights.append(100.0)
-        
-        # Save last meal
-        if current_meal and current_ingredients:
-            meal_ingredients_list.append({
-                'cuisine': cuisine_name,
-                'meal': current_meal,
-                'full_name': f"{current_meal} ({cuisine_name})",
-                'ingredients': '|'.join(current_ingredients),
-                'weights_g': '|'.join(map(str, current_weights))
-            })
+                        weights.append(100.0)
+            
+            if ingredients:
+                meal_ingredients_list.append({
+                    'cuisine': cuisine_name,
+                    'meal': dish_name,
+                    'full_name': f"{dish_name} ({cuisine_name})",
+                    'ingredients': '|'.join(ingredients),
+                    'weights_g': '|'.join(map(str, weights))
+                })
         
         print(f"  ✓ Loaded {sum(1 for m in meal_ingredients_list if m['cuisine'] == cuisine_name)} meals")
     
     except Exception as e:
-        print(f"  ❌ Error loading {filename}: {e}")
+        print(f"  ❌ Error: {e}")
 
 meal_ingredients_df = pd.DataFrame(meal_ingredients_list)
 
-print(f"✓ Total meals with ingredients: {len(meal_ingredients_df)}")
-print(f"✓ Cuisines loaded: {meal_ingredients_df['cuisine'].nunique()}")
+print(f"✓ Total meals: {len(meal_ingredients_df)}")
 
 meal_ingredients_df.to_csv('data_meal_ingredients.csv', index=False)
 print(f"✓ Saved: data_meal_ingredients.csv")
 
 
 # ============================================================
-# STEP 0.3: EXTRACT ALL UNIQUE INGREDIENTS
+# STEP 3: LOAD CSV DATABASES
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 0.3: EXTRACTING UNIQUE INGREDIENTS")
-print("="*70)
-
-all_ingredients = set()
-
-for _, row in meal_ingredients_df.iterrows():
-    ingredients = row['ingredients'].split('|')
-    all_ingredients.update([ing.lower().strip() for ing in ingredients])
-
-print(f"✓ Found {len(all_ingredients)} unique ingredients across all cuisines")
-print(f"  Sample ingredients:")
-for ing in list(sorted(all_ingredients))[:10]:
-    print(f"    - {ing}")
-
-
-# ============================================================
-# STEP 0.4: LOAD CSV DATABASES
-# ============================================================
-
-print("\n" + "="*70)
-print("STEP 0.4: LOADING CSV FALLBACK DATABASES")
+print("STEP 3: LOADING CSV DATABASES")
 print("="*70)
 
 csv_databases = load_csv_databases()
 
 if not csv_databases:
-    print("⚠ No CSV databases loaded - will rely only on USDA API")
+    print("❌ NO CSV DATABASES LOADED!")
+    if not USDA_API_KEY:
+        print("❌ NO USDA API KEY AND NO CSV FALLBACK - CANNOT PROCEED!")
+        exit()
 
 
 # ============================================================
-# STEP 0.5: FETCH NUTRITIONAL DATA FOR INGREDIENTS
+# STEP 4: CALCULATE MEAL NUTRITION
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 0.5: FETCHING NUTRITIONAL DATA FOR INGREDIENTS")
+print("STEP 4: CALCULATING MEAL NUTRITION")
 print("="*70)
 
-print(f"Fetching nutrition for {len(all_ingredients)} ingredients...")
-print("This may take several minutes...")
-print()
+meal_nutrition_list = []
+meals_complete = 0
+meals_partial = 0
+meals_missing = 0
 
-ingredient_db = {}
-found_usda = 0
-found_csv = 0
-missing = []
-
-for i, ingredient in enumerate(sorted(all_ingredients), 1):
-    if i % 50 == 0:
-        print(f"  Progress: {i}/{len(all_ingredients)} (USDA: {found_usda}, CSV: {found_csv}, Missing: {len(missing)})...")
+for idx, row in meal_ingredients_df.iterrows():
+    if (idx + 1) % 10 == 0:  # Print every 10 meals
+        print(f"  Progress: {idx+1}/{len(meal_ingredients_df)} ({(idx+1)/len(meal_ingredients_df)*100:.1f}%)")
     
-    # Try USDA first
-    nutrients = None
-    if USDA_API_KEY is not None:
-        nutrients = search_usda_fallback(ingredient)
+    meal_name = row['full_name']
+    ingredients = row['ingredients'].split('|')
+    weights_str = row['weights_g'].split('|')
     
-    if nutrients:
-        ingredient_db[ingredient] = nutrients
-        found_usda += 1
+    weights = []
+    for w in weights_str:
+        try:
+            weights.append(float(w))
+        except:
+            weights.append(100.0)
+    
+    result = compute_dish_nutrients(ingredients, weights, csv_databases)
+    
+    total_weight = result['weight_g_total']
+    if total_weight > 0:
+        phe_per_100g = (result['phe_mg_total'] / total_weight) * 100
+        protein_per_100g = (result['protein_g_total'] / total_weight) * 100
+        energy_per_100g = (result['calories_total'] / total_weight) * 100
     else:
-        # Try CSV fallback
-        nutrients = search_csv_fallback(ingredient, csv_databases)
-        
-        if nutrients:
-            ingredient_db[ingredient] = nutrients
-            found_csv += 1
-        else:
-            missing.append(ingredient)
+        phe_per_100g = 0.0
+        protein_per_100g = 0.0
+        energy_per_100g = 0.0
+    
+    if result['ingredients_missing'] == 0:
+        meals_complete += 1
+        data_quality = "complete"
+    elif result['ingredients_found'] > 0:
+        meals_partial += 1
+        data_quality = "partial"
+    else:
+        meals_missing += 1
+        data_quality = "missing"
+    
+    meal_nutrition_list.append({
+        'food_name': meal_name,
+        'phe_mg_per_100g': phe_per_100g,
+        'protein_g_per_100g': protein_per_100g,
+        'energy_kcal_per_100g': energy_per_100g,
+        'serving_size_g': total_weight,
+        'ingredients_found': result['ingredients_found'],
+        'ingredients_missing': result['ingredients_missing'],
+        'data_quality': data_quality
+    })
+
+# Save cache one final time
+save_cache()
+print(f"\n✓ Final cache saved: {len(USDA_CACHE)} ingredients")
 
 print()
-print("="*70)
-print("NUTRITIONAL DATA COLLECTION COMPLETE")
-print("="*70)
-print(f"  ✓ Found via USDA API: {found_usda}/{len(all_ingredients)} ({found_usda/len(all_ingredients)*100:.1f}%)")
-print(f"  ✓ Found via CSV fallback: {found_csv}/{len(all_ingredients)} ({found_csv/len(all_ingredients)*100:.1f}%)")
-print(f"  ✓ Total found: {len(ingredient_db)}/{len(all_ingredients)} ({len(ingredient_db)/len(all_ingredients)*100:.1f}%)")
-print(f"  ⚠ Missing: {len(missing)} ingredients ({len(missing)/len(all_ingredients)*100:.1f}%)")
+print(f"✓ Processed {len(meal_nutrition_list)} meals")
+print(f"  Complete data: {meals_complete} ({meals_complete/len(meal_nutrition_list)*100:.1f}%)")
+print(f"  Partial data: {meals_partial} ({meals_partial/len(meal_nutrition_list)*100:.1f}%)")
+print(f"  No data: {meals_missing} ({meals_missing/len(meal_nutrition_list)*100:.1f}%)")
 
-if missing:
-    print(f"\n  Sample missing ingredients (first 20):")
-    for ing in missing[:20]:
-        print(f"    - {ing}")
+meal_nutrition_df = pd.DataFrame(meal_nutrition_list)
+meal_nutrition_df.to_csv('data_food_database.csv', index=False)
+print(f"✓ Saved: data_food_database.csv")
 
-# Save ingredient database
-if ingredient_db:
-    ingredient_db_df = pd.DataFrame([
-        {'ingredient_name': name, **nutrients}
-        for name, nutrients in ingredient_db.items()
-    ])
-    ingredient_db_df.to_csv('data_ingredient_database.csv', index=False)
-    print(f"\n✓ Saved: data_ingredient_database.csv")
-
-# Save missing ingredients list for manual lookup
-if missing:
-    missing_df = pd.DataFrame({'ingredient': missing})
-    missing_df.to_csv('data_missing_ingredients.csv', index=False)
-    print(f"✓ Saved: data_missing_ingredients.csv (for manual lookup)")
+meals_with_issues = meal_nutrition_df[meal_nutrition_df['data_quality'] != 'complete']
+if len(meals_with_issues) > 0:
+    meals_with_issues.to_csv('data_missing_foods.csv', index=False)
+    print(f"✓ Saved: data_missing_foods.csv ({len(meals_with_issues)} meals)")
 
 
 # ============================================================
-# STEP 0.6: EXTRACT USER PROFILES AND CALCULATE LIMITS
+# STEP 5: USER PROFILES
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 0.6: USER PROFILES & NUTRITIONAL LIMITS")
+print("STEP 5: USER PROFILES")
 print("="*70)
 
 def get_child_adult_daily_needs(age_months, weight_kg, sex):
     needs = {}
     if age_months < 48:
-        needs.update({
-            'phe_mg_min': 200, 'phe_mg_max': 400, 
-            'protein_g': 30, 'energy_kcal': 1300,
-            'age_group': '1-4 years'
-        })
+        needs.update({'phe_mg_min': 200, 'phe_mg_max': 400, 'protein_g': 30, 'energy_kcal': 1300, 'age_group': '1-4 years'})
     elif age_months < 84:
-        needs.update({
-            'phe_mg_min': 210, 'phe_mg_max': 450,
-            'protein_g': 35, 'energy_kcal': 1700,
-            'age_group': '4-7 years'
-        })
+        needs.update({'phe_mg_min': 210, 'phe_mg_max': 450, 'protein_g': 35, 'energy_kcal': 1700, 'age_group': '4-7 years'})
     elif age_months < 132:
-        needs.update({
-            'phe_mg_min': 220, 'phe_mg_max': 500,
-            'protein_g': 40, 'energy_kcal': 2400,
-            'age_group': '7-11 years'
-        })
+        needs.update({'phe_mg_min': 220, 'phe_mg_max': 500, 'protein_g': 40, 'energy_kcal': 2400, 'age_group': '7-11 years'})
     elif age_months < 180:
         if sex == "Female":
             needs.update({'phe_mg_min': 250, 'phe_mg_max': 750, 'protein_g': 50, 'energy_kcal': 2200, 'age_group': '11-15 years'})
@@ -706,11 +716,9 @@ for idx, row in ratings_df.iterrows():
 user_limits_df = pd.DataFrame(user_profiles)
 
 print(f"✓ Calculated limits for {len(user_limits_df)} users")
-print(f"\n  Sample user profiles:")
-print(user_limits_df[['user_name', 'age_group', 'phe_mg_max', 'protein_g', 'energy_kcal']].head().to_string(index=False))
 
 user_limits_df.to_csv('data_user_nutritional_limits.csv', index=False)
-print(f"\n✓ Saved: data_user_nutritional_limits.csv")
+print(f"✓ Saved: data_user_nutritional_limits.csv")
 
 
 # ============================================================
@@ -718,53 +726,20 @@ print(f"\n✓ Saved: data_user_nutritional_limits.csv")
 # ============================================================
 
 print("\n" + "="*70)
-print("STAGE 0 COMPLETE - DATA PREPARATION SUMMARY")
+print("STAGE 0 COMPLETE")
 print("="*70)
 
 print(f"""
-FILES CREATED:
-  1. data_user_food_ratings.csv           - {len(user_food_df)} user-food ratings
-  2. data_meal_ingredients.csv            - {len(meal_ingredients_df)} meals with ingredient lists
-  3. data_ingredient_database.csv         - {len(ingredient_db)} ingredients with nutrition data
-  4. data_user_nutritional_limits.csv     - {len(user_limits_df)} user profiles with limits
-  5. data_missing_ingredients.csv         - {len(missing)} ingredients needing manual lookup
+MEAL NUTRITION:
+  Complete data: {meals_complete}/{len(meal_nutrition_df)} ({meals_complete/len(meal_nutrition_df)*100:.1f}%)
+  Partial data: {meals_partial} ({meals_partial/len(meal_nutrition_df)*100:.1f}%)
+  No data: {meals_missing} ({meals_missing/len(meal_nutrition_list)*100:.1f}%)
 
-STATISTICS:
-  Users: {user_food_df['user_name'].nunique()}
-  Rated meals: {user_food_df['food'].nunique()}
-  Total meals in database: {len(meal_ingredients_df)}
-  Unique ingredients: {len(all_ingredients)}
-  
-NUTRITIONAL DATA COVERAGE:
-  USDA API: {found_usda} ingredients ({found_usda/len(all_ingredients)*100:.1f}%)
-  CSV fallback: {found_csv} ingredients ({found_csv/len(all_ingredients)*100:.1f}%)
-  Total covered: {len(ingredient_db)} ingredients ({len(ingredient_db)/len(all_ingredients)*100:.1f}%)
-  Missing: {len(missing)} ingredients ({len(missing)/len(all_ingredients)*100:.1f}%)
+USDA CACHE:
+  Total cached ingredients: {len(USDA_CACHE)}
+  Cache file: usda_cache.json
 
-DATA QUALITY:
-  ✓ Ingredient-level nutritional database ready
-  ✓ Meal-ingredient mappings complete
-  ✓ User ratings extracted and validated
-  ✓ User nutritional limits calculated
-  {f'⚠ {len(missing)} ingredients need manual lookup' if missing else '✓ All ingredients have nutritional data'}
-
-NEXT STEPS:
-  1. Review data_missing_ingredients.csv
-  2. Optionally add missing ingredients manually
-  3. Run Stage 1 (train/test split)
-  4. Implement Stage 2 (recommendation algorithms)
-  5. Implement Stage 3 (portion calculation & safety)
-  6. Implement Stage 4-6 (evaluation metrics)
-  
-KEY IMPROVEMENTS IN THIS VERSION:
-  ✓ Three-tier fallback system: USDA API → CSV databases → Missing list
-  ✓ {found_csv} additional ingredients recovered via CSV fallback
-  ✓ Comprehensive source tracking (USDA vs CSV)
-  ✓ Match type tracking (exact, startswith, contains)
-  ✓ PHE estimation flagging for transparency
-  ✓ Missing ingredients exported for manual review
+NEXT: Run Stages 1-5 to see evaluation results!
 """)
 
-print("="*70)
-print("Ready for Stage 1: Train/Test Split")
 print("="*70)

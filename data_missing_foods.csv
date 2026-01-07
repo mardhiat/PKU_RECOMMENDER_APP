@@ -1,73 +1,16 @@
-food
-Jeera Aloo (Indian Foods)
-Kadhi (Mock) (Indian Foods)
-Aloo Shimla Mirch (Indian Foods)
-72 (Chinese Foods)
-Agua Fresca (Mexican Foods)
-Taco Lettuce Wraps with Spiced Veggies (Mexican Foods)
-Mexican Street Corn Salad (Mexican Foods)
-Caponata (eggplant stew) (Italian Foods)
-Insalata di Pomodorini (Italian Foods)
-Matoke (boiled green Bananas) (African Foods)
-Pomodori Secchi (Italian Foods)
-Carciofi alla Romana (Italian Foods)
-Fagiolini lessati (Italian Foods)
-Cicoria Lessata (Italian Foods)
-Zucchine trifolate (Italian Foods)
-Brodetto di Verdure (Italian Foods)
-Polenta (Italian Foods)
-Fagioli all'Uccelletto (Italian Foods)
-Yaki Imo (Japanese Foods)
-Insalata di Pomodori (Italian Foods)
-Insalata di Finocchi (Italian Foods)
-Fagioli Lessati (green beans) (Italian Foods)
-Minestra di Zucca (Italian Foods)
-Insalata di Carote (Italian Foods)
-Carciofi Grigliati (Italian Foods)
-Pickled Eggplant Salad (Japanese Foods)
-Carrot-Potato Latkes (Eastern European Foods)
-Kachumbari (fresh salad) (African Foods)
-Roasted Garden Eggplant (African Foods)
-Pan-Seared Eggplant (Japanese Foods)
-Nasu Dengaku (Japanese Foods)
-Patate Bollite (Italian Foods)
-Funghi trifolati (Italian Foods)
-Pomodori Ripieni (without cheese) (Italian Foods)
-Peperonata (Italian Foods)
-Zucchine Ripiene (without cheese) (Italian Foods)
-Ribollita (Tuscan vegetable soup) (Italian Foods)
-Carciofi alla Giudia (Italian Foods)
-Melanzane alla Griglia (Italian Foods)
-Insalata di Rucola (Italian Foods)
-Insalata di Cetrioli e Menta (Italian Foods)
-Grilled Eggplant with Yuzu (Japanese Foods)
-Kabocha Nimono (Japanese Foods)
-Aloo Tamatar Bhujia (Indian Foods)
-Aloo Baingan (Indian Foods)
-Aloo Capsicum (Indian Foods)
-Zuppa di Lenticchie (without legumes if strict PKU) (Italian Foods)
-Pasta Aglio e Olio (Italian Foods)
-Cicoria Ripassata (sautéed chicory) (Italian Foods)
-Cicoria Ripassata (Italian Foods)
-Verdure Grigliate (grilled vegetables) (Italian Foods)
-Insalata di Carote e Limone (Italian Foods)
-Panzanella (bread salad) (Italian Foods)
-Cipolline in Agrodolce (Italian Foods)
-Ribollita (without beans) (Italian Foods)
-Oshitashi (Japanese Foods)
-Insalata di Cetrioli (Italian Foods)
-Ugali (Maize porridge) (African Foods)
-Gajar Matar (Indian Foods)
-Lauki Chana (Mock) (Indian Foods)
-Lauki Sabzi (Indian Foods)
-Methi Aloo (Indian Foods)
-Peperoni Arrostiti (Italian Foods)
-Kinpira Gobo (Japanese Foods)
-Zuppa di Verdure (Italian Foods)
-Baingan Tamatar (Indian Foods)
-zaalouk(moroccan eggplant dip) (Mediterranean Foods)
-Grilled Eggplant with Herbs (Mediterranean Foods)
-Baingan Bharta (Indian Foods)
-Chana Aloo (Mock) (Indian Foods)
-Tinda Sabzi (Indian Foods)
-Aloo Methi (Indian Foods)
+food_name,phe_mg_per_100g,protein_g_per_100g,energy_kcal_per_100g,serving_size_g,ingredients_found,ingredients_missing,data_quality
+Garden Egg Stew (without meat) (African Foods),0.0034473684210526317,0.1273684210526316,3.4844558947368416,380.0,3,1,partial
+Baobab Fruit Smoothie (African Foods),24.6,0.492,33.301502666666664,300.0,2,1,partial
+Roasted Garden Eggplant (African Foods),0.0,0.0,88.4083194,300.0,1,1,partial
+Beet and Horseradish Slaw (Central European Foods),4.9565217391304355,0.09913043478260869,291.63233395652173,690.0,4,1,partial
+Vegan Borscht (Eastern European Foods),5.238022584692597,0.18504767879548306,23.949521301713247,1992.5,12,1,partial
+Vinegret Salad (Eastern European Foods),0.003695788812067882,0.14079195474544312,50.10562079907813,1591.0,8,1,partial
+Dal-Free Rasam (Indian Foods),0.010799999999999999,0.35200000000000004,33.556442399999995,250.0,3,1,partial
+Chana-Free Chaat (Indian Foods),0.0548,1.342,109.7874061,200.0,3,1,partial
+Bananass Fritters (Indian Foods),0.0,0.0,0.0,240.0,1,1,partial
+polenta with roasted veggies (Mediterranean Foods),64.94579054054054,3.4230067567567573,77.90695713513513,296.0,4,1,partial
+roasted garlic carrots (Mediterranean Foods),68.54132352941177,1.9262499999999998,93.07965652205883,272.0,4,1,partial
+cinnamon date pudding (Mediterranean Foods),7.338377162629757,0.8677162629757786,208.03441540484425,578.0,8,2,partial
+Mexican Street Corn Salad (Mexican Foods),35.3010752688172,0.7060215053763441,34.90362334869431,93.0,4,1,partial
+Tomatillo Salsa Verde (Mexican Foods),7.544724770642203,0.30220183486238533,8.716044495412843,109.0,5,1,partial
+Simple Scottish Pea Soup (Scottish-Irish Foods),0.010731707317073172,0.2926829268292683,23.638317886914617,410.0,3,1,partial
