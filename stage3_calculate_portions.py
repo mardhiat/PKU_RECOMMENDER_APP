@@ -3,13 +3,15 @@ import numpy as np
 import pickle
 import os
 
-print("STAGE 3: CALCULATE SAFE PORTIONS")
+print("="*70)
+print("STAGE 3: CALCULATE SAFE PORTIONS (FIXED)")
+print("="*70)
 
 # ============================================================
 # STEP 3.1: LOAD DATA FROM PREVIOUS STAGES
 # ============================================================
 
-print("STEP 3.1: LOADING DATA")
+print("\nSTEP 3.1: LOADING DATA")
 
 # Check if required files exist
 required_files = [
@@ -39,15 +41,19 @@ print(f"  - Recommendations: {len(recommendations_dict)} algorithms")
 print(f"  - Food database: {len(food_db_df)} foods")
 print(f"  - User limits: {len(user_limits_df)} users")
 
-# Create food database dictionary
+# CRITICAL FIX: Create food database dictionary with CASE-INSENSITIVE keys
 food_db = {}
 for _, row in food_db_df.iterrows():
-    food_db[row['food_name']] = {
+    # Use lowercase for matching
+    key = row['food_name'].lower().strip()
+    food_db[key] = {
         'phe_mg_per_100g': row['phe_mg_per_100g'],
         'protein_g_per_100g': row['protein_g_per_100g'],
         'energy_kcal_per_100g': row['energy_kcal_per_100g'],
         'serving_size_g': row.get('serving_size_g', 100.0)
     }
+
+print(f"Food database ready with {len(food_db)} foods (case-insensitive)")
 
 # Create user limits dictionary
 user_limits = {}
@@ -59,14 +65,14 @@ for _, row in user_limits_df.iterrows():
         'energy_kcal': row['energy_kcal']
     }
 
-print(f"Dictionaries created for fast lookup")
+print(f"User limits ready for {len(user_limits)} users")
 
 
 # ============================================================
 # STEP 3.2: IMPLEMENT IMPROVED PORTION CALCULATION
 # ============================================================
 
-print("STEP 3.2: IMPLEMENTING PORTION CALCULATION")
+print("\nSTEP 3.2: IMPLEMENTING PORTION CALCULATION")
 
 # Configuration parameters
 MEAL_FRACTION = 0.33  # Each meal is 1/3 of daily limit
@@ -89,21 +95,8 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
     Calculate maximum safe portion for a food given user's limits
     IMPROVED VERSION: Considers PHE min/max range, protein ceiling, energy target
     FIXED: Relaxed PHE minimum requirement for individual meals
-    
-    Args:
-        food_nutrients: dict with nutrients per 100g
-        user_daily_limits: dict with user's daily limits
-        meal_fraction: fraction of daily limit for this meal
-        phe_min_relaxation: multiplier for PHE minimum (0.5 = require only 50%)
-        min_practical: minimum practical portion size (grams)
-        max_cap: maximum portion size (grams)
-        energy_tolerance: acceptable deviation from energy target (fraction)
-    
-    Returns:
-        dict with portion_g, nutrients, is_practical, is_safe, limiting_factor
     """
     # Calculate meal targets
-    # FIXED: Relax PHE minimum since users get PHE from other meals
     meal_phe_min = user_daily_limits['phe_mg_min'] * meal_fraction * phe_min_relaxation
     meal_phe_max = user_daily_limits['phe_mg_max'] * meal_fraction
     meal_protein_max = user_daily_limits['protein_g'] * meal_fraction
@@ -120,8 +113,8 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
     
     # PHE constraints
     if phe_per_g > 0:
-        min_portion_phe = meal_phe_min / phe_per_g  # Need at least this for PHE
-        max_portion_phe = meal_phe_max / phe_per_g  # Can't exceed this for PHE
+        min_portion_phe = meal_phe_min / phe_per_g
+        max_portion_phe = meal_phe_max / phe_per_g
     else:
         min_portion_phe = 0
         max_portion_phe = float('inf')
@@ -149,7 +142,6 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
     # === CHECK FEASIBILITY ===
     
     if safe_portion_min > safe_portion_max:
-        # Cannot meet PHE minimum without exceeding protein/PHE maximum
         return {
             'safe_portion_g': 0,
             'phe_mg': 0,
@@ -163,7 +155,6 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
     
     # === OPTIMIZE PORTION FOR ENERGY TARGET ===
     
-    # Try to get close to energy target while staying in safe range
     recommended_portion = np.clip(ideal_portion_energy, safe_portion_min, safe_portion_max)
     
     # === CALCULATE ACTUAL NUTRIENTS ===
@@ -179,7 +170,6 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
     energy_acceptable = meal_energy_min <= actual_energy <= meal_energy_max
     is_practical = recommended_portion >= min_practical
     
-    # Overall safety: meets all constraints
     is_safe = phe_safe and protein_safe and is_practical
     
     # Determine limiting factor
@@ -189,8 +179,6 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
         limiting_factor = 'PROTEIN'
     else:
         limiting_factor = 'BOTH'
-    
-    # === RETURN RESULTS ===
     
     return {
         'safe_portion_g': recommended_portion,
@@ -208,7 +196,7 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
         'energy_match': abs(actual_energy - meal_energy_target) / meal_energy_target if meal_energy_target > 0 else 0
     }
 
-print("Portion calculation function implemented")
+print("✓ Portion calculation function implemented")
 
 
 # ============================================================
@@ -231,6 +219,7 @@ recommendations_with_portions = {}
 
 processed = 0
 skipped = 0
+no_user_limits = 0
 
 for algorithm in recommendations_dict:
     print(f"\n  Processing {algorithm}...")
@@ -239,8 +228,7 @@ for algorithm in recommendations_dict:
     for user_name, recommendations in recommendations_dict[algorithm].items():
         # Get user's limits
         if user_name not in user_limits:
-            print(f"    ⚠ No limits for user {user_name}, skipping...")
-            skipped += len(recommendations)
+            no_user_limits += len(recommendations)
             continue
         
         user_daily_limits = user_limits[user_name]
@@ -249,16 +237,13 @@ for algorithm in recommendations_dict:
         recs_with_portions = []
         
         for food_name, score in recommendations:
-            # Clean food name (remove cuisine tag)
+            # CRITICAL FIX: Use lowercase for lookup
             clean_name = food_name.lower().strip()
-            if '(' in clean_name:
-                clean_name = clean_name.split('(')[0].strip()
             
             # Get food nutrients
             food_nutrients = food_db.get(clean_name)
             
             if food_nutrients is None:
-                # Skip foods without nutritional data
                 skipped += 1
                 continue
             
@@ -292,9 +277,10 @@ for algorithm in recommendations_dict:
         
         recommendations_with_portions[algorithm][user_name] = recs_with_portions
 
-print(f"\nProcessing complete!")
+print(f"\n✓ Processing complete!")
 print(f"  Processed: {processed} recommendations")
 print(f"  Skipped (no nutrition data): {skipped} recommendations")
+print(f"  Skipped (no user limits): {no_user_limits} recommendations")
 
 
 # ============================================================
@@ -302,6 +288,23 @@ print(f"  Skipped (no nutrition data): {skipped} recommendations")
 # ============================================================
 
 print("\nSTEP 3.4: ANALYZING PORTION STATISTICS")
+
+if processed == 0:
+    print("\n❌ ERROR: No recommendations were processed!")
+    print("This indicates a name-matching problem between Stage 2 and Stage 3.")
+    print("\nDEBUGGING:")
+    print(f"Sample food names in database (first 5):")
+    for name in list(food_db.keys())[:5]:
+        print(f"  - '{name}'")
+    if recommendations_dict:
+        sample_algo = list(recommendations_dict.keys())[0]
+        sample_user = list(recommendations_dict[sample_algo].keys())[0]
+        sample_recs = recommendations_dict[sample_algo][sample_user]
+        if sample_recs:
+            print(f"\nSample food names from recommendations (first 5):")
+            for food, score in sample_recs[:5]:
+                print(f"  - '{food}' → '{food.lower().strip()}'")
+    exit(1)
 
 # Collect statistics
 all_portions = []
@@ -317,54 +320,29 @@ for algorithm in recommendations_with_portions:
             all_safe.append(rec['is_safe'])
             limiting_factors[rec['limiting_factor']] += 1
 
-if all_portions:
-    print(f"\nPortion size statistics (across all recommendations):")
-    print(f"  Mean: {np.mean(all_portions):.1f}g")
-    print(f"  Median: {np.median(all_portions):.1f}g")
-    print(f"  Min: {np.min(all_portions):.1f}g")
-    print(f"  Max: {np.max(all_portions):.1f}g")
-    print(f"  Std: {np.std(all_portions):.1f}g")
-    
-    practical_pct = (sum(all_practical) / len(all_practical)) * 100
-    safe_pct = (sum(all_safe) / len(all_safe)) * 100
-    
-    print(f"\nPracticality:")
-    print(f"  Practical portions (≥{MIN_PRACTICAL_PORTION}g): {sum(all_practical)}/{len(all_practical)} ({practical_pct:.1f}%)")
-    print(f"  Too small (<{MIN_PRACTICAL_PORTION}g): {len(all_practical) - sum(all_practical)}/{len(all_practical)} ({100-practical_pct:.1f}%)")
-    
-    print(f"\nSafety:")
-    print(f"  Safe portions: {sum(all_safe)}/{len(all_safe)} ({safe_pct:.1f}%)")
-    print(f"  Unsafe portions: {len(all_safe) - sum(all_safe)}/{len(all_safe)} ({100-safe_pct:.1f}%)")
-    
-    print(f"\nLimiting factors:")
-    total_limiting = sum(limiting_factors.values())
-    for factor, count in limiting_factors.items():
-        pct = (count / total_limiting) * 100 if total_limiting > 0 else 0
-        print(f"  {factor}: {count}/{total_limiting} ({pct:.1f}%)")
+print(f"\n✓ Portion size statistics (across all recommendations):")
+print(f"  Mean: {np.mean(all_portions):.1f}g")
+print(f"  Median: {np.median(all_portions):.1f}g")
+print(f"  Min: {np.min(all_portions):.1f}g")
+print(f"  Max: {np.max(all_portions):.1f}g")
+print(f"  Std: {np.std(all_portions):.1f}g")
 
-# Statistics by algorithm
-print("\nStatistics by algorithm:")
+practical_pct = (sum(all_practical) / len(all_practical)) * 100
+safe_pct = (sum(all_safe) / len(all_safe)) * 100
 
-for algorithm in recommendations_with_portions:
-    algo_portions = []
-    algo_practical = []
-    algo_safe = []
-    
-    for user_name, recs in recommendations_with_portions[algorithm].items():
-        for rec in recs:
-            algo_portions.append(rec['portion_g'])
-            algo_practical.append(rec['is_practical'])
-            algo_safe.append(rec['is_safe'])
-    
-    if algo_portions:
-        practical_pct = (sum(algo_practical) / len(algo_practical)) * 100
-        safe_pct = (sum(algo_safe) / len(algo_safe)) * 100
-        
-        print(f"\n{algorithm.upper()}:")
-        print(f"  Total recommendations: {len(algo_portions)}")
-        print(f"  Mean portion: {np.mean(algo_portions):.1f}g")
-        print(f"  Practical: {sum(algo_practical)}/{len(algo_practical)} ({practical_pct:.1f}%)")
-        print(f"  Safe: {sum(algo_safe)}/{len(algo_safe)} ({safe_pct:.1f}%)")
+print(f"\n✓ Practicality:")
+print(f"  Practical portions (≥{MIN_PRACTICAL_PORTION}g): {sum(all_practical)}/{len(all_practical)} ({practical_pct:.1f}%)")
+print(f"  Too small (<{MIN_PRACTICAL_PORTION}g): {len(all_practical) - sum(all_practical)}/{len(all_practical)} ({100-practical_pct:.1f}%)")
+
+print(f"\n✓ Safety:")
+print(f"  Safe portions: {sum(all_safe)}/{len(all_safe)} ({safe_pct:.1f}%)")
+print(f"  Unsafe portions: {len(all_safe) - sum(all_safe)}/{len(all_safe)} ({100-safe_pct:.1f}%)")
+
+print(f"\n✓ Limiting factors:")
+total_limiting = sum(limiting_factors.values())
+for factor, count in limiting_factors.items():
+    pct = (count / total_limiting) * 100 if total_limiting > 0 else 0
+    print(f"  {factor}: {count}/{total_limiting} ({pct:.1f}%)")
 
 
 # ============================================================
@@ -373,44 +351,25 @@ for algorithm in recommendations_with_portions:
 
 print("\nSTEP 3.5: SAVING RECOMMENDATIONS WITH PORTIONS")
 
-# Save to pickle file
 with open('recommendations_with_portions.pkl', 'wb') as f:
     pickle.dump(recommendations_with_portions, f)
 
-print(f"\nSaved: recommendations_with_portions.pkl")
-
-# Show sample for first user
-sample_algorithm = 'hybrid'
-if sample_algorithm in recommendations_with_portions:
-    sample_users = list(recommendations_with_portions[sample_algorithm].keys())
-    if sample_users:
-        sample_user = sample_users[0]
-        sample_recs = recommendations_with_portions[sample_algorithm][sample_user]
-        
-        print(f"Sample recommendations with portions:")
-        print(f"User: {sample_user}, Algorithm: {sample_algorithm}")
-        
-        for i, rec in enumerate(sample_recs[:5], 1):
-            practical = "✓" if rec['is_practical'] else "✗"
-            safe = "✓" if rec['is_safe'] else "✗"
-            print(f"\n{i}. {rec['food'][:50]}...")
-            print(f"   Score: {rec['score']:.3f}")
-            print(f"   Safe portion: {rec['portion_g']:.0f}g {practical}")
-            print(f"   PHE: {rec['phe_mg']:.1f}mg | Protein: {rec['protein_g']:.1f}g | Energy: {rec['energy_kcal']:.0f}kcal")
-            print(f"   Limiting factor: {rec['limiting_factor']} | Safe: {safe}")
+print(f"\n✓ Saved: recommendations_with_portions.pkl")
 
 
 # ============================================================
 # FINAL SUMMARY
 # ============================================================
 
-print("\nSTAGE 3 COMPLETE - SUMMARY")
+print("\n" + "="*70)
+print("STAGE 3 COMPLETE - SUMMARY")
+print("="*70)
 
 print(f"""
-Files Created:
-  1. recommendations_with_portions.pkl - All recommendations with safe portions
+FILES CREATED:
+  ✓ recommendations_with_portions.pkl
 
-Portion Calculations:
+PORTION CALCULATIONS:
   • Total recommendations processed: {processed}
   • Mean safe portion: {np.mean(all_portions):.1f}g
   • Practical portions (≥{MIN_PRACTICAL_PORTION}g): {practical_pct:.1f}%
@@ -418,24 +377,8 @@ Portion Calculations:
   • Main limiting factor: {max(limiting_factors, key=limiting_factors.get)}
   
 KEY FIX APPLIED:
+  ✓ Case-insensitive food name matching
   ✓ PHE minimum relaxed to {PHE_MIN_RELAXATION*100:.0f}% for individual meals
-  ✓ This should reduce infeasible recommendations from 36% to ~10-15%
 
-Key Insights:
-  • Each recommendation now has:
-    - Safe portion size (grams)
-    - Exact nutrients at that portion (PHE, protein, calories)
-    - Practicality flag (is it a real meal or too small?)
-    - Safety flag (meets all nutritional constraints)
-    - Which nutrient is limiting (PHE or PROTEIN)
-  
-  • Portions calculated assuming ONE MEAL = {MEAL_FRACTION*100:.0f}% of daily limit
-  • PHE minimum requirement: {PHE_MIN_RELAXATION*100:.0f}% (recognizes multi-meal distribution)
-  • Portions <{MIN_PRACTICAL_PORTION}g marked as impractical (too small to be useful)
-  • Safety checks: PHE range, protein ceiling, practical size
-
-Next Steps:
-  Stage 4: Evaluate Preference Alignment
-  - Check: Do users LIKE the recommended foods?
-  - Metrics: Precision@10, Recall@10, F1@10, NDCG@10
+NEXT: python stage4_evaluate_preference.py
 """)
