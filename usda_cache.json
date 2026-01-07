@@ -1,0 +1,3159 @@
+{
+  "low-protein flour": {
+    "phe(mg)": 0.591,
+    "protein(g)": 11.98,
+    "energy(kcal)": 360.89906,
+    "serving_size(g)": 100.0,
+    "name": "wheat flour, white, bread, enriched",
+    "usda_match": "Wheat flour, white, bread, enriched",
+    "usda_data_type": "SR Legacy"
+  },
+  "water": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "plantains": {
+    "phe(mg)": 0.03,
+    "protein(g)": 1.09,
+    "energy(kcal)": 121.176042,
+    "serving_size(g)": 100.0,
+    "name": "plantains, green, boiled",
+    "usda_match": "Plantains, green, boiled",
+    "usda_data_type": "SR Legacy"
+  },
+  "green bananas": {
+    "phe(mg)": 0.201,
+    "protein(g)": 3.89,
+    "energy(kcal)": 346.080688,
+    "serving_size(g)": 100.0,
+    "name": "bananas, dehydrated, or banana powder",
+    "usda_match": "Bananas, dehydrated, or banana powder",
+    "usda_data_type": "SR Legacy"
+  },
+  "sweet potatoes": null,
+  "cassava root": {
+    "phe(mg)": 0.026,
+    "protein(g)": 1.36,
+    "energy(kcal)": 159.417002,
+    "serving_size(g)": 100.0,
+    "name": "cassava, raw",
+    "usda_match": "Cassava, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "salt": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "corn": {
+    "phe(mg)": 42.0,
+    "protein(g)": 0.84,
+    "energy(kcal)": 44.0,
+    "serving_size(g)": 100.0,
+    "name": "corn beverage",
+    "usda_match": "Corn beverage",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "mixed vegetables": null,
+  "olive oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, corn, peanut, and olive",
+    "usda_match": "Oil, corn, peanut, and olive",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomatoes": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "onions": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "cilantro": {
+    "phe(mg)": 106.5,
+    "protein(g)": 2.13,
+    "energy(kcal)": 22.705569999999998,
+    "serving_size(g)": 100.0,
+    "name": "coriander (cilantro) leaves, raw",
+    "usda_match": "Coriander (cilantro) leaves, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "lemon juice": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 28.919726,
+    "serving_size(g)": 100.0,
+    "name": "lemons, raw, without peel",
+    "usda_match": "Lemons, raw, without peel",
+    "usda_data_type": "SR Legacy"
+  },
+  "avocado": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, avocado",
+    "usda_match": "Oil, avocado",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomato": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "onion": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "okra": {
+    "phe(mg)": 0.065,
+    "protein(g)": 1.93,
+    "energy(kcal)": 32.982828,
+    "serving_size(g)": 100.0,
+    "name": "okra, raw",
+    "usda_match": "Okra, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "palm oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, palm",
+    "usda_match": "Oil, palm",
+    "usda_data_type": "SR Legacy"
+  },
+  "pumpkin leaves": {
+    "phe(mg)": 0.171,
+    "protein(g)": 3.15,
+    "energy(kcal)": 18.881474,
+    "serving_size(g)": 100.0,
+    "name": "pumpkin leaves, raw",
+    "usda_match": "Pumpkin leaves, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "baobab leaves": {
+    "phe(mg)": 184.5,
+    "protein(g)": 3.69,
+    "energy(kcal)": 249.76127,
+    "serving_size(g)": 100.0,
+    "name": "baobab powder",
+    "usda_match": "Baobab powder",
+    "usda_data_type": "SR Legacy"
+  },
+  "rice": {
+    "phe(mg)": 256.0,
+    "protein(g)": 5.12,
+    "energy(kcal)": 112.0,
+    "serving_size(g)": 100.0,
+    "name": "dirty rice",
+    "usda_match": "Dirty rice",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "coconut milk": null,
+  "oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "oil, canola",
+    "usda_match": "Oil, canola",
+    "usda_data_type": "Foundation"
+  },
+  "yam": {
+    "phe(mg)": 0.071,
+    "protein(g)": 1.53,
+    "energy(kcal)": 118.068964,
+    "serving_size(g)": 100.0,
+    "name": "yam, raw",
+    "usda_match": "Yam, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "cassava leaves": {
+    "phe(mg)": 0.026,
+    "protein(g)": 1.36,
+    "energy(kcal)": 159.417002,
+    "serving_size(g)": 100.0,
+    "name": "cassava, raw",
+    "usda_match": "Cassava, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "cucumbers": {
+    "phe(mg)": 0.031,
+    "protein(g)": 0.59,
+    "energy(kcal)": 10.516264,
+    "serving_size(g)": 100.0,
+    "name": "cucumber, peeled, raw",
+    "usda_match": "Cucumber, peeled, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "pumpkin": null,
+  "cassava": {
+    "phe(mg)": 0.026,
+    "protein(g)": 1.36,
+    "energy(kcal)": 159.417002,
+    "serving_size(g)": 100.0,
+    "name": "cassava, raw",
+    "usda_match": "Cassava, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "eggs": null,
+  "millet flour": {
+    "phe(mg)": 0.675,
+    "protein(g)": 10.75,
+    "energy(kcal)": 381.692582,
+    "serving_size(g)": 100.0,
+    "name": "millet flour",
+    "usda_match": "Millet flour",
+    "usda_data_type": "SR Legacy"
+  },
+  "taro root": {
+    "phe(mg)": 0.082,
+    "protein(g)": 1.5,
+    "energy(kcal)": 112.093814,
+    "serving_size(g)": 100.0,
+    "name": "taro, raw",
+    "usda_match": "Taro, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "baobab fruit powder": {
+    "phe(mg)": 184.5,
+    "protein(g)": 3.69,
+    "energy(kcal)": 249.76127,
+    "serving_size(g)": 100.0,
+    "name": "baobab powder",
+    "usda_match": "Baobab powder",
+    "usda_data_type": "SR Legacy"
+  },
+  "tamarind pulp": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 331.02331,
+    "serving_size(g)": 100.0,
+    "name": "candies, tamarind",
+    "usda_match": "Candies, Tamarind",
+    "usda_data_type": "SR Legacy"
+  },
+  "watermelon": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "mint leaves": {
+    "phe(mg)": 1.017,
+    "protein(g)": 19.93,
+    "energy(kcal)": 284.895152,
+    "serving_size(g)": 100.0,
+    "name": "spearmint, dried",
+    "usda_match": "Spearmint, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "lime juice": {
+    "phe(mg)": 35.0,
+    "protein(g)": 0.7,
+    "energy(kcal)": 30.114756,
+    "serving_size(g)": 100.0,
+    "name": "limes, raw",
+    "usda_match": "Limes, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "waterleaf": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "bananass": null,
+  "sweet potato leaves": {
+    "phe(mg)": 124.50000000000001,
+    "protein(g)": 2.49,
+    "energy(kcal)": 41.82605,
+    "serving_size(g)": 100.0,
+    "name": "sweet potato leaves, raw",
+    "usda_match": "Sweet potato leaves, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "yeast": {
+    "phe(mg)": 1194.0,
+    "protein(g)": 23.88,
+    "energy(kcal)": 185.22965,
+    "serving_size(g)": 100.0,
+    "name": "yeast extract spread",
+    "usda_match": "Yeast extract spread",
+    "usda_data_type": "SR Legacy"
+  },
+  "african eggplants": null,
+  "green beans": null,
+  "low-protein beans": {
+    "phe(mg)": 0.356,
+    "protein(g)": 6.03,
+    "energy(kcal)": 90.82227999999999,
+    "serving_size(g)": 100.0,
+    "name": "beans, black, mature seeds, canned, low sodium",
+    "usda_match": "Beans, black, mature seeds, canned, low sodium",
+    "usda_data_type": "SR Legacy"
+  },
+  "spinach": null,
+  "plantain": {
+    "phe(mg)": 0.03,
+    "protein(g)": 1.09,
+    "energy(kcal)": 121.176042,
+    "serving_size(g)": 100.0,
+    "name": "plantains, green, boiled",
+    "usda_match": "Plantains, green, boiled",
+    "usda_data_type": "SR Legacy"
+  },
+  "maize": {
+    "phe(mg)": 437.5,
+    "protein(g)": 8.75,
+    "energy(kcal)": 364.245144,
+    "serving_size(g)": 100.0,
+    "name": "corn flour, whole-grain, blue (harina de maiz morado)",
+    "usda_match": "Corn flour, whole-grain, blue (harina de maiz morado)",
+    "usda_data_type": "SR Legacy"
+  },
+  "chili": null,
+  "eggplant": null,
+  "sweet potato": {
+    "phe(mg)": 112.99999999999999,
+    "protein(g)": 2.26,
+    "energy(kcal)": 191.0,
+    "serving_size(g)": 100.0,
+    "name": "sweet potato tots",
+    "usda_match": "Sweet potato tots",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "low-protein peanut substitute": {
+    "phe(mg)": 0.055,
+    "protein(g)": 1.0,
+    "energy(kcal)": 135.755408,
+    "serving_size(g)": 100.0,
+    "name": "cream substitute, liquid, with hydrogenated vegetable oil and soy protein",
+    "usda_match": "Cream substitute, liquid, with hydrogenated vegetable oil and soy protein",
+    "usda_data_type": "SR Legacy"
+  },
+  "potatoes": null,
+  "onions, raws, raw": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "vinegar/oil dressing": null,
+  "vegetable broth": null,
+  "parsley": {
+    "phe(mg)": 0.145,
+    "protein(g)": 2.97,
+    "energy(kcal)": 36.089906,
+    "serving_size(g)": 100.0,
+    "name": "parsley, fresh",
+    "usda_match": "Parsley, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "salt and pepper": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "grapeseed oil": null,
+  "lard": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 902.008644,
+    "serving_size(g)": 100.0,
+    "name": "lard",
+    "usda_match": "Lard",
+    "usda_data_type": "SR Legacy"
+  },
+  "paprika": null,
+  "green bell peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "asparagus raw": {
+    "phe(mg)": 0.075,
+    "protein(g)": 2.2,
+    "energy(kcal)": 20.31551,
+    "serving_size(g)": 100.0,
+    "name": "asparagus, raw",
+    "usda_match": "Asparagus, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "unsalted butter": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "cumin": {
+    "phe(mg)": 890.4999999999999,
+    "protein(g)": 17.81,
+    "energy(kcal)": 374.522402,
+    "serving_size(g)": 100.0,
+    "name": "spices, cumin seed",
+    "usda_match": "Spices, cumin seed",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomato puree": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "baker's yeast": {
+    "phe(mg)": 0.407,
+    "protein(g)": 8.4,
+    "energy(kcal)": 104.92363399999999,
+    "serving_size(g)": 100.0,
+    "name": "leavening agents, yeast, baker's, compressed",
+    "usda_match": "Leavening agents, yeast, baker's, compressed",
+    "usda_data_type": "SR Legacy"
+  },
+  "raw raw turnips": {
+    "phe(mg)": 0.017,
+    "protein(g)": 0.9,
+    "energy(kcal)": 27.963701999999998,
+    "serving_size(g)": 100.0,
+    "name": "turnips, raw",
+    "usda_match": "Turnips, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "leek": {
+    "phe(mg)": 0.055,
+    "protein(g)": 1.5,
+    "energy(kcal)": 60.946529999999996,
+    "serving_size(g)": 100.0,
+    "name": "leeks, (bulb and lower leaf-portion), raw",
+    "usda_match": "Leeks, (bulb and lower leaf-portion), raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "carrots": null,
+  "celery, raw, raw": {
+    "phe(mg)": 24.609375,
+    "protein(g)": 0.4921875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "celery, raw",
+    "usda_match": "Celery, raw",
+    "usda_data_type": "Foundation"
+  },
+  "garlic": {
+    "phe(mg)": 331.0,
+    "protein(g)": 6.62,
+    "energy(kcal)": 142.686582,
+    "serving_size(g)": 100.0,
+    "name": "garlic, raw",
+    "usda_match": "Garlic, raw",
+    "usda_data_type": "Foundation"
+  },
+  "shallots, chopped": {
+    "phe(mg)": 0.081,
+    "protein(g)": 2.5,
+    "energy(kcal)": 71.940806,
+    "serving_size(g)": 100.0,
+    "name": "shallots, raw",
+    "usda_match": "Shallots, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "dried oregano": {
+    "phe(mg)": 0.449,
+    "protein(g)": 9.0,
+    "energy(kcal)": 264.579642,
+    "serving_size(g)": 100.0,
+    "name": "spices, oregano, dried",
+    "usda_match": "Spices, oregano, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "bay leaf": {
+    "phe(mg)": 380.5,
+    "protein(g)": 7.61,
+    "energy(kcal)": 313.575872,
+    "serving_size(g)": 100.0,
+    "name": "spices, bay leaf",
+    "usda_match": "Spices, bay leaf",
+    "usda_data_type": "SR Legacy"
+  },
+  "apples": null,
+  "sugar (table)": null,
+  "red cabbage, raw": {
+    "phe(mg)": 62.125,
+    "protein(g)": 1.2425,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, red, raw",
+    "usda_match": "Cabbage, red, raw",
+    "usda_data_type": "Foundation"
+  },
+  "caraway seeds": {
+    "phe(mg)": 0.867,
+    "protein(g)": 19.77,
+    "energy(kcal)": 332.935358,
+    "serving_size(g)": 100.0,
+    "name": "spices, caraway seed",
+    "usda_match": "Spices, caraway seed",
+    "usda_data_type": "SR Legacy"
+  },
+  "cucumber": {
+    "phe(mg)": 0.031,
+    "protein(g)": 0.59,
+    "energy(kcal)": 10.516264,
+    "serving_size(g)": 100.0,
+    "name": "cucumber, peeled, raw",
+    "usda_match": "Cucumber, peeled, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "fresh dill": {
+    "phe(mg)": 0.065,
+    "protein(g)": 3.46,
+    "energy(kcal)": 43.02108,
+    "serving_size(g)": 100.0,
+    "name": "dill weed, fresh",
+    "usda_match": "Dill weed, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "red red beets": null,
+  "horseradish": {
+    "phe(mg)": 59.0,
+    "protein(g)": 1.18,
+    "energy(kcal)": 48.0,
+    "serving_size(g)": 100.0,
+    "name": "horseradish",
+    "usda_match": "Horseradish",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "celery, raw root": {
+    "phe(mg)": 24.609375,
+    "protein(g)": 0.4921875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "celery, raw",
+    "usda_match": "Celery, raw",
+    "usda_data_type": "Foundation"
+  },
+  "nutmeg": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, nutmeg butter",
+    "usda_match": "Oil, nutmeg butter",
+    "usda_data_type": "SR Legacy"
+  },
+  "raw turnips": {
+    "phe(mg)": 0.017,
+    "protein(g)": 0.9,
+    "energy(kcal)": 27.963701999999998,
+    "serving_size(g)": 100.0,
+    "name": "turnips, raw",
+    "usda_match": "Turnips, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "zucchini": {
+    "phe(mg)": 0.096,
+    "protein(g)": 2.71,
+    "energy(kcal)": 21.032528,
+    "serving_size(g)": 100.0,
+    "name": "squash, zucchini, baby, raw",
+    "usda_match": "Squash, zucchini, baby, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "red bell pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "onions, raw": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "fennel": {
+    "phe(mg)": 46.09375,
+    "protein(g)": 0.921875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "fennel, bulb, raw",
+    "usda_match": "Fennel, bulb, raw",
+    "usda_data_type": "Foundation"
+  },
+  "black pepper (ground)": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "red beets": {
+    "phe(mg)": 84.375,
+    "protein(g)": 1.6875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "beets, raw",
+    "usda_match": "Beets, raw",
+    "usda_data_type": "Foundation"
+  },
+  "radish, red, small": {
+    "phe(mg)": 32.8125,
+    "protein(g)": 0.65625,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "radishes, red, raw",
+    "usda_match": "Radishes, red, raw",
+    "usda_data_type": "Foundation"
+  },
+  "white pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "sauerkraut": {
+    "phe(mg)": 45.0,
+    "protein(g)": 0.9,
+    "energy(kcal)": 40.0,
+    "serving_size(g)": 100.0,
+    "name": "sauerkraut",
+    "usda_match": "Sauerkraut",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "green cabbage": {
+    "phe(mg)": 48.0625,
+    "protein(g)": 0.96125,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, green, raw",
+    "usda_match": "Cabbage, green, raw",
+    "usda_data_type": "Foundation"
+  },
+  "onions, raws": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "apples cider vinegar": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 21.51054,
+    "serving_size(g)": 100.0,
+    "name": "vinegar, cider",
+    "usda_match": "Vinegar, cider",
+    "usda_data_type": "SR Legacy"
+  },
+  "parsnips": {
+    "phe(mg)": 60.0,
+    "protein(g)": 1.2,
+    "energy(kcal)": 75.047884,
+    "serving_size(g)": 100.0,
+    "name": "parsnips, raw",
+    "usda_match": "Parsnips, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "celery, raw": {
+    "phe(mg)": 24.609375,
+    "protein(g)": 0.4921875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "celery, raw",
+    "usda_match": "Celery, raw",
+    "usda_data_type": "Foundation"
+  },
+  "kohlrabi, sliced, raw": {
+    "phe(mg)": 0.039,
+    "protein(g)": 1.7,
+    "energy(kcal)": 27.007678,
+    "serving_size(g)": 100.0,
+    "name": "kohlrabi, raw",
+    "usda_match": "Kohlrabi, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "fresh thyme": {
+    "phe(mg)": 278.0,
+    "protein(g)": 5.56,
+    "energy(kcal)": 101.099538,
+    "serving_size(g)": 100.0,
+    "name": "thyme, fresh",
+    "usda_match": "Thyme, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "red cabbage": {
+    "phe(mg)": 51.5,
+    "protein(g)": 1.03,
+    "energy(kcal)": 49.0,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, red, pickled",
+    "usda_match": "Cabbage, red, pickled",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "dijon mustard": null,
+  "pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "cinnamon": {
+    "phe(mg)": 352.5,
+    "protein(g)": 7.05,
+    "energy(kcal)": 253.34636,
+    "serving_size(g)": 100.0,
+    "name": "bread, cinnamon",
+    "usda_match": "Bread, cinnamon",
+    "usda_data_type": "SR Legacy"
+  },
+  "vegan cream (pku-safe)": null,
+  "cloves": {
+    "phe(mg)": 0.23,
+    "protein(g)": 5.97,
+    "energy(kcal)": 273.66187,
+    "serving_size(g)": 100.0,
+    "name": "spices, cloves, ground",
+    "usda_match": "Spices, cloves, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "vegan butter": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 900.096596,
+    "serving_size(g)": 100.0,
+    "name": "butter, clarified butter (ghee)",
+    "usda_match": "Butter, Clarified butter (ghee)",
+    "usda_data_type": "SR Legacy"
+  },
+  "cabbage": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 15.53539,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, kimchi",
+    "usda_match": "Cabbage, kimchi",
+    "usda_data_type": "SR Legacy"
+  },
+  "bell peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "celery root": {
+    "phe(mg)": 24.609375,
+    "protein(g)": 0.4921875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "celery, raw",
+    "usda_match": "Celery, raw",
+    "usda_data_type": "Foundation"
+  },
+  "flour, cake": {
+    "phe(mg)": 0.012,
+    "protein(g)": 0.3,
+    "energy(kcal)": 357.074964,
+    "serving_size(g)": 100.0,
+    "name": "arrowroot flour",
+    "usda_match": "Arrowroot flour",
+    "usda_data_type": "SR Legacy"
+  },
+  "lemon zest": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 28.919726,
+    "serving_size(g)": 100.0,
+    "name": "lemons, raw, without peel",
+    "usda_match": "Lemons, raw, without peel",
+    "usda_data_type": "SR Legacy"
+  },
+  "sugar": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 399.14002,
+    "serving_size(g)": 100.0,
+    "name": "sugar, turbinado",
+    "usda_match": "Sugar, turbinado",
+    "usda_data_type": "SR Legacy"
+  },
+  "pineapple": null,
+  "green bell pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "cornstarch": {
+    "phe(mg)": 0.013,
+    "protein(g)": 0.26,
+    "energy(kcal)": 380.975564,
+    "serving_size(g)": 100.0,
+    "name": "cornstarch",
+    "usda_match": "Cornstarch",
+    "usda_data_type": "SR Legacy"
+  },
+  "rice vinegar": null,
+  "low-protein rice": {
+    "phe(mg)": 15.0,
+    "protein(g)": 0.3,
+    "energy(kcal)": 231.118802,
+    "serving_size(g)": 100.0,
+    "name": "mayonnaise, low sodium, low calorie or diet",
+    "usda_match": "Mayonnaise, low sodium, low calorie or diet",
+    "usda_data_type": "SR Legacy"
+  },
+  "peas": {
+    "phe(mg)": 705.0,
+    "protein(g)": 14.1,
+    "energy(kcal)": 432.0,
+    "serving_size(g)": 100.0,
+    "name": "wasabi peas",
+    "usda_match": "Wasabi peas",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "sesame oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, sesame, salad or cooking",
+    "usda_match": "Oil, sesame, salad or cooking",
+    "usda_data_type": "SR Legacy"
+  },
+  "chinese cabbage (pak-choi), raw": {
+    "phe(mg)": 0.044,
+    "protein(g)": 1.5,
+    "energy(kcal)": 13.14533,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, chinese (pak-choi), raw",
+    "usda_match": "Cabbage, chinese (pak-choi), raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "apple": {
+    "phe(mg)": 67.0,
+    "protein(g)": 1.34,
+    "energy(kcal)": 134.0,
+    "serving_size(g)": 100.0,
+    "name": "apple, candied",
+    "usda_match": "Apple, candied",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "salt & pepper": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "chives": {
+    "phe(mg)": 0.105,
+    "protein(g)": 3.27,
+    "energy(kcal)": 30.114756,
+    "serving_size(g)": 100.0,
+    "name": "chives, raw",
+    "usda_match": "Chives, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "ginger": {
+    "phe(mg)": 0.045,
+    "protein(g)": 1.82,
+    "energy(kcal)": 79.588998,
+    "serving_size(g)": 100.0,
+    "name": "ginger root, raw",
+    "usda_match": "Ginger root, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "baby bok choy": {
+    "phe(mg)": 51.1875,
+    "protein(g)": 1.02375,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, bok choy, raw",
+    "usda_match": "Cabbage, bok choy, raw",
+    "usda_data_type": "Foundation"
+  },
+  "shiitake mushrooms, dried": {
+    "phe(mg)": 0.486,
+    "protein(g)": 9.58,
+    "energy(kcal)": 295.889428,
+    "serving_size(g)": 100.0,
+    "name": "mushrooms, shiitake, dried",
+    "usda_match": "Mushrooms, shiitake, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "oil, vegetable": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, vegetable, soybean, refined",
+    "usda_match": "Oil, vegetable, soybean, refined",
+    "usda_data_type": "SR Legacy"
+  },
+  "ginger, raw": {
+    "phe(mg)": 0.045,
+    "protein(g)": 1.82,
+    "energy(kcal)": 79.588998,
+    "serving_size(g)": 100.0,
+    "name": "ginger root, raw",
+    "usda_match": "Ginger root, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "daikon": {
+    "phe(mg)": 34.0,
+    "protein(g)": 0.68,
+    "energy(kcal)": 16.0,
+    "serving_size(g)": 100.0,
+    "name": "radish",
+    "usda_match": "Radish",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "star anise": {
+    "phe(mg)": 880.0000000000001,
+    "protein(g)": 17.6,
+    "energy(kcal)": 337.237466,
+    "serving_size(g)": 100.0,
+    "name": "spices, anise seed",
+    "usda_match": "Spices, anise seed",
+    "usda_data_type": "SR Legacy"
+  },
+  "soy sauce": {
+    "phe(mg)": 407.0,
+    "protein(g)": 8.14,
+    "energy(kcal)": 53.0,
+    "serving_size(g)": 100.0,
+    "name": "soy sauce",
+    "usda_match": "Soy sauce",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "scallion greens": {
+    "phe(mg)": 33.4375,
+    "protein(g)": 0.66875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "green onion, (scallion), bulb and greens, root removed, raw",
+    "usda_match": "Green onion, (scallion), bulb and greens, root removed, raw",
+    "usda_data_type": "Foundation"
+  },
+  "kosher salt": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "korean red pepper flakes": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "scallions": {
+    "phe(mg)": 0.059,
+    "protein(g)": 1.83,
+    "energy(kcal)": 32.26581,
+    "serving_size(g)": 100.0,
+    "name": "onions, spring or scallions (includes tops and bulb), raw",
+    "usda_match": "Onions, spring or scallions (includes tops and bulb), raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "winter melon": {
+    "phe(mg)": 89.0,
+    "protein(g)": 1.78,
+    "energy(kcal)": 43.738098,
+    "serving_size(g)": 100.0,
+    "name": "horned melon (kiwano)",
+    "usda_match": "Horned melon (Kiwano)",
+    "usda_data_type": "SR Legacy"
+  },
+  "dried shiitake mushrooms": {
+    "phe(mg)": 0.486,
+    "protein(g)": 9.58,
+    "energy(kcal)": 295.889428,
+    "serving_size(g)": 100.0,
+    "name": "mushrooms, shiitake, dried",
+    "usda_match": "Mushrooms, shiitake, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "dried red chili peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "preserved vegetables": {
+    "phe(mg)": 0.021,
+    "protein(g)": 0.37,
+    "energy(kcal)": 277.963978,
+    "serving_size(g)": 100.0,
+    "name": "jams and preserves",
+    "usda_match": "Jams and preserves",
+    "usda_data_type": "SR Legacy"
+  },
+  "wine": {
+    "phe(mg)": 2.0,
+    "protein(g)": 0.04,
+    "energy(kcal)": 49.0,
+    "serving_size(g)": 100.0,
+    "name": "wine spritzer",
+    "usda_match": "Wine spritzer",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "lotus root": {
+    "phe(mg)": 0.047,
+    "protein(g)": 2.6,
+    "energy(kcal)": 74.330866,
+    "serving_size(g)": 100.0,
+    "name": "lotus root, raw",
+    "usda_match": "Lotus root, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "wood ear mushrooms": {
+    "phe(mg)": 462.5,
+    "protein(g)": 9.25,
+    "energy(kcal)": 284.41714,
+    "serving_size(g)": 100.0,
+    "name": "fungi, cloud ears, dried",
+    "usda_match": "Fungi, Cloud ears, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "vegetable oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, vegetable, soybean, refined",
+    "usda_match": "Oil, vegetable, soybean, refined",
+    "usda_data_type": "SR Legacy"
+  },
+  "bean sprouts": null,
+  "garlic chives": {
+    "phe(mg)": 331.0,
+    "protein(g)": 6.62,
+    "energy(kcal)": 142.686582,
+    "serving_size(g)": 100.0,
+    "name": "garlic, raw",
+    "usda_match": "Garlic, raw",
+    "usda_data_type": "Foundation"
+  },
+  "japanese/lebanese cucumbers": null,
+  "thai chili": {
+    "phe(mg)": 51.5,
+    "protein(g)": 1.03,
+    "energy(kcal)": 74.0,
+    "serving_size(g)": 100.0,
+    "name": "hot thai sauce",
+    "usda_match": "Hot Thai sauce",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "kabocha squash (roasted, chopped)": {
+    "phe(mg)": 1.711,
+    "protein(g)": 29.84,
+    "energy(kcal)": 573.853406,
+    "serving_size(g)": 100.0,
+    "name": "seeds, pumpkin and squash seed kernels, roasted, with salt added",
+    "usda_match": "Seeds, pumpkin and squash seed kernels, roasted, with salt added",
+    "usda_data_type": "SR Legacy"
+  },
+  "chili flakes": {
+    "phe(mg)": 0.229,
+    "protein(g)": 8.95,
+    "energy(kcal)": 348.94876,
+    "serving_size(g)": 100.0,
+    "name": "onions, dehydrated flakes",
+    "usda_match": "Onions, dehydrated flakes",
+    "usda_data_type": "SR Legacy"
+  },
+  "choy sum": {
+    "phe(mg)": 51.1875,
+    "protein(g)": 1.02375,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, bok choy, raw",
+    "usda_match": "Cabbage, bok choy, raw",
+    "usda_data_type": "Foundation"
+  },
+  "canola oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 900.0,
+    "serving_size(g)": 100.0,
+    "name": "canola oil",
+    "usda_match": "Canola oil",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "ground white pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "celery": {
+    "phe(mg)": 24.609375,
+    "protein(g)": 0.4921875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "celery, raw",
+    "usda_match": "Celery, raw",
+    "usda_data_type": "Foundation"
+  },
+  "dried chili peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "chayote, cooked": {
+    "phe(mg)": 0.036,
+    "protein(g)": 0.62,
+    "energy(kcal)": 21.51054,
+    "serving_size(g)": 100.0,
+    "name": "chayote, fruit, cooked, boiled, drained, with salt",
+    "usda_match": "Chayote, fruit, cooked, boiled, drained, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "vinegar": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 21.0,
+    "serving_size(g)": 100.0,
+    "name": "vinegar",
+    "usda_match": "Vinegar",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "chili oil": {
+    "phe(mg)": 0.474,
+    "protein(g)": 12.56,
+    "energy(kcal)": 156.787936,
+    "serving_size(g)": 100.0,
+    "name": "applebee's, chili",
+    "usda_match": "APPLEBEE'S, chili",
+    "usda_data_type": "SR Legacy"
+  },
+  "chinese black vinegar": {
+    "phe(mg)": 56.99999999999999,
+    "protein(g)": 1.14,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "broccoli, chinese, cooked",
+    "usda_match": "Broccoli, chinese, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "sesame seeds": {
+    "phe(mg)": 0.94,
+    "protein(g)": 17.73,
+    "energy(kcal)": 572.897382,
+    "serving_size(g)": 100.0,
+    "name": "seeds, sesame seeds, whole, dried",
+    "usda_match": "Seeds, sesame seeds, whole, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "napa cabbage": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 11.9503,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, napa, cooked",
+    "usda_match": "Cabbage, napa, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "granulated sugar": null,
+  "bell pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "snow peas": {
+    "phe(mg)": 20.0,
+    "protein(g)": 0.4,
+    "energy(kcal)": 128.0,
+    "serving_size(g)": 100.0,
+    "name": "snow cone",
+    "usda_match": "Snow cone",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "wood ear mushroom": {
+    "phe(mg)": 462.5,
+    "protein(g)": 9.25,
+    "energy(kcal)": 284.41714,
+    "serving_size(g)": 100.0,
+    "name": "fungi, cloud ears, dried",
+    "usda_match": "Fungi, Cloud ears, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "dark soy sauce": {
+    "phe(mg)": 0.534,
+    "protein(g)": 10.51,
+    "energy(kcal)": 59.990505999999996,
+    "serving_size(g)": 100.0,
+    "name": "soy sauce made from soy (tamari)",
+    "usda_match": "Soy sauce made from soy (tamari)",
+    "usda_data_type": "SR Legacy"
+  },
+  "enoki mushroom": {
+    "phe(mg)": 0.819,
+    "protein(g)": 2.416875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "mushroom, enoki",
+    "usda_match": "Mushroom, enoki",
+    "usda_data_type": "Foundation"
+  },
+  "kabocha squash": {
+    "phe(mg)": 40.5,
+    "protein(g)": 0.81,
+    "energy(kcal)": 24.139606,
+    "serving_size(g)": 100.0,
+    "name": "babyfood, vegetables, squash, junior",
+    "usda_match": "Babyfood, vegetables, squash, junior",
+    "usda_data_type": "SR Legacy"
+  },
+  "lettuce": {
+    "phe(mg)": 37.125,
+    "protein(g)": 0.7425,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "lettuce, iceberg, raw",
+    "usda_match": "Lettuce, iceberg, raw",
+    "usda_data_type": "Foundation"
+  },
+  "chinese broccoli": {
+    "phe(mg)": 56.99999999999999,
+    "protein(g)": 1.14,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "broccoli, chinese, cooked",
+    "usda_match": "Broccoli, chinese, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "fuzzy melon": {
+    "phe(mg)": 89.0,
+    "protein(g)": 1.78,
+    "energy(kcal)": 43.738098,
+    "serving_size(g)": 100.0,
+    "name": "horned melon (kiwano)",
+    "usda_match": "Horned melon (Kiwano)",
+    "usda_data_type": "SR Legacy"
+  },
+  "tatsoi": null,
+  "bok choy": {
+    "phe(mg)": 51.1875,
+    "protein(g)": 1.02375,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, bok choy, raw",
+    "usda_match": "Cabbage, bok choy, raw",
+    "usda_data_type": "Foundation"
+  },
+  "bamboo shoots": {
+    "phe(mg)": 0.09,
+    "protein(g)": 2.6,
+    "energy(kcal)": 27.485689999999998,
+    "serving_size(g)": 100.0,
+    "name": "bamboo shoots, raw",
+    "usda_match": "Bamboo shoots, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "water chestnut": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "zha cai": null,
+  "pickled radish": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 27.963701999999998,
+    "serving_size(g)": 100.0,
+    "name": "radishes, hawaiian style, pickled",
+    "usda_match": "Radishes, hawaiian style, pickled",
+    "usda_data_type": "SR Legacy"
+  },
+  "pickled cabbage": {
+    "phe(mg)": 80.0,
+    "protein(g)": 1.6,
+    "energy(kcal)": 29.87575,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, japanese style, fresh, pickled",
+    "usda_match": "Cabbage, japanese style, fresh, pickled",
+    "usda_data_type": "SR Legacy"
+  },
+  "seaweed (rehydrated)": null,
+  "chinese leek": {
+    "phe(mg)": 56.99999999999999,
+    "protein(g)": 1.14,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "broccoli, chinese, cooked",
+    "usda_match": "Broccoli, chinese, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "garlic sprouts": {
+    "phe(mg)": 331.0,
+    "protein(g)": 6.62,
+    "energy(kcal)": 142.686582,
+    "serving_size(g)": 100.0,
+    "name": "garlic, raw",
+    "usda_match": "Garlic, raw",
+    "usda_data_type": "Foundation"
+  },
+  "taro, cooked": {
+    "phe(mg)": 0.028,
+    "protein(g)": 0.52,
+    "energy(kcal)": 141.969564,
+    "serving_size(g)": 100.0,
+    "name": "taro, cooked, with salt",
+    "usda_match": "Taro, cooked, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "shanghai greens": {
+    "phe(mg)": 51.5,
+    "protein(g)": 1.03,
+    "energy(kcal)": 145.0,
+    "serving_size(g)": 100.0,
+    "name": "olives, green",
+    "usda_match": "Olives, green",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "kailan": null,
+  "sweet corn": {
+    "phe(mg)": 0.15,
+    "protein(g)": 3.22,
+    "energy(kcal)": 85.564148,
+    "serving_size(g)": 100.0,
+    "name": "corn, sweet, white, raw",
+    "usda_match": "Corn, sweet, white, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "mustard greens, cooked": {
+    "phe(mg)": 128.0,
+    "protein(g)": 2.56,
+    "energy(kcal)": 26.29066,
+    "serving_size(g)": 100.0,
+    "name": "mustard greens, cooked, boiled, drained, with salt",
+    "usda_match": "Mustard greens, cooked, boiled, drained, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "jicama slices, raw": {
+    "phe(mg)": 0.017,
+    "protein(g)": 0.72,
+    "energy(kcal)": 38.001954,
+    "serving_size(g)": 100.0,
+    "name": "yambean (jicama), raw",
+    "usda_match": "Yambean (jicama), raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "komatsuna": null,
+  "cabbage core shreds": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 15.53539,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, kimchi",
+    "usda_match": "Cabbage, kimchi",
+    "usda_data_type": "SR Legacy"
+  },
+  "chinese celery": {
+    "phe(mg)": 56.99999999999999,
+    "protein(g)": 1.14,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "broccoli, chinese, cooked",
+    "usda_match": "Broccoli, chinese, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "red bell peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "white rice": {
+    "phe(mg)": 325.0,
+    "protein(g)": 6.5,
+    "energy(kcal)": 164.0,
+    "serving_size(g)": 100.0,
+    "name": "beans and white rice",
+    "usda_match": "Beans and white rice",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "curry powder": null,
+  "sage (dried)": {
+    "phe(mg)": 531.5,
+    "protein(g)": 10.63,
+    "energy(kcal)": 314.770902,
+    "serving_size(g)": 100.0,
+    "name": "spices, sage, ground",
+    "usda_match": "Spices, sage, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomato paste": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "fresh fresh dill": {
+    "phe(mg)": 0.065,
+    "protein(g)": 3.46,
+    "energy(kcal)": 43.02108,
+    "serving_size(g)": 100.0,
+    "name": "dill weed, fresh",
+    "usda_match": "Dill weed, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "balsamic vinegar": null,
+  "cayenne": {
+    "phe(mg)": 600.5,
+    "protein(g)": 12.01,
+    "energy(kcal)": 318.116986,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, red or cayenne",
+    "usda_match": "Spices, pepper, red or cayenne",
+    "usda_data_type": "SR Legacy"
+  },
+  "avocado oil": null,
+  "flour": {
+    "phe(mg)": 0.012,
+    "protein(g)": 0.3,
+    "energy(kcal)": 357.074964,
+    "serving_size(g)": 100.0,
+    "name": "arrowroot flour",
+    "usda_match": "Arrowroot flour",
+    "usda_data_type": "SR Legacy"
+  },
+  "portobello mushrooms": null,
+  "coriander": {
+    "phe(mg)": 618.5,
+    "protein(g)": 12.37,
+    "energy(kcal)": 297.56247,
+    "serving_size(g)": 100.0,
+    "name": "spices, coriander seed",
+    "usda_match": "Spices, coriander seed",
+    "usda_data_type": "SR Legacy"
+  },
+  "chili sauce": null,
+  "granny smith golden apples": {
+    "phe(mg)": 13.28125,
+    "protein(g)": 0.265625,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "apples, granny smith, with skin, raw",
+    "usda_match": "Apples, granny smith, with skin, raw",
+    "usda_data_type": "Foundation"
+  },
+  "raisins, seedless": {
+    "phe(mg)": 164.0,
+    "protein(g)": 3.28,
+    "energy(kcal)": 300.669548,
+    "serving_size(g)": 100.0,
+    "name": "raisins, golden, seedless",
+    "usda_match": "Raisins, golden, seedless",
+    "usda_data_type": "SR Legacy"
+  },
+  "honey": {
+    "phe(mg)": 0.011,
+    "protein(g)": 0.3,
+    "energy(kcal)": 304.015632,
+    "serving_size(g)": 100.0,
+    "name": "honey",
+    "usda_match": "Honey",
+    "usda_data_type": "SR Legacy"
+  },
+  "allspice": {
+    "phe(mg)": 304.5,
+    "protein(g)": 6.09,
+    "energy(kcal)": 262.667594,
+    "serving_size(g)": 100.0,
+    "name": "spices, allspice, ground",
+    "usda_match": "Spices, allspice, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "marinara sauce": null,
+  "cauliflower, raw": {
+    "phe(mg)": 82.03125,
+    "protein(g)": 1.640625,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cauliflower, raw",
+    "usda_match": "Cauliflower, raw",
+    "usda_data_type": "Foundation"
+  },
+  "vegan worcestershire sauce": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 76.720926,
+    "serving_size(g)": 100.0,
+    "name": "sauce, worcestershire",
+    "usda_match": "Sauce, worcestershire",
+    "usda_data_type": "SR Legacy"
+  },
+  "italian seasoning": null,
+  "onion powder": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "garlic powder": {
+    "phe(mg)": 331.0,
+    "protein(g)": 6.62,
+    "energy(kcal)": 142.686582,
+    "serving_size(g)": 100.0,
+    "name": "garlic, raw",
+    "usda_match": "Garlic, raw",
+    "usda_data_type": "Foundation"
+  },
+  "allspice berries": {
+    "phe(mg)": 304.5,
+    "protein(g)": 6.09,
+    "energy(kcal)": 262.667594,
+    "serving_size(g)": 100.0,
+    "name": "spices, allspice, ground",
+    "usda_match": "Spices, allspice, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "floral honey": {
+    "phe(mg)": 0.011,
+    "protein(g)": 0.3,
+    "energy(kcal)": 304.015632,
+    "serving_size(g)": 100.0,
+    "name": "honey",
+    "usda_match": "Honey",
+    "usda_data_type": "SR Legacy"
+  },
+  "cherry jam": {
+    "phe(mg)": 0.021,
+    "protein(g)": 0.37,
+    "energy(kcal)": 277.963978,
+    "serving_size(g)": 100.0,
+    "name": "jams and preserves",
+    "usda_match": "Jams and preserves",
+    "usda_data_type": "SR Legacy"
+  },
+  "pickle brine": {
+    "phe(mg)": 24.0,
+    "protein(g)": 0.48,
+    "energy(kcal)": 14.0,
+    "serving_size(g)": 100.0,
+    "name": "pickles, nfs",
+    "usda_match": "Pickles, NFS",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "mustard": {
+    "phe(mg)": 212.5,
+    "protein(g)": 4.25,
+    "energy(kcal)": 69.0,
+    "serving_size(g)": 100.0,
+    "name": "mustard",
+    "usda_match": "Mustard",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "salad mix": {
+    "phe(mg)": 65.5,
+    "protein(g)": 1.31,
+    "energy(kcal)": 21.0,
+    "serving_size(g)": 100.0,
+    "name": "mixed salad greens, raw",
+    "usda_match": "Mixed salad greens, raw",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "pickled pumpkin": {
+    "phe(mg)": 24.0,
+    "protein(g)": 0.48,
+    "energy(kcal)": 14.0,
+    "serving_size(g)": 100.0,
+    "name": "pickles, nfs",
+    "usda_match": "Pickles, NFS",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "sweet peas": null,
+  "fresh dill pickles": {
+    "phe(mg)": 0.017,
+    "protein(g)": 0.5,
+    "energy(kcal)": 12.428312,
+    "serving_size(g)": 100.0,
+    "name": "pickles, cucumber, dill or kosher dill",
+    "usda_match": "Pickles, cucumber, dill or kosher dill",
+    "usda_data_type": "SR Legacy"
+  },
+  "thyme": {
+    "phe(mg)": 278.0,
+    "protein(g)": 5.56,
+    "energy(kcal)": 101.099538,
+    "serving_size(g)": 100.0,
+    "name": "thyme, fresh",
+    "usda_match": "Thyme, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "cauliflower": null,
+  "dill pickles": {
+    "phe(mg)": 0.017,
+    "protein(g)": 0.5,
+    "energy(kcal)": 12.428312,
+    "serving_size(g)": 100.0,
+    "name": "pickles, cucumber, dill or kosher dill",
+    "usda_match": "Pickles, cucumber, dill or kosher dill",
+    "usda_data_type": "SR Legacy"
+  },
+  "buckwheat": {
+    "phe(mg)": 0.52,
+    "protein(g)": 13.25,
+    "energy(kcal)": 342.97361,
+    "serving_size(g)": 100.0,
+    "name": "buckwheat",
+    "usda_match": "Buckwheat",
+    "usda_data_type": "SR Legacy"
+  },
+  "mushrooms": null,
+  "coconut oil": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 895.0,
+    "serving_size(g)": 100.0,
+    "name": "coconut oil",
+    "usda_match": "Coconut oil",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "sage": {
+    "phe(mg)": 531.5,
+    "protein(g)": 10.63,
+    "energy(kcal)": 314.770902,
+    "serving_size(g)": 100.0,
+    "name": "spices, sage, ground",
+    "usda_match": "Spices, sage, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "turnips": {
+    "phe(mg)": 0.121,
+    "protein(g)": 2.46,
+    "energy(kcal)": 21.51054,
+    "serving_size(g)": 100.0,
+    "name": "turnip greens and turnips, frozen, unprepared",
+    "usda_match": "Turnip greens and turnips, frozen, unprepared",
+    "usda_data_type": "SR Legacy"
+  },
+  "black pepper": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "radishes": {
+    "phe(mg)": 0.036,
+    "protein(g)": 0.68,
+    "energy(kcal)": 15.774396,
+    "serving_size(g)": 100.0,
+    "name": "radishes, raw",
+    "usda_match": "Radishes, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomato, fresh juice": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "tamarind paste": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 331.02331,
+    "serving_size(g)": 100.0,
+    "name": "candies, tamarind",
+    "usda_match": "Candies, Tamarind",
+    "usda_data_type": "SR Legacy"
+  },
+  "potatoes, boiled": {
+    "phe(mg)": 0.083,
+    "protein(g)": 1.87,
+    "energy(kcal)": 86.998184,
+    "serving_size(g)": 100.0,
+    "name": "potatoes, boiled, cooked in skin, flesh, with salt",
+    "usda_match": "Potatoes, boiled, cooked in skin, flesh, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "coconut cream": {
+    "phe(mg)": 0.06,
+    "protein(g)": 1.17,
+    "energy(kcal)": 357.074964,
+    "serving_size(g)": 100.0,
+    "name": "nuts, coconut cream, canned, sweetened",
+    "usda_match": "Nuts, coconut cream, canned, sweetened",
+    "usda_data_type": "SR Legacy"
+  },
+  "raw ginger (fresh)": {
+    "phe(mg)": 0.045,
+    "protein(g)": 1.82,
+    "energy(kcal)": 79.588998,
+    "serving_size(g)": 100.0,
+    "name": "ginger root, raw",
+    "usda_match": "Ginger root, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "eggplant, cooked": null,
+  "tomatoes, cooked": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "onion, raw": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "turmeric": {
+    "phe(mg)": 0.53,
+    "protein(g)": 9.68,
+    "energy(kcal)": 311.90283,
+    "serving_size(g)": 100.0,
+    "name": "spices, turmeric, ground",
+    "usda_match": "Spices, turmeric, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "green chili": {
+    "phe(mg)": 0.022,
+    "protein(g)": 0.72,
+    "energy(kcal)": 21.032528,
+    "serving_size(g)": 100.0,
+    "name": "peppers, chili, green, canned",
+    "usda_match": "Peppers, chili, green, canned",
+    "usda_data_type": "SR Legacy"
+  },
+  "cream of rice": {
+    "phe(mg)": 0.267,
+    "protein(g)": 6.3,
+    "energy(kcal)": 369.981288,
+    "serving_size(g)": 100.0,
+    "name": "cereals, cream of rice, dry",
+    "usda_match": "Cereals, CREAM OF RICE, dry",
+    "usda_data_type": "SR Legacy"
+  },
+  "rice, long-grain": {
+    "phe(mg)": 362.6525,
+    "protein(g)": 7.25305,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "rice, brown, long grain, unenriched, raw",
+    "usda_match": "Rice, brown, long grain, unenriched, raw",
+    "usda_data_type": "Foundation"
+  },
+  "curry leaves": {
+    "phe(mg)": 0.487,
+    "protein(g)": 9.4,
+    "energy(kcal)": 64.053608,
+    "serving_size(g)": 100.0,
+    "name": "drumstick leaves, raw",
+    "usda_match": "Drumstick leaves, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "cream of wheat regular": {
+    "phe(mg)": 0.396,
+    "protein(g)": 7.3,
+    "energy(kcal)": 454.828418,
+    "serving_size(g)": 100.0,
+    "name": "crackers, wheat, regular",
+    "usda_match": "Crackers, wheat, regular",
+    "usda_data_type": "SR Legacy"
+  },
+  "carrots, cooked": {
+    "phe(mg)": 45.0,
+    "protein(g)": 0.9,
+    "energy(kcal)": 97.0,
+    "serving_size(g)": 100.0,
+    "name": "carrots, glazed, cooked",
+    "usda_match": "Carrots, glazed, cooked",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "tamarind": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 331.02331,
+    "serving_size(g)": 100.0,
+    "name": "candies, tamarind",
+    "usda_match": "Candies, Tamarind",
+    "usda_data_type": "SR Legacy"
+  },
+  "beet root": {
+    "phe(mg)": 84.375,
+    "protein(g)": 1.6875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "beets, raw",
+    "usda_match": "Beets, raw",
+    "usda_data_type": "Foundation"
+  },
+  "yogurt": null,
+  "mustard seeds": {
+    "phe(mg)": 1.173,
+    "protein(g)": 26.08,
+    "energy(kcal)": 508.126756,
+    "serving_size(g)": 100.0,
+    "name": "spices, mustard seed, ground",
+    "usda_match": "Spices, mustard seed, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "basmati rice (cooked)": {
+    "phe(mg)": 0.095,
+    "protein(g)": 1.79,
+    "energy(kcal)": 108.508724,
+    "serving_size(g)": 100.0,
+    "name": "rice noodles, cooked",
+    "usda_match": "Rice noodles, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "carrot": {
+    "phe(mg)": 0.251,
+    "protein(g)": 8.1,
+    "energy(kcal)": 341.061562,
+    "serving_size(g)": 100.0,
+    "name": "carrot, dehydrated",
+    "usda_match": "Carrot, dehydrated",
+    "usda_data_type": "SR Legacy"
+  },
+  "spices (rasam powder)": null,
+  "boiled potato": {
+    "phe(mg)": 0.083,
+    "protein(g)": 1.87,
+    "energy(kcal)": 86.998184,
+    "serving_size(g)": 100.0,
+    "name": "potatoes, boiled, cooked in skin, flesh, with salt",
+    "usda_match": "Potatoes, boiled, cooked in skin, flesh, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "tamarind chutney": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 331.02331,
+    "serving_size(g)": 100.0,
+    "name": "candies, tamarind",
+    "usda_match": "Candies, Tamarind",
+    "usda_data_type": "SR Legacy"
+  },
+  "sev (low protein)": null,
+  "cooked rice": {
+    "phe(mg)": 0.095,
+    "protein(g)": 1.79,
+    "energy(kcal)": 108.508724,
+    "serving_size(g)": 100.0,
+    "name": "rice noodles, cooked",
+    "usda_match": "Rice noodles, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "fresh grated coconut": {
+    "phe(mg)": 0.184,
+    "protein(g)": 3.63,
+    "energy(kcal)": 330.06728599999997,
+    "serving_size(g)": 100.0,
+    "name": "nuts, coconut cream, raw (liquid expressed from grated meat)",
+    "usda_match": "Nuts, coconut cream, raw (liquid expressed from grated meat)",
+    "usda_data_type": "SR Legacy"
+  },
+  "cumin powder": {
+    "phe(mg)": 890.4999999999999,
+    "protein(g)": 17.81,
+    "energy(kcal)": 374.522402,
+    "serving_size(g)": 100.0,
+    "name": "spices, cumin seed",
+    "usda_match": "Spices, cumin seed",
+    "usda_data_type": "SR Legacy"
+  },
+  "curry masala": {
+    "phe(mg)": 69.5,
+    "protein(g)": 1.39,
+    "energy(kcal)": 95.0,
+    "serving_size(g)": 100.0,
+    "name": "curry sauce",
+    "usda_match": "Curry sauce",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "white bread": null,
+  "green chutney": {
+    "phe(mg)": 16.5,
+    "protein(g)": 0.33,
+    "energy(kcal)": 246.0,
+    "serving_size(g)": 100.0,
+    "name": "chutney",
+    "usda_match": "Chutney",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "flattened pku rice (poha)": null,
+  "jaggery": null,
+  "coconut": {
+    "phe(mg)": 806.9250000000001,
+    "protein(g)": 16.1385,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "flour, coconut",
+    "usda_match": "Flour, coconut",
+    "usda_data_type": "Foundation"
+  },
+  "potato": {
+    "phe(mg)": 0.285,
+    "protein(g)": 12.5,
+    "energy(kcal)": 266.49169,
+    "serving_size(g)": 100.0,
+    "name": "bread, potato",
+    "usda_match": "Bread, potato",
+    "usda_data_type": "SR Legacy"
+  },
+  "soy-free sauce": {
+    "phe(mg)": 0.534,
+    "protein(g)": 10.51,
+    "energy(kcal)": 59.990505999999996,
+    "serving_size(g)": 100.0,
+    "name": "soy sauce made from soy (tamari)",
+    "usda_match": "Soy sauce made from soy (tamari)",
+    "usda_data_type": "SR Legacy"
+  },
+  "chaat masala": {
+    "phe(mg)": 165.0,
+    "protein(g)": 3.3,
+    "energy(kcal)": 56.883428,
+    "serving_size(g)": 100.0,
+    "name": "smart soup, indian bean masala",
+    "usda_match": "SMART SOUP, Indian Bean Masala",
+    "usda_data_type": "SR Legacy"
+  },
+  "ghee": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 900.096596,
+    "serving_size(g)": 100.0,
+    "name": "butter, clarified butter (ghee)",
+    "usda_match": "Butter, Clarified butter (ghee)",
+    "usda_data_type": "SR Legacy"
+  },
+  "cumin seeds": {
+    "phe(mg)": 890.4999999999999,
+    "protein(g)": 17.81,
+    "energy(kcal)": 374.522402,
+    "serving_size(g)": 100.0,
+    "name": "spices, cumin seed",
+    "usda_match": "Spices, cumin seed",
+    "usda_data_type": "SR Legacy"
+  },
+  "shredded cabbage": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 15.53539,
+    "serving_size(g)": 100.0,
+    "name": "cabbage, kimchi",
+    "usda_match": "Cabbage, kimchi",
+    "usda_data_type": "SR Legacy"
+  },
+  "semolina": {
+    "phe(mg)": 0.616,
+    "protein(g)": 12.68,
+    "energy(kcal)": 359.943036,
+    "serving_size(g)": 100.0,
+    "name": "semolina, enriched",
+    "usda_match": "Semolina, enriched",
+    "usda_data_type": "SR Legacy"
+  },
+  "corn kernels": {
+    "phe(mg)": 0.168,
+    "protein(g)": 3.62,
+    "energy(kcal)": 113.049838,
+    "serving_size(g)": 100.0,
+    "name": "corn, yellow, whole kernel, frozen, microwaved",
+    "usda_match": "Corn, yellow, whole kernel, frozen, microwaved",
+    "usda_data_type": "SR Legacy"
+  },
+  "ripe plantain": {
+    "phe(mg)": 57.8125,
+    "protein(g)": 1.15625,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "plantains, ripe, raw",
+    "usda_match": "Plantains, ripe, raw",
+    "usda_data_type": "Foundation"
+  },
+  "capsicum": {
+    "phe(mg)": 600.5,
+    "protein(g)": 12.01,
+    "energy(kcal)": 318.116986,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, red or cayenne",
+    "usda_match": "Spices, pepper, red or cayenne",
+    "usda_data_type": "SR Legacy"
+  },
+  "dosa batter": {
+    "phe(mg)": 0.604,
+    "protein(g)": 14.2,
+    "energy(kcal)": 278.920002,
+    "serving_size(g)": 100.0,
+    "name": "turkey sticks, breaded, battered, fried",
+    "usda_match": "Turkey sticks, breaded, battered, fried",
+    "usda_data_type": "SR Legacy"
+  },
+  "raw papaya": {
+    "phe(mg)": 0.009,
+    "protein(g)": 0.47,
+    "energy(kcal)": 42.782074,
+    "serving_size(g)": 100.0,
+    "name": "papayas, raw",
+    "usda_match": "Papayas, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "pku bread": {
+    "phe(mg)": 300.5,
+    "protein(g)": 6.01,
+    "energy(kcal)": 374.0,
+    "serving_size(g)": 100.0,
+    "name": "bread, fruit",
+    "usda_match": "Bread, fruit",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "fresh cream": {
+    "phe(mg)": 0.13,
+    "protein(g)": 3.15,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "basil, fresh",
+    "usda_match": "Basil, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "roti": {
+    "phe(mg)": 562.5,
+    "protein(g)": 11.25,
+    "energy(kcal)": 297.56247,
+    "serving_size(g)": 100.0,
+    "name": "bread, chapati or roti, plain, commercially prepared",
+    "usda_match": "Bread, chapati or roti, plain, commercially prepared",
+    "usda_data_type": "SR Legacy"
+  },
+  "chutney": {
+    "phe(mg)": 16.5,
+    "protein(g)": 0.33,
+    "energy(kcal)": 246.0,
+    "serving_size(g)": 100.0,
+    "name": "chutney",
+    "usda_match": "Chutney",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "bread cubes": {
+    "phe(mg)": 835.0,
+    "protein(g)": 16.7,
+    "energy(kcal)": 437.858992,
+    "serving_size(g)": 100.0,
+    "name": "soup, bouillon cubes and granules, low sodium, dry",
+    "usda_match": "Soup, bouillon cubes and granules, low sodium, dry",
+    "usda_data_type": "SR Legacy"
+  },
+  "steamed idli": {
+    "phe(mg)": 318.0,
+    "protein(g)": 6.36,
+    "energy(kcal)": 128.0,
+    "serving_size(g)": 100.0,
+    "name": "idli",
+    "usda_match": "Idli",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "masala powder": {
+    "phe(mg)": 165.0,
+    "protein(g)": 3.3,
+    "energy(kcal)": 56.883428,
+    "serving_size(g)": 100.0,
+    "name": "smart soup, indian bean masala",
+    "usda_match": "SMART SOUP, Indian Bean Masala",
+    "usda_data_type": "SR Legacy"
+  },
+  "tandoori masala": {
+    "phe(mg)": 165.0,
+    "protein(g)": 3.3,
+    "energy(kcal)": 56.883428,
+    "serving_size(g)": 100.0,
+    "name": "smart soup, indian bean masala",
+    "usda_match": "SMART SOUP, Indian Bean Masala",
+    "usda_data_type": "SR Legacy"
+  },
+  "squash": {
+    "phe(mg)": 40.5,
+    "protein(g)": 0.81,
+    "energy(kcal)": 24.139606,
+    "serving_size(g)": 100.0,
+    "name": "babyfood, vegetables, squash, junior",
+    "usda_match": "Babyfood, vegetables, squash, junior",
+    "usda_data_type": "SR Legacy"
+  },
+  "idli batter": {
+    "phe(mg)": 0.604,
+    "protein(g)": 14.2,
+    "energy(kcal)": 278.920002,
+    "serving_size(g)": 100.0,
+    "name": "turkey sticks, breaded, battered, fried",
+    "usda_match": "Turkey sticks, breaded, battered, fried",
+    "usda_data_type": "SR Legacy"
+  },
+  "basil": {
+    "phe(mg)": 0.13,
+    "protein(g)": 3.15,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "basil, fresh",
+    "usda_match": "Basil, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "pasta": {
+    "phe(mg)": 288.0,
+    "protein(g)": 5.76,
+    "energy(kcal)": 157.0,
+    "serving_size(g)": 100.0,
+    "name": "pasta, cooked",
+    "usda_match": "Pasta, cooked",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "capers": null,
+  "cornmeal": {
+    "phe(mg)": 520.0,
+    "protein(g)": 10.4,
+    "energy(kcal)": 398.183996,
+    "serving_size(g)": 100.0,
+    "name": "cornmeal, blue (navajo)",
+    "usda_match": "Cornmeal, blue (Navajo)",
+    "usda_data_type": "SR Legacy"
+  },
+  "peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "beans (low protein option)": {
+    "phe(mg)": 0.356,
+    "protein(g)": 6.03,
+    "energy(kcal)": 90.82227999999999,
+    "serving_size(g)": 100.0,
+    "name": "beans, black, mature seeds, canned, low sodium",
+    "usda_match": "Beans, black, mature seeds, canned, low sodium",
+    "usda_data_type": "SR Legacy"
+  },
+  "chicory": {
+    "phe(mg)": 0.041,
+    "protein(g)": 1.7,
+    "energy(kcal)": 22.944575999999998,
+    "serving_size(g)": 100.0,
+    "name": "chicory greens, raw",
+    "usda_match": "Chicory greens, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "rosemary": {
+    "phe(mg)": 0.169,
+    "protein(g)": 3.31,
+    "energy(kcal)": 130.975288,
+    "serving_size(g)": 100.0,
+    "name": "rosemary, fresh",
+    "usda_match": "Rosemary, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "broccoli": {
+    "phe(mg)": 0.117,
+    "protein(g)": 2.57,
+    "energy(kcal)": 31.548792,
+    "serving_size(g)": 100.0,
+    "name": "broccoli, raw",
+    "usda_match": "Broccoli, raw",
+    "usda_data_type": "Foundation"
+  },
+  "arugula": {
+    "phe(mg)": 129.0,
+    "protein(g)": 2.58,
+    "energy(kcal)": 25.09563,
+    "serving_size(g)": 100.0,
+    "name": "arugula, raw",
+    "usda_match": "Arugula, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "spaghetti (low-protein if possible)": null,
+  "boiled potatoes": {
+    "phe(mg)": 0.083,
+    "protein(g)": 1.87,
+    "energy(kcal)": 86.998184,
+    "serving_size(g)": 100.0,
+    "name": "potatoes, boiled, cooked in skin, flesh, with salt",
+    "usda_match": "Potatoes, boiled, cooked in skin, flesh, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "steamed carrots": {
+    "phe(mg)": 361.5,
+    "protein(g)": 7.23,
+    "energy(kcal)": 65.0,
+    "serving_size(g)": 100.0,
+    "name": "oysters, steamed",
+    "usda_match": "Oysters, steamed",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "polenta": null,
+  "baked onions": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "grilled radicchio": {
+    "phe(mg)": 0.034,
+    "protein(g)": 1.43,
+    "energy(kcal)": 22.944575999999998,
+    "serving_size(g)": 100.0,
+    "name": "radicchio, raw",
+    "usda_match": "Radicchio, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "artichokes": {
+    "phe(mg)": 100.0,
+    "protein(g)": 2.0,
+    "energy(kcal)": 72.657824,
+    "serving_size(g)": 100.0,
+    "name": "jerusalem-artichokes, raw",
+    "usda_match": "Jerusalem-artichokes, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "pearl onions": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "steamed cauliflower": {
+    "phe(mg)": 361.5,
+    "protein(g)": 7.23,
+    "energy(kcal)": 65.0,
+    "serving_size(g)": 100.0,
+    "name": "oysters, steamed",
+    "usda_match": "Oysters, steamed",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "lentils": null,
+  "sun-dried tomatoes": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "roasted red peppers": {
+    "phe(mg)": 0.446,
+    "protein(g)": 10.39,
+    "energy(kcal)": 250.9563,
+    "serving_size(g)": 100.0,
+    "name": "spices, pepper, black",
+    "usda_match": "Spices, pepper, black",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomato broth": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "roasted potatoes": {
+    "phe(mg)": 111.00000000000001,
+    "protein(g)": 2.22,
+    "energy(kcal)": 126.67318,
+    "serving_size(g)": 100.0,
+    "name": "potatoes, roasted, salt added in processing, frozen, unprepared",
+    "usda_match": "Potatoes, roasted, salt added in processing, frozen, unprepared",
+    "usda_data_type": "SR Legacy"
+  },
+  "radicchio": {
+    "phe(mg)": 0.034,
+    "protein(g)": 1.43,
+    "energy(kcal)": 22.944575999999998,
+    "serving_size(g)": 100.0,
+    "name": "radicchio, raw",
+    "usda_match": "Radicchio, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "roasted pumpkin": {
+    "phe(mg)": 1.711,
+    "protein(g)": 29.84,
+    "energy(kcal)": 573.853406,
+    "serving_size(g)": 100.0,
+    "name": "seeds, pumpkin and squash seed kernels, roasted, with salt added",
+    "usda_match": "Seeds, pumpkin and squash seed kernels, roasted, with salt added",
+    "usda_data_type": "SR Legacy"
+  },
+  "cannellini beans (small amount)": null,
+  "tomato sauce": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "fava beans": {
+    "phe(mg)": 396.0,
+    "protein(g)": 7.92,
+    "energy(kcal)": 87.954208,
+    "serving_size(g)": 100.0,
+    "name": "beans, fava, in pod, raw",
+    "usda_match": "Beans, fava, in pod, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "breadcrumbs": null,
+  "oranges": {
+    "phe(mg)": 0.01,
+    "protein(g)": 0.3,
+    "energy(kcal)": 245.937174,
+    "serving_size(g)": 100.0,
+    "name": "marmalade, orange",
+    "usda_match": "Marmalade, orange",
+    "usda_data_type": "SR Legacy"
+  },
+  "boiled chicory": {
+    "phe(mg)": 0.041,
+    "protein(g)": 1.7,
+    "energy(kcal)": 22.944575999999998,
+    "serving_size(g)": 100.0,
+    "name": "chicory greens, raw",
+    "usda_match": "Chicory greens, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "cherry tomatoes": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "mint": {
+    "phe(mg)": 1.017,
+    "protein(g)": 19.93,
+    "energy(kcal)": 284.895152,
+    "serving_size(g)": 100.0,
+    "name": "spearmint, dried",
+    "usda_match": "Spearmint, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "oil salt": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "chinese eggplant": {
+    "phe(mg)": 56.99999999999999,
+    "protein(g)": 1.14,
+    "energy(kcal)": 22.466563999999998,
+    "serving_size(g)": 100.0,
+    "name": "broccoli, chinese, cooked",
+    "usda_match": "Broccoli, chinese, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "mushroom": {
+    "phe(mg)": 0.671,
+    "protein(g)": 2.18,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "mushroom, beech",
+    "usda_match": "Mushroom, beech",
+    "usda_data_type": "Foundation"
+  },
+  "cucumber, sliced": {
+    "phe(mg)": 0.031,
+    "protein(g)": 0.59,
+    "energy(kcal)": 10.516264,
+    "serving_size(g)": 100.0,
+    "name": "cucumber, peeled, raw",
+    "usda_match": "Cucumber, peeled, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "seaweed paper": {
+    "phe(mg)": 310.5,
+    "protein(g)": 6.21,
+    "energy(kcal)": 306.405692,
+    "serving_size(g)": 100.0,
+    "name": "seaweed, agar, dried",
+    "usda_match": "Seaweed, agar, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "water spinach": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "yuzu juice": {
+    "phe(mg)": 70.5,
+    "protein(g)": 1.41,
+    "energy(kcal)": 114.72288,
+    "serving_size(g)": 100.0,
+    "name": "frozen novelties, juice type, juice with cream",
+    "usda_match": "Frozen novelties, juice type, juice with cream",
+    "usda_data_type": "SR Legacy"
+  },
+  "spinach, fresh or frozen, cooked": {
+    "phe(mg)": 0.252,
+    "protein(g)": 5.06,
+    "energy(kcal)": 130.019264,
+    "serving_size(g)": 100.0,
+    "name": "pasta, fresh-refrigerated, spinach, cooked",
+    "usda_match": "Pasta, fresh-refrigerated, spinach, cooked",
+    "usda_data_type": "SR Legacy"
+  },
+  "miso paste": {
+    "phe(mg)": 0.486,
+    "protein(g)": 12.79,
+    "energy(kcal)": 197.896968,
+    "serving_size(g)": 100.0,
+    "name": "miso",
+    "usda_match": "Miso",
+    "usda_data_type": "SR Legacy"
+  },
+  "burdock root": {
+    "phe(mg)": 0.033,
+    "protein(g)": 1.53,
+    "energy(kcal)": 72.179812,
+    "serving_size(g)": 100.0,
+    "name": "burdock root, raw",
+    "usda_match": "Burdock root, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "mirin": null,
+  "miso substitute": {
+    "phe(mg)": 0.486,
+    "protein(g)": 12.79,
+    "energy(kcal)": 197.896968,
+    "serving_size(g)": 100.0,
+    "name": "miso",
+    "usda_match": "Miso",
+    "usda_data_type": "SR Legacy"
+  },
+  "canned greens": {
+    "phe(mg)": 0.022,
+    "protein(g)": 0.72,
+    "energy(kcal)": 21.032528,
+    "serving_size(g)": 100.0,
+    "name": "peppers, chili, green, canned",
+    "usda_match": "Peppers, chili, green, canned",
+    "usda_data_type": "SR Legacy"
+  },
+  "kabocha": null,
+  "umeboshi": null,
+  "radish white icicle, sliced": {
+    "phe(mg)": 0.036,
+    "protein(g)": 1.1,
+    "energy(kcal)": 14.101354,
+    "serving_size(g)": 100.0,
+    "name": "radishes, white icicle, raw",
+    "usda_match": "Radishes, white icicle, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "green apple": {
+    "phe(mg)": 67.0,
+    "protein(g)": 1.34,
+    "energy(kcal)": 134.0,
+    "serving_size(g)": 100.0,
+    "name": "apple, candied",
+    "usda_match": "Apple, candied",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "maple syrup": null,
+  "lemon": {
+    "phe(mg)": 55.00000000000001,
+    "protein(g)": 1.1,
+    "energy(kcal)": 28.919726,
+    "serving_size(g)": 100.0,
+    "name": "lemons, raw, without peel",
+    "usda_match": "Lemons, raw, without peel",
+    "usda_data_type": "SR Legacy"
+  },
+  "water (soaking)": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "artichoke hearts": null,
+  "olives": {
+    "phe(mg)": 36.5,
+    "protein(g)": 0.73,
+    "energy(kcal)": 282.0,
+    "serving_size(g)": 100.0,
+    "name": "olive tapenade",
+    "usda_match": "Olive tapenade",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "sal": {
+    "phe(mg)": 495.0,
+    "protein(g)": 9.9,
+    "energy(kcal)": 293.0,
+    "serving_size(g)": 100.0,
+    "name": "roll, white, hard",
+    "usda_match": "Roll, white, hard",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "oregano": {
+    "phe(mg)": 0.449,
+    "protein(g)": 9.0,
+    "energy(kcal)": 264.579642,
+    "serving_size(g)": 100.0,
+    "name": "spices, oregano, dried",
+    "usda_match": "Spices, oregano, dried",
+    "usda_data_type": "SR Legacy"
+  },
+  "radish": {
+    "phe(mg)": 0.036,
+    "protein(g)": 0.68,
+    "energy(kcal)": 15.774396,
+    "serving_size(g)": 100.0,
+    "name": "radishes, raw",
+    "usda_match": "Radishes, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "fig": {
+    "phe(mg)": 0.018,
+    "protein(g)": 0.75,
+    "energy(kcal)": 74.09186,
+    "serving_size(g)": 100.0,
+    "name": "figs, raw",
+    "usda_match": "Figs, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "grapes": {
+    "phe(mg)": 213.49999999999997,
+    "protein(g)": 4.27,
+    "energy(kcal)": 68.594722,
+    "serving_size(g)": 100.0,
+    "name": "grape leaves, canned",
+    "usda_match": "Grape leaves, canned",
+    "usda_data_type": "SR Legacy"
+  },
+  "low-protein pasta": {
+    "phe(mg)": 70.5,
+    "protein(g)": 1.41,
+    "energy(kcal)": 51.147284,
+    "serving_size(g)": 100.0,
+    "name": "sauce, pasta, spaghetti/marinara, ready-to-serve, low sodium",
+    "usda_match": "Sauce, pasta, spaghetti/marinara, ready-to-serve, low sodium",
+    "usda_data_type": "SR Legacy"
+  },
+  "cherry tomato": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "date paste": {
+    "phe(mg)": 0.048,
+    "protein(g)": 1.81,
+    "energy(kcal)": 277.24696,
+    "serving_size(g)": 100.0,
+    "name": "dates, medjool",
+    "usda_match": "Dates, medjool",
+    "usda_data_type": "SR Legacy"
+  },
+  "polenta(low-protein)": null,
+  "carrrot": null,
+  "tahini": {
+    "phe(mg)": 869.9999999999999,
+    "protein(g)": 17.4,
+    "energy(kcal)": 592.017862,
+    "serving_size(g)": 100.0,
+    "name": "seeds, sesame butter, tahini, type of kernels unspecified",
+    "usda_match": "Seeds, sesame butter, tahini, type of kernels unspecified",
+    "usda_data_type": "SR Legacy"
+  },
+  "orange": {
+    "phe(mg)": 0.01,
+    "protein(g)": 0.3,
+    "energy(kcal)": 245.937174,
+    "serving_size(g)": 100.0,
+    "name": "marmalade, orange",
+    "usda_match": "Marmalade, orange",
+    "usda_data_type": "SR Legacy"
+  },
+  "peach": {
+    "phe(mg)": 45.5,
+    "protein(g)": 0.91,
+    "energy(kcal)": 46.0,
+    "serving_size(g)": 100.0,
+    "name": "peach, raw",
+    "usda_match": "Peach, raw",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "pomegranate": {
+    "phe(mg)": 83.5,
+    "protein(g)": 1.67,
+    "energy(kcal)": 82.696076,
+    "serving_size(g)": 100.0,
+    "name": "pomegranates, raw",
+    "usda_match": "Pomegranates, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "melon": {
+    "phe(mg)": 89.0,
+    "protein(g)": 1.78,
+    "energy(kcal)": 43.738098,
+    "serving_size(g)": 100.0,
+    "name": "horned melon (kiwano)",
+    "usda_match": "Horned melon (Kiwano)",
+    "usda_data_type": "SR Legacy"
+  },
+  "pear": {
+    "phe(mg)": 0.011,
+    "protein(g)": 0.36,
+    "energy(kcal)": 57.122434,
+    "serving_size(g)": 100.0,
+    "name": "pears, raw",
+    "usda_match": "Pears, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "beet": {
+    "phe(mg)": 84.375,
+    "protein(g)": 1.6875,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "beets, raw",
+    "usda_match": "Beets, raw",
+    "usda_data_type": "Foundation"
+  },
+  "turnip": {
+    "phe(mg)": 0.121,
+    "protein(g)": 2.46,
+    "energy(kcal)": 21.51054,
+    "serving_size(g)": 100.0,
+    "name": "turnip greens and turnips, frozen, unprepared",
+    "usda_match": "Turnip greens and turnips, frozen, unprepared",
+    "usda_data_type": "SR Legacy"
+  },
+  "rice flour": {
+    "phe(mg)": 359.5,
+    "protein(g)": 7.19,
+    "energy(kcal)": 378.156727236,
+    "serving_size(g)": 100.0,
+    "name": "flour, rice, brown",
+    "usda_match": "Flour, rice, brown",
+    "usda_data_type": "Foundation"
+  },
+  "apricot": {
+    "phe(mg)": 0.052,
+    "protein(g)": 1.4,
+    "energy(kcal)": 48.040206,
+    "serving_size(g)": 100.0,
+    "name": "apricots, raw",
+    "usda_match": "Apricots, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "artichoke": {
+    "phe(mg)": 100.0,
+    "protein(g)": 2.0,
+    "energy(kcal)": 72.657824,
+    "serving_size(g)": 100.0,
+    "name": "jerusalem-artichokes, raw",
+    "usda_match": "Jerusalem-artichokes, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "red grapes": {
+    "phe(mg)": 45.71875,
+    "protein(g)": 0.914375,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "grapes, red, seedless, raw",
+    "usda_match": "Grapes, red, seedless, raw",
+    "usda_data_type": "Foundation"
+  },
+  "rice milk": null,
+  "dill": {
+    "phe(mg)": 24.0,
+    "protein(g)": 0.48,
+    "energy(kcal)": 11.9503,
+    "serving_size(g)": 100.0,
+    "name": "pickles, cucumber, dill or kosher dill",
+    "usda_match": "Pickles, cucumber, dill or kosher dill",
+    "usda_data_type": "Foundation"
+  },
+  "rice yogurt": {
+    "phe(mg)": 256.0,
+    "protein(g)": 5.12,
+    "energy(kcal)": 112.0,
+    "serving_size(g)": 100.0,
+    "name": "dirty rice",
+    "usda_match": "Dirty rice",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "cauliflower rice": {
+    "phe(mg)": 82.03125,
+    "protein(g)": 1.640625,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "cauliflower, raw",
+    "usda_match": "Cauliflower, raw",
+    "usda_data_type": "Foundation"
+  },
+  "walnut": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, walnut",
+    "usda_match": "Oil, walnut",
+    "usda_data_type": "SR Legacy"
+  },
+  "chard": {
+    "phe(mg)": 0.11,
+    "protein(g)": 1.8,
+    "energy(kcal)": 18.881474,
+    "serving_size(g)": 100.0,
+    "name": "chard, swiss, raw",
+    "usda_match": "Chard, swiss, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "clove": {
+    "phe(mg)": 0.23,
+    "protein(g)": 5.97,
+    "energy(kcal)": 273.66187,
+    "serving_size(g)": 100.0,
+    "name": "spices, cloves, ground",
+    "usda_match": "Spices, cloves, ground",
+    "usda_data_type": "SR Legacy"
+  },
+  "almond": {
+    "phe(mg)": 1035.0,
+    "protein(g)": 20.7,
+    "energy(kcal)": 641.0,
+    "serving_size(g)": 100.0,
+    "name": "almond butter",
+    "usda_match": "Almond butter",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "date": {
+    "phe(mg)": 0.048,
+    "protein(g)": 1.81,
+    "energy(kcal)": 277.24696,
+    "serving_size(g)": 100.0,
+    "name": "dates, medjool",
+    "usda_match": "Dates, medjool",
+    "usda_data_type": "SR Legacy"
+  },
+  "corn tortilla (6\" diameter)": null,
+  "onions, cooked": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "avocados, all varieties, mashed": {
+    "phe(mg)": 0.097,
+    "protein(g)": 2.0,
+    "energy(kcal)": 160.13402,
+    "serving_size(g)": 100.0,
+    "name": "avocados, raw, all commercial varieties",
+    "usda_match": "Avocados, raw, all commercial varieties",
+    "usda_data_type": "SR Legacy"
+  },
+  "mayonaise": null,
+  "cauliflower, cooked": {
+    "phe(mg)": 0.108,
+    "protein(g)": 3.04,
+    "energy(kcal)": 32.504816,
+    "serving_size(g)": 100.0,
+    "name": "cauliflower, green, cooked, with salt",
+    "usda_match": "Cauliflower, green, cooked, with salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomato, whole": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.88,
+    "energy(kcal)": 17.686443999999998,
+    "serving_size(g)": 100.0,
+    "name": "tomatoes, red, ripe, raw, year round average",
+    "usda_match": "Tomatoes, red, ripe, raw, year round average",
+    "usda_data_type": "SR Legacy"
+  },
+  "mangoes, sliced": {
+    "phe(mg)": 0.027,
+    "protein(g)": 0.82,
+    "energy(kcal)": 59.7515,
+    "serving_size(g)": 100.0,
+    "name": "mangos, raw",
+    "usda_match": "Mangos, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "romaine and cos lettuce, raw": {
+    "phe(mg)": 0.065,
+    "protein(g)": 1.23,
+    "energy(kcal)": 17.208432,
+    "serving_size(g)": 100.0,
+    "name": "lettuce, cos or romaine, raw",
+    "usda_match": "Lettuce, cos or romaine, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "nopales, cooked, chopped": {
+    "phe(mg)": 0.052,
+    "protein(g)": 1.35,
+    "energy(kcal)": 15.53539,
+    "serving_size(g)": 100.0,
+    "name": "nopales, cooked, without salt",
+    "usda_match": "Nopales, cooked, without salt",
+    "usda_data_type": "SR Legacy"
+  },
+  "vegan aioli": {
+    "phe(mg)": 15.0,
+    "protein(g)": 0.3,
+    "energy(kcal)": 232.0,
+    "serving_size(g)": 100.0,
+    "name": "vegan mayonnaise",
+    "usda_match": "Vegan mayonnaise",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "plantains, cooked": {
+    "phe(mg)": 0.03,
+    "protein(g)": 1.09,
+    "energy(kcal)": 121.176042,
+    "serving_size(g)": 100.0,
+    "name": "plantains, green, boiled",
+    "usda_match": "Plantains, green, boiled",
+    "usda_data_type": "SR Legacy"
+  },
+  "tomatillos (boiled)": null,
+  "jalapeno": {
+    "phe(mg)": 45.5,
+    "protein(g)": 0.91,
+    "energy(kcal)": 28.441714,
+    "serving_size(g)": 100.0,
+    "name": "peppers, jalapeno, raw",
+    "usda_match": "Peppers, jalapeno, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "pineapple diced": {
+    "phe(mg)": 23.046875,
+    "protein(g)": 0.4609375,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "pineapple, raw",
+    "usda_match": "Pineapple, raw",
+    "usda_data_type": "Foundation"
+  },
+  "watermelon, cubed": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "water, tap",
+    "usda_match": "Water, tap",
+    "usda_data_type": "Survey (FNDDS)"
+  },
+  "raw turnip": {
+    "phe(mg)": 0.017,
+    "protein(g)": 0.9,
+    "energy(kcal)": 27.963701999999998,
+    "serving_size(g)": 100.0,
+    "name": "turnips, raw",
+    "usda_match": "Turnips, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "butter, stick": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "butter, stick, unsalted",
+    "usda_match": "Butter, stick, unsalted",
+    "usda_data_type": "Foundation"
+  },
+  "spring onions": {
+    "phe(mg)": 0.025,
+    "protein(g)": 1.1,
+    "energy(kcal)": 39.674996,
+    "serving_size(g)": 100.0,
+    "name": "onions, raw",
+    "usda_match": "Onions, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "oat milk": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, oat",
+    "usda_match": "Oil, oat",
+    "usda_data_type": "SR Legacy"
+  },
+  "oat fiber": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, oat",
+    "usda_match": "Oil, oat",
+    "usda_data_type": "SR Legacy"
+  },
+  "parsnip, raw": {
+    "phe(mg)": 60.0,
+    "protein(g)": 1.2,
+    "energy(kcal)": 75.047884,
+    "serving_size(g)": 100.0,
+    "name": "parsnips, raw",
+    "usda_match": "Parsnips, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "oat": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, oat",
+    "usda_match": "Oil, oat",
+    "usda_data_type": "SR Legacy"
+  },
+  "raspberries raw": {
+    "phe(mg)": 50.40625,
+    "protein(g)": 1.008125,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "raspberries, raw",
+    "usda_match": "Raspberries, raw",
+    "usda_data_type": "Foundation"
+  },
+  "thyme fresh": {
+    "phe(mg)": 278.0,
+    "protein(g)": 5.56,
+    "energy(kcal)": 101.099538,
+    "serving_size(g)": 100.0,
+    "name": "thyme, fresh",
+    "usda_match": "Thyme, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "green peas": null,
+  "smoked paprika": {
+    "phe(mg)": 0.61,
+    "protein(g)": 14.14,
+    "energy(kcal)": 282.266086,
+    "serving_size(g)": 100.0,
+    "name": "spices, paprika",
+    "usda_match": "Spices, paprika",
+    "usda_data_type": "SR Legacy"
+  },
+  "apple cider vinegar": null,
+  "rhubarb": {
+    "phe(mg)": 45.0,
+    "protein(g)": 0.9,
+    "energy(kcal)": 21.032528,
+    "serving_size(g)": 100.0,
+    "name": "rhubarb, raw",
+    "usda_match": "Rhubarb, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "cinnamon powder": {
+    "phe(mg)": 184.5,
+    "protein(g)": 3.69,
+    "energy(kcal)": 249.76127,
+    "serving_size(g)": 100.0,
+    "name": "baobab powder",
+    "usda_match": "Baobab powder",
+    "usda_data_type": "SR Legacy"
+  },
+  "vanilla extract": {
+    "phe(mg)": 3.0,
+    "protein(g)": 0.06,
+    "energy(kcal)": 288.00223,
+    "serving_size(g)": 100.0,
+    "name": "vanilla extract",
+    "usda_match": "Vanilla extract",
+    "usda_data_type": "SR Legacy"
+  },
+  "oat milk dressing": {
+    "phe(mg)": 34.5,
+    "protein(g)": 0.69,
+    "energy(kcal)": 354.92391,
+    "serving_size(g)": 100.0,
+    "name": "salad dressing, russian dressing",
+    "usda_match": "Salad dressing, russian dressing",
+    "usda_data_type": "SR Legacy"
+  },
+  "strawberries": null,
+  "swede": null,
+  "fresh rosemary": {
+    "phe(mg)": 0.169,
+    "protein(g)": 3.31,
+    "energy(kcal)": 130.975288,
+    "serving_size(g)": 100.0,
+    "name": "rosemary, fresh",
+    "usda_match": "Rosemary, fresh",
+    "usda_data_type": "SR Legacy"
+  },
+  "sea salt": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 0.0,
+    "serving_size(g)": 100.0,
+    "name": "salt, table",
+    "usda_match": "Salt, table",
+    "usda_data_type": "SR Legacy"
+  },
+  "fresh chives": {
+    "phe(mg)": 0.105,
+    "protein(g)": 3.27,
+    "energy(kcal)": 30.114756,
+    "serving_size(g)": 100.0,
+    "name": "chives, raw",
+    "usda_match": "Chives, raw",
+    "usda_data_type": "SR Legacy"
+  },
+  "oats": {
+    "phe(mg)": 0.0,
+    "protein(g)": 0.0,
+    "energy(kcal)": 884.0831939999999,
+    "serving_size(g)": 100.0,
+    "name": "oil, oat",
+    "usda_match": "Oil, oat",
+    "usda_data_type": "SR Legacy"
+  }
+}

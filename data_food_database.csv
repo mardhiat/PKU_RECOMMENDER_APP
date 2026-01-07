@@ -1,389 +1,639 @@
-food_name,phe_mg_per_100g,protein_g_per_100g,energy_kcal_per_100g,serving_size_g,name,usda_match,usda_data_type
-sweet date and fig bites,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
-cucumber yogurt dip,25.0,0.5,34.0,100.0,cucumber salad made with cucumber and vinegar,Cucumber salad made with cucumber and vinegar,Survey (FNDDS)
-low-protein pasta with olive oil and basil,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
-stewed zucchini with tomato,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-citrus herb carrot ribbons,0.251,8.1,341.061562,100.0,"carrot, dehydrated","Carrot, dehydrated",SR Legacy
-lemon herb roasted artichokes,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
-grilled peach and mint salad,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
-cinnamon date pudding,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
-fresh fig and mint salad,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
-apple and pomegranate salad,83.5,1.67,82.696076,100.0,"pomegranates, raw","Pomegranates, raw",SR Legacy
-baked zucchini fries,740.0,14.8,325.0,100.0,"mozzarella sticks, breaded, baked, or fried","Mozzarella sticks, breaded, baked, or fried",Survey (FNDDS)
-cinnamon roasted pears,0.011,0.36,57.122434,100.0,"pears, raw","Pears, raw",SR Legacy
-watermelon and mint skewers,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
-roasted vegetable stack,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
-grilled eggplant with lemon tahini,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
-roasted cauliflower with paprika,0.61,14.14,282.266086,100.0,"spices, paprika","Spices, paprika",SR Legacy
-chilled tomato and watermelon soup,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-artichoke and lemon salad,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
-garlic lemon roasted bell peppers,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-lemon basil quinoa-free pilaf,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
-bharta with peas,1061.25,21.225,0.0,100.0,"blackeye pea, dry","Blackeye pea, dry",Foundation
-spiced corn,288.0,5.76,342.017586,100.0,"spices, pumpkin pie spice","Spices, pumpkin pie spice",SR Legacy
-plain uttapam,0.586,11.9,407.027218,100.0,"croutons, plain","Croutons, plain",SR Legacy
-dal-free rasam,40.0,0.8,51.147284,100.0,"syrups, sugar free","Syrups, sugar free",SR Legacy
-sweet suji balls,42.0,0.84,32.982828,100.0,"melon balls, frozen","Melon balls, frozen",SR Legacy
-rice porridge,256.0,5.12,112.0,100.0,dirty rice,Dirty rice,Survey (FNDDS)
-malai toast,605.0,12.1,390.0,100.0,melba toast,Melba toast,Survey (FNDDS)
-cabbage poriyal,55.00000000000001,1.1,15.53539,100.0,"cabbage, kimchi","Cabbage, kimchi",SR Legacy
-tamarind rice,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
-sambar,216.5,4.33,86.0,100.0,"sambar, vegetable stew","Sambar, vegetable stew",Survey (FNDDS)
-cucumber raita,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
-papaya sabzi,0.009,0.47,42.782074,100.0,"papayas, raw","Papayas, raw",SR Legacy
-cabbage stir fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
-dry aloo matar,0.58,12.29,342.017586,100.0,"bulgur, dry","Bulgur, dry",SR Legacy
-tamarind aloo,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
-lauki curry,69.5,1.39,95.0,100.0,curry sauce,Curry sauce,Survey (FNDDS)
-masala french fries,165.5,3.31,289.91427799999997,100.0,"applebee's, french fries","APPLEBEE'S, french fries",SR Legacy
-stir-fried yam with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-pumpkin congee,40.0,0.8,39.0,100.0,congee,Congee,Survey (FNDDS)
-stir-fried tomato with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried kailan with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried eggplant with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-spicy pickled napa cabbage,55.00000000000001,1.1,11.9503,100.0,"cabbage, napa, cooked","Cabbage, napa, cooked",SR Legacy
-cabbage and apple slaw,55.00000000000001,1.1,15.53539,100.0,"cabbage, kimchi","Cabbage, kimchi",SR Legacy
-stir-fried carrots with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried bamboo shoots with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried cabbage core shreds with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-low-protein dumplings,435.50000000000006,8.71,100.86053199999999,100.0,"stew, dumpling with mutton (navajo)","Stew, dumpling with mutton (Navajo)",SR Legacy
-garlic bok choy stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried bok choy with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried cilantro with garlic sauce,618.5,12.37,297.56247,100.0,"spices, coriander seed","Spices, coriander seed",SR Legacy
-stir-fried spinach with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried wood ear mushroom with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried tatsoi with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried napa cabbage with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-chayote stir-fry with garlic,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried chinese broccoli with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried pickled radish with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried green cabbage with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried kabocha squash with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-lotus root stir-fry,0.047,2.6,74.330866,100.0,"lotus root, raw","Lotus root, raw",SR Legacy
-stir-fried pickled cabbage with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-chinese cucumber salad,56.99999999999999,1.14,22.466563999999998,100.0,"broccoli, chinese, cooked","Broccoli, chinese, cooked",SR Legacy
-stir-fried cucumber with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried celery & wood ear mushrooms,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
-stir-fried chinese celery with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-braised daikon with shitake mushrooms,1219.0,24.38,155.3539,100.0,"moose, liver, braised (alaska native)","Moose, liver, braised (Alaska Native)",SR Legacy
-stir-fried beets with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried peas,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
-stir-fried bell pepper with garlic sauce,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-sweet and sour vegetables,5.0,0.1,15.057378,100.0,"salad dressing, sweet and sour","Salad dressing, sweet and sour",SR Legacy
-stir-fried zha cai,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
-vegetable low-protein fried rice,640.0,12.8,359.0,100.0,"meat substitute, cereal- and vegetable protein-based, fried","Meat substitute, cereal- and vegetable protein-based, fried",Survey (FNDDS)
-stir-fried shanghai greens with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried taro,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
-stir-fried sweet corn,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
-stir-fried enoki mushroom with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried lotus root with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried parsley with garlic sauce,0.145,2.97,36.089906,100.0,"parsley, fresh","Parsley, fresh",SR Legacy
-steamed eggplant,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
-dry-fried green beans,75.0,1.5,309.034758,100.0,"plantains, green, fried","Plantains, green, fried",SR Legacy
-rice and beans,325.0,6.5,164.0,100.0,beans and white rice,Beans and white rice,Survey (FNDDS)
-sweet potato chips,146.0,2.92,529.0,100.0,sweet potato chips,Sweet potato chips,Survey (FNDDS)
-boiled yam,0.069,1.49,114.005862,100.0,"yam, cooked, boiled, drained, or baked, with salt","Yam, cooked, boiled, drained, or baked, with salt",SR Legacy
-millet flatbread with veggies,0.675,10.75,381.692582,100.0,millet flour,Millet flour,SR Legacy
-tomato and cucumber salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-boiled plantains,0.03,1.09,121.176042,100.0,"plantains, green, boiled","Plantains, green, boiled",SR Legacy
-sweet corn and pepper hash,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-stuffed bell peppers,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-roasted chili-lime carrots,35.0,0.7,30.114756,100.0,"limes, raw","Limes, raw",SR Legacy
-lettuce wrapped veggie tacos with pineapple slaw,98.5,1.97,123.0,100.0,broccoli slaw salad,Broccoli slaw salad,Survey (FNDDS)
-sweet potato tacos with paprika aioli,0.61,14.14,282.266086,100.0,"spices, paprika","Spices, paprika",SR Legacy
-crispy potato tacos,0.34,6.69,169.69425999999999,100.0,"taco bell, taco salad","TACO BELL, Taco Salad",SR Legacy
-cactus and tomato salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-jicama tostadas with mango salsa,0.017,0.72,38.001954,100.0,"yambean (jicama), raw","Yambean (jicama), raw",SR Legacy
-chilled avocado cucumber soup,25.0,0.5,34.0,100.0,cucumber salad made with cucumber and vinegar,Cucumber salad made with cucumber and vinegar,Survey (FNDDS)
-refried zucchini,365.0,7.3,144.359624,100.0,"on the border, refried beans","ON THE BORDER, refried beans",SR Legacy
-baobab leaf stew,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
-boiled pumpkin leaves,0.148,2.72,21.032528,100.0,"pumpkin leaves, cooked, boiled, drained, with salt","Pumpkin leaves, cooked, boiled, drained, with salt",SR Legacy
-funghi al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-stir-fried garlic sprouts with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-braised kabocha squash,1219.0,24.38,155.3539,100.0,"moose, liver, braised (alaska native)","Moose, liver, braised (Alaska Native)",SR Legacy
-baked plantains,0.053,1.52,155.3539,100.0,"plantains, yellow, baked","Plantains, yellow, baked",SR Legacy
-baobab leaf salad,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
-baobab fruit drink,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
-boiled green bananas,0.03,1.09,121.176042,100.0,"plantains, green, boiled","Plantains, green, boiled",SR Legacy
-boiled cassava,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
-pumpkin porridge,0.032,1.0,26.051654,100.0,"pumpkin, raw","Pumpkin, raw",SR Legacy
-avocado salad,0.0,0.0,884.0831939999999,100.0,"oil, avocado","Oil, avocado",SR Legacy
-tamarind juice,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
-watermelon salad,0.015,0.61,30.353762,100.0,"watermelon, raw","Watermelon, raw",SR Legacy
-boiled sweet cassava,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
-mashed pumpkin,82.5,1.65,88.43222,100.0,"fast foods, potato, mashed","Fast foods, potato, mashed",SR Legacy
-verdure al vapore,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-fave e cicoria,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
-zucca al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-cavolfiore gratinate,445.0,8.9,314.053884,100.0,"potatoes, au gratin, dry mix, unprepared","Potatoes, au gratin, dry mix, unprepared",SR Legacy
-pomodori al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-zucchini alla scapece,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
-insalata di radicchio,0.034,1.43,22.944575999999998,100.0,"radicchio, raw","Radicchio, raw",SR Legacy
-bruschetta,214.5,4.29,171.0,100.0,bruschetta,Bruschetta,Survey (FNDDS)
-finocchi al limone,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-stir-fried fuzzy melon with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried water chestnut with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried lettuce with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried garlic chives with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried fennel with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried daikon radish with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried snow peas with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-mexican mashed sweet potato,0.119,1.98,100.621526,100.0,"sweet potato, canned, mashed","Sweet potato, canned, mashed",SR Legacy
-tomatillo salsa verde,56.49999999999999,1.13,38.001954,100.0,"sauce, salsa, verde, ready-to-serve","Sauce, salsa, verde, ready-to-serve",SR Legacy
-corn and veggie tacos,0.34,6.69,169.69425999999999,100.0,"taco bell, taco salad","TACO BELL, Taco Salad",SR Legacy
-cucumber-chili snack cups,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
-mango-cucumber lime salad,35.0,0.7,30.114756,100.0,"limes, raw","Limes, raw",SR Legacy
-low-protein breakfast burrito,199.5,3.99,371.893336,100.0,"tart, breakfast, low fat","Tart, breakfast, low fat",SR Legacy
-chayote squash salad with lime and chili,35.0,0.7,30.114756,100.0,"limes, raw","Limes, raw",SR Legacy
-vegetarian winter melon soup,0.081,1.72,59.034482,100.0,"soup, vegetarian vegetable, canned, condensed","Soup, vegetarian vegetable, canned, condensed",SR Legacy
-chinese-style steamed zucchini,0.13,2.88,152.96384,100.0,"nuts, chestnuts, chinese, boiled and steamed","Nuts, chestnuts, chinese, boiled and steamed",SR Legacy
-stir-fried zucchini with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir fry bean sprouts and garlic chives,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-cold garlic green beans,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-garlic daikon stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-pumpkin soup,0.032,1.0,26.051654,100.0,"pumpkin, raw","Pumpkin, raw",SR Legacy
-daikon citrus salad,89.0,1.78,247.0,100.0,"fruit salad, excluding citrus fruits, with salad dressing or mayonnaise","Fruit salad, excluding citrus fruits, with salad dressing or mayonnaise",Survey (FNDDS)
-chili vinegar cucumber,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
-risotto al limone,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-pasta al pomodoro,0.173,4.26,102.294568,100.0,"olive garden, spaghetti with pomodoro sauce","OLIVE GARDEN, spaghetti with pomodoro sauce",SR Legacy
-stir-fried winter melon with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried komatsuna with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-yu choy sum,51.1875,1.02375,0.0,100.0,"cabbage, bok choy, raw","Cabbage, bok choy, raw",Foundation
-stir-fried turnip with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-stir-fried pickled mustard greens with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-focaccia,438.5,8.77,249.522264,100.0,"focaccia, italian flatbread, plain","Focaccia, Italian flatbread, plain",SR Legacy
-insalata di finocchi e arance,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
-patate al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-cavolfiore al vapore,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-quick kabocha pickles,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
-simple daikon miso soup,0.486,12.79,197.896968,100.0,miso,Miso,SR Legacy
-carrot cucumber salad,25.0,0.5,34.0,100.0,cucumber salad made with cucumber and vinegar,Cucumber salad made with cucumber and vinegar,Survey (FNDDS)
-charred bell pepper mix,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-garlic komatsuna stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-sweet carrot slaw,0.251,8.1,341.061562,100.0,"carrot, dehydrated","Carrot, dehydrated",SR Legacy
-spicy pickled cucumber,0.009,0.33,10.516264,100.0,"pickles, cucumber, sour","Pickles, cucumber, sour",SR Legacy
-sweet pickled radish,55.00000000000001,1.1,27.963701999999998,100.0,"radishes, hawaiian style, pickled","Radishes, hawaiian style, pickled",SR Legacy
-cucumber miso slaw,0.486,12.79,197.896968,100.0,miso,Miso,SR Legacy
-sauteed water spinach,0.024,0.95,123.327096,100.0,"onions, yellow, sauteed","Onions, yellow, sauteed",SR Legacy
-cucumber sesame salad,0.0,0.0,884.0831939999999,100.0,"oil, sesame, salad or cooking","Oil, sesame, salad or cooking",SR Legacy
-japanese veggie hot pot,0.063,1.38,273.900876,100.0,"persimmons, japanese, dried","Persimmons, japanese, dried",SR Legacy
-scallion oil rice,0.0,0.0,884.0831939999999,100.0,"oil, rice bran","Oil, rice bran",SR Legacy
-stir-fried seaweed,0.11,3.45,38.718972,100.0,"mushrooms, shiitake, stir-fried","Mushrooms, shiitake, stir-fried",SR Legacy
-beet and radish salad,0.036,0.68,15.774396,100.0,"radishes, raw","Radishes, raw",SR Legacy
-turnip and apple salad,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
-potato-cauliflower bake,0.087,1.96,93.21234,100.0,"potatoes, baked, flesh, with salt","Potatoes, baked, flesh, with salt",SR Legacy
-fried zucchini rounds,1.129,27.29,237.571964,100.0,"veal, leg (top round), separable lean and fat, cooked, pan-fried, breaded","Veal, leg (top round), separable lean and fat, cooked, pan-fried, breaded",SR Legacy
-cabbage stew with caraway,0.867,19.77,332.935358,100.0,"spices, caraway seed","Spices, caraway seed",SR Legacy
-simple potato and pickle salad,0.135,2.68,142.925588,100.0,"potato salad, home-prepared","Potato salad, home-prepared",SR Legacy
-veggie-stuffed potato cakes satsibeli sauce,245.00000000000003,4.9,185.0,100.0,"fried stuffed potatoes, puerto rican style","Fried stuffed potatoes, Puerto Rican style",Survey (FNDDS)
-beetroot horseradish dip,59.0,1.18,48.040206,100.0,"horseradish, prepared","Horseradish, prepared",SR Legacy
-sauteed zucchini with fresh dill,0.065,3.46,43.02108,100.0,"dill weed, fresh","Dill weed, fresh",SR Legacy
-stuffed apples with jam,0.021,0.37,277.963978,100.0,jams and preserves,Jams and preserves,SR Legacy
-polish apple beet slaw,84.375,1.6875,0.0,100.0,"beets, raw","Beets, raw",Foundation
-beet and apple salad,84.375,1.6875,0.0,100.0,"beets, raw","Beets, raw",Foundation
-stuffed bell peppers with white rice,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-pickled pumpkin main,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
-sauerkraut with carrot,0.023,0.91,18.642468,100.0,"sauerkraut, canned, solids and liquids","Sauerkraut, canned, solids and liquids",SR Legacy
-mashed potatoes with garlic oil,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-sweet carrot and apple bake,15.0,0.3,46.60617,100.0,"babyfood, juice, apple-sweet potato","Babyfood, juice, apple-sweet potato",SR Legacy
-baked cauliflower with paprika,0.61,14.14,282.266086,100.0,"spices, paprika","Spices, paprika",SR Legacy
-flatbread,438.5,8.77,249.522264,100.0,"focaccia, italian flatbread, plain","Focaccia, Italian flatbread, plain",SR Legacy
-baobab leaf juice,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
-cooked waterleaf,0.145,3.08,82.935082,100.0,"bulgur, cooked","Bulgur, cooked",SR Legacy
-millet stew,0.675,10.75,381.692582,100.0,millet flour,Millet flour,SR Legacy
-vegetable stir fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
-boiled sweet potatoes,0.078,1.37,76.48192,100.0,"sweet potato, cooked, boiled, without skin","Sweet potato, cooked, boiled, without skin",SR Legacy
-boiled cassava leaves,0.114,2.11,21.032528,100.0,"amaranth leaves, cooked, boiled, drained, with salt","Amaranth leaves, cooked, boiled, drained, with salt",SR Legacy
-fried cassava,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
-sweet potato porridge,112.99999999999999,2.26,191.0,100.0,sweet potato tots,Sweet potato tots,Survey (FNDDS)
-boiled taro,0.082,1.5,112.093814,100.0,"taro, raw","Taro, raw",SR Legacy
-steamed waterleaf,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
-okra and tomato soup,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-fried sauerkraut with apples,0.023,0.91,18.642468,100.0,"sauerkraut, canned, solids and liquids","Sauerkraut, canned, solids and liquids",SR Legacy
-steamed green beans and carrots,70.0,1.4,36.567918,100.0,"vegetables, mixed (corn, lima beans, peas, green beans, carrots) canned, no salt added","Vegetables, mixed (corn, lima beans, peas, green beans, carrots) canned, no salt added",SR Legacy
-tomato cucumber salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-stir-fried baby bok choy,51.1875,1.02375,0.0,100.0,"cabbage, bok choy, raw","Cabbage, bok choy, raw",Foundation
-daikon & carrot pickles,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
-lemon pepper bok choy,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-cucumber sunomono salad,0.031,0.59,10.516264,100.0,"cucumber, peeled, raw","Cucumber, peeled, raw",SR Legacy
-stir-fried okra with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-yuzu daikon salad,66.0,1.32,430.0,100.0,"salad dressing, nfs, for salads","Salad dressing, NFS, for salads",Survey (FNDDS)
-tomato garlic stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-umeboshi rice,256.0,5.12,112.0,100.0,dirty rice,Dirty rice,Survey (FNDDS)
-sweet and sour cabbage,5.0,0.1,15.057378,100.0,"salad dressing, sweet and sour","Salad dressing, sweet and sour",SR Legacy
-cabbage daikon stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
-roasted garlic red beets,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-carrot and apples salad,0.042,1.1,63.575596,100.0,"babyfood, gerber, 2nd foods, apple, carrot and squash, organic","Babyfood, GERBER, 2nd Foods, apple, carrot and squash, organic",SR Legacy
-potato-carrot hash,0.133,3.0,265.057654,100.0,"potatoes, hash brown, home-prepared","Potatoes, hash brown, home-prepared",SR Legacy
-sweet roasted apples,15.0,0.3,46.60617,100.0,"babyfood, juice, apple-sweet potato","Babyfood, juice, apple-sweet potato",SR Legacy
-beet and cucumber salad,84.375,1.6875,0.0,100.0,"beets, raw","Beets, raw",Foundation
-zucchini and pepper stir fry,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-swiss turnip gratin,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
-beet and horseradish slaw,59.0,1.18,48.040206,100.0,"horseradish, prepared","Horseradish, prepared",SR Legacy
-roasted fennel and carrots,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
-garlic mashed potatoes,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-radish and apples slaw,0.036,0.68,15.774396,100.0,"radishes, raw","Radishes, raw",SR Legacy
-fried turnip cakes,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
-carrot slaw with mustard,0.0,0.0,884.0831939999999,100.0,"oil, mustard","Oil, mustard",SR Legacy
-pickled beet salad,0.023,0.8,65.009632,100.0,"beets, pickled, canned, solids and liquids","Beets, pickled, canned, solids and liquids",SR Legacy
-"pickled kohlrabi, sliced, raw",0.039,1.7,27.007678,100.0,"kohlrabi, raw","Kohlrabi, raw",SR Legacy
-stewed cabbage with tomatoes,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-steamed kohlrabi with carrots,0.039,1.7,27.007678,100.0,"kohlrabi, raw","Kohlrabi, raw",SR Legacy
-celery root and apples puree,24.609375,0.4921875,0.0,100.0,"celery, raw","Celery, raw",Foundation
-grilled corn with lime and cilantro,618.5,12.37,297.56247,100.0,"spices, coriander seed","Spices, coriander seed",SR Legacy
-garlic and roasted plantains with cilantro dip,618.5,12.37,297.56247,100.0,"spices, coriander seed","Spices, coriander seed",SR Legacy
-stir-fried pumpkin with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-pickled vegetable mix,0.055,1.4,36.089906,100.0,"babyfood, vegetables, mix vegetables junior","Babyfood, vegetables, mix vegetables junior",SR Legacy
-patate e cipolle,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
-patate e rosmarino,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
-finocchi al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-pomodori e cipolle,18.0,0.36,50.19126,100.0,"pineapple juice, canned, not from concentrate, unsweetened, with added vitamins a, c and e","Pineapple juice, canned, not from concentrate, unsweetened, with added vitamins A, C and E",SR Legacy
-patate al rosmarino,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-insalata di radicchio e arance,0.034,1.43,22.944575999999998,100.0,"radicchio, raw","Radicchio, raw",SR Legacy
-broccoli saltati,0.0,0.0,0.0,100.0,"salt, table","Salt, table",SR Legacy
-broccoli al forno,0.117,2.82,33.699846,100.0,"broccoli, raw","Broccoli, raw",SR Legacy
-pumpkin leaves stew,0.171,3.15,18.881474,100.0,"pumpkin leaves, raw","Pumpkin leaves, raw",SR Legacy
-"fried cabbage and onions, raws",0.025,1.1,39.674996,100.0,"onions, raw","Onions, raw",SR Legacy
-"stewed kohlrabi, sliced, raw and carrots",0.039,1.7,27.007678,100.0,"kohlrabi, raw","Kohlrabi, raw",SR Legacy
-baobab fruit smoothie,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
-steamed waterleaf with tomatoes,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-sweet potato leaves soup,124.50000000000001,2.49,41.82605,100.0,"sweet potato leaves, raw","Sweet potato leaves, raw",SR Legacy
-roasted maize with chili,437.5,8.75,364.245144,100.0,"corn flour, whole-grain, blue (harina de maiz morado)","Corn flour, whole-grain, blue (harina de maiz morado)",SR Legacy
-grilled plantains,0.03,1.09,121.176042,100.0,"plantains, green, boiled","Plantains, green, boiled",SR Legacy
-cassava leaf soup,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
-sweet potato and peanut soup,75.5,1.51,90.0,100.0,"soup, potato","Soup, potato",Survey (FNDDS)
-stir-fried chinese leek with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-vegetable soup,42.0,0.84,27.0,100.0,"soup, vegetable","Soup, vegetable",Survey (FNDDS)
-"pickled red onions, raws",0.025,1.1,39.674996,100.0,"onions, raw","Onions, raw",SR Legacy
-warm sauerkraut and apples salad,0.023,0.91,18.642468,100.0,"sauerkraut, canned, solids and liquids","Sauerkraut, canned, solids and liquids",SR Legacy
-bavarian turnip stir-fry,0.121,2.46,21.51054,100.0,"turnip greens and turnips, frozen, unprepared","Turnip greens and turnips, frozen, unprepared",SR Legacy
-german cabbage medley,55.00000000000001,1.1,15.53539,100.0,"cabbage, kimchi","Cabbage, kimchi",SR Legacy
-cucumber and fennel salad,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
-"potato and onions, raw hash",0.025,1.1,39.674996,100.0,"onions, raw","Onions, raw",SR Legacy
-cucumber fresh dill salad,0.017,0.5,12.428312,100.0,"pickles, cucumber, dill or kosher dill","Pickles, cucumber, dill or kosher dill",SR Legacy
-marinated zucchini,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
-steamed komatsuna & daikon,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
-stir-fried jicama with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-steamed kabocha,361.5,7.23,65.0,100.0,"oysters, steamed","Oysters, steamed",Survey (FNDDS)
-okra carrot side dish,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-squash stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
-zesty tomato cucumber,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-masala dosa,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
-tomato rasam,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-tamarind potatoes,140.0,2.8,239.006,100.0,"tamarinds, raw","Tamarinds, raw",SR Legacy
-coconut chutney,806.9250000000001,16.1385,0.0,100.0,"flour, coconut","Flour, coconut",Foundation
-curry leaf rice,164.0,3.28,118.0,100.0,lentil curry with rice,Lentil curry with rice,Survey (FNDDS)
-chana-free chaat,10.0,0.2,64.0,100.0,"mayonnaise, fat free","Mayonnaise, fat free",Survey (FNDDS)
-vegetable kurma,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
-lemon rice,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
-simple sweet rice,0.0,0.0,184.0,100.0,simple syrup,Simple syrup,Survey (FNDDS)
-chilli potato,0.285,12.5,266.49169,100.0,"bread, potato","Bread, potato",SR Legacy
-roti roll,562.5,11.25,297.56247,100.0,"bread, chapati or roti, plain, commercially prepared","Bread, chapati or roti, plain, commercially prepared",SR Legacy
-kachumber salad,66.0,1.32,430.0,100.0,"salad dressing, nfs, for salads","Salad dressing, NFS, for salads",Survey (FNDDS)
-spinaci saltati,0.0,0.0,0.0,100.0,"salt, table","Salt, table",SR Legacy
-minestrone,85.0,1.7,39.914001999999996,100.0,"smart soup, greek minestrone","SMART SOUP, Greek Minestrone",SR Legacy
-stir-fried scallion with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-warm spinach garlic sauté,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-cavolfiore al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-zucchine al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-daikon spinach rice bowl,0.406,7.89,171.845314,100.0,spinach souffle,Spinach souffle,SR Legacy
-chilled okra salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-carrot apple slaw,0.042,1.1,63.575596,100.0,"babyfood, gerber, 2nd foods, apple, carrot and squash, organic","Babyfood, GERBER, 2nd Foods, apple, carrot and squash, organic",SR Legacy
-chilled tomato vinegar,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-roasted sweet kabocha,28.999999999999996,0.58,91.0,100.0,"pickles, sweet","Pickles, sweet",Survey (FNDDS)
-garlic spinach saute,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-sweet and sour bell peppers,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-carote al vapore,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-steamed okra,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-okra and tomato salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-fried plantains,75.0,1.5,309.034758,100.0,"plantains, green, fried","Plantains, green, fried",SR Legacy
-roasted yam,0.071,1.53,118.068964,100.0,"yam, raw","Yam, raw",SR Legacy
-yam porridge,0.071,1.53,118.068964,100.0,"yam, raw","Yam, raw",SR Legacy
-millet couscous,0.675,10.75,381.692582,100.0,millet flour,Millet flour,SR Legacy
-okra stew,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-okra and eggplant stew,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-roasted pumpkin,1.711,29.84,573.853406,100.0,"seeds, pumpkin and squash seed kernels, roasted, with salt added","Seeds, pumpkin and squash seed kernels, roasted, with salt added",SR Legacy
-ugali with vegetable stew,70.5,1.41,47.0,100.0,"stew, vegetable","Stew, vegetable",Survey (FNDDS)
-steamed green beans,115.5,2.31,32.743822,100.0,"beans, snap, green, microwaved","Beans, snap, green, microwaved",SR Legacy
-vegetable curry,80.0,1.6,86.0,100.0,vegetable curry,Vegetable curry,Survey (FNDDS)
-potato capsicum fry,0.285,5.7,217.973472,100.0,"tortillas, ready-to-bake or -fry, corn","Tortillas, ready-to-bake or -fry, corn",SR Legacy
-mint rice,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
-bananass fritters,368.5,7.37,404.0,100.0,"fritter, corn","Fritter, corn",Survey (FNDDS)
-tomato sevai,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-vegetable tehri,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
-tandoori potatoes,0.285,12.5,266.49169,100.0,"bread, potato","Bread, potato",SR Legacy
-jaggery poha,95.0,1.9,53.059332,100.0,"groundcherries, (cape-gooseberries or poha), raw","Groundcherries, (cape-gooseberries or poha), raw",SR Legacy
-tindora stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
-quick pickled carrots,24.0,0.48,14.0,100.0,"pickles, nfs","Pickles, NFS",Survey (FNDDS)
-zucchini garlic stir-fry,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-daikon wakame salad,0.112,3.03,44.933127999999996,100.0,"seaweed, wakame, raw","Seaweed, wakame, raw",SR Legacy
-polenta con funghi,290.0,5.8,106.83568199999999,100.0,"chili con carne with beans, canned entree","Chili con carne with beans, canned entree",SR Legacy
-steamed eggplant with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-okra and seaweed salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-snow peas daikon mix,20.0,0.4,128.0,100.0,snow cone,Snow cone,Survey (FNDDS)
-spiced zucchini slices,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
-stir-fried chayote with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-roasted sweet potatoes,112.99999999999999,2.26,191.0,100.0,sweet potato tots,Sweet potato tots,Survey (FNDDS)
-okra salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-porridge with baobab,184.5,3.69,249.76127,100.0,baobab powder,Baobab powder,SR Legacy
-vegetable stir-fry,100.49999999999999,2.01,71.0,100.0,"asian stir fry vegetables, cooked, fat added","Asian stir fry vegetables, cooked, fat added",Survey (FNDDS)
-radicchio alla griglia,0.034,1.43,22.944575999999998,100.0,"radicchio, raw","Radicchio, raw",SR Legacy
-peas garlic saute,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-cipolle al forno,0.0,0.0,83.0,100.0,whiskey and ginger ale,Whiskey and ginger ale,Survey (FNDDS)
-stir-fried celery with garlic sauce,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-gobhi masala,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
-vegetable pulao,0.088,2.3,31.548792,100.0,"babyfood, vegetables, garden vegetable, strained","Babyfood, vegetables, garden vegetable, strained",SR Legacy
-upma,99.0,1.98,87.0,100.0,upma,Upma,Survey (FNDDS)
-plain khichdi,0.586,11.9,407.027218,100.0,"croutons, plain","Croutons, plain",SR Legacy
-peas pulao,1061.25,21.225,0.0,100.0,"blackeye pea, dry","Blackeye pea, dry",Foundation
-masala idli fry,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
-jeera aloo rice,256.0,5.12,112.0,100.0,dirty rice,Dirty rice,Survey (FNDDS)
-garlic snow peas,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-okra cucumber salad,0.065,1.93,32.982828,100.0,"okra, raw","Okra, raw",SR Legacy
-baked spiced apple slices,0.005,0.18,66.92168,100.0,"apples, canned, sweetened, sliced, drained, heated","Apples, canned, sweetened, sliced, drained, heated",SR Legacy
-roasted red pepper puree,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-tomato basil salad,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
-grilled peach with balsamic,24.5,0.49,88.193214,100.0,"vinegar, balsamic","Vinegar, balsamic",SR Legacy
-lemon roasted potatoes,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
-sauteed spinach with garlic,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-bulgur-free tabbouleh,0.145,3.08,82.935082,100.0,"bulgur, cooked","Bulgur, cooked",SR Legacy
-fattoush salad,66.0,1.32,430.0,100.0,"salad dressing, nfs, for salads","Salad dressing, NFS, for salads",Survey (FNDDS)
-chilled citrus melon soup,89.0,1.78,43.738098,100.0,horned melon (kiwano),Horned melon (Kiwano),SR Legacy
-zucchini and mint salad,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
-herbed potato wedges,128.0,2.56,161.807062,100.0,"potatoes, french fried, wedge cut, frozen, unprepared","Potatoes, french fried, wedge cut, frozen, unprepared",SR Legacy
-roasted fennel with citrus glaze,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
-baked apples with pomegranate drizzle,83.5,1.67,82.696076,100.0,"pomegranates, raw","Pomegranates, raw",SR Legacy
-garlic sautéed greens,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-cassava leaf and pumpkin soup,0.026,1.36,159.417002,100.0,"cassava, raw","Cassava, raw",SR Legacy
-garden egg stew,409.5,8.19,117.0,100.0,"stew, lamb","Stew, lamb",Survey (FNDDS)
-grilled fennel and orange salad,62.0,1.24,30.831774,100.0,"fennel, bulb, raw","Fennel, bulb, raw",SR Legacy
-stuffed grape leaves,113.99999999999999,2.28,168.0,100.0,grape leaves stuffed with rice,Grape leaves stuffed with rice,Survey (FNDDS)
-roasted zucchini boats,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
-fig and olive tapenade,36.5,0.73,282.0,100.0,olive tapenade,Olive tapenade,Survey (FNDDS)
-grilled zucchini and tomato platter,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-sauteed green beans with lemon zest,55.00000000000001,1.1,28.919726,100.0,"lemons, raw, without peel","Lemons, raw, without peel",SR Legacy
-avocado cucumber gazpacho,40.5,0.81,26.0,100.0,"soup, gazpacho","Soup, gazpacho",Survey (FNDDS)
-stewed zucchini and tomatoes,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-melon and cucumber salad with mint,1.017,19.93,284.895152,100.0,"spearmint, dried","Spearmint, dried",SR Legacy
-chickpea-free hummus,1119.5,22.39,386.950714,100.0,chickpea flour (besan),Chickpea flour (besan),SR Legacy
-olive tapenade,36.5,0.73,282.0,100.0,olive tapenade,Olive tapenade,Survey (FNDDS)
-grilled eggplant with garlic and herbs,331.0,6.62,142.686582,100.0,"garlic, raw","Garlic, raw",Foundation
-cucumber and tomato olive salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-date and coconut rolls,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
-orange cinnamon compote,352.5,7.05,253.34636,100.0,"bread, cinnamon","Bread, cinnamon",SR Legacy
-tomato and basil bruschetta topping,0.13,3.15,22.466563999999998,100.0,"basil, fresh","Basil, fresh",SR Legacy
-apricot and orange salad,40.0,0.8,45.889151999999996,100.0,"babyfood, juice, orange and apricot","Babyfood, juice, orange and apricot",SR Legacy
-marinated zucchini ribbons,0.096,2.71,21.032528,100.0,"squash, zucchini, baby, raw","Squash, zucchini, baby, raw",SR Legacy
-palak curry,271.0,5.42,101.0,100.0,palak paneer,Palak Paneer,Survey (FNDDS)
-bhindi masala,165.0,3.3,56.883428,100.0,"smart soup, indian bean masala","SMART SOUP, Indian Bean Masala",SR Legacy
-bread upma,99.0,1.98,87.0,100.0,upma,Upma,Survey (FNDDS)
-roasted fig and walnut bites,714.5,14.29,642.92614,100.0,"nuts, walnuts, dry roasted, with salt added","Nuts, walnuts, dry roasted, with salt added",SR Legacy
-roasted carrots with cumin,890.4999999999999,17.81,374.522402,100.0,"spices, cumin seed","Spices, cumin seed",SR Legacy
-baked cinnamon apples,0.343,7.91,240.20103,100.0,"muffins, english, raisin-cinnamon (includes apple-cinnamon)","Muffins, English, raisin-cinnamon (includes apple-cinnamon)",SR Legacy
-roasted bell pepper dip,0.446,10.39,250.9563,100.0,"spices, pepper, black","Spices, pepper, black",SR Legacy
-dosa base,273.0,5.46,184.0,100.0,"dosa, with filling","Dosa, with filling",Survey (FNDDS)
-ghee rice,0.0,0.0,900.096596,100.0,"butter, clarified butter (ghee)","Butter, Clarified butter (ghee)",SR Legacy
-bombay sandwich,575.0,11.5,494.0,100.0,"crackers, sandwich","Crackers, sandwich",Survey (FNDDS)
-beetroot curry,69.5,1.39,95.0,100.0,curry sauce,Curry sauce,Survey (FNDDS)
-simple tomato salad,0.027,0.88,17.686443999999998,100.0,"tomatoes, red, ripe, raw, year round average","Tomatoes, red, ripe, raw, year round average",SR Legacy
-carrot and date salad,0.048,1.81,277.24696,100.0,"dates, medjool","Dates, medjool",SR Legacy
+food_name,phe_mg_per_100g,protein_g_per_100g,energy_kcal_per_100g,serving_size_g,ingredients_found,ingredients_missing,data_quality
+Ugali (Maize porridge) (African Foods),0.5403428571428571,10.953142857142858,329.9648548571429,350.0,2,0,complete
+Plantain Fufu (African Foods),0.027428571428571427,0.9965714285714287,110.78952411428571,350.0,2,0,complete
+Cassava Fufu (African Foods),0.5403428571428571,10.953142857142858,329.9648548571429,350.0,2,0,complete
+Matoke (boiled green Bananas) (African Foods),0.18377142857142856,3.5565714285714285,316.4166290285715,350.0,2,0,complete
+Sweet Potato Porridge (African Foods),0.0,0.0,58.92063492063492,350.0,2,0,complete
+Boiled Cassava (African Foods),0.024266666666666666,1.2693333333333334,148.78920186666667,300.0,2,0,complete
+Boiled Plantains (African Foods),0.027999999999999997,1.0173333333333332,113.0976392,300.0,2,0,complete
+Roasted Corn (African Foods),38.63999999999999,0.7727999999999999,40.48,250.0,2,0,complete
+Steamed Vegetables (African Foods),0.0,0.0,125.07498606666667,300.0,2,0,complete
+Kachumbari (fresh salad) (African Foods),25.857959999999995,1.1592,24.68453968,250.0,4,0,complete
+Avocado Salad (African Foods),0.00524,0.19360000000000002,712.56292816,250.0,3,0,complete
+Okra Stew (without meat) (African Foods),0.052428571428571435,1.5985714285714283,80.00555131428571,350.0,4,0,complete
+Pumpkin Leaves Stew (African Foods),0.12814285714285717,2.4699999999999998,69.93315559999999,350.0,4,0,complete
+Baobab Leaf Stew  (African Foods),131.79314285714284,2.918571428571429,186.59539857142857,350.0,3,0,complete
+Coconut Rice (African Foods),182.85714285714286,3.6571428571428575,83.75,350.0,3,0,complete
+Fried Plantains (African Foods),0.026999999999999996,0.9810000000000001,109.0584378,300.0,2,0,complete
+Sweet Potato Chips (African Foods),0.0,0.0,57.99999999999999,200.0,2,0,complete
+Boiled Yam (African Foods),0.06626666666666665,1.4280000000000004,110.19769973333334,300.0,2,0,complete
+Boiled Sweet Potatoes (African Foods),0.0,0.0,60.14814814814814,300.0,2,0,complete
+Baked Plantains (African Foods),0.027999999999999997,1.0173333333333332,113.0976392,300.0,2,0,complete
+Boiled Cassava Leaves (African Foods),0.022285714285714287,1.1657142857142857,136.64314457142856,350.0,2,0,complete
+Tomato and Cucumber Salad (African Foods),6.625360000000001,0.7904,16.166365839999997,250.0,3,0,complete
+Steamed Okra (African Foods),0.0585,1.7369999999999997,118.09286460000001,300.0,2,0,complete
+Pumpkin Porridge (African Foods),0.0,0.0,18.285714285714285,350.0,2,0,complete
+Fried Cassava (African Foods),0.0234,1.2240000000000002,143.47530179999998,300.0,2,0,complete
+Vegetable Stir Fry (African Foods),0.0,0.0,37.24867724867724,350.0,2,0,complete
+Garden Egg Stew (without meat) (African Foods),0.0034473684210526317,0.1273684210526316,3.4844558947368416,380.0,3,1,partial
+Okra and Tomato Salad (African Foods),0.04655999999999999,1.4043999999999999,130.8318844,250.0,3,0,complete
+Fried Sweet Potato Balls (African Foods),0.0,0.0,57.99999999999999,200.0,2,0,complete
+Boiled Green Bananas (African Foods),0.1876,3.630666666666667,323.00864213333335,300.0,2,0,complete
+Millet Couscous (African Foods),0.6171428571428572,9.828571428571427,348.9760749714286,350.0,2,0,complete
+Roasted Pumpkin (African Foods),0.0,0.0,18.0,300.0,2,0,complete
+Boiled Taro (African Foods),0.07653333333333334,1.4000000000000001,104.62089306666667,300.0,2,0,complete
+Grilled Plantains (African Foods),0.027999999999999997,1.0173333333333332,113.0976392,300.0,2,0,complete
+Roasted Sweet Potatoes (African Foods),0.0,0.0,102.20415969999999,600.0,4,0,complete
+Boiled Pumpkin Leaves (African Foods),0.135,2.486842105263158,84.7024684736842,380.0,3,0,complete
+Fried Sweet Potato Chips (African Foods),0.0,0.0,57.99999999999999,200.0,2,0,complete
+Yam Porridge (African Foods),0.0649142857142857,1.398857142857143,107.94876708571428,350.0,2,0,complete
+Baobab Fruit Drink (African Foods),30.75,0.6150000000000001,41.62687833333333,300.0,2,0,complete
+Tamarind Juice (African Foods),0.0,0.0,55.17055166666667,300.0,2,0,complete
+Watermelon Salad (African Foods),2.9220399999999995,2.4475999999999996,36.596598719999996,250.0,3,0,complete
+Baobab Leaf Stew (no meat) (African Foods),131.7892857142857,2.7928571428571436,310.3663628571428,350.0,3,0,complete
+Roasted Yam (African Foods),0.06626666666666665,1.4280000000000004,110.19769973333334,300.0,2,0,complete
+Steamed Waterleaf (African Foods),0.0,0.0,0.0,300.0,2,0,complete
+Cassava Leaf Soup (no meat) (African Foods),0.024571428571428567,1.1914285714285715,170.3156756,350.0,4,0,complete
+Baobab Fruit Smoothie (African Foods),24.6,0.492,33.301502666666664,300.0,2,1,partial
+Sweet Potato Leaves Soup (African Foods),119.63083333333333,2.606388888888889,89.06956933333333,360.0,5,0,complete
+Okra Salad (African Foods),0.048260869565217385,1.4499999999999997,140.6706183478261,230.0,3,0,complete
+Baobab Leaf Salad (African Foods),151.56521739130434,3.031304347826087,276.1142793913043,230.0,3,0,complete
+Millet Stew (without meat) (African Foods),0.5418857142857143,11.003428571428572,330.9755088,350.0,3,0,complete
+Roasted Garden Eggplant (African Foods),0.0,0.0,88.4083194,300.0,1,1,partial
+Flatbread (African Foods),0.52008,10.5424,317.5911728,250.0,3,0,complete
+Mashed Pumpkin (African Foods),0.0,0.0,77.60554626666666,300.0,2,0,complete
+Cooked Waterleaf (African Foods),0.0,0.0,88.4083194,300.0,2,0,complete
+Boiled Sweet Cassava (African Foods),0.024266666666666666,1.2693333333333334,148.78920186666667,300.0,2,0,complete
+Okra and Tomato Soup (African Foods),0.052428571428571435,1.5985714285714283,80.00555131428571,350.0,4,0,complete
+Steamed Green Beans (African Foods),0.0,0.0,123.62571070434782,300.0,2,0,complete
+Baobab Leaf Juice (African Foods),126.66666666666666,2.5333333333333337,168.43549506666668,300.0,3,0,complete
+Rice and Beans (low-protein beans or substituted) (African Foods),109.86917142857142,4.854,88.43981520000001,350.0,4,0,complete
+Ugali with Vegetable Stew (African Foods),0.34068571428571426,6.958857142857141,221.14604249735456,350.0,5,0,complete
+Millet and Spinach Stew (African Foods),0.33985714285714286,6.94,216.2001768,350.0,4,0,complete
+Porridge with Baobab (African Foods),16.320857142857147,10.584857142857143,330.7501602857143,350.0,3,0,complete
+Plantain and Tomato Salad (African Foods),6.62556,1.0324,81.12819664,250.0,3,0,complete
+Cassava Leaf and Pumpkin Soup (African Foods),0.016999999999999998,0.8714285714285714,150.72946902857143,350.0,4,0,complete
+Roasted Maize with Chili (African Foods),402.50000000000006,8.05,341.77219914666665,250.0,3,0,complete
+Okra and Eggplant Stew (African Foods),0.03945714285714286,1.1782857142857142,27.220454057142856,350.0,4,0,complete
+Sweet Potato and Peanut Soup (using low-protein peanut substitute) (African Foods),80.72208571428573,1.8005714285714285,150.08605714285716,350.0,4,0,complete
+Steamed Waterleaf with Tomatoes (African Foods),0.0026999999999999997,0.08800000000000001,1.7686444,300.0,3,0,complete
+Millet Flatbread with Veggies (African Foods),0.4377777777777777,8.874074074074075,271.85938600823044,270.0,4,0,complete
+Potato Salad (Central European Foods),0.0025301204819277107,0.10012048192771085,63.1188009944079,913.0,6,0,complete
+Vegetable Stew (Central European Foods),19.918880597014926,4.671194029850747,155.98418655389716,1206.0,9,0,complete
+Asparagus with Potatoes (Central European Foods),0.032571032571032575,0.9757449757449759,36.127146270270266,1443.0,6,0,complete
+Potato goulash (Central European Foods),0.7927250264737028,0.24391987292622666,37.67824832016702,1133.2,7,0,complete
+Vegetable Soup (Central European Foods),1.2883594432655097,0.25118555735863185,26.290322547162432,1602.2,13,0,complete
+Carrot and apples Salad (Central European Foods),2.1153846153846154,0.04230769230769231,76.23289259929612,780.0,6,0,complete
+Braised Red Cabbage (Central European Foods),33.51050053937433,0.7128263214670981,140.52824798857796,927.0,7,0,complete
+cucumber fresh dill Salad (Central European Foods),0.022430555555555554,0.4577777777777778,209.99825284722223,720.0,5,0,complete
+Beet and Horseradish Slaw (Central European Foods),4.9565217391304355,0.09913043478260869,291.63233395652173,690.0,4,1,partial
+"Potato and celery, raw Root Mash (Central European Foods)",8.11298076923077,0.1622596153846154,127.65062494871795,910.0,5,0,complete
+Sweet and Sour raw turnips (Central European Foods),0.0323,1.05675,248.73973668749997,800.0,6,0,complete
+Zucchini and Pepper Stir Fry (Central European Foods),0.1814285714285714,4.513690476190476,163.10167783333333,840.0,5,0,complete
+"apples-onions, raw Slaw (Central European Foods)",0.006578947368421052,0.2894736842105263,158.35215513003098,760.0,6,0,complete
+Roasted Fennel and Carrots (Central European Foods),20.758887640449437,1.4066292134831462,133.19056730337078,890.0,5,0,complete
+Pickled Beet Salad (Central European Foods),45.006033333333335,1.1734666666666667,109.77311357333332,750.0,6,0,complete
+Radish and cucumber Salad (Central European Foods),14.076714285714287,0.5835357142857143,93.33523667142856,700.0,6,0,complete
+Potato Leek Mash (Central European Foods),0.023818181818181818,0.6294318181818181,110.42255337878788,880.0,5,0,complete
+Caraway Sauerkraut (Central European Foods),29.229027272727276,0.8757272727272728,149.81607126493506,770.0,5,0,complete
+Chilled Beet and apples Salad (Central European Foods),46.578947368421055,0.9315789473684212,49.08935121594427,760.0,5,0,complete
+German Cabbage Medley (Central European Foods),21.850852272727273,0.6244318181818184,60.59375340530303,880.0,6,0,complete
+"Potato and onions, raw Hash (Central European Foods)",0.005434782608695652,0.23913043478260873,138.1060916459627,920.0,5,0,complete
+Marinated Zucchini (Central European Foods),9.391549295774649,2.094929577464789,167.13378490140846,710.0,6,0,complete
+Carrot Parsnip Gratin (Central European Foods),20.689655172413794,0.41379310344827586,207.03612131417623,870.0,5,0,complete
+"celery, raw and apples Slaw (Central European Foods)",12.043750000000001,0.24087500000000003,155.8338591788235,750.0,5,0,complete
+"Stewed Kohlrabi, sliced, raw and Carrots (Central European Foods)",0.01752808988764045,0.7640449438202248,107.02009016467538,890.0,5,0,complete
+Beet and cucumber Salad (Central European Foods),43.28198717948719,1.1366666666666665,55.36816647435897,780.0,6,0,complete
+"Roasted Carrot and onions, raw (Central European Foods)",10.17682926829268,0.47170731707317076,117.51378966666665,820.0,5,0,complete
+"apples-onions, raw Chutney (Central European Foods)",0.0071428571428571435,0.3142857142857143,99.06866032689075,700.0,6,0,complete
+Sauteed Red Cabbage (Central European Foods),29.702115340253748,0.639607843137255,161.99694321270098,867.0,6,0,complete
+Potato-Carrot Hash (Central European Foods),0.010648351648351649,0.3163186813186813,109.46282153846154,910.0,6,0,complete
+"Pickled Kohlrabi, sliced, raw (Central European Foods)",0.02367857142857143,1.0455714285714286,65.28341057142856,700.0,6,0,complete
+Warm Sauerkraut and apples Salad (Central European Foods),21.182922352941176,0.664164705882353,121.06188137107266,850.0,6,0,complete
+cucumber and Fennel Salad (Central European Foods),18.074325657894736,0.7171957236842106,71.60273830263156,760.0,6,0,complete
+Carrot Slaw with Mustard (Central European Foods),0.0,0.0,321.3597015539906,710.0,6,0,complete
+Bavarian Turnip Stir-Fry (Central European Foods),0.021026966292134835,0.9174044943820228,156.16168657078651,890.0,6,0,complete
+Stewed Cabbage with Tomatoes (Central European Foods),26.130978260869565,0.8811141304347828,64.92170867857142,920.0,6,0,complete
+Zucchini and apples Salad (Central European Foods),2.3133219178082194,1.5538356164383562,77.81858294762289,730.0,6,0,complete
+Radish and apples Slaw (Central European Foods),16.657608695652172,0.33315217391304347,78.47643313640239,690.0,6,0,complete
+Potato and Sauerkraut Bake (Central European Foods),13.921890721649484,0.4325154639175258,98.62262357869415,970.0,6,0,complete
+Steamed Kohlrabi with Carrots (Central European Foods),0.01793103448275862,0.781609195402299,104.28496179913662,870.0,5,0,complete
+"Fried Cabbage and onions, raws (Central European Foods)",26.414835164835164,0.8303571428571429,124.45674706436421,910.0,5,0,complete
+Sweet Roasted apples (Central European Foods),3.1400000000000006,0.0628,239.03309879403923,750.0,5,0,complete
+Swiss Turnip Gratin (Central European Foods),0.013920454545454545,0.6988636363636366,145.1839042840909,880.0,6,0,complete
+Austrian Red Cabbage and apples (Central European Foods),34.98744943820225,0.7064516853932584,79.60903400642432,890.0,6,0,complete
+Garlic Mashed Potatoes (Central European Foods),5.338709677419354,0.10677419354838708,331.0636250860215,930.0,5,0,complete
+Tomato-cucumber Salad (Central European Foods),0.02689189189189189,0.7445945945945945,46.53994582432433,740.0,6,0,complete
+Rustic Cabbage Stew (Central European Foods),20.03305625,0.670875,22.25026423906396,960.0,7,0,complete
+Spiced apples Slaw (Central European Foods),2.5069444444444446,0.050138888888888886,244.78732603545748,720.0,6,0,complete
+Roasted Garlic Red beets (Central European Foods),58.943412499999994,1.2437500000000001,199.2927946875,800.0,6,0,complete
+Mustard Potato Salad (Central European Foods),0.0032258064516129032,0.14193548387096774,179.70580512903226,930.0,6,0,complete
+Hungarian Cabbage and Peppers (Central European Foods),24.326978021978025,4.09010989010989,142.80255477394033,910.0,6,0,complete
+"Pickled Red onions, raws (Central European Foods)",0.14717164816396244,0.7571528608027327,156.72897034227157,585.5,6,0,complete
+celery Root and apples Puree (Central European Foods),15.091594827586208,0.30183189655172415,68.70903561392834,870.0,5,0,complete
+Fried Turnip Cakes (Central European Foods),0.01894444444444444,0.8388333333333334,147.97392584444444,900.0,6,0,complete
+Steamed Green Beans and Carrots (Central European Foods),3.5174418604651168,0.07034883720930234,133.082649119818,860.0,5,0,complete
+Zucchini and Potato RÃ¶sti (Central European Foods),0.05213793103448276,1.49183908045977,84.01636034482758,870.0,6,0,complete
+Fried Sauerkraut with Apples (Central European Foods),24.46112391304348,0.6516739130434784,94.31865187800511,920.0,7,0,complete
+Sweet and Sour Vegetables (Chinese Foods),0.19858333333333333,4.625000000000001,170.94547892937854,360.0,7,0,complete
+Vegetable Low-Protein Fried Rice (Chinese Foods),118.71111111111112,2.374222222222222,241.5782315111111,450.0,5,0,complete
+Steamed Eggplant (Chinese Foods),7.6976744186046515,0.15395348837209302,25.643874,215.0,3,0,complete
+Cabbage and Apple Slaw (Chinese Foods),20.323030303030304,1.087878787878788,63.12080717171716,330.0,6,0,complete
+Low-Protein Dumplings (Chinese Foods),8.53865,5.8709999999999996,178.10727119999999,200.0,5,0,complete
+Stir-Fried Peas (Chinese Foods),650.9407575757575,13.073939393939394,426.2532961818181,165.0,4,0,complete
+Pumpkin Congee (Chinese Foods),4.090909090909091,0.08181818181818182,85.74012827272726,220.0,4,0,complete
+Garlic Bok Choy Stir-Fry (Chinese Foods),56.47949470499244,1.1452950075642963,5.099517831568331,495.75,6,0,complete
+Braised Daikon with Shitake Mushrooms (Chinese Foods),24.836927453769565,0.661872078845763,29.185404844950213,984.2,10,0,complete
+Spicy Pickled Napa Cabbage (Simple Kimchi-style) (Chinese Foods),9.512285806869732,1.3792320155541156,17.149010952689565,1543.0,9,0,complete
+Vegetarian Winter Melon Soup (Chinese Foods),37.7787348728442,0.860304004676995,20.833520576439636,1710.5,10,0,complete
+Dry-Fried Green Beans (Chinese Foods),9.501254938852306,0.2464722483537159,57.82929741707229,531.5,10,0,complete
+Lotus Root Stir-Fry (Chinese Foods),33.23734938590821,3.447070135746607,99.48634621838504,618.8,14,0,complete
+Stir Fry Bean Sprouts and Garlic Chives (Chinese Foods),41.46137787056367,0.8292275574112733,144.52996614613778,239.5,4,0,complete
+Chinese Cucumber Salad  (Chinese Foods),6.557446808510638,0.13114893617021275,35.448254761702124,470.0,7,0,complete
+Braised Kabocha Squash (Chinese Foods),42.592580781414995,19.812074973600843,424.14077618585003,947.0,12,0,complete
+Yu Choy Sum (Chinese Foods),58.77270835014118,1.1817355788624444,57.04012681524808,495.8,5,0,complete
+Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),61.45253654080389,2.709764007308161,136.84433326004594,410.5,13,0,complete
+Chayote Stir-Fry with Garlic (Chinese Foods),2.0718238021638333,0.5256465739309635,38.28038986057008,970.5,7,0,complete
+Chinese-Style Steamed Zucchini (Chinese Foods),29.300222222222217,2.938070707070707,79.90302471313132,990.0,10,0,complete
+Stir-Fried Zucchini with Garlic Sauce (Chinese Foods),30.163858585858588,2.955343434343434,79.92524537979797,990.0,10,0,complete
+Stir-Fried Cucumber with Garlic Sauce (Chinese Foods),33.27316964285714,1.4254129464285714,81.58341475223213,896.0,11,0,complete
+Stir-Fried Tomato with Garlic Sauce (Chinese Foods),37.723569620253166,1.6275822784810128,92.29346446329113,790.0,10,0,complete
+Stir-Fried Daikon Radish with Garlic Sauce (Chinese Foods),60.208337078651695,1.3862808988764046,82.5842365460674,890.0,10,0,complete
+Stir-Fried Winter Melon with Garlic Sauce (Chinese Foods),102.69725531914895,2.226372340425532,101.17398300638298,940.0,10,0,complete
+Stir-Fried Chayote with Garlic Sauce (Chinese Foods),33.4950786516854,1.3390898876404493,86.91836913033706,890.0,10,0,complete
+Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),73.59175,1.6276826923076926,69.68081277499999,1040.0,10,0,complete
+Stir-Fried Green Cabbage with Garlic Sauce (Chinese Foods),68.92466666666668,1.5422121212121214,62.939687157575754,990.0,10,0,complete
+Stir-Fried Carrots with Garlic Sauce (Chinese Foods),35.45883333333333,0.9021309523809525,96.87732970555555,840.0,10,0,complete
+Stir-Fried Beets with Garlic Sauce (Chinese Foods),99.82912359550564,2.178696629213483,70.01156211910113,890.0,10,0,complete
+Stir-Fried Bell Pepper with Garlic Sauce (Chinese Foods),38.041797468354424,8.850367088607596,269.47350669113916,790.0,10,0,complete
+Stir-Fried Celery with Garlic Sauce (Chinese Foods),52.82245224719101,1.238563202247191,70.01156211910113,890.0,10,0,complete
+Stir-Fried Snow Peas with Garlic Sauce (Chinese Foods),57.66002898550725,1.3881014492753625,183.0583917188406,690.0,10,0,complete
+Stir-Fried Wood Ear Mushroom with Garlic Sauce (Chinese Foods),355.0304628099173,7.628826446280993,292.52397334876036,605.0,11,0,complete
+Stir-Fried Enoki Mushroom with Garlic Sauce (Chinese Foods),54.19834234234234,3.1735968468468467,113.89215833513514,555.0,11,0,complete
+Stir-Fried Kabocha Squash with Garlic Sauce (Chinese Foods),63.003591623036655,1.5947015706806282,85.14644227853402,955.0,11,0,complete
+Stir-Fried Eggplant with Garlic Sauce (Chinese Foods),32.920917127071824,1.01153591160221,88.40900317790054,905.0,11,0,complete
+Stir-Fried Lettuce with Garlic Sauce (Chinese Foods),68.58997163120567,1.8250921985815602,89.6597842212766,705.0,11,0,complete
+Stir-Fried Chinese Broccoli with Garlic Sauce (Chinese Foods),79.49494409937888,1.9868819875776396,95.2671879204969,805.0,11,0,complete
+Stir-Fried Garlic Chives with Garlic Sauce (Chinese Foods),277.0119574468085,5.993531914893616,190.8559416680851,705.0,11,0,complete
+Stir-Fried Spinach with Garlic Sauce (Chinese Foods),45.486152671755725,1.3976183206106871,112.30556927633589,655.0,11,0,complete
+Stir-Fried Okra with Garlic Sauce (Chinese Foods),49.28831404958678,2.789157024793388,126.28641169586776,605.0,11,0,complete
+Stir-Fried Fuzzy Melon with Garlic Sauce (Chinese Foods),101.7606961325967,2.388331491712707,103.67604030497237,905.0,11,0,complete
+Stir-Fried Tatsoi with Garlic Sauce (Chinese Foods),42.26018439716312,1.2984964539007093,103.84418138439715,705.0,11,0,complete
+Stir-Fried Bok Choy with Garlic Sauce (Chinese Foods),73.76059064327487,1.8489795321637426,73.92999751578947,855.0,11,0,complete
+Stir-Fried Bamboo Shoots with Garlic Sauce (Chinese Foods),39.527059602649004,3.106543046357616,103.74473824635761,755.0,11,0,complete
+Stir-Fried Water Chestnut with Garlic Sauce (Chinese Foods),45.486152671755725,1.3976183206106871,96.50404255877862,655.0,11,0,complete
+Stir-Fried Lotus Root with Garlic Sauce (Chinese Foods),37.04550310559006,3.075080745341615,133.92381052919256,805.0,11,0,complete
+Stir-Fried Pumpkin with Garlic Sauce (Chinese Foods),32.920917127071824,1.01153591160221,85.31508052596685,905.0,11,0,complete
+Stir-Fried Zha Cai (preserved mustard) with Garlic Sauce (Chinese Foods),97.68337704918034,3.00144262295082,223.63982910163935,305.0,11,0,complete
+Stir-Fried Scallion with Garlic Sauce (Chinese Foods),73.59316049382714,3.164049382716049,172.00817253333332,405.0,11,0,complete
+Stir-Fried Parsley with Garlic Sauce (Chinese Foods),83.98642253521126,3.8336338028169012,193.30601063661973,355.0,11,0,complete
+Stir-Fried Yam with Garlic Sauce (Chinese Foods),32.97583425414364,2.194961325966851,161.16952781878453,905.0,11,0,complete
+Stir-Fried Pickled Radish with Garlic Sauce (Chinese Foods),91.67015841584158,2.466217821782178,141.7807098534653,505.0,11,0,complete
+Stir-Fried Pickled Cabbage with Garlic Sauce (Chinese Foods),106.52164356435645,2.763247524752475,142.91657995247525,505.0,11,0,complete
+Stir-Fried Seaweed (rehydrated) with Garlic Sauce (Chinese Foods),104.53835087719298,3.2120701754385963,234.4215714947368,285.0,11,0,complete
+Stir-Fried Chinese Leek with Garlic Sauce (Chinese Foods),82.68571631205675,2.1070070921985815,105.59351755460993,705.0,11,0,complete
+Stir-Fried Fennel with Garlic Sauce (Chinese Foods),79.72054545454546,2.1226280991735536,104.47958326611571,605.0,11,0,complete
+Stir-Fried Garlic Sprouts with Garlic Sauce (Chinese Foods),262.4205945945946,5.824216216216216,203.87468752432434,555.0,11,0,complete
+Stir-Fried Taro (limited) with Garlic Sauce (Chinese Foods),49.263851239669414,1.8569256198347106,198.34375781157024,605.0,11,0,complete
+Stir-Fried Cilantro with Garlic Sauce (Chinese Foods),128.92515492957745,3.4787042253521125,187.6506573971831,355.0,11,0,complete
+Stir-Fried Shanghai Greens with Garlic Sauce (Chinese Foods),78.7850070921986,2.028992907801418,192.4966636539007,705.0,11,0,complete
+Stir-Fried Kailan with Garlic Sauce (Chinese Foods),37.01047204968944,1.137192546583851,94.9194383552795,805.0,11,0,complete
+Stir-Fried Sweet Corn (limited) with Garlic Sauce (Chinese Foods),73.63809876543209,3.8504691358024687,198.32833944691356,405.0,11,0,complete
+Stir-Fried Pickled Mustard Greens with Garlic Sauce (Chinese Foods),135.03649504950496,3.3335445544554454,140.78682351683167,505.0,11,0,complete
+Stir-Fried Jicama with Garlic Sauce (Chinese Foods),37.02314285714286,1.67383850931677,106.84636059130435,805.0,11,0,complete
+Stir-Fried Turnip with Garlic Sauce (Chinese Foods),34.85904093567251,1.7549005847953218,95.18895225263158,855.0,11,0,complete
+Stir-Fried Komatsuna with Garlic Sauce (Chinese Foods),42.26018439716312,1.2984964539007093,99.58886223546098,705.0,11,0,complete
+Stir-Fried Cabbage Core Shreds with Garlic Sauce (Chinese Foods),85.60897520661159,2.240396694214876,114.75091549752064,605.0,11,0,complete
+Stir-Fried Chinese Celery with Garlic Sauce (Chinese Foods),82.68571631205675,2.1070070921985815,105.59351755460993,705.0,11,0,complete
+Stuffed Bell Peppers with White Rice (Eastern European Foods),38.58451024799003,4.446657230211755,112.28088342681453,883.1,11,0,complete
+Vegan Borscht (Eastern European Foods),5.238022584692597,0.18504767879548306,23.949521301713247,1992.5,12,1,partial
+Korean Style Carrot Salad (Eastern European Foods),6.242398047391437,0.12484796094782875,85.05565152367393,983.3,7,0,complete
+Braised Cabbage with White Rice (Eastern European Foods),24.41451520417029,0.7078670721112077,19.405622707301536,2302.0,8,0,complete
+Veggie-Stuffed Potato Cakes Dough Base (Eastern European Foods),0.0018268590455049949,0.04482796892341842,264.99077228634854,901.0,6,0,complete
+Veggie-Stuffed Potato Cakes Mushroom Filling (Eastern European Foods),11.40152963671128,0.6484894837476101,32.75576415438659,523.0,4,0,complete
+Veggie-Stuffed Potato Cakes Satsibeli Sauce (Eastern European Foods),14.722141823444282,1.0899276410998553,53.86417563531114,345.5,8,0,complete
+Baked Apples (Eastern European Foods),20.07529948939513,0.4265269049489396,76.80982571798901,1018.4,9,0,complete
+Stuffed Cabage Main (Eastern European Foods),18.52946628131021,0.640019267822736,26.408018530398063,2595.0,3,0,complete
+Stuffed Cabbage Filling (Eastern European Foods),112.68653214285713,2.656546428571428,64.81792456034331,700.0,15,0,complete
+Pickled Pumpkin Main (Eastern European Foods),0.08452501887569497,0.031629487267485754,74.8093048717139,1456.9,10,0,complete
+Pickled Pumpkin Cherry Dressing (Eastern European Foods),11.539174219536758,0.379657603222558,357.97387067472306,99.3,5,0,complete
+Pickled Pumpkin Salad (Eastern European Foods),24.466180722891565,0.6362650602409639,120.63628040963859,249.0,3,0,complete
+Vinegret Salad (Eastern European Foods),0.003695788812067882,0.14079195474544312,50.10562079907813,1591.0,8,1,partial
+Potato and fresh dill Soup (Eastern European Foods),2.979207258064516,0.17894354838709678,44.028476576455986,1240.0,9,0,complete
+Carrot and Apple Salad (Eastern European Foods),1.5277777777777777,0.03055555555555556,80.51010200708062,720.0,6,0,complete
+Roasted Root Vegetables (Eastern European Foods),28.13524247491639,0.5627048494983278,65.25231630657747,1196.0,7,0,complete
+Cabbage and Apple Slaw (Eastern European Foods),36.487630208333336,0.7297526041666667,101.09393382291667,960.0,7,0,complete
+Mashed Potatoes with Garlic Oil (Eastern European Foods),13.239999999999998,0.2648,160.91855581333328,750.0,4,0,complete
+Beet and Apple Salad (Eastern European Foods),40.242537313432834,0.8048507462686568,62.28107894644425,670.0,5,0,complete
+Cabbage Stew with Caraway (Eastern European Foods),37.605611666666675,0.9682833333333335,41.72610615797889,1200.0,7,0,complete
+Sweet Braised Red Cabbage (Eastern European Foods),46.63157894736842,0.9326315789473685,114.06306609473684,950.0,6,0,complete
+Potato and Cucumber Salad (Eastern European Foods),0.010153061224489796,0.21591836734693878,132.2836639217687,980.0,6,0,complete
+Herbed Carrot Mash (Eastern European Foods),4.667154929577465,0.20823943661971828,128.68901676056336,710.0,6,0,complete
+Polish Apple Beet Slaw (Eastern European Foods),42.13726351351351,0.8661148648648649,80.57444888394278,740.0,6,0,complete
+Potato-Cauliflower Bake (Eastern European Foods),4.989949748743718,0.09979899497487435,186.11998319933,995.0,6,0,complete
+Stewed Green Beans with Tomato (Eastern European Foods),3.1025700934579437,0.3908411214953271,97.95737638277123,1070.0,6,0,complete
+Warm Cabbage-Apple SautâÂ© (Eastern European Foods),29.894021739130434,0.7173913043478263,74.13356925191815,920.0,6,0,complete
+Horseradish Beet Salad (Eastern European Foods),65.0,1.3,155.38290030508472,590.0,5,0,complete
+Simple Potato and Pickle Salad (Eastern European Foods),0.0067816091954022995,0.2413793103448276,65.44711626819924,870.0,6,0,complete
+Sauteed Zucchini with fresh dill (Eastern European Foods),5.505983606557377,2.38655737704918,136.22950186885245,610.0,5,0,complete
+Carrot-Potato Latkes (Eastern European Foods),0.005035714285714287,0.1666071428571429,88.53127882539683,840.0,6,0,complete
+Beet and Cabbage Stir-Fry (Eastern European Foods),50.20281788440567,1.1910196292257362,89.50288195856051,917.0,7,0,complete
+Apple-Cabbage Slaw (Eastern European Foods),20.600961538461537,0.4120192307692308,71.15152341980894,780.0,7,0,complete
+Mushroom-Buckwheat Pilaf (limited) (Eastern European Foods),4.19969512195122,4.321585365853658,229.42663063414633,820.0,6,0,complete
+Cucumber-Vinegar Salad (Eastern European Foods),0.024346153846153844,0.48046153846153844,47.84867476923077,650.0,5,0,complete
+Baked Cauliflower with Paprika (Eastern European Foods),2.378443113772455,0.047568862275449104,150.33750545834044,835.0,5,0,complete
+Sweet Carrot Pudding (Eastern European Foods),15.027777777777777,0.3005555555555555,170.8065731898148,720.0,7,0,complete
+Cabbage-Potato Mash (Eastern European Foods),22.10026436781609,0.5016666666666667,83.86947104214559,870.0,5,0,complete
+Caraway Beet Wedges (Eastern European Foods),62.96900597014925,1.3183432835820896,109.2201884119403,670.0,5,0,complete
+Stuffed Apples with Jam (Eastern European Foods),0.5000281690140845,0.07246478873239437,165.60058668666116,710.0,5,0,complete
+Savory Pumpkin Mash (Eastern European Foods),6.979701280227596,0.21342816500711237,122.83444601137981,703.0,6,0,complete
+Zucchini and Apple Salad (Eastern European Foods),2.3454513888888893,1.5754166666666667,66.62046334967322,720.0,6,0,complete
+Beetroot Horseradish Dip (Eastern European Foods),63.916666666666664,1.2783333333333333,174.89526515,600.0,5,0,complete
+Mashed Pumpkin with Carrots (Eastern European Foods),3.680255555555556,0.13127777777777777,102.45366982222221,900.0,6,0,complete
+Sauerkraut with Carrot (Eastern European Foods),23.9998590078329,0.6506396866840732,104.04000832724107,766.0,7,0,complete
+Roasted Cabbage Steaks (Eastern European Foods),44.126225,0.9474062500000001,92.56501598392856,800.0,6,0,complete
+Turnip and Apple Salad (Eastern European Foods),2.327020547945206,1.4168493150684933,78.08050733118452,730.0,6,0,complete
+Fried Zucchini Rounds (Eastern European Foods),2.3983636363636367,2.3930769230769227,144.0504204335664,715.0,5,0,complete
+Potato and fresh dill Patties (Eastern European Foods),0.006168539325842696,0.22820224719101123,188.86215419475656,890.0,6,0,complete
+Mushroom-Cabbage Mix (Eastern European Foods),19.060259615384613,0.739423076923077,152.37532434615383,1040.0,7,0,complete
+Spiced Apple Slices (Eastern European Foods),2.1526586620926245,0.04305317324185249,116.74979179679144,583.0,6,0,complete
+Cucumber Beet Salad (Eastern European Foods),41.17067073170732,1.0812195121951218,64.95081179268291,820.0,6,0,complete
+Sweet Carrot and Apple Bake (Eastern European Foods),0.7833333333333333,0.015666666666666666,98.7791507601743,900.0,6,0,complete
+Cold Marinated Vegetables (Eastern European Foods),1.7442,2.1111,148.87218037,1000.0,7,0,complete
+Polish Celery Root Slaw (Eastern European Foods),15.963541666666666,0.31927083333333334,70.90299866584968,720.0,6,0,complete
+"Warm Zucchini and onions, raw SautâÂ© (Eastern European Foods)",3.960564705882353,2.0566470588235295,110.40390098823529,850.0,6,0,complete
+Beet and Radish Salad (Eastern European Foods),48.67909999999999,1.2230666666666667,54.62402461333333,750.0,6,0,complete
+Pan-Fried Pumpkin Slices (Eastern European Foods),8.288194444444445,0.16576388888888888,143.62366629166667,720.0,5,0,complete
+Tomato Rasam (Indian Foods),4.425306666666667,0.4508666666666667,20.505121426666662,150.0,5,0,complete
+Vegetable Stew (Indian Foods),0.04240740740740741,0.9317283950617283,113.81829835068883,162.0,5,0,complete
+Sambar  (Indian Foods),0.008733333333333333,0.32266666666666666,25.278065266666662,150.0,5,0,complete
+Masala Dosa  (Indian Foods),5.3790000000000004,1.7550833333333336,71.77367516666666,120.0,5,0,complete
+Dosa Base (Indian Foods),0.07281818181818182,1.7181818181818183,100.90398763636364,220.0,3,0,complete
+Lemon Rice (Indian Foods),239.67073399014777,4.981194581280788,69.21945546798031,203.0,10,0,complete
+Upma (Indian Foods),5.871565217391304,6.852956521739132,312.85279996521734,115.0,5,0,complete
+Coconut Chutney (Indian Foods),0.0349,0.7661999999999999,185.41607468,50.0,4,0,complete
+Vegetable Kurma (Indian Foods),11.96344370860927,1.1541721854304636,135.28459598329974,151.0,5,0,complete
+Aloo Tamatar Curry (Indian Foods),19.13848275862069,0.6253793103448275,45.18088949425286,290.0,8,0,complete
+Bhindi Masala (Indian Foods),18.167066666666667,1.8983333333333334,35.22705993333333,300.0,10,0,complete
+Baingan Bharta (Indian Foods),21.353805555555557,0.6652777777777777,30.811732944444444,360.0,10,0,complete
+Jeera Aloo (Indian Foods),35.422680412371136,0.7084536082474225,58.376058907216496,194.0,6,0,complete
+Tinda Sabzi (Indian Foods),19.48507142857143,2.5125,26.373421642857142,280.0,8,0,complete
+Gajar Matar (Indian Foods),249.10236220472436,4.982047244094487,166.05625496587928,254.0,8,0,complete
+Kachumber Salad (Indian Foods),0.028473684210526314,0.7889473684210526,18.91921178947368,380.0,9,0,complete
+Lauki Sabzi (Indian Foods),23.446802721088435,2.55047619047619,29.06930798639456,294.0,8,0,complete
+Tamarind Potatoes (Indian Foods),36.2375,0.72475,67.79882967222221,240.0,10,0,complete
+Aloo Capsicum (Indian Foods),11.160555555555558,4.135925925925926,125.94551088888888,324.0,8,0,complete
+Beetroot Curry (Indian Foods),86.67379562043797,1.926058394160584,14.547963751824817,274.0,8,0,complete
+Aloo Methi (Indian Foods),46.71363636363636,0.9342727272727271,55.423031036363625,220.0,10,0,complete
+Aloo Baingan (Indian Foods),20.57808383233533,0.5168862275449102,41.853532499001986,334.0,10,0,complete
+Simple Dahi Chawal (Indian Foods),153.6,3.072,90.80000000000001,250.0,2,0,complete
+Bhindi Stir Fry (Indian Foods),0.13120454545454546,3.0086363636363638,69.48013059090908,220.0,4,0,complete
+Vegetable Pulao (Indian Foods),117.59183333333331,4.705,187.06545526666665,300.0,5,0,complete
+Dal-Free Rasam (Indian Foods),0.010799999999999999,0.35200000000000004,33.556442399999995,250.0,3,1,partial
+Chana-Free Chaat (Indian Foods),0.0548,1.342,109.7874061,200.0,3,1,partial
+Coconut Rice (Indian Foods),0.09759999999999999,1.8716,135.45904056,250.0,3,0,complete
+Cucumber Raita (Indian Foods),148.42527777777775,3.1322222222222216,98.11936255555555,180.0,3,0,complete
+Vegetable Curry (Indian Foods),4.638533333333332,0.29066666666666674,39.229971160493825,300.0,5,0,complete
+Tamarind Rice (Indian Foods),142.29437037037036,4.237037037037037,108.49201340740741,270.0,4,0,complete
+Bombay Sandwich (Indian Foods),1.6693,0.49500000000000005,202.76828120000002,200.0,4,0,complete
+Jaggery Poha (Indian Foods),73.35681818181817,1.4671363636363637,162.04545454545453,220.0,3,0,complete
+Chilli Potato (Indian Foods),0.31920833333333326,10.857916666666666,215.88216950000003,240.0,4,0,complete
+Masala French Fries (Indian Foods),13.4052,9.264,196.42469104,250.0,3,0,complete
+Aloo Gobhi (Indian Foods),21.616729559748425,0.5539622641509433,47.60765224737945,318.0,10,0,complete
+Gobhi Masala (Indian Foods),33.945071428571424,0.8673571428571428,35.75423882857143,280.0,10,0,complete
+Vegetable Tehri (Indian Foods),252.76562499999997,5.0553125,141.60960835416668,384.0,10,0,complete
+Kadhi (Mock) (Indian Foods),29.228073394495407,1.619816513761468,280.91403862385323,218.0,10,0,complete
+Baingan Tamatar (Indian Foods),25.045666666666666,0.7940666666666665,30.49944416,300.0,10,0,complete
+Cabbage Poriyal (Indian Foods),192.29263565891472,3.8458527131782945,12.406803984496126,258.0,10,0,complete
+Lauki Chana (Mock) (Indian Foods),215.22066666666663,6.1098,140.35153676000002,300.0,10,0,complete
+Bharta with Peas (Indian Foods),215.18518518518513,4.377744107744108,144.12611228282827,297.0,11,0,complete
+Methi Aloo (Indian Foods),46.71363636363636,0.9342727272727271,55.423031036363625,110.0,5,0,complete
+Tamarind Aloo (Indian Foods),38.457364341085274,0.7691472868217053,53.06619302842377,129.0,5,0,complete
+Palak Curry (Indian Foods),25.095255474452554,0.8381021897810217,106.8720919270073,137.0,5,0,complete
+Peas Pulao (Indian Foods),365.76143790849665,7.315228758169933,193.08902402614382,153.0,5,0,complete
+Chana Aloo (Mock) (Indian Foods),199.83548387096775,4.138580645161291,151.29422238709677,155.0,5,0,complete
+Aloo Shimla Mirch (Indian Foods),9.894911764705885,3.958823529411765,120.97609323529413,170.0,4,0,complete
+Aloo Tamatar Bhujia (Indian Foods),23.381496598639455,0.7069387755102041,46.50749755555555,147.0,4,0,complete
+Dry Aloo Matar (Indian Foods),229.43703703703707,4.58874074074074,167.83040407407407,135.0,4,0,complete
+Tindora Stir-Fry (Indian Foods),37.119090909090914,3.204272727272727,34.29755012727272,110.0,4,0,complete
+Ghee Rice (Indian Foods),281.9791666666667,5.639583333333333,309.0020910833333,240.0,3,0,complete
+Cabbage Stir Fry (Indian Foods),39.68932000000001,2.6096,56.46277743999999,250.0,4,0,complete
+Tomato Upma (Indian Foods),0.4165333333333333,8.770666666666667,241.14112026666663,300.0,5,0,complete
+Spiced Corn (Indian Foods),30.376000000000005,3.32,96.21186529999999,200.0,3,0,complete
+Fried Plantains (Indian Foods),41.625,0.8324999999999999,0.0,250.0,2,0,complete
+Plain Khichdi (Indian Foods),202.10526315789474,4.042105263157895,277.9150728421053,190.0,2,0,complete
+Potato Capsicum Fry (Indian Foods),120.31339999999999,10.6764,248.4706376,250.0,4,0,complete
+Plain Uttapam (Indian Foods),0.4511111111111111,10.681481481481482,212.4851860740741,270.0,3,0,complete
+Papaya Sabzi (Indian Foods),0.05340000000000001,1.3816,79.92816352,250.0,4,0,complete
+Malai Toast (Indian Foods),195.3575,4.694,288.716641,200.0,3,0,complete
+Mint Rice (Indian Foods),157.65749999999997,5.50576923076923,103.41348123076924,260.0,4,0,complete
+Rice Porridge (Indian Foods),161.1851851851852,3.2237037037037037,117.9351851851852,270.0,3,0,complete
+Sweet Suji Balls (Indian Foods),73.77681818181819,10.112590909090908,332.4611609090909,220.0,3,0,complete
+Jeera Aloo Rice (Indian Foods),209.96410714285716,7.322857142857142,157.37452264285716,280.0,4,0,complete
+Tomato Sevai (Indian Foods),153.6836,4.986666666666667,104.61240586666666,300.0,4,0,complete
+Roti Roll (Indian Foods),294.5618,9.4776,262.04415728,250.0,4,0,complete
+Stuffed Bell Pepper (Indian Foods),0.3065555555555555,9.36962962962963,214.6450921481481,270.0,4,0,complete
+Bananass Fritters (Indian Foods),0.0,0.0,0.0,240.0,1,1,partial
+Carrot Rice (Indian Foods),153.6,3.072,75.41333333333334,250.0,3,0,complete
+Curry Leaf Rice (Indian Foods),147.88384615384615,7.047692307692308,130.63619584615384,260.0,4,0,complete
+Bread Upma (Indian Foods),501.0086666666667,10.35,272.27563519999995,300.0,4,0,complete
+Masala Idli Fry (Indian Foods),224.2259259259259,4.647407407407408,95.42469777777778,270.0,4,0,complete
+Tandoori Potatoes (Indian Foods),38.25230769230769,8.453846153846154,177.1218310769231,260.0,3,0,complete
+Lauki Curry (Indian Foods),27.0827,2.425333333333333,52.9159284,300.0,4,0,complete
+Rice Idli (Indian Foods),0.48319999999999996,11.36,223.1360016,250.0,2,0,complete
+Simple Sweet Rice (Indian Foods),166.95652173913044,3.339130434782609,277.40390382608695,230.0,3,0,complete
+Minestrone (vegetable soup) (Italian Foods),2.7630972222222225,0.9135763888888889,48.36624894444444,360.0,7,0,complete
+Panzanella (bread salad) (Italian Foods),100.19383333333332,2.7099999999999995,193.50039466666666,300.0,5,0,complete
+"Risotto al Limone (lemon risotto, no cheese) (Italian Foods)",11.142857142857142,0.22285714285714286,154.1819494138332,350.0,4,0,complete
+Pasta al Pomodoro (no cheese) (Italian Foods),151.81157142857143,3.4131428571428577,137.61493697142856,350.0,4,0,complete
+Caponata (eggplant stew) (Italian Foods),2.117689285714286,0.3376160714285714,96.42188919999998,350.0,7,0,complete
+Focaccia (plain) (Italian Foods),0.0072,0.18,284.97163392,250.0,3,0,complete
+Polenta (Italian Foods),346.6666666666667,6.933333333333333,265.45599733333336,300.0,2,0,complete
+Verdure Grigliate (grilled vegetables) (Italian Foods),0.13913409961685824,3.362835249042146,245.3464029731801,261.0,5,0,complete
+Bruschetta (no cheese) (Italian Foods),150.2738,3.6719999999999997,196.321234,200.0,3,0,complete
+Ribollita (Tuscan vegetable soup) (Italian Foods),16.887515625,1.4918359375000003,84.76036475,320.0,7,0,complete
+Pomodori al Forno (baked tomatoes) (Italian Foods),26.501600000000003,1.2335999999999998,131.65406503999998,250.0,3,0,complete
+Cicoria Ripassata (sautÃ©ed chicory) (Italian Foods),49.06740740740741,2.2399999999999998,136.3662011111111,270.0,3,0,complete
+Ribollita (without beans) (Italian Foods),28.093277777777775,0.6595833333333333,80.87594074074073,270.0,5,0,complete
+Patate al Rosmarino (Italian Foods),0.016900000000000002,0.33099999999999996,110.92529728888888,300.0,3,0,complete
+Insalata di Finocchi (Italian Foods),43.92755681818182,0.8785511363636364,86.94386445454546,220.0,3,0,complete
+Verdure al Vapore (Italian Foods),0.03900000000000001,0.8566666666666667,85.89958804444444,300.0,4,0,complete
+Pomodori e Cipolle (Italian Foods),0.024166666666666666,0.8708333333333336,96.29950083333333,240.0,3,0,complete
+Melanzane alla Griglia (Italian Foods),0.0,0.0,116.15177078571428,280.0,2,0,complete
+Zuppa di Verdure (Italian Foods),0.0,0.0,80.75725460124016,350.0,3,0,complete
+Insalata di Rucola (Italian Foods),105.0,2.1,111.5680008,200.0,3,0,complete
+Pasta Aglio e Olio (Italian Foods),39.73159999999999,1.032,400.82622112,250.0,4,0,complete
+Fagiolini lessati (Italian Foods),0.0,0.0,149.3416642457467,230.0,2,0,complete
+Patate Bollite (Italian Foods),0.07685185185185185,1.7314814814814818,146.04151807407405,270.0,2,0,complete
+Insalata di Cetrioli (Italian Foods),0.02325,0.4425,99.4455174,400.0,6,0,complete
+Carote al Vapore (Italian Foods),331.375,6.6275,133.2569328333333,240.0,2,0,complete
+Minestra di Zucca (Italian Foods),0.0033783783783783786,0.14864864864864866,67.33589853589336,370.0,4,0,complete
+Polenta con Funghi (Italian Foods),0.0,0.0,129.46210854545456,330.0,3,0,complete
+Cipolle al Forno (Italian Foods),0.022000000000000002,0.9680000000000001,141.00397976,250.0,2,0,complete
+Zucchine trifolate (Italian Foods),26.556799999999996,2.6976,134.33093223999998,250.0,3,0,complete
+Radicchio alla Griglia (Italian Foods),0.03035714285714286,1.2767857142857144,115.20942792857143,280.0,2,0,complete
+Carciofi alla Romana (Italian Foods),98.82156250000001,2.1618749999999998,150.8202549375,640.0,8,0,complete
+Finocchi al Forno (Italian Foods),42.078125,0.8415625000000001,90.33630113333332,600.0,6,0,complete
+Cipolline in Agrodolce (Italian Foods),0.019230769230769232,0.8461538461538463,130.8440903076923,260.0,4,0,complete
+Cavolfiore al Vapore (Italian Foods),325.35,6.507000000000001,146.9083194,300.0,2,0,complete
+Zuppa di Lenticchie (without legumes if strict PKU) (Italian Foods),5.628571428571429,0.2696428571428572,97.71070575238095,350.0,5,0,complete
+Fagioli Lessati (green beans) (Italian Foods),0.0,0.0,140.52476588869564,250.0,2,0,complete
+Pomodori Secchi (Italian Foods),0.02025,0.66,234.28563150000002,200.0,2,0,complete
+Broccoli Saltati (Italian Foods),22.164166666666667,2.5829999999999997,124.2114182,300.0,3,0,complete
+Peperoni Arrostiti (Italian Foods),0.4162666666666667,9.697333333333335,293.16475959999997,300.0,2,0,complete
+Zucchini alla Scapece (Italian Foods),0.08,2.258333333333333,78.56598626666667,300.0,3,0,complete
+Insalata di Pomodori (Italian Foods),0.03975,1.1325,105.043137,200.0,3,0,complete
+Brodetto di Verdure (Italian Foods),0.006171428571428571,0.20114285714285715,83.66218452910051,350.0,3,0,complete
+Patate al Forno (Italian Foods),99.9,1.9980000000000002,202.41418140000002,300.0,2,0,complete
+Insalata di Radicchio (Italian Foods),0.025500000000000002,1.0725,118.74175140000001,200.0,3,0,complete
+Zucca al Forno (Italian Foods),1.5399,26.855999999999998,604.8763847999999,300.0,2,0,complete
+Cicoria Ripassata (Italian Foods),22.100833333333338,1.8579999999999999,117.04123819999998,300.0,3,0,complete
+Peperonata (Italian Foods),0.36309677419354847,8.499677419354839,262.4131682580645,310.0,4,0,complete
+Fagioli all'Uccelletto (Italian Foods),60.988399999999984,1.5276,188.10149752000004,250.0,6,0,complete
+Insalata di Carote (Italian Foods),5.5,0.11,157.5044517,200.0,3,0,complete
+Zucchine al Forno (Italian Foods),0.08571428571428572,2.419642857142857,113.50224221428572,280.0,2,0,complete
+Patate e Cipolle (Italian Foods),0.005833333333333334,0.2566666666666667,128.77692957777776,300.0,3,0,complete
+Fave e Cicoria (Italian Foods),132.0205,3.4899999999999993,188.13755633333332,300.0,3,0,complete
+Spinaci Saltati (Italian Foods),0.0,0.0,115.25891364285714,280.0,2,0,complete
+Pomodori Ripieni (without cheese) (Italian Foods),0.022500000000000003,0.7333333333333334,108.67758293333331,300.0,3,0,complete
+Insalata di Radicchio e Arance (Italian Foods),0.0228,0.93,150.51832288,250.0,4,0,complete
+Broccoli al Forno (Italian Foods),0.1053,2.3129999999999997,116.8022322,300.0,2,0,complete
+Carciofi alla Giudia (Italian Foods),90.0,1.8000000000000003,153.800361,300.0,2,0,complete
+Insalata di Finocchi e Arance (Italian Foods),27.659449999999996,0.649125,149.42655119999998,250.0,3,0,complete
+Cavolfiore al Forno (Italian Foods),0.0,0.0,110.90831940000001,300.0,2,0,complete
+Cicoria Lessata (Italian Foods),0.036899999999999995,1.5300000000000002,109.0584378,300.0,2,0,complete
+Insalata di Pomodorini (Italian Foods),0.03975,1.1325,105.043137,200.0,3,0,complete
+Funghi trifolati (Italian Foods),22.066666666666666,0.44133333333333324,116.25409153333335,300.0,3,0,complete
+Insalata di Cetrioli e Menta (Italian Foods),0.17579999999999996,3.4319999999999995,139.02979019999998,200.0,3,0,complete
+Insalata di Carote e Limone (Italian Foods),8.25,0.165,114.7462783,200.0,3,0,complete
+Zucchine Ripiene (without cheese) (Italian Foods),0.08,2.258333333333333,111.46598626666666,300.0,3,0,complete
+Carciofi Grigliati (Italian Foods),89.28571428571429,1.7857142857142856,159.5962565,280.0,2,0,complete
+Funghi al Forno (Italian Foods),22.066666666666666,0.44133333333333324,116.25409153333335,300.0,3,0,complete
+Patate e Rosmarino (Italian Foods),0.011266666666666668,0.22066666666666662,136.02889415555558,300.0,3,0,complete
+Cavolfiore Gratinate (Italian Foods),0.0,0.0,125.85154943750001,320.0,3,0,complete
+Finocchi al Limone (Italian Foods),43.91145833333333,0.8782291666666667,61.830852199999995,300.0,3,0,complete
+Stir-Fried Baby Bok Choy (Japanese Foods),47.56999999999999,0.9513999999999998,38.217059400000004,150.0,6,0,complete
+Garlic Snow Peas (Japanese Foods),552.4923076923077,11.049846153846152,370.70124844615384,130.0,5,0,complete
+sweet and sour bell peppers (Japanese Foods),0.3279268292682927,7.634146341463414,249.5572404878049,164.0,6,0,complete
+steamed eggplant with garlic sauce (Japanese Foods),48.0235294117647,0.9604705882352941,30.95549475294117,170.0,7,0,complete
+cucumber sesame salad (Japanese Foods),0.022302158273381296,0.4244604316546763,41.004144474820144,139.0,6,0,complete
+vegetable stir-fry (Japanese Foods),24.57909090909091,2.5030000000000006,142.6985323,220.0,8,0,complete
+sauteed water spinach (Japanese Foods),8.826666666666668,0.17653333333333332,19.13830885333333,150.0,5,0,complete
+scallion oil rice (Japanese Foods),10.7185,0.345,167.38955928571428,140.0,5,0,complete
+spicy pickled cucumber (Japanese Foods),0.02736923076923077,0.5915384615384615,50.82672001538461,130.0,7,0,complete
+japanese veggie hot pot (Japanese Foods),55.43826666666667,2.8722000000000003,87.43272818666667,150.0,7,0,complete
+Cucumber Sunomono Salad (Japanese Foods),0.023846153846153847,0.4538461538461538,38.85866461538461,195.0,3,0,complete
+Steamed Eggplant (Japanese Foods),0.0,0.0,44.79166666666667,180.0,3,0,complete
+Garlic Komatsuna Stir-Fry (Japanese Foods),17.89189189189189,0.3578378378378378,114.64070108108109,185.0,4,0,complete
+Daikon & Carrot Pickles (Japanese Foods),17.0,0.3400000000000001,40.0,180.0,4,0,complete
+Peas Garlic Saute (Japanese Foods),585.1111111111111,11.702222222222222,450.08553066666667,180.0,3,0,complete
+Pumpkin Soup (Japanese Foods),18.38888888888889,0.3677777777777777,21.260365666666665,180.0,3,0,complete
+Chilled Okra Salad (Japanese Foods),63.65805555555557,2.6661111111111113,37.636852555555556,180.0,4,0,complete
+Scallion Oil Rice (Japanese Foods),192.00885,4.1145000000000005,155.14611105,200.0,4,0,complete
+Spicy Pickled Cucumber (Japanese Foods),0.035111111111111114,0.9233333333333333,26.981121777777776,180.0,4,0,complete
+Daikon Wakame Salad (Japanese Foods),76.79411764705884,1.5358823529411763,64.42453388235295,170.0,3,0,complete
+Zucchini Garlic Stir-Fry (Japanese Foods),33.172000000000004,2.6944999999999997,118.4513736,200.0,4,0,complete
+Sauteed Water Spinach (Japanese Foods),36.77777777777778,0.7355555555555554,114.08553066666667,180.0,3,0,complete
+Sweet and Sour Cabbage (Japanese Foods),36.046875,0.7209375000000001,30.0,200.0,4,0,complete
+Okra and Seaweed Salad (Japanese Foods),119.62305555555557,3.571111111111111,80.05712133333334,180.0,4,0,complete
+Yuzu Daikon Salad (Japanese Foods),34.416666666666664,0.6883333333333335,74.2315911111111,180.0,4,0,complete
+Garlic Spinach Saute (Japanese Foods),55.34866666666667,4.757777777777778,215.9153647777778,180.0,3,0,complete
+Cucumber Miso Slaw (Japanese Foods),0.08088235294117649,1.9558823529411764,31.323845176470584,170.0,3,0,complete
+Chilled Tomato Vinegar (Japanese Foods),0.021,0.6844444444444444,13.75612311111111,180.0,3,0,complete
+Steamed Komatsuna & Daikon (Japanese Foods),41.6,0.832,26.6686582,200.0,4,0,complete
+Grilled Eggplant with Yuzu (Japanese Foods),30.138888888888886,0.6027777777777777,45.714179,180.0,3,0,complete
+Okra Cucumber Salad (Japanese Foods),0.04717647058823529,1.2647058823529411,21.79172352941176,170.0,3,0,complete
+Sweet Carrot Slaw (Japanese Foods),0.1812777777777778,5.8500000000000005,312.84557588888885,180.0,3,0,complete
+Tomato Cucumber Salad (Japanese Foods),0.025333333333333333,0.6855555555555556,13.331223555555555,180.0,3,0,complete
+Cabbage Daikon Stir-Fry (Japanese Foods),94.94999999999999,1.899,30.2398922,200.0,4,0,complete
+Daikon Spinach Rice Bowl (Japanese Foods),36.925200000000004,1.244,169.0791477,200.0,4,0,complete
+Pickled Eggplant Salad (Japanese Foods),0.012722222222222223,0.49722222222222223,38.9462274074074,180.0,3,0,complete
+Tomato Garlic Stir-Fry (Japanese Foods),55.18616666666667,1.7388888888888887,134.7861058888889,180.0,3,0,complete
+Okra Carrot Side Dish (Japanese Foods),0.12312500000000001,3.858125,129.25743237499998,160.0,2,0,complete
+Snow Peas Daikon Mix (Japanese Foods),79.94444444444446,1.598888888888889,94.35406466666669,180.0,4,0,complete
+Kinpira Gobo (Japanese Foods),0.10114285714285716,3.476571428571429,240.45091782857136,175.0,5,0,complete
+Nasu Dengaku (Japanese Foods),0.06075,1.59875,103.92722081249998,160.0,5,0,complete
+Yaki Imo (Japanese Foods),0.0,0.0,64.44444444444444,150.0,1,0,complete
+Oshitashi (Japanese Foods),50.89333333333334,1.6175000000000002,24.152106666666665,120.0,3,0,complete
+Kabocha Nimono (Japanese Foods),37.00000000000001,0.74,68.81818181818181,165.0,5,0,complete
+Umeboshi Rice (Japanese Foods),238.93333333333337,4.778666666666666,106.93333333333335,150.0,2,0,complete
+Spiced Zucchini Slices (Japanese Foods),0.06933333333333333,1.957222222222222,128.5009901904762,180.0,4,0,complete
+Lemon Pepper Bok Choy (Japanese Foods),46.464866666666666,1.2753333333333334,11.2571826,150.0,4,0,complete
+Quick Pickled Carrots (Japanese Foods),0.0,0.0,46.946251249999996,160.0,5,0,complete
+Daikon Citrus Salad (Japanese Foods),30.1764705882353,0.6035294117647059,68.61338011764705,170.0,4,0,complete
+Simple Tomato Salad (Japanese Foods),0.021599999999999998,0.7040000000000001,132.02691439999998,150.0,3,0,complete
+Sweet Pickled Radish (Japanese Foods),0.02571428571428571,0.7857142857142858,38.58239714285714,140.0,4,0,complete
+Charred Bell Pepper Mix (Japanese Foods),21.022000000000002,8.206249999999999,307.645535625,160.0,4,0,complete
+Carrot Apple Slaw (Japanese Foods),22.941176470588236,0.45882352941176474,58.367827019607844,170.0,4,0,complete
+Warm Spinach Garlic SautÃ© (Japanese Foods),62.25150000000001,5.03625,179.52338174999997,160.0,3,0,complete
+Steamed Kabocha (Japanese Foods),0.0,0.0,30.874999999999996,160.0,3,0,complete
+Chili Vinegar Cucumber (Japanese Foods),0.038500000000000006,1.0607142857142857,32.43652857142857,140.0,4,0,complete
+Squash Stir-Fry (Japanese Foods),47.638888888888886,0.9527777777777777,172.70839122222225,180.0,4,0,complete
+Zesty Tomato Cucumber (Japanese Foods),3.4623749999999993,0.748125,15.042440124999997,160.0,4,0,complete
+Garlic Daikon Stir-Fry (Japanese Foods),81.61111111111111,1.632222222222222,85.34127444444445,180.0,3,0,complete
+Roasted Sweet Kabocha (Japanese Foods),0.0,0.0,63.733333333333334,150.0,3,0,complete
+Carrot Cucumber Salad (Japanese Foods),0.12953333333333333,4.016,163.36856786666664,150.0,4,0,complete
+Pan-Seared Eggplant (Japanese Foods),0.0,0.0,183.76559887500002,160.0,3,0,complete
+Simple Daikon Miso Soup (Japanese Foods),17.0972,2.8979999999999997,47.579393599999996,200.0,4,0,complete
+Cold Garlic Green Beans (Japanese Foods),41.375,0.8274999999999999,157.6940480869565,160.0,3,0,complete
+Quick Kabocha Pickles (Japanese Foods),0.0,0.0,50.30235411764706,170.0,4,0,complete
+Zucchini and mint salad (Mediterranean Foods),28.33779069767442,3.826511627906977,259.4271173023256,43.0,6,0,complete
+Roasted bell pepper dip  (Mediterranean Foods),7.030666666666667,7.061333333333334,247.1857304269841,180.0,7,0,complete
+Tomato and cucumber salad (Mediterranean Foods),2.2299999999999995,0.7974399999999999,50.370992512,250.0,6,0,complete
+Grilled eggplant with garlic and herbs  (Mediterranean Foods),16.340909090909093,0.3268181818181818,103.58996245454544,220.0,7,0,complete
+Artichoke and lemon salad (Mediterranean Foods),4.591388888888889,0.25666666666666665,84.86403827777778,180.0,6,0,complete
+Olive tapenade  (Mediterranean Foods),30.39475,0.75625,323.53355951249995,160.0,8,0,complete
+Roasted carrots with cumin (Mediterranean Foods),12.470833333333333,0.24941666666666662,82.77026307499999,240.0,7,0,complete
+Herbed potato wedges (Mediterranean Foods),4.682799227799228,0.15749034749034746,112.6555112380952,259.0,6,0,complete
+Marinated zucchini ribbons (Mediterranean Foods),6.4531052631578945,2.207315789473684,65.6436268631579,190.0,7,0,complete
+Tomato and basil bruschetta topping (Mediterranean Foods),7.2562500000000005,0.8915000000000001,102.78394446250002,160.0,7,0,complete
+Fattoush Salad (Mediterranean Foods),0.13184848484848485,2.811464646464647,152.29329538888888,396.0,4,0,complete
+Grilled Eggplant with Herbs (Mediterranean Foods),100.96033015873016,2.0858412698412696,41.67244586666667,315.0,6,0,complete
+Tomato Basil Salad (Mediterranean Foods),84.88618960244648,2.293639143730887,36.45608950458716,327.0,5,0,complete
+watermelon and mint skewers (Mediterranean Foods),9.415431095406362,2.140565371024735,30.731273243816247,283.0,5,0,complete
+baked cinnamon apples (Mediterranean Foods),35.43691717791411,1.2359125766871168,164.05073423312885,326.0,5,0,complete
+polenta with roasted veggies (Mediterranean Foods),64.94579054054054,3.4230067567567573,77.90695713513513,296.0,4,1,partial
+zaalouk(moroccan eggplant dip) (Mediterranean Foods),68.79049647887324,1.9888028169014083,118.65527332394366,284.0,6,0,complete
+roasted garlic carrots (Mediterranean Foods),68.54132352941177,1.9262499999999998,93.07965652205883,272.0,4,1,partial
+chickpea-free hummus (Mediterranean Foods),96.55103344481606,2.7674247491638795,204.467948916388,598.0,11,0,complete
+stewed zucchini and tomatoes (Mediterranean Foods),44.831900990099015,2.195049504950495,141.35035703630362,303.0,5,0,complete
+lemon roasted potatoes (Mediterranean Foods),51.13747230320699,6.494518950437318,377.7653580466472,343.0,5,0,complete
+bulgur-free tabbouleh (Mediterranean Foods),14.398489726027396,1.0033561643835616,77.99944439726028,292.0,5,0,complete
+sauteed spinach with garlic (Mediterranean Foods),82.20475285171102,1.7862357414448664,115.06839724714828,263.0,5,0,complete
+avocado cucumber gazpacho (Mediterranean Foods),55.53377777777778,1.2907638888888888,187.57074696527775,288.0,5,0,complete
+sweet date and fig bites (Mediterranean Foods),7.243897610921503,1.1163139931740615,205.38850122866896,293.0,5,0,complete
+low-protein pasta with olive oil and basil (Mediterranean Foods),72.30294612794613,2.0792592592592594,115.23469082828282,297.0,5,0,complete
+roasted cauliflower with paprika (Mediterranean Foods),8.132852517985611,0.8398561151079138,100.9944122106886,278.0,6,0,complete
+grilled peach with balsamic (Mediterranean Foods),66.56613877551021,2.3064897959183672,118.57318044897957,245.0,5,0,complete
+apple and pomegranate salad (Mediterranean Foods),49.77518181818182,2.8054727272727273,166.09237312,275.0,6,0,complete
+minted melon bowl (Mediterranean Foods),50.47066923076924,2.694076923076923,49.1874348,260.0,4,0,complete
+orange cinnamon compote (Mediterranean Foods),8.510554216867469,0.7653012048192772,228.91207591967867,249.0,5,0,complete
+cinnamon roasted pears (Mediterranean Foods),21.82113601532567,0.5935680076628351,142.52444248275862,261.0,5,0,complete
+sauteed green beans with lemon zest (Mediterranean Foods),55.582327137546464,1.4320446096654273,107.67164981800548,269.0,5,0,complete
+roasted fennel with citrus glaze (Mediterranean Foods),26.922114361702132,0.6054188829787234,164.87680815602837,282.0,5,0,complete
+garlic lemon roasted bell peppers (Mediterranean Foods),71.90728205128205,6.1155311355311355,225.8746776776557,273.0,5,0,complete
+cucumber and tomato olive salad (Mediterranean Foods),12.311775438596491,1.1357543859649124,108.08200808421051,285.0,6,0,complete
+roasted vegetable stack (Mediterranean Foods),52.4196026936027,2.1246464646464647,107.05231721212121,297.0,6,0,complete
+melon and cucumber salad with mint (Mediterranean Foods),40.82498449612403,3.0759689922480615,132.0220972248062,258.0,5,0,complete
+baked apples with pomegranate drizzle (Mediterranean Foods),47.42354909090909,1.3563272727272726,180.74775063272727,275.0,5,0,complete
+mediterranean beet salad (Mediterranean Foods),42.047250950570344,3.26180608365019,169.794224486692,263.0,5,0,complete
+eggplant with tomato garlic sauce (Mediterranean Foods),56.98534415584417,1.871266233766234,109.40493857792208,308.0,5,0,complete
+citrus herb carrot ribbons (Mediterranean Foods),8.015430147058824,4.102279411764706,272.5406506764706,272.0,5,0,complete
+grilled zucchini and tomato platter (Mediterranean Foods),55.791793814432985,2.6836426116838488,105.95686268728521,291.0,5,0,complete
+chilled tomato and watermelon soup (Mediterranean Foods),7.359807432432433,2.476587837837838,39.14126976351351,296.0,5,0,complete
+olive oil roasted turnips (Mediterranean Foods),116.63516788321166,3.373138686131387,124.08249452554743,274.0,5,0,complete
+date and coconut rolls (Mediterranean Foods),178.8376215139442,4.497810756972111,209.76248786454184,251.0,5,0,complete
+baked zucchini fries (Mediterranean Foods),75.89247940074907,2.5523970037453183,199.9492468878224,267.0,6,0,complete
+apricot and orange salad (Mediterranean Foods),8.327619607843136,2.866156862745098,168.47573742745098,255.0,5,0,complete
+carrot and orange smoothie (Mediterranean Foods),0.09426804123711341,3.082199312714777,233.04974050859104,291.0,4,0,complete
+grilled eggplant with lemon tahini (Mediterranean Foods),101.75031986531988,2.6444107744107743,136.195465993266,297.0,6,0,complete
+lemon herb roasted artichokes  (Mediterranean Foods),154.5298245614035,3.09059649122807,140.42147601403508,285.0,5,0,complete
+fresh fig and mint salad (Mediterranean Foods),35.99429739776952,3.671412639405205,175.04834979925653,269.0,5,0,complete
+roasted red pepper puree (Mediterranean Foods),68.30453076923078,6.501192307692308,218.457918776923,260.0,5,0,complete
+stewed zucchini with tomato (Mediterranean Foods),25.334423611111113,2.0097569444444447,95.46380971527778,576.0,10,0,complete
+grape and mint fruit bowl (Mediterranean Foods),120.54917452830188,4.758820754716981,71.08511942452832,424.0,6,0,complete
+olive oil and lemon roasted carrots (Mediterranean Foods),81.16236781609194,2.2644137931034485,141.14071984367814,435.0,9,0,complete
+chilled citrus melon soup (Mediterranean Foods),44.519174061433446,2.5938566552901023,105.08433086689419,586.0,10,0,complete
+cinnamon date pudding (Mediterranean Foods),7.338377162629757,0.8677162629757786,208.03441540484425,578.0,8,2,partial
+grilled fennel and orange salad (Mediterranean Foods),25.879662769784172,0.613572392086331,172.34825828057555,278.0,5,0,complete
+cucumber yogurt dip (Mediterranean Foods),138.54952363636366,4.624763636363636,88.06569858181818,275.0,5,0,complete
+lemony lentil-free tabbouleh (Mediterranean Foods),33.61206841216216,1.5618602195945945,16.09737708108108,296.0,5,0,complete
+roasted fig and walnut bites (Mediterranean Foods),20.264203883495142,0.7946601941747572,180.8799152330097,206.0,5,0,complete
+garlic sautÃ©ed greens (Mediterranean Foods),48.60223076923077,1.5113846153846153,123.76956433846154,260.0,5,0,complete
+baked spiced apple slices (Mediterranean Foods),55.03735159817352,1.5365753424657536,153.67070207305937,219.0,5,0,complete
+beet and orange salad (Mediterranean Foods),36.72500348432056,3.1167334494773513,201.6819236445993,287.0,5,0,complete
+roasted zucchini boats (Mediterranean Foods),30.668849315068496,2.355034246575342,108.33274355479452,292.0,5,0,complete
+date and almond energy bites (Mediterranean Foods),261.0751811320755,5.91098679245283,247.95745116981135,265.0,5,0,complete
+lemon basil quinoa-free pilaf (Mediterranean Foods),91.94681944444444,2.38681712962963,121.23092485925926,270.0,5,0,complete
+baba ghanoush-style eggplant mash (Mediterranean Foods),65.16027173913044,1.7654710144927537,143.80561773913044,276.0,5,0,complete
+grilled peach and mint salad (Mediterranean Foods),54.583254416961125,3.4132862190812725,164.24150519434627,283.0,5,0,complete
+stuffed grape leaves (no rice) (Mediterranean Foods),54.32270189003435,1.0864540378006873,98.24707120274911,291.0,5,0,complete
+carrot and date salad (Mediterranean Foods),7.671182142857143,5.667928571428571,311.3309227857143,280.0,5,0,complete
+fig and olive tapenade (Mediterranean Foods),69.85352985074627,1.6683955223880595,175.98556441044775,268.0,5,0,complete
+Corn and Veggie Tacos (Mexican Foods),3.4977586206896554,3.3231724137931034,176.73052468965517,145.0,8,0,complete
+Chilled Avocado Cucumber Soup (Mexican Foods),3.9819948186528493,0.6438341968911917,55.6865350777202,193.0,7,0,complete
+Mexican Street Corn Salad (Mexican Foods),35.3010752688172,0.7060215053763441,34.90362334869431,93.0,4,1,partial
+Stuffed Bell peppers (Mexican Foods),0.2294871794871795,5.6056410256410265,141.0441817948718,195.0,6,0,complete
+Jicama Tostadas with Mango Salsa (Mexican Foods),3.7740000000000005,0.8166153846153845,58.964618707692296,130.0,7,0,complete
+Chayote Squash Salad with Lime and Chili (Mexican Foods),4.731623931623932,0.6239316239316239,60.958083772893765,117.0,5,0,complete
+Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),0.13641447368421053,3.2723684210526316,104.79312414473682,152.0,8,0,complete
+Cactus and Tomato Salad (Mexican Foods),5.6074452554744525,1.1727007299270076,50.54889671532846,137.0,6,0,complete
+Sweet Potato Tacos with Paprika Aioli (Mexican Foods),11.462904411764706,0.44963235294117654,133.2752657696078,136.0,6,0,complete
+Garlic and Roasted Plantains with Cilantro Dip (Mexican Foods),7.279646017699114,1.123716814159292,191.0503978938053,113.0,6,0,complete
+Roasted Chili-Lime Carrots (Mexican Foods),6.459641255605381,0.12919282511210764,71.36356686781977,111.5,5,0,complete
+Tomatillo Salsa Verde (Mexican Foods),7.544724770642203,0.30220183486238533,8.716044495412843,109.0,5,1,partial
+Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),16.447601851851854,2.2309490740740743,79.351688,135.0,7,0,complete
+Sweet Corn and Pepper Hash (Mexican Foods),21.843793103448274,3.3112068965517243,134.9485643226601,116.0,5,0,complete
+Mexican Mashed Sweet Potato (Mexican Foods),5.434977578475337,0.10869955156950672,101.23641176823972,111.5,5,0,complete
+Agua Fresca (Mexican Foods),2.1153846153846154,0.04230769230769232,1.112297153846154,260.0,3,0,complete
+Cucumber-Chili Snack Cups (Mexican Foods),4.9383928571428575,0.625,14.395109209183673,112.0,4,0,complete
+Crispy Potato Tacos (Mexican Foods),2.789705882352941,0.210672268907563,147.37727477871147,119.0,5,0,complete
+Mango-Cucumber Lime Salad (Mexican Foods),6.229349593495935,0.7452032520325202,34.346242369337986,123.0,5,0,complete
+Low-Protein Breakfast Burrito (Mexican Foods),2.9915546218487394,0.9172268907563024,192.7588538655462,119.0,6,0,complete
+Pickled Vegetable Mix (Mexican Foods),23.901127049180328,0.4780225409836065,83.67008584699455,122.0,6,0,complete
+Grilled Corn with Lime and Cilantro (Mexican Foods),42.07954545454546,0.8415909090909091,92.11878342532468,88.0,5,0,complete
+Refried Zucchini (Mexican Foods),10.435169491525423,2.5968644067796607,63.03074333898305,118.0,6,0,complete
+Scottish Neeps & Tatties (Scottish-Irish Foods),0.0082,0.40360000000000007,36.47589976888889,375.0,4,0,complete
+Irish Colcannon (PKU-friendly) (Scottish-Irish Foods),10.682222222222222,0.2869444444444445,126.80239165925926,450.0,5,0,complete
+Leek & Potatoes Soup (Scottish-Irish Foods),0.010173611111111112,0.270625,24.840254661450476,720.0,5,0,complete
+Scottish Oatcakes (Low-Protein Mix) (Scottish-Irish Foods),0.006716417910447762,0.16791044776119401,249.33765861940302,268.0,5,0,complete
+Irish Root Veggie Stew (Scottish-Irish Foods),6.4537634408602145,0.2236559139784946,24.83957978079437,930.0,5,0,complete
+Scottish Raspberry Cranachan (Scottish-Irish Foods),16.61462450592885,0.7942687747035573,335.96211572332015,253.0,5,0,complete
+Irish Apple Mash (Scottish-Irish Foods),24.51219512195122,0.4902439024390245,158.04063681300812,410.0,4,0,complete
+Irish Carrots & Ginger Soup (Scottish-Irish Foods),0.003043478260869565,0.1319254658385093,15.310862247791423,805.0,5,0,complete
+Sweet Leek Mash (Scottish-Irish Foods),0.019642857142857142,0.5357142857142857,149.23683936507936,420.0,4,0,complete
+Irish Vegetable Boxty (Scottish-Irish Foods),0.0016216216216216218,0.040540540540540536,81.40652666666668,370.0,4,0,complete
+Scottish Barley-Free Veggie Broth (Scottish-Irish Foods),0.01965909090909091,0.6129545454545456,29.164350947415326,440.0,5,0,complete
+Irish Honey-Glazed Carrotss (Scottish-Irish Foods),11.432172413793104,0.25965517241379316,56.91318526436782,290.0,5,0,complete
+Crispy Green Cabbage and Onion Cakes (Scottish-Irish Foods),23.265661290322583,0.8586693548387098,58.872574709677416,310.0,4,0,complete
+Herb Roasted raw turnips (Scottish-Irish Foods),13.294759259259262,1.0601851851851853,129.26241166666668,270.0,5,0,complete
+Irish Sweet Potatoes Mash (Scottish-Irish Foods),0.0,0.0,147.82881376576574,370.0,3,0,complete
+Simple Scottish Pea Soup (Scottish-Irish Foods),0.010731707317073172,0.2926829268292683,23.638317886914617,410.0,3,1,partial
+"Carrots and Parsnip, raw Mash (Scottish-Irish Foods)",30.0,0.6,74.30403072222222,360.0,4,0,complete
+Oven-Roasted Swede Wedges (Scottish-Irish Foods),5.545833333333334,1.195,119.99694573333332,300.0,5,0,complete
+Irish Herbed Potatoes Wedges (Scottish-Irish Foods),8.289725,0.57525,133.26134174999999,400.0,5,0,complete
+Scottish Honey-Braised Green Cabbage (Scottish-Irish Foods),34.77882894736842,0.7192434210526316,27.152589368421047,380.0,5,0,complete
+Creamy Leek and Carrots Mix (Scottish-Irish Foods),0.02426470588235294,0.6617647058823529,117.83669211764705,340.0,4,0,complete
+Irish Mustard Mashed raw turnips (Scottish-Irish Foods),6.452272727272727,0.8106060606060608,130.43713109090908,330.0,4,0,complete
+Pan-Fried Zucchini Fritters (Scottish-Irish Foods),0.06684375,1.9059375,103.92279637500002,320.0,4,0,complete
+Stewed Rhubarb & Apples (Scottish-Irish Foods),49.24242424242424,0.984848484848485,78.41970684848484,330.0,4,0,complete
+Irish Root Veggie Chips (Scottish-Irish Foods),21.18047058823529,0.6352941176470589,95.425018,340.0,4,0,complete
+Sweet Potatoes and Carrots Patties (Scottish-Irish Foods),0.0012631578947368423,0.031578947368421054,80.7681248654971,380.0,4,0,complete
+Baked Apple with Cinnamon (Scottish-Irish Foods),67.0,1.34,134.0,220.0,1,0,complete
+Mashed Carrots and Swede (Scottish-Irish Foods),0.006500000000000001,0.3441176470588236,52.223862352941175,680.0,8,0,complete
+Crispy Potatoes & Leek Cakes (Scottish-Irish Foods),0.015944444444444445,0.4333333333333333,65.28560818518518,720.0,8,0,complete
+"Oven-Baked Spiced Parsnip, raws (Scottish-Irish Foods)",57.36016666666668,1.3826666666666665,158.99475806666666,600.0,10,0,complete
+Honey-Balsamic Glazed Root Veggies (Scottish-Irish Foods),23.68507894736842,0.49736842105263157,72.1122409473684,760.0,10,0,complete
+Rustic Irish Onion Gravy (Scottish-Irish Foods),0.015,0.66,26.922456121870287,600.0,8,0,complete
+Crispy Garlic Green Cabbage (Scottish-Irish Foods),59.76724137931034,1.1953448275862069,164.26305468965515,580.0,8,0,complete
+Irish Spiced Apple Compote (Scottish-Irish Foods),55.15322580645162,1.1030645161290322,171.54014483870967,620.0,10,0,complete
+Simple Herbed Swede Mash (Scottish-Irish Foods),8.43712121212121,0.8503030303030303,104.61944454545453,660.0,8,0,complete
+Roasted Carrots & Leek Traybake (Scottish-Irish Foods),3.1633999999999993,0.5860000000000001,138.9317947428571,700.0,10,0,complete
+Baked Zucchini Boats (Scottish-Irish Foods),0.08249494949494951,2.323232323232323,72.95718505050503,990.0,12,0,complete
+Baked Cinnamon Apples (Scottish-Irish Foods),113.79838709677419,2.2759677419354833,171.96800706451614,620.0,10,0,complete
+Green Cabbage & Potatoes Dumplings (Scottish-Irish Foods),13.35136111111111,0.2836805555555556,48.356016518518516,720.0,8,0,complete
+Zesty Roasted Swede Cubes (Scottish-Irish Foods),4.873970588235296,0.9335294117647062,129.2460092941176,680.0,8,0,complete
+Carrots & Apple Slaw (Scottish-Irish Foods),30.319672131147545,0.6063934426229508,107.87651426229507,1220.0,12,0,complete
+"Golden Mashed Parsnip, raws (Scottish-Irish Foods)",45.45454545454545,0.9090909090909091,164.01605684848482,660.0,8,0,complete
+Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),0.05040000000000002,1.4194285714285715,57.42315417142857,1400.0,16,0,complete
+Rhubarb & Berry Compote (Scottish-Irish Foods),25.322580645161292,0.5064516129032258,75.42042755977229,620.0,8,0,complete
+Honey-Mustard Roasted Carrotss (Scottish-Irish Foods),6.655125000000001,0.5790625,145.13868127083333,640.0,10,0,complete
+Creamy Swede & Leek Bake (Scottish-Irish Foods),0.01375,0.375,104.66787205000001,800.0,8,0,complete
+"Parsnip, raw & Carrots Puree (Scottish-Irish Foods)",34.285714285714285,0.6857142857142857,78.20116782857143,700.0,8,0,complete
+"Roasted Carrotss & Parsnip, raws (Scottish-Irish Foods)",22.941176470588236,0.45882352941176474,122.2315315882353,680.0,6,0,complete
+Honey-Glazed Swede Cubes (Scottish-Irish Foods),3.0564722222222223,0.08611111111111112,55.71906522222222,720.0,8,0,complete
+Creamy raw turnip Mash (Scottish-Irish Foods),0.01287878787878788,0.681818181818182,128.34622199999998,660.0,6,0,complete
+Oven-Baked Sweet Potatoes Cubes (Scottish-Irish Foods),3.271176470588235,0.896470588235294,171.59588104575164,680.0,8,0,complete
+Rhubarb & Strawberry Stew (Scottish-Irish Foods),23.484848484848484,0.46969696969696967,71.80478245632797,660.0,8,0,complete
+Baked Herbed Potatoes Wedges (Scottish-Irish Foods),18.39827777777778,0.5516666666666666,149.7311995185185,720.0,8,0,complete
+Zesty Green Cabbage & Carrots Salad (Scottish-Irish Foods),27.907258064516128,0.5581451612903227,11.39784946236559,620.0,6,0,complete
+Mashed Carrots & Swede (Scottish-Irish Foods),0.0,0.0,29.676470588235293,340.0,3,0,complete
+"Carrots & Parsnip, raw Puree (Scottish-Irish Foods)",34.285714285714285,0.6857142857142857,78.20116782857143,350.0,4,0,complete
+Sweet Potatoes & Green Cabbage Bake (Scottish-Irish Foods),12.015625,0.24031250000000004,84.48193747777776,400.0,4,0,complete
+Zesty Roasted raw turnips (Scottish-Irish Foods),3.45984375,0.9575000000000002,108.792543625,320.0,4,0,complete
+Rhubarb Apple Compote (Scottish-Irish Foods),48.18181818181818,0.9636363636363637,76.55833200000001,330.0,4,0,complete
+Baked Potatoes Green Cabbage Cakes (Scottish-Irish Foods),13.352027777777778,0.30034722222222227,65.60092192592593,360.0,4,0,complete
+Honey Mustard Roasted Carrotss (Scottish-Irish Foods),19.92325,0.43593750000000003,147.52017010416665,320.0,4,0,complete
+Apple & Green Cabbage Slaw (Scottish-Irish Foods),55.9133064516129,1.1182661290322582,99.18618483870968,310.0,3,0,complete
+Roasted Swede Wedges (Scottish-Irish Foods),0.05545454545454545,1.2854545454545456,187.64285539393936,330.0,3,0,complete
+Crispy Potatoes Leek Cakes (Scottish-Irish Foods),0.015944444444444445,0.4333333333333333,65.28560818518518,360.0,4,0,complete
+Herbed Roasted Root Medley (Scottish-Irish Foods),26.473088235294117,0.6617647058823529,99.57950464705883,340.0,4,0,complete
+Mashed Potatoes & Swede (Scottish-Irish Foods),0.0,0.0,64.33578021568627,340.0,4,0,complete
+"Honey-Balsamic Glazed Parsnip, raw (Scottish-Irish Foods)",45.45587878787879,0.9454545454545455,104.31089781818181,330.0,3,0,complete
+Roasted Green Cabbage Steaks (Scottish-Irish Foods),41.20075757575758,0.8240151515151516,135.70470975757576,330.0,3,0,complete
+Carrots Apple Mash (Scottish-Irish Foods),24.363636363636367,0.48727272727272736,64.72727272727273,330.0,3,0,complete
+Crispy raw turnip Chips (Scottish-Irish Foods),0.01206451612903226,0.6387096774193549,190.95808412903227,310.0,3,0,complete
+Sweet Carrots & Apple Stew (Scottish-Irish Foods),24.88571428571429,0.4977142857142857,93.42857142857143,350.0,3,0,complete
+Zucchini Fritters (Scottish-Irish Foods),0.060000000000000005,1.6823529411764706,117.39412352941179,340.0,3,0,complete
+"Steamed Parsnip, raw with Chive Butter (Scottish-Irish Foods)",46.88484375,1.2440625,61.454417750000005,320.0,3,0,complete
+Irish Apple Porridge (Scottish-Irish Foods),20.303030303030305,0.40606060606060607,656.7852564242424,330.0,3,0,complete

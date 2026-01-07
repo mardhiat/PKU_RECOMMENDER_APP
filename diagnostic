@@ -1,0 +1,44 @@
+import pandas as pd
+
+# Check what's actually in the food database
+food_db = pd.read_csv('data_food_database.csv')
+
+print("="*70)
+print("CHECKING FOOD DATABASE CONTENT")
+print("="*70)
+
+print(f"\nTotal foods in database: {len(food_db)}")
+print(f"\nFirst 10 foods:")
+print(food_db['food_name'].head(10).tolist())
+
+print(f"\nSample of food types:")
+# Check if these are meals or ingredients
+sample_foods = food_db['food_name'].sample(min(20, len(food_db))).tolist()
+for food in sample_foods:
+    print(f"  - {food}")
+
+# Check if we have meals like "Millet Couscous" or just ingredients
+african_meals = ['Millet Couscous', 'Boiled Sweet Cassava', 'Ugali (Maize porridge)', 
+                 'Plantain Fufu', 'Cassava Fufu']
+
+print(f"\n{'='*70}")
+print("CHECKING IF MEALS ARE IN DATABASE:")
+print(f"{'='*70}")
+
+for meal in african_meals:
+    if meal in food_db['food_name'].values:
+        print(f"  ✓ {meal}")
+    else:
+        print(f"  ❌ {meal} - NOT FOUND")
+
+# Load African foods to see meal structure
+african = pd.read_csv('African_Foods.csv')
+print(f"\n{'='*70}")
+print("AFRICAN MEALS STRUCTURE:")
+print(f"{'='*70}")
+print(f"\nUnique meals: {african['Meal'].nunique()}")
+print(f"\nSample meal with ingredients:")
+sample_meal = african['Meal'].iloc[0]
+meal_data = african[african['Meal'] == sample_meal]
+print(f"\nMeal: {sample_meal}")
+print(meal_data[['Ingredient', 'Weight (g)']].to_string(index=False))
