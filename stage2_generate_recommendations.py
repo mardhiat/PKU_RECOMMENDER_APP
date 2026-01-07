@@ -6,7 +6,7 @@ import os
 import random
 
 print("="*70)
-print("STAGE 2: GENERATE RECOMMENDATIONS (INGREDIENT-BASED FIX)")
+print("STAGE 2: GENERATE RECOMMENDATIONS (TWO-TIER: SELECTED + ALL)")
 print("="*70)
 
 
@@ -18,9 +18,9 @@ print("\nSTEP 2.1: LOADING DATA")
 
 # Check if required files exist
 required_files = [
-    'train_ratings.csv',
-    'test_ratings.csv',
-    'eligible_users.csv',
+    'data_train_ratings.csv',
+    'data_test_ratings.csv',
+    'data_test_users.csv',
     'data_food_database.csv',
     'data_meal_ingredients.csv'
 ]
@@ -32,9 +32,9 @@ for file in required_files:
         exit()
 
 # Load data
-train_df = pd.read_csv('train_ratings.csv')
-test_df = pd.read_csv('test_ratings.csv')
-eligible_users_df = pd.read_csv('eligible_users.csv')
+train_df = pd.read_csv('data_train_ratings.csv')
+test_df = pd.read_csv('data_test_ratings.csv')
+eligible_users_df = pd.read_csv('data_test_users.csv')
 food_db_df = pd.read_csv('data_food_database.csv')
 meal_ingredients_df = pd.read_csv('data_meal_ingredients.csv')
 
@@ -67,7 +67,7 @@ print(f"Food database ready with {len(food_db)} foods")
 # ============================================================
 
 print("\n" + "="*70)
-print("🔧 LOADING INGREDIENT DATA FOR CONTENT-BASED FILTERING")
+print("🔧 LOADING INGREDIENT & CUISINE DATA")
 print("="*70)
 
 # Create meal -> ingredients mapping
@@ -83,11 +83,12 @@ for _, row in meal_ingredients_df.iterrows():
     meal_to_cuisine[meal_name] = row['cuisine']
 
 print(f"✓ Loaded ingredient data for {len(meal_to_ingredients)} meals")
+print(f"✓ Loaded cuisine data for {len(meal_to_cuisine)} meals")
 
 # Get all rated foods and check ingredient coverage
 all_rated_foods = set(train_df['food'].unique()) | set(test_df['food'].unique())
 rated_with_ingredients = sum(1 for food in all_rated_foods 
-                            if food.lower() in meal_to_ingredients)
+                            if food.lower().strip() in meal_to_ingredients)
 
 print(f"✓ Ingredient coverage: {rated_with_ingredients}/{len(all_rated_foods)} rated foods ({rated_with_ingredients/len(all_rated_foods)*100:.1f}%)")
 
@@ -109,16 +110,8 @@ print(f"✓ All algorithms will ONLY recommend from the {len(rated_foods_univers
 
 
 # ============================================================
-# STEP 2.4: IMPLEMENT RECOMMENDATION ALGORITHMS (INGREDIENT-BASED)
+# STEP 2.4: HELPER FUNCTIONS
 # ============================================================
-
-print("\nSTEP 2.2: IMPLEMENTING RECOMMENDATION ALGORITHMS (INGREDIENT-BASED)")
-
-K = 10  # Top-K recommendations
-
-
-# ALGORITHM 1: CONTENT-BASED FILTERING (INGREDIENT-BASED)
-
 
 def get_ingredient_vector(meal_name):
     """Get ingredient set for a meal"""
@@ -132,54 +125,73 @@ def get_cuisine(meal_name):
     return meal_to_cuisine.get(clean_name, None)
 
 
-def content_based_recommendations(user_name, train_df, K=10):
+# ============================================================
+# STEP 2.5: CONTENT-BASED FILTERING (TWO VERSIONS)
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 2.5: IMPLEMENTING CONTENT-BASED FILTERING")
+print("="*70)
+
+K = 10  # Top-K recommendations
+
+
+def content_based_recommendations_selected(user_name, train_df, K=10):
     """
-    Recommend foods similar in INGREDIENTS to what user liked
-    Uses Jaccard similarity on ingredient sets
+    Recommend foods from USER'S PREFERRED CUISINES
+    Based on ingredient similarity to liked foods
     """
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
     
-    # Get foods user liked (rating >= 3, lowered threshold)
+    # Get foods user liked (rating >= 3)
     liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
     
     if not liked_foods:
-        return []  # User has no liked foods
+        return []
     
     # Get ingredient sets for liked foods
     liked_ingredient_sets = []
-    liked_cuisines = []
+    liked_cuisines = set()
     
     for food in liked_foods:
         ingredients = get_ingredient_vector(food)
         if ingredients:
             liked_ingredient_sets.append(ingredients)
-            cuisine = get_cuisine(food)
-            if cuisine:
-                liked_cuisines.append(cuisine)
+        
+        cuisine = get_cuisine(food)
+        if cuisine:
+            liked_cuisines.add(cuisine)
     
     if not liked_ingredient_sets:
-        return []  # No ingredient data for liked foods
+        return []
     
-    # Get foods user has already rated (to exclude from recommendations)
+    if not liked_cuisines:
+        return []
+    
+    # Get foods user has already rated
     rated_foods = set(user_train['food'].str.lower().str.strip())
     
-    # Get candidate foods: rated by someone, not rated by this user, have ingredients
+    # FILTER: Only recommend from user's preferred cuisines
     candidate_foods = []
     for food in rated_foods_universe:
         food_lower = food.lower().strip()
-        if food_lower not in rated_foods and food_lower in meal_to_ingredients:
+        candidate_cuisine = get_cuisine(food)
+        
+        # CRITICAL: Must be from a cuisine the user has liked
+        if (food_lower not in rated_foods and 
+            food_lower in meal_to_ingredients and
+            candidate_cuisine in liked_cuisines):
             candidate_foods.append(food)
     
     if not candidate_foods:
-        return []  # No unrated foods with ingredients
+        return []
     
     # Calculate ingredient similarity for each candidate
     food_scores = {}
     
     for candidate_food in candidate_foods:
         candidate_ingredients = get_ingredient_vector(candidate_food)
-        candidate_cuisine = get_cuisine(candidate_food)
         
         if not candidate_ingredients:
             continue
@@ -196,313 +208,518 @@ def content_based_recommendations(user_name, train_df, K=10):
                 similarities.append(jaccard_sim)
         
         if similarities:
-            # Average similarity to all liked foods
             avg_similarity = np.mean(similarities)
-            
-            # Bonus for same cuisine (20% boost)
-            if candidate_cuisine and candidate_cuisine in liked_cuisines:
-                avg_similarity *= 1.2
-            
             food_scores[candidate_food] = avg_similarity
     
     # Sort by score and return top K
     sorted_foods = sorted(food_scores.items(), key=lambda x: x[1], reverse=True)
     return sorted_foods[:K]
 
-print("✓ Content-Based (ingredient-based) implemented")
 
-
-# ALGORITHM 2: COLLABORATIVE FILTERING
-
-
-def collaborative_filtering_recommendations(user_name, train_df, K=10):
+def content_based_recommendations_all(user_name, train_df, K=10):
     """
-    Recommend based on similar users' preferences
-    Find users with similar taste, recommend what they liked
-    RESTRICTED to rated foods only
+    Recommend foods from ALL CUISINES
+    Based on ingredient similarity to liked foods
     """
-    # Create user-item matrix
-    user_item_matrix = train_df.pivot_table(
-        index='user_name',
-        columns='food',
-        values='rating',
-        fill_value=0
-    )
+    # Get user's training data
+    user_train = train_df[train_df['user_name'] == user_name]
     
-    # Check if user exists
-    if user_name not in user_item_matrix.index:
+    # Get foods user liked (rating >= 3)
+    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    
+    if not liked_foods:
         return []
     
-    # Get target user's ratings vector
-    target_user_ratings = user_item_matrix.loc[user_name].values.reshape(1, -1)
+    # Get ingredient sets for liked foods
+    liked_ingredient_sets = []
     
-    # Calculate similarity to all other users using cosine similarity
-    similarities = cosine_similarity(target_user_ratings, user_item_matrix.values)[0]
+    for food in liked_foods:
+        ingredients = get_ingredient_vector(food)
+        if ingredients:
+            liked_ingredient_sets.append(ingredients)
     
-    # Get indices of most similar users (excluding self)
-    user_indices = np.argsort(similarities)[::-1]
+    if not liked_ingredient_sets:
+        return []
     
-    # Remove self from similar users
-    similar_user_indices = [idx for idx in user_indices 
-                           if user_item_matrix.index[idx] != user_name][:10]
+    # Get foods user has already rated
+    rated_foods = set(user_train['food'].str.lower().str.strip())
     
-    # Get foods target user hasn't rated
-    target_user_rated = set(train_df[train_df['user_name'] == user_name]['food'])
+    # NO CUISINE FILTER: Recommend from any cuisine
+    candidate_foods = []
+    for food in rated_foods_universe:
+        food_lower = food.lower().strip()
+        
+        if food_lower not in rated_foods and food_lower in meal_to_ingredients:
+            candidate_foods.append(food)
     
-    # Predict ratings for unrated foods based on similar users
+    if not candidate_foods:
+        return []
+    
+    # Calculate ingredient similarity for each candidate
     food_scores = {}
     
-    for food in user_item_matrix.columns:
-        # Only consider foods in rated universe
-        if food not in rated_foods_universe:
+    for candidate_food in candidate_foods:
+        candidate_ingredients = get_ingredient_vector(candidate_food)
+        
+        if not candidate_ingredients:
             continue
+        
+        # Calculate Jaccard similarity to all liked foods
+        similarities = []
+        
+        for liked_ingredients in liked_ingredient_sets:
+            intersection = len(candidate_ingredients & liked_ingredients)
+            union = len(candidate_ingredients | liked_ingredients)
             
-        if food not in target_user_rated:
-            # Weighted average of similar users' ratings
-            weighted_sum = 0
-            similarity_sum = 0
-            
-            for user_idx in similar_user_indices:
-                other_user_rating = user_item_matrix.iloc[user_idx][food]
-                if other_user_rating > 0:  # User rated this food
-                    weighted_sum += similarities[user_idx] * other_user_rating
-                    similarity_sum += similarities[user_idx]
-            
-            if similarity_sum > 0:
-                predicted_rating = weighted_sum / similarity_sum
-                food_scores[food] = predicted_rating
+            if union > 0:
+                jaccard_sim = intersection / union
+                similarities.append(jaccard_sim)
+        
+        if similarities:
+            avg_similarity = np.mean(similarities)
+            food_scores[candidate_food] = avg_similarity
     
-    # Sort by predicted rating and return top K
+    # Sort by score and return top K
     sorted_foods = sorted(food_scores.items(), key=lambda x: x[1], reverse=True)
     return sorted_foods[:K]
 
-print("✓ Collaborative Filtering implemented")
 
-
-# ALGORITHM 3: HYBRID (Content + Collaborative)
-
-
-def hybrid_recommendations(user_name, train_df, K=10, alpha=0.7):
-    """
-    Combine content-based and collaborative filtering
-    alpha: weight for content-based (1-alpha for collaborative)
-    FIXED: Now 70% content / 30% collaborative (was 30/70)
-    """
-    # Get recommendations from both algorithms
-    content_recs = content_based_recommendations(user_name, train_df, K=30)
-    collab_recs = collaborative_filtering_recommendations(user_name, train_df, K=30)
-    
-    # Convert to dictionaries
-    content_scores = {food: score for food, score in content_recs}
-    collab_scores = {food: score for food, score in collab_recs}
-    
-    # Normalize scores to 0-1 range
-    def normalize_scores(scores_dict):
-        if not scores_dict:
-            return {}
-        values = list(scores_dict.values())
-        max_score = max(values)
-        min_score = min(values)
-        if max_score == min_score:
-            return {k: 1.0 for k in scores_dict}
-        return {k: (v - min_score) / (max_score - min_score) 
-                for k, v in scores_dict.items()}
-    
-    content_norm = normalize_scores(content_scores)
-    collab_norm = normalize_scores(collab_scores)
-    
-    # Combine scores using weighted average
-    all_foods = set(content_norm.keys()) | set(collab_norm.keys())
-    hybrid_scores = {}
-    
-    for food in all_foods:
-        # Only consider foods in rated universe
-        if food not in rated_foods_universe:
-            continue
-            
-        content_score = content_norm.get(food, 0)
-        collab_score = collab_norm.get(food, 0)
-        hybrid_scores[food] = alpha * content_score + (1 - alpha) * collab_score
-    
-    # Sort and return top K
-    sorted_foods = sorted(hybrid_scores.items(), key=lambda x: x[1], reverse=True)
-    return sorted_foods[:K]
-
-print("✓ Hybrid (70/30) implemented")
-
-
-# ALGORITHM 4: RANDOM BASELINE
-
-
-def random_recommendations(user_name, train_df, K=10, seed=42):
-    """
-    Random baseline: recommend K random unrated foods
-    RESTRICTED to rated foods only
-    """
-    random.seed(seed)
-    
-    # Get foods user has rated
-    user_rated = set(train_df[train_df['user_name'] == user_name]['food'].str.lower())
-    
-    # Get unrated foods from rated universe
-    unrated = [f for f in rated_foods_universe 
-              if f.lower() not in user_rated]
-    
-    if not unrated:
-        return []
-    
-    # Random sample
-    if len(unrated) < K:
-        selected = unrated
-    else:
-        selected = random.sample(unrated, K)
-    
-    # Return with uniform scores
-    return [(food, 1.0) for food in selected]
-
-print("✓ Random baseline implemented")
-
-
-# ALGORITHM 5: POPULARITY BASELINE
-
-
-def popularity_recommendations(user_name, train_df, K=10):
-    """
-    Popularity baseline: recommend most commonly liked foods
-    RESTRICTED to rated foods only
-    """
-    # Count how many users liked each food (rating >= 3, lowered threshold)
-    food_popularity = train_df[train_df['rating'] >= 3].groupby('food').size()
-    food_popularity = food_popularity.sort_values(ascending=False)
-    
-    # Get foods target user hasn't rated
-    user_rated = set(train_df[train_df['user_name'] == user_name]['food'])
-    
-    # Filter to unrated foods in rated universe
-    popular_unrated = [
-        (food, count) for food, count in food_popularity.items()
-        if food not in user_rated and food in rated_foods_universe
-    ]
-    
-    return popular_unrated[:K]
-
-print("✓ Popularity baseline implemented")
+print("✓ Content-Based (Selected) implemented - recommends from user's cuisines")
+print("✓ Content-Based (All) implemented - recommends from any cuisine")
 
 
 # ============================================================
-# STEP 2.5: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
-# ============================================================
-
-print("\nSTEP 2.3: GENERATING RECOMMENDATIONS FOR ALL TEST USERS")
-
-# Store recommendations for each algorithm
-recommendations_dict = {
-    'content_based': {},
-    'collaborative': {},
-    'hybrid': {},
-    'random': {},
-    'popularity': {}
-}
-
-print(f"\nGenerating top-{K} recommendations for {len(test_users)} users...")
-print()
-
-for i, user_name in enumerate(test_users, 1):
-    if i % 5 == 0 or i == len(test_users):
-        print(f"  Progress: {i}/{len(test_users)} users completed...")
-    
-    # Content-based
-    try:
-        recommendations_dict['content_based'][user_name] = \
-            content_based_recommendations(user_name, train_df, K=K)
-    except Exception as e:
-        print(f"  ⚠ Content-based failed for {user_name}: {e}")
-        recommendations_dict['content_based'][user_name] = []
-    
-    # Collaborative
-    try:
-        recommendations_dict['collaborative'][user_name] = \
-            collaborative_filtering_recommendations(user_name, train_df, K=K)
-    except Exception as e:
-        print(f"  ⚠ Collaborative failed for {user_name}: {e}")
-        recommendations_dict['collaborative'][user_name] = []
-    
-    # Hybrid
-    try:
-        recommendations_dict['hybrid'][user_name] = \
-            hybrid_recommendations(user_name, train_df, K=K)
-    except Exception as e:
-        print(f"  ⚠ Hybrid failed for {user_name}: {e}")
-        recommendations_dict['hybrid'][user_name] = []
-    
-    # Random baseline
-    try:
-        recommendations_dict['random'][user_name] = \
-            random_recommendations(user_name, train_df, K=K, seed=42+i)
-    except Exception as e:
-        print(f"  ⚠ Random failed for {user_name}: {e}")
-        recommendations_dict['random'][user_name] = []
-    
-    # Popularity baseline
-    try:
-        recommendations_dict['popularity'][user_name] = \
-            popularity_recommendations(user_name, train_df, K=K)
-    except Exception as e:
-        print(f"  ⚠ Popularity failed for {user_name}: {e}")
-        recommendations_dict['popularity'][user_name] = []
-
-print("\n✓ Recommendations generated for all users!")
-
-
-# ============================================================
-# STEP 2.6: SAVE RECOMMENDATIONS
-# ============================================================
-
-print("\nSTEP 2.4: SAVING RECOMMENDATIONS")
-
-# Save to pickle file
-with open('recommendations_all_algorithms.pkl', 'wb') as f:
-    pickle.dump(recommendations_dict, f)
-
-print(f"✓ Saved: recommendations_all_algorithms.pkl")
-
-
-# ============================================================
-# STEP 2.7: SUMMARY STATISTICS
-# ============================================================
-
-print("\nSTEP 2.5: SUMMARY STATISTICS")
-
-for algorithm in ['content_based', 'collaborative', 'hybrid', 'random', 'popularity']:
-    total_recs = sum(len(recs) for recs in recommendations_dict[algorithm].values())
-    users_with_recs = sum(1 for recs in recommendations_dict[algorithm].values() if len(recs) > 0)
-    avg_recs = total_recs / len(test_users) if len(test_users) > 0 else 0
-    
-    print(f"\n{algorithm.upper()}:")
-    print(f"  Total: {total_recs} | Users: {users_with_recs}/{len(test_users)} | Avg: {avg_recs:.1f}")
-
-
-# ============================================================
-# FINAL SUMMARY
+# STEP 2.6: COLLABORATIVE FILTERING (TWO VERSIONS)
 # ============================================================
 
 print("\n" + "="*70)
-print("STAGE 2 COMPLETE - INGREDIENT-BASED FIX APPLIED")
+print("STEP 2.6: IMPLEMENTING COLLABORATIVE FILTERING")
 print("="*70)
 
-print(f"""
-KEY IMPROVEMENTS:
-  ✓ Content-based uses ingredient similarity (not nutrition)
-  ✓ Hybrid reweighted to 70% content / 30% collaborative (FIXED)
-  ✓ Cuisine similarity bonus added (20%)
-  
-EXPECTED IMPROVEMENTS:
-  • Content-based F1@10: Should be 8-12%
-  • Hybrid F1@10: Should beat popularity (12-16%)
-  • Popularity F1@10: Baseline at ~12%
 
-Next Steps:
-  1. python stage3_calculate_portions.py
-  2. python stage4_evaluate_preference.py
-  3. Hybrid should now WIN!
+def collaborative_filtering_recommendations_selected(user_name, train_df, K=10):
+    """
+    Recommend based on similar users' preferences
+    FILTERED to user's preferred cuisines
+    """
+    # Get user's preferred cuisines
+    user_train = train_df[train_df['user_name'] == user_name]
+    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    
+    liked_cuisines = set()
+    for food in liked_foods:
+        cuisine = get_cuisine(food)
+        if cuisine:
+            liked_cuisines.add(cuisine)
+    
+    if not liked_cuisines:
+        return []
+    
+    # Build user-item matrix
+    user_item_matrix = train_df.pivot_table(
+        index='user_name', 
+        columns='food', 
+        values='rating'
+    ).fillna(0)
+    
+    if user_name not in user_item_matrix.index:
+        return []
+    
+    # Calculate user similarity
+    user_similarity = cosine_similarity(user_item_matrix)
+    user_similarity_df = pd.DataFrame(
+        user_similarity,
+        index=user_item_matrix.index,
+        columns=user_item_matrix.index
+    )
+    
+    # Find similar users
+    similar_users = user_similarity_df[user_name].sort_values(ascending=False)[1:6]
+    
+    # Get foods rated highly by similar users
+    rated_foods = set(user_train['food'].str.lower().str.strip())
+    candidate_scores = {}
+    
+    for similar_user, similarity_score in similar_users.items():
+        similar_user_ratings = train_df[
+            (train_df['user_name'] == similar_user) & 
+            (train_df['rating'] >= 3)
+        ]
+        
+        for _, row in similar_user_ratings.iterrows():
+            food = row['food']
+            food_lower = food.lower().strip()
+            candidate_cuisine = get_cuisine(food)
+            
+            # FILTER: Only from user's preferred cuisines
+            if (food_lower not in rated_foods and 
+                food in rated_foods_universe and
+                candidate_cuisine in liked_cuisines):
+                
+                if food not in candidate_scores:
+                    candidate_scores[food] = 0
+                candidate_scores[food] += similarity_score * row['rating']
+    
+    # Sort and return top K
+    sorted_foods = sorted(candidate_scores.items(), key=lambda x: x[1], reverse=True)
+    return sorted_foods[:K]
+
+
+def collaborative_filtering_recommendations_all(user_name, train_df, K=10):
+    """
+    Recommend based on similar users' preferences
+    From ALL cuisines
+    """
+    # Build user-item matrix
+    user_item_matrix = train_df.pivot_table(
+        index='user_name', 
+        columns='food', 
+        values='rating'
+    ).fillna(0)
+    
+    if user_name not in user_item_matrix.index:
+        return []
+    
+    # Calculate user similarity
+    user_similarity = cosine_similarity(user_item_matrix)
+    user_similarity_df = pd.DataFrame(
+        user_similarity,
+        index=user_item_matrix.index,
+        columns=user_item_matrix.index
+    )
+    
+    # Find similar users
+    similar_users = user_similarity_df[user_name].sort_values(ascending=False)[1:6]
+    
+    # Get foods rated highly by similar users
+    user_train = train_df[train_df['user_name'] == user_name]
+    rated_foods = set(user_train['food'].str.lower().str.strip())
+    candidate_scores = {}
+    
+    for similar_user, similarity_score in similar_users.items():
+        similar_user_ratings = train_df[
+            (train_df['user_name'] == similar_user) & 
+            (train_df['rating'] >= 3)
+        ]
+        
+        for _, row in similar_user_ratings.iterrows():
+            food = row['food']
+            food_lower = food.lower().strip()
+            
+            # NO FILTER: Any cuisine
+            if food_lower not in rated_foods and food in rated_foods_universe:
+                if food not in candidate_scores:
+                    candidate_scores[food] = 0
+                candidate_scores[food] += similarity_score * row['rating']
+    
+    # Sort and return top K
+    sorted_foods = sorted(candidate_scores.items(), key=lambda x: x[1], reverse=True)
+    return sorted_foods[:K]
+
+
+print("✓ Collaborative (Selected) implemented - recommends from user's cuisines")
+print("✓ Collaborative (All) implemented - recommends from any cuisine")
+
+
+# ============================================================
+# STEP 2.7: HYBRID FILTERING (TWO VERSIONS)
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 2.7: IMPLEMENTING HYBRID FILTERING")
+print("="*70)
+
+
+def hybrid_recommendations_selected(user_name, train_df, K=10, alpha=0.5):
+    """
+    Combine content-based and collaborative
+    FILTERED to user's preferred cuisines
+    """
+    cb_recs = content_based_recommendations_selected(user_name, train_df, K=20)
+    collab_recs = collaborative_filtering_recommendations_selected(user_name, train_df, K=20)
+    
+    # Combine scores
+    combined_scores = {}
+    
+    # Normalize and weight content-based scores
+    if cb_recs:
+        max_cb_score = max(score for _, score in cb_recs)
+        for food, score in cb_recs:
+            normalized_score = score / max_cb_score if max_cb_score > 0 else 0
+            combined_scores[food] = alpha * normalized_score
+    
+    # Normalize and weight collaborative scores
+    if collab_recs:
+        max_collab_score = max(score for _, score in collab_recs)
+        for food, score in collab_recs:
+            normalized_score = score / max_collab_score if max_collab_score > 0 else 0
+            if food in combined_scores:
+                combined_scores[food] += (1 - alpha) * normalized_score
+            else:
+                combined_scores[food] = (1 - alpha) * normalized_score
+    
+    # Sort and return top K
+    sorted_foods = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)
+    return sorted_foods[:K]
+
+
+def hybrid_recommendations_all(user_name, train_df, K=10, alpha=0.5):
+    """
+    Combine content-based and collaborative
+    From ALL cuisines
+    """
+    cb_recs = content_based_recommendations_all(user_name, train_df, K=20)
+    collab_recs = collaborative_filtering_recommendations_all(user_name, train_df, K=20)
+    
+    # Combine scores
+    combined_scores = {}
+    
+    # Normalize and weight content-based scores
+    if cb_recs:
+        max_cb_score = max(score for _, score in cb_recs)
+        for food, score in cb_recs:
+            normalized_score = score / max_cb_score if max_cb_score > 0 else 0
+            combined_scores[food] = alpha * normalized_score
+    
+    # Normalize and weight collaborative scores
+    if collab_recs:
+        max_collab_score = max(score for _, score in collab_recs)
+        for food, score in collab_recs:
+            normalized_score = score / max_collab_score if max_collab_score > 0 else 0
+            if food in combined_scores:
+                combined_scores[food] += (1 - alpha) * normalized_score
+            else:
+                combined_scores[food] = (1 - alpha) * normalized_score
+    
+    # Sort and return top K
+    sorted_foods = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)
+    return sorted_foods[:K]
+
+
+print("✓ Hybrid (Selected) implemented - recommends from user's cuisines")
+print("✓ Hybrid (All) implemented - recommends from any cuisine")
+
+
+# ============================================================
+# STEP 2.8: BASELINE ALGORITHMS (TWO VERSIONS)
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 2.8: IMPLEMENTING BASELINE ALGORITHMS")
+print("="*70)
+
+
+def popularity_recommendations_selected(user_name, train_df, K=10):
+    """
+    Recommend most popular foods
+    FILTERED to user's preferred cuisines
+    """
+    # Get user's preferred cuisines
+    user_train = train_df[train_df['user_name'] == user_name]
+    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    
+    liked_cuisines = set()
+    for food in liked_foods:
+        cuisine = get_cuisine(food)
+        if cuisine:
+            liked_cuisines.add(cuisine)
+    
+    if not liked_cuisines:
+        return []
+    
+    # Calculate popularity (average rating)
+    food_popularity = train_df.groupby('food')['rating'].agg(['mean', 'count'])
+    
+    # Filter to foods not rated by user
+    rated_foods = set(user_train['food'].str.lower().str.strip())
+    
+    popular_foods = []
+    for food, stats in food_popularity.iterrows():
+        food_lower = food.lower().strip()
+        candidate_cuisine = get_cuisine(food)
+        
+        # FILTER: Only from user's preferred cuisines
+        if (food_lower not in rated_foods and 
+            food in rated_foods_universe and
+            stats['count'] >= 2 and
+            candidate_cuisine in liked_cuisines):
+            popular_foods.append((food, stats['mean']))
+    
+    # Sort by rating and return top K
+    sorted_foods = sorted(popular_foods, key=lambda x: x[1], reverse=True)
+    return sorted_foods[:K]
+
+
+def popularity_recommendations_all(user_name, train_df, K=10):
+    """
+    Recommend most popular foods
+    From ALL cuisines
+    """
+    user_train = train_df[train_df['user_name'] == user_name]
+    rated_foods = set(user_train['food'].str.lower().str.strip())
+    
+    # Calculate popularity (average rating)
+    food_popularity = train_df.groupby('food')['rating'].agg(['mean', 'count'])
+    
+    popular_foods = []
+    for food, stats in food_popularity.iterrows():
+        food_lower = food.lower().strip()
+        
+        # NO FILTER: Any cuisine
+        if (food_lower not in rated_foods and 
+            food in rated_foods_universe and
+            stats['count'] >= 2):
+            popular_foods.append((food, stats['mean']))
+    
+    # Sort by rating and return top K
+    sorted_foods = sorted(popular_foods, key=lambda x: x[1], reverse=True)
+    return sorted_foods[:K]
+
+
+def random_recommendations(user_name, train_df, K=10):
+    """Random baseline (no cuisine filtering needed)"""
+    user_train = train_df[train_df['user_name'] == user_name]
+    rated_foods = set(user_train['food'].str.lower().str.strip())
+    
+    # Get unrated foods
+    unrated_foods = [food for food in rated_foods_universe 
+                     if food.lower().strip() not in rated_foods]
+    
+    # Random sample
+    sample_size = min(K, len(unrated_foods))
+    if sample_size == 0:
+        return []
+    
+    sampled = random.sample(unrated_foods, sample_size)
+    return [(food, 1.0) for food in sampled]
+
+
+print("✓ Popularity (Selected) implemented")
+print("✓ Popularity (All) implemented")
+print("✓ Random baseline implemented")
+
+
+# ============================================================
+# STEP 2.9: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 2.9: GENERATING RECOMMENDATIONS FOR ALL TEST USERS")
+print("="*70)
+
+all_recommendations = {
+    'content_based_selected': {},
+    'content_based_all': {},
+    'collaborative_selected': {},
+    'collaborative_all': {},
+    'hybrid_selected': {},
+    'hybrid_all': {},
+    'popularity_selected': {},
+    'popularity_all': {},
+    'random': {}
+}
+
+for i, user_name in enumerate(test_users, 1):
+    if i % 5 == 0:
+        print(f"Processing user {i}/{len(test_users)}...")
+    
+    # Content-Based
+    all_recommendations['content_based_selected'][user_name] = \
+        content_based_recommendations_selected(user_name, train_df, K=K)
+    all_recommendations['content_based_all'][user_name] = \
+        content_based_recommendations_all(user_name, train_df, K=K)
+    
+    # Collaborative
+    all_recommendations['collaborative_selected'][user_name] = \
+        collaborative_filtering_recommendations_selected(user_name, train_df, K=K)
+    all_recommendations['collaborative_all'][user_name] = \
+        collaborative_filtering_recommendations_all(user_name, train_df, K=K)
+    
+    # Hybrid
+    all_recommendations['hybrid_selected'][user_name] = \
+        hybrid_recommendations_selected(user_name, train_df, K=K)
+    all_recommendations['hybrid_all'][user_name] = \
+        hybrid_recommendations_all(user_name, train_df, K=K)
+    
+    # Popularity
+    all_recommendations['popularity_selected'][user_name] = \
+        popularity_recommendations_selected(user_name, train_df, K=K)
+    all_recommendations['popularity_all'][user_name] = \
+        popularity_recommendations_all(user_name, train_df, K=K)
+    
+    # Random
+    all_recommendations['random'][user_name] = \
+        random_recommendations(user_name, train_df, K=K)
+
+print(f"\n✓ Generated recommendations for {len(test_users)} users")
+
+
+# ============================================================
+# STEP 2.10: SUMMARY STATISTICS
+# ============================================================
+
+print("\n" + "="*70)
+print("RECOMMENDATION STATISTICS")
+print("="*70)
+
+for algo_name, recs in all_recommendations.items():
+    total_recs = sum(len(user_recs) for user_recs in recs.values())
+    avg_recs = total_recs / len(test_users) if len(test_users) > 0 else 0
+    
+    print(f"\n{algo_name.upper()}:")
+    print(f"  Total recommendations: {total_recs}")
+    print(f"  Average per user: {avg_recs:.1f}/{K}")
+    
+    # Count how many users got recommendations
+    users_with_recs = sum(1 for user_recs in recs.values() if len(user_recs) > 0)
+    print(f"  Users with recommendations: {users_with_recs}/{len(test_users)}")
+
+
+# ============================================================
+# STEP 2.11: SAVE RESULTS
+# ============================================================
+
+print("\n" + "="*70)
+print("SAVING RECOMMENDATIONS")
+print("="*70)
+
+# Save to pickle
+with open('recommendations_all_algorithms.pkl', 'wb') as f:
+    pickle.dump(all_recommendations, f)
+
+print("✓ Saved: recommendations_all_algorithms.pkl")
+
+# Create summary DataFrame
+summary_data = []
+for algo_name, user_recs in all_recommendations.items():
+    for user_name, recs in user_recs.items():
+        for rank, (food, score) in enumerate(recs, 1):
+            summary_data.append({
+                'algorithm': algo_name,
+                'user_name': user_name,
+                'food': food,
+                'rank': rank,
+                'score': score
+            })
+
+summary_df = pd.DataFrame(summary_data)
+summary_df.to_csv('recommendations_summary.csv', index=False)
+print("✓ Saved: recommendations_summary.csv")
+
+print("\n" + "="*70)
+print("STAGE 2 COMPLETE")
+print("="*70)
+print(f"""
+Generated {len(all_recommendations)} recommendation variants:
+  1. Content-Based (Selected) - {sum(len(r) for r in all_recommendations['content_based_selected'].values())} recs
+  2. Content-Based (All) - {sum(len(r) for r in all_recommendations['content_based_all'].values())} recs
+  3. Collaborative (Selected) - {sum(len(r) for r in all_recommendations['collaborative_selected'].values())} recs
+  4. Collaborative (All) - {sum(len(r) for r in all_recommendations['collaborative_all'].values())} recs
+  5. Hybrid (Selected) - {sum(len(r) for r in all_recommendations['hybrid_selected'].values())} recs
+  6. Hybrid (All) - {sum(len(r) for r in all_recommendations['hybrid_all'].values())} recs
+  7. Popularity (Selected) - {sum(len(r) for r in all_recommendations['popularity_selected'].values())} recs
+  8. Popularity (All) - {sum(len(r) for r in all_recommendations['popularity_all'].values())} recs
+  9. Random - {sum(len(r) for r in all_recommendations['random'].values())} recs
+
+Next: Run Stage 3 to calculate safety constraints
 """)

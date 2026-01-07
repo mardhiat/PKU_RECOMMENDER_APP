@@ -3,9 +3,10 @@ import numpy as np
 import pickle
 import os
 
-print("=" * 70)
-print("STAGE 4: EVALUATE PREFERENCE ALIGNMENT (FIXED)")
-print("=" * 70)
+print("="*70)
+print("STAGE 4: EVALUATE PREFERENCE ALIGNMENT (SELECTED + ALL)")
+print("="*70)
+
 
 # ============================================================
 # STEP 4.1: LOAD DATA
@@ -13,336 +14,230 @@ print("=" * 70)
 
 print("\nSTEP 4.1: LOADING DATA")
 
+# Check required files
 required_files = [
-    'recommendations_with_portions.pkl',
-    'test_ratings.csv',
-    'train_ratings.csv'
+    'recommendations_all_algorithms.pkl',
+    'data_test_ratings.csv'
 ]
 
 for file in required_files:
     if not os.path.exists(file):
         print(f"\n❌ ERROR: {file} not found!")
+        print("Please run Stage 2 first.")
         exit()
 
-with open('recommendations_with_portions.pkl', 'rb') as f:
-    recs_with_portions = pickle.load(f)
+# Load recommendations
+with open('recommendations_all_algorithms.pkl', 'rb') as f:
+    all_recommendations = pickle.load(f)
 
-test_df = pd.read_csv('test_ratings.csv')
-train_df = pd.read_csv('train_ratings.csv')
+# Load test ratings
+test_df = pd.read_csv('data_test_ratings.csv')
 
-print(f"✓ Loaded data files:")
-print(f"  - Recommendations: {len(recs_with_portions)} algorithms")
-print(f"  - Test ratings: {len(test_df)} from {test_df['user_name'].nunique()} users")
-print(f"  - Train ratings: {len(train_df)} from {train_df['user_name'].nunique()} users")
-
-# CRITICAL FIX: Define the rated food universe
-rated_foods = set(train_df['food'].unique()) | set(test_df['food'].unique())
-print(f"\n✓ Rated food universe: {len(rated_foods)} unique foods")
+print(f"\nLoaded data:")
+print(f"  - Algorithms: {len(all_recommendations)}")
+print(f"  - Test ratings: {len(test_df)} ratings")
 
 
 # ============================================================
-# STEP 4.2: FILTER RECOMMENDATIONS TO RATED FOODS ONLY
+# STEP 4.2: EVALUATION METRICS
 # ============================================================
 
-print("\nSTEP 4.2: FILTERING RECOMMENDATIONS TO RATED FOODS")
+print("\n" + "="*70)
+print("STEP 4.2: EVALUATION METRICS")
+print("="*70)
 
-filtered_recs = {}
+LIKE_THRESHOLD = 3  # Rating >= 3 is considered "liked"
 
-for algorithm in recs_with_portions:
-    filtered_recs[algorithm] = {}
+def precision_at_k(recommended_foods, liked_foods):
+    """Precision@K: What fraction of recommendations were liked?"""
+    if not recommended_foods:
+        return 0.0
     
-    total_original = 0
-    total_filtered = 0
-    
-    for user_name, recommendations in recs_with_portions[algorithm].items():
-        # Keep only recommendations for foods that were rated somewhere
-        filtered = [r for r in recommendations if r['food'] in rated_foods]
-        
-        filtered_recs[algorithm][user_name] = filtered
-        total_original += len(recommendations)
-        total_filtered += len(filtered)
-    
-    coverage = (total_filtered / total_original * 100) if total_original > 0 else 0
-    print(f"  {algorithm:15s}: {total_filtered:4d}/{total_original:4d} recommendations kept ({coverage:.1f}%)")
+    hits = sum(1 for food in recommended_foods if food in liked_foods)
+    return hits / len(recommended_foods)
 
-print("\n⚠️  INTERPRETATION:")
-print("  - 100% = Algorithm only recommends rated foods (good for evaluation)")
-print("  - <100% = Algorithm recommends unrated foods (filtered out for fair comparison)")
+
+def recall_at_k(recommended_foods, liked_foods):
+    """Recall@K: What fraction of liked foods were recommended?"""
+    if not liked_foods:
+        return 0.0
+    
+    hits = sum(1 for food in recommended_foods if food in liked_foods)
+    return hits / len(liked_foods)
+
+
+def f1_score(precision, recall):
+    """Harmonic mean of precision and recall"""
+    if precision + recall == 0:
+        return 0.0
+    return 2 * (precision * recall) / (precision + recall)
+
+
+def hit_rate(recommended_foods, liked_foods):
+    """Hit Rate: Did we recommend at least one liked food?"""
+    if not recommended_foods:
+        return 0.0
+    
+    return 1.0 if any(food in liked_foods for food in recommended_foods) else 0.0
+
+
+print("✓ Evaluation metrics defined:")
+print("  - Precision@K: Fraction of recommendations that were liked")
+print("  - Recall@K: Fraction of liked foods that were recommended")
+print("  - F1@K: Harmonic mean of precision and recall")
+print("  - Hit Rate: Whether at least one recommendation was liked")
 
 
 # ============================================================
-# STEP 4.3: IMPLEMENT PREFERENCE METRICS
+# STEP 4.3: EVALUATE ALL ALGORITHMS
 # ============================================================
 
-print("\nSTEP 4.3: IMPLEMENTING PREFERENCE METRICS")
+print("\n" + "="*70)
+print("STEP 4.3: EVALUATING ALL ALGORITHMS")
+print("="*70)
 
-K = 10
-LIKE_THRESHOLD = 3  # FIXED: Lowered from 4 to 3
+results = {}
 
-print(f"\nConfiguration:")
-print(f"  K (top-K): {K}")
-print(f"  Like threshold: rating ≥ {LIKE_THRESHOLD} (FIXED: lowered from 4)")
-
-
-def calculate_preference_metrics(recommendations, test_ratings, K=10, like_threshold=3):
-    """
-    Calculate preference metrics with proper handling of insufficient recommendations
-    FIXED: Now uses threshold of 3 instead of 4
-    """
-    # Get top K foods (or fewer if not enough available)
-    rec_foods = [rec['food'] for rec in recommendations[:K]]
-    num_available = len(rec_foods)
+for algo_name, user_recommendations in all_recommendations.items():
+    print(f"\nEvaluating {algo_name}...")
     
-    # Get liked foods in test set
-    liked_foods_in_test = {
-        food for food, rating in test_ratings.items()
-        if rating >= like_threshold
+    algo_results = {
+        'precision': [],
+        'recall': [],
+        'f1': [],
+        'hit_rate': []
     }
     
-    # Count hits
-    hits = [food for food in rec_foods if food in liked_foods_in_test]
-    
-    # Precision: out of available recommendations, how many are liked?
-    precision = len(hits) / num_available if num_available > 0 else 0
-    
-    # Recall: out of all liked foods, how many did we recommend?
-    recall = len(hits) / len(liked_foods_in_test) if liked_foods_in_test else 0
-    
-    # F1
-    if precision + recall > 0:
-        f1 = 2 * (precision * recall) / (precision + recall)
-    else:
-        f1 = 0
-    
-    # NDCG
-    dcg = 0
-    idcg = 0
-    
-    for i, food in enumerate(rec_foods):
-        rating = test_ratings.get(food, 0)
-        dcg += rating / np.log2(i + 2)
-    
-    ideal_ratings = sorted(test_ratings.values(), reverse=True)[:num_available]
-    for i, rating in enumerate(ideal_ratings):
-        idcg += rating / np.log2(i + 2)
-    
-    ndcg = dcg / idcg if idcg > 0 else 0
-    
-    # Hit rate
-    hit_rate = 1 if len(hits) > 0 else 0
-    
-    # Coverage: did we get K recommendations?
-    coverage = num_available / K
-    
-    return {
-        'precision': precision,
-        'recall': recall,
-        'f1': f1,
-        'ndcg': ndcg,
-        'hit_rate': hit_rate,
-        'num_hits': len(hits),
-        'num_liked_in_test': len(liked_foods_in_test),
-        'num_available': num_available,
-        'coverage': coverage
-    }
-
-print("✓ Metrics implemented")
-
-
-# ============================================================
-# STEP 4.4: EVALUATE ALL ALGORITHMS
-# ============================================================
-
-print("\nSTEP 4.4: EVALUATING ALL ALGORITHMS")
-
-preference_results = {}
-
-for algorithm in filtered_recs:
-    print(f"\n  Evaluating {algorithm}...")
-    
-    user_metrics = []
-    users_with_insufficient_recs = 0
-    
-    for user_name, recommendations in filtered_recs[algorithm].items():
-        # Get user's test ratings
+    for user_name, recs in user_recommendations.items():
+        # Get test ratings for this user
         user_test = test_df[test_df['user_name'] == user_name]
-        test_ratings = dict(zip(user_test['food'], user_test['rating']))
         
-        if not test_ratings:
-            continue
+        # Get liked foods (rating >= 3)
+        liked_foods = set(user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist())
+        
+        # Get recommended foods (just the food names, not scores)
+        recommended_foods = [food for food, score in recs]
         
         # Calculate metrics
-        metrics = calculate_preference_metrics(
-            recommendations,
-            test_ratings,
-            K=K,
-            like_threshold=LIKE_THRESHOLD
-        )
+        prec = precision_at_k(recommended_foods, liked_foods)
+        rec = recall_at_k(recommended_foods, liked_foods)
+        f1 = f1_score(prec, rec)
+        hr = hit_rate(recommended_foods, liked_foods)
         
-        metrics['user_name'] = user_name
-        user_metrics.append(metrics)
-        
-        if metrics['num_available'] < K:
-            users_with_insufficient_recs += 1
+        algo_results['precision'].append(prec)
+        algo_results['recall'].append(rec)
+        algo_results['f1'].append(f1)
+        algo_results['hit_rate'].append(hr)
     
-    preference_results[algorithm] = pd.DataFrame(user_metrics)
-    
-    df = preference_results[algorithm]
-    print(f"  ✓ Evaluated {len(user_metrics)} users")
-    print(f"    Avg recommendations available: {df['num_available'].mean():.1f}/{K}")
-    print(f"    Users with <{K} recommendations: {users_with_insufficient_recs}")
-    print(f"    Avg F1@10: {df['f1'].mean():.4f}")
-
-print("\n✓ All algorithms evaluated!")
-
-
-# ============================================================
-# STEP 4.5: SUMMARY STATISTICS
-# ============================================================
-
-print("\nSTEP 4.5: PREFERENCE EVALUATION SUMMARY")
-
-summary_data = []
-
-for algorithm in preference_results:
-    df = preference_results[algorithm]
-    
-    summary = {
-        'Algorithm': algorithm.replace('_', ' ').title(),
-        'Precision@10': df['precision'].mean(),
-        'Recall@10': df['recall'].mean(),
-        'F1@10': df['f1'].mean(),
-        'NDCG@10': df['ndcg'].mean(),
-        'Hit Rate': df['hit_rate'].mean(),
-        'Avg Coverage': df['coverage'].mean(),
-        'Avg Hits': df['num_hits'].mean()
+    # Calculate averages
+    results[algo_name] = {
+        'precision_avg': np.mean(algo_results['precision']) * 100,
+        'recall_avg': np.mean(algo_results['recall']) * 100,
+        'f1_avg': np.mean(algo_results['f1']) * 100,
+        'hit_rate_avg': np.mean(algo_results['hit_rate']) * 100,
+        'num_users': len(algo_results['precision'])
     }
-    summary_data.append(summary)
+    
+    print(f"  F1@10: {results[algo_name]['f1_avg']:.1f}%")
+    print(f"  Precision@10: {results[algo_name]['precision_avg']:.1f}%")
+    print(f"  Recall@10: {results[algo_name]['recall_avg']:.1f}%")
+    print(f"  Hit Rate: {results[algo_name]['hit_rate_avg']:.1f}%")
+
+
+# ============================================================
+# STEP 4.4: CREATE SUMMARY TABLE
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 4.4: SUMMARY TABLE")
+print("="*70)
+
+# Create summary DataFrame
+summary_data = []
+for algo_name, metrics in results.items():
+    summary_data.append({
+        'Algorithm': algo_name,
+        'F1@10 (%)': f"{metrics['f1_avg']:.1f}",
+        'Precision@10 (%)': f"{metrics['precision_avg']:.1f}",
+        'Recall@10 (%)': f"{metrics['recall_avg']:.1f}",
+        'Hit Rate (%)': f"{metrics['hit_rate_avg']:.1f}",
+        'Users': metrics['num_users']
+    })
 
 summary_df = pd.DataFrame(summary_data)
-summary_df = summary_df.sort_values('F1@10', ascending=False)
 
-print("\n" + "=" * 70)
-print("PREFERENCE METRICS COMPARISON (RATED FOODS ONLY)")
-print("=" * 70)
-print("\n" + summary_df.to_string(index=False))
+# Sort by F1 score
+summary_df['F1_numeric'] = summary_df['F1@10 (%)'].astype(float)
+summary_df = summary_df.sort_values('F1_numeric', ascending=False)
+summary_df = summary_df.drop('F1_numeric', axis=1)
 
-# Identify best algorithm
-best_algorithm = summary_df.iloc[0]['Algorithm']
-best_f1 = summary_df.iloc[0]['F1@10']
+print("\n" + "="*70)
+print("PREFERENCE EVALUATION RESULTS (NO SAFETY CONSTRAINTS)")
+print("="*70)
+print()
+print(summary_df.to_string(index=False))
+print()
 
-print(f"\n{'='*70}")
-print(f"🏆 BEST ALGORITHM (by F1@10): {best_algorithm}")
-print(f"   F1 Score: {best_f1:.4f}")
-print(f"{'='*70}")
+
+# ============================================================
+# STEP 4.5: COMPARISON: SELECTED VS ALL
+# ============================================================
+
+print("\n" + "="*70)
+print("COMPARISON: SELECTED (SAME CUISINE) VS ALL (ANY CUISINE)")
+print("="*70)
+
+algorithms = ['content_based', 'collaborative', 'hybrid', 'popularity']
+
+for algo in algorithms:
+    selected_key = f"{algo}_selected"
+    all_key = f"{algo}_all"
+    
+    if selected_key in results and all_key in results:
+        selected_f1 = results[selected_key]['f1_avg']
+        all_f1 = results[all_key]['f1_avg']
+        
+        print(f"\n{algo.upper()}:")
+        print(f"  Selected (same cuisine): {selected_f1:.1f}% F1")
+        print(f"  All (any cuisine): {all_f1:.1f}% F1")
+        
+        if selected_f1 > all_f1:
+            improvement = selected_f1 - all_f1
+            print(f"  → Selected is BETTER by {improvement:.1f} percentage points")
+        elif all_f1 > selected_f1:
+            improvement = all_f1 - selected_f1
+            print(f"  → All is BETTER by {improvement:.1f} percentage points")
+        else:
+            print(f"  → TIE")
 
 
 # ============================================================
 # STEP 4.6: SAVE RESULTS
 # ============================================================
 
-print("\nSTEP 4.6: SAVING RESULTS")
+print("\n" + "="*70)
+print("STEP 4.6: SAVING RESULTS")
+print("="*70)
 
-with open('preference_evaluation_results.pkl', 'wb') as f:
-    pickle.dump(preference_results, f)
-print(f"✓ Saved: preference_evaluation_results.pkl")
-
+# Save summary CSV
 summary_df.to_csv('preference_evaluation_summary.csv', index=False)
-print(f"✓ Saved: preference_evaluation_summary.csv")
+print("✓ Saved: preference_evaluation_summary.csv")
 
-for algorithm in preference_results:
-    filename = f'preference_results_{algorithm}.csv'
-    preference_results[algorithm].to_csv(filename, index=False)
-    print(f"✓ Saved: {filename}")
+# Save detailed results
+with open('preference_evaluation_results.pkl', 'wb') as f:
+    pickle.dump(results, f)
+print("✓ Saved: preference_evaluation_results.pkl")
 
-
-# ============================================================
-# STEP 4.7: DETAILED ANALYSIS
-# ============================================================
-
-print("\nSTEP 4.7: DETAILED ANALYSIS")
-
-# Best algorithm breakdown
-best_algo_key = best_algorithm.lower().replace(' ', '_')
-if best_algo_key in preference_results:
-    best_df = preference_results[best_algo_key]
-    
-    print(f"\nDetailed statistics for {best_algorithm}:")
-    print(f"  Precision@10: {best_df['precision'].mean():.4f} ± {best_df['precision'].std():.4f}")
-    print(f"  Recall@10:    {best_df['recall'].mean():.4f} ± {best_df['recall'].std():.4f}")
-    print(f"  F1@10:        {best_df['f1'].mean():.4f} ± {best_df['f1'].std():.4f}")
-    print(f"  NDCG@10:      {best_df['ndcg'].mean():.4f} ± {best_df['ndcg'].std():.4f}")
-    print(f"  Hit Rate:     {best_df['hit_rate'].mean():.4f}")
-    print(f"  Coverage:     {best_df['coverage'].mean():.4f}")
-    
-    print(f"\n  Average hits per user: {best_df['num_hits'].mean():.1f}")
-    print(f"  Average liked foods in test: {best_df['num_liked_in_test'].mean():.1f}")
-
-# Algorithm comparison table
-print("\n" + "=" * 70)
-print("ALGORITHM COMPARISON")
-print("=" * 70)
-
-comparison = []
-for algo in preference_results:
-    df = preference_results[algo]
-    comparison.append({
-        'Algorithm': algo.replace('_', ' ').title(),
-        'Users': len(df),
-        'Avg Recs': f"{df['num_available'].mean():.1f}/10",
-        'Precision': f"{df['precision'].mean():.3f}",
-        'Recall': f"{df['recall'].mean():.3f}",
-        'F1': f"{df['f1'].mean():.3f}",
-        'Hit%': f"{df['hit_rate'].mean()*100:.1f}%"
-    })
-
-comp_df = pd.DataFrame(comparison)
-print("\n" + comp_df.to_string(index=False))
-
-
-# ============================================================
-# FINAL SUMMARY
-# ============================================================
-
-print("\n" + "=" * 70)
-print("STAGE 4 COMPLETE ✓")
-print("=" * 70)
-
+print("\n" + "="*70)
+print("STAGE 4 COMPLETE")
+print("="*70)
 print(f"""
-📊 EVALUATION SUMMARY:
+KEY FINDINGS:
+- Best Overall Algorithm: {summary_df.iloc[0]['Algorithm']}
+  (F1@10: {summary_df.iloc[0]['F1@10 (%)']})
 
-Methodology:
-  • Filtered all algorithms to rated foods only (fair comparison)
-  • Evaluated top-{K} recommendations per user
-  • {len(test_df['user_name'].unique())} users evaluated
-  • Like threshold: rating ≥ {LIKE_THRESHOLD} (FIXED: lowered from 4)
+- Evaluated {len(all_recommendations)} algorithm variants
+- Tested on {results[list(results.keys())[0]]['num_users']} users
 
-Key Findings:
-  • Best algorithm: {best_algorithm} (F1@10 = {best_f1:.4f})
-  • This algorithm best understands user preferences for rated foods
-  
-Files Created:
-  1. preference_evaluation_results.pkl
-  2. preference_evaluation_summary.csv  
-  3. preference_results_[algorithm].csv (per-algorithm details)
-
-📝 INTERPRETATION FOR YOUR PROFESSOR:
-
-Stage 4 answers: "Does the system understand the user's taste?"
-
-Results show which algorithm best predicts user preferences when 
-recommending from foods that users have previously rated.
-
-KEY IMPROVEMENTS FROM FIXES:
-  ✓ Lowered like threshold from 4 to 3
-  ✓ This increases average liked foods from ~3.5 to ~5.5 per user
-  ✓ More stable evaluation with less variance
-  ✓ Hybrid should now be competitive or beat popularity
-
-⚠️  Note: Scores of F1 ~10-15% are actually good for food recommendation
-   because user preferences are diverse and context-dependent.
-
-➡️  NEXT: Stage 5 - Evaluate Combined Preference + Safety
-   "Which foods are BOTH liked AND nutritionally safe?"
-   This will complete the two-stage evaluation framework.
+Next: Run Stage 5 to evaluate preference + safety constraints
 """)

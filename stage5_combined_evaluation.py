@@ -1,259 +1,419 @@
 import pandas as pd
-import pickle
 import numpy as np
+import pickle
+import os
 
 print("="*70)
-print("STAGE 5 REVISED: REALISTIC PKU EVALUATION")
+print("STAGE 5: COMBINED PREFERENCE + SAFETY EVALUATION")
 print("="*70)
 
-# Load data
-test_df = pd.read_csv('test_ratings.csv')
+
+# ============================================================
+# STEP 5.1: LOAD DATA
+# ============================================================
+
+print("\nSTEP 5.1: LOADING DATA")
+
+required_files = [
+    'recommendations_with_portions.pkl',
+    'data_test_ratings.csv'
+]
+
+for file in required_files:
+    if not os.path.exists(file):
+        print(f"\n❌ ERROR: {file} not found!")
+        print("Please run Stage 3 first.")
+        exit()
+
+# Load recommendations with safety data
 with open('recommendations_with_portions.pkl', 'rb') as f:
-    recs = pickle.load(f)
+    recommendations_with_safety = pickle.load(f)
 
-print("\nSTEP 1: UNDERSTAND THE EVALUATION CHALLENGE")
-print("-"*70)
+# Load test ratings
+test_df = pd.read_csv('data_test_ratings.csv')
 
-print("\nDataset characteristics:")
-print(f"  Total test ratings: {len(test_df)}")
-print(f"  Test users: {test_df['user_name'].nunique()}")
-print(f"  Avg ratings per user: {len(test_df) / test_df['user_name'].nunique():.1f}")
-print(f"  Unique foods in test: {test_df['food'].nunique()}")
+print(f"\nLoaded data:")
+print(f"  - Recommendations with safety: {len(recommendations_with_safety)} entries")
+print(f"  - Test ratings: {len(test_df)} ratings")
 
-# Rating breakdown
-print(f"\nRating distribution:")
-print(test_df['rating'].value_counts().sort_index().to_string())
-print(f"\n  Liked (≥3): {(test_df['rating'] >= 3).sum()} / {len(test_df)} ({(test_df['rating'] >= 3).mean()*100:.1f}%)")
+
+# ============================================================
+# STEP 5.2: ORGANIZE BY ALGORITHM AND USER
+# ============================================================
 
 print("\n" + "="*70)
-print("STEP 2: TWO EVALUATION PERSPECTIVES")
+print("STEP 5.2: ORGANIZING RECOMMENDATIONS BY ALGORITHM")
 print("="*70)
 
-# Perspective 1: Of recommendations, how many hit test set AND are good?
-print("\n📊 PERSPECTIVE 1: Recommendation Quality")
-print("   'Of 10 recommendations, how many are liked AND safe?'")
-print("-"*70)
+# recommendations_with_safety is already organized as:
+# {algorithm: {user: [list of recommendation dicts]}}
 
-LIKE_THRESHOLD = 3
+organized_recs = {}
 
-results_p1 = {}
-
-for algo in recs:
-    total_recs = 0
-    liked_and_safe = 0
-    in_test_and_safe = 0
-    in_test = 0
+for algo_name, users_dict in recommendations_with_safety.items():
+    organized_recs[algo_name] = {}
     
-    for user, user_recs in recs[algo].items():
-        user_test = test_df[test_df['user_name'] == user]
-        test_foods = dict(zip(user_test['food'], user_test['rating']))
+    for user_name, recs_list in users_dict.items():
+        # recs_list is already a list of dicts with keys:
+        # 'food', 'score', 'portion_g', 'is_safe', etc.
+        organized_recs[algo_name][user_name] = recs_list
+
+print(f"✓ Organized {len(organized_recs)} algorithms")
+for algo, users in organized_recs.items():
+    total_recs = sum(len(recs) for recs in users.values())
+    print(f"  {algo}: {total_recs} recommendations across {len(users)} users")
+
+
+# ============================================================
+# STEP 5.3: EVALUATION METRICS
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 5.3: EVALUATION METRICS")
+print("="*70)
+
+LIKE_THRESHOLD = 3  # Rating >= 3 is considered "liked"
+
+
+# ============================================================
+# PERSPECTIVE 1: Liked & Safe Rate
+# ============================================================
+
+def evaluate_liked_and_safe_rate(algo_recs, test_df):
+    """
+    Of ALL recommendations made, what % are BOTH liked AND safe?
+    """
+    results = []
+    
+    for user_name, recs in algo_recs.items():
+        # Get user's test ratings
+        user_test = test_df[test_df['user_name'] == user_name]
+        liked_foods = set(user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist())
         
-        for rec in user_recs[:10]:
-            total_recs += 1
+        for rec in recs:
+            food = rec['food']
+            is_safe = rec['is_safe']
+            is_liked = food in liked_foods
+            is_both = is_safe and is_liked
             
-            if rec['food'] in test_foods:
-                in_test += 1
-                rating = test_foods[rec['food']]
-                
-                if rec['is_safe']:
-                    in_test_and_safe += 1
-                    
-                if rating >= LIKE_THRESHOLD and rec['is_safe']:
-                    liked_and_safe += 1
+            results.append({
+                'user': user_name,
+                'food': food,
+                'is_safe': is_safe,
+                'is_liked': is_liked,
+                'is_both': is_both
+            })
     
-    results_p1[algo] = {
-        'total_recs': total_recs,
-        'in_test': in_test,
-        'in_test_rate': in_test / total_recs,
-        'liked_and_safe': liked_and_safe,
-        'liked_and_safe_rate': liked_and_safe / total_recs,
-        'safe_given_in_test': in_test_and_safe / in_test if in_test > 0 else 0
+    df = pd.DataFrame(results)
+    
+    total = len(df)
+    safe_count = df['is_safe'].sum()
+    liked_count = df['is_liked'].sum()
+    both_count = df['is_both'].sum()
+    
+    return {
+        'total_recommendations': total,
+        'safe_recommendations': safe_count,
+        'liked_recommendations': liked_count,
+        'liked_and_safe_recommendations': both_count,
+        'liked_and_safe_rate': (both_count / total * 100) if total > 0 else 0,
+        'safe_rate': (safe_count / total * 100) if total > 0 else 0,
+        'liked_rate': (liked_count / total * 100) if total > 0 else 0
     }
 
-df_p1 = pd.DataFrame(results_p1).T
-df_p1 = df_p1.sort_values('liked_and_safe_rate', ascending=False)
 
-print(f"\n{'Algorithm':<15} {'In Test':<10} {'L&S Count':<12} {'L&S Rate':<10}")
-print("-"*70)
-for algo in df_p1.index:
-    name = algo.replace('_', ' ').title()
-    in_test = df_p1.loc[algo, 'in_test']
-    count = df_p1.loc[algo, 'liked_and_safe']
-    rate = df_p1.loc[algo, 'liked_and_safe_rate'] * 100
-    print(f"{name:<15} {in_test:<10.0f} {count:<12.0f} {rate:<10.1f}%")
+# ============================================================
+# PERSPECTIVE 2: Coverage of Liked Foods
+# ============================================================
 
-print(f"\n💡 Interpretation:")
-print(f"   • Only ~{df_p1['in_test_rate'].mean()*100:.0f}% of recommendations are in test set")
-print(f"   • This is expected with sparse user data (avg 8 ratings/user)")
-print(f"   • Content-based achieves highest rate despite this challenge")
-
-# Perspective 2: Of foods user likes, how many can we recommend safely?
-print("\n" + "="*70)
-print("📊 PERSPECTIVE 2: Coverage of Liked Foods")
-print("   'Of foods user likes, how many did we find AND can serve safely?'")
-print("="*70)
-
-results_p2 = {}
-
-for algo in recs:
-    users_evaluated = 0
-    total_liked_foods = 0
-    found_and_safe = 0
-    found_but_unsafe = 0
-    not_found = 0
+def evaluate_coverage_of_liked_foods(algo_recs, test_df):
+    """
+    Of all liked foods in test set, what % did we find safely?
+    """
+    results = []
     
-    for user, user_recs in recs[algo].items():
-        user_test = test_df[test_df['user_name'] == user]
-        liked_foods = user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist()
+    for user_name, recs in algo_recs.items():
+        # Get user's test ratings
+        user_test = test_df[test_df['user_name'] == user_name]
+        liked_foods = set(user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist())
         
-        if not liked_foods:
-            continue
+        # Get safe recommendations
+        safe_recs = [rec['food'] for rec in recs if rec['is_safe']]
         
-        users_evaluated += 1
-        total_liked_foods += len(liked_foods)
+        # Find liked foods that were recommended safely
+        found_safely = set(safe_recs) & liked_foods
         
-        rec_foods = {r['food']: r for r in user_recs[:10]}
-        
-        for food in liked_foods:
-            if food in rec_foods:
-                if rec_foods[food]['is_safe']:
-                    found_and_safe += 1
-                else:
-                    found_but_unsafe += 1
-            else:
-                not_found += 1
+        results.append({
+            'user': user_name,
+            'total_liked_foods': len(liked_foods),
+            'found_safely': len(found_safely),
+            'coverage_rate': (len(found_safely) / len(liked_foods) * 100) if liked_foods else 0
+        })
     
-    results_p2[algo] = {
-        'users': users_evaluated,
-        'total_liked': total_liked_foods,
-        'found_and_safe': found_and_safe,
-        'found_but_unsafe': found_but_unsafe,
-        'not_found': not_found,
-        'coverage_rate': found_and_safe / total_liked_foods if total_liked_foods > 0 else 0,
-        'safety_rate_when_found': found_and_safe / (found_and_safe + found_but_unsafe) if (found_and_safe + found_but_unsafe) > 0 else 0
+    df = pd.DataFrame(results)
+    
+    total_liked = df['total_liked_foods'].sum()
+    total_found = df['found_safely'].sum()
+    
+    return {
+        'total_liked_foods_in_test': total_liked,
+        'found_safely': total_found,
+        'coverage_rate': (total_found / total_liked * 100) if total_liked > 0 else 0,
+        'avg_coverage_per_user': df['coverage_rate'].mean()
     }
 
-df_p2 = pd.DataFrame(results_p2).T
-df_p2 = df_p2.sort_values('coverage_rate', ascending=False)
 
-print(f"\n{'Algorithm':<15} {'Found&Safe':<12} {'Found/Unsafe':<14} {'Not Found':<12} {'Coverage':<10}")
-print("-"*70)
-for algo in df_p2.index:
-    name = algo.replace('_', ' ').title()
-    fs = df_p2.loc[algo, 'found_and_safe']
-    fu = df_p2.loc[algo, 'found_but_unsafe']
-    nf = df_p2.loc[algo, 'not_found']
-    cov = df_p2.loc[algo, 'coverage_rate'] * 100
-    print(f"{name:<15} {fs:<12.0f} {fu:<14.0f} {nf:<12.0f} {cov:<10.1f}%")
+# ============================================================
+# PERSPECTIVE 3: Safety-First Acceptance Rate
+# ============================================================
 
-print(f"\n💡 Interpretation:")
-print(f"   • Average liked foods per user: {df_p2['total_liked'].mean() / df_p2['users'].mean():.1f}")
-print(f"   • Best algorithm finds ~{df_p2['coverage_rate'].max()*100:.0f}% of them safely")
-print(f"   • Remaining ~{(1-df_p2['coverage_rate'].max())*100:.0f}% either not found or unsafe")
-
-# Perspective 3: Safety-first evaluation
-print("\n" + "="*70)
-print("📊 PERSPECTIVE 3: Safety-First PKU Evaluation")
-print("   'Among safe recommendations, how acceptable are they?'")
-print("="*70)
-
-results_p3 = {}
-
-for algo in recs:
-    safe_recs = 0
-    safe_and_liked = 0
-    safe_and_disliked = 0
-    safe_and_unknown = 0
+def evaluate_safety_first_acceptance(algo_recs, test_df):
+    """
+    Of recommendations that ARE safe, what % are liked?
+    (Quality of safe recommendations)
+    """
+    results = []
     
-    for user, user_recs in recs[algo].items():
-        user_test = test_df[test_df['user_name'] == user]
-        test_ratings = dict(zip(user_test['food'], user_test['rating']))
+    for user_name, recs in algo_recs.items():
+        # Get user's test ratings
+        user_test = test_df[test_df['user_name'] == user_name]
+        liked_foods = set(user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist())
         
-        for rec in user_recs[:10]:
-            if rec['is_safe']:
-                safe_recs += 1
-                
-                if rec['food'] in test_ratings:
-                    if test_ratings[rec['food']] >= LIKE_THRESHOLD:
-                        safe_and_liked += 1
-                    else:
-                        safe_and_disliked += 1
-                else:
-                    safe_and_unknown += 1
+        # Get only safe recommendations
+        safe_recs = [rec for rec in recs if rec['is_safe']]
+        
+        for rec in safe_recs:
+            food = rec['food']
+            is_liked = food in liked_foods
+            
+            results.append({
+                'user': user_name,
+                'food': food,
+                'is_liked': is_liked
+            })
     
-    results_p3[algo] = {
-        'safe_recs': safe_recs,
-        'safe_and_liked': safe_and_liked,
-        'safe_and_disliked': safe_and_disliked,
-        'safe_and_unknown': safe_and_unknown,
-        'acceptance_rate': safe_and_liked / safe_recs if safe_recs > 0 else 0,
-        'known_acceptance': safe_and_liked / (safe_and_liked + safe_and_disliked) if (safe_and_liked + safe_and_disliked) > 0 else 0
+    df = pd.DataFrame(results)
+    
+    if len(df) == 0:
+        return {
+            'total_safe_recommendations': 0,
+            'liked_among_safe': 0,
+            'acceptance_rate': 0
+        }
+    
+    total_safe = len(df)
+    liked_count = df['is_liked'].sum()
+    
+    return {
+        'total_safe_recommendations': total_safe,
+        'liked_among_safe': liked_count,
+        'acceptance_rate': (liked_count / total_safe * 100) if total_safe > 0 else 0
     }
 
-df_p3 = pd.DataFrame(results_p3).T
-df_p3 = df_p3.sort_values('known_acceptance', ascending=False)
 
-print(f"\n{'Algorithm':<15} {'Safe Recs':<10} {'Accepted':<10} {'Rejected':<10} {'Unknown':<10} {'Accept %':<10}")
-print("-"*70)
-for algo in df_p3.index:
-    name = algo.replace('_', ' ').title()
-    safe = df_p3.loc[algo, 'safe_recs']
-    liked = df_p3.loc[algo, 'safe_and_liked']
-    disliked = df_p3.loc[algo, 'safe_and_disliked']
-    unknown = df_p3.loc[algo, 'safe_and_unknown']
-    acc = df_p3.loc[algo, 'known_acceptance'] * 100
-    print(f"{name:<15} {safe:<10.0f} {liked:<10.0f} {disliked:<10.0f} {unknown:<10.0f} {acc:<10.1f}%")
+print("✓ Three evaluation perspectives defined:")
+print("  1. Liked & Safe Rate: % of all recommendations that are both")
+print("  2. Coverage: % of liked foods we found safely")
+print("  3. Safety-First Acceptance: % of safe recs that are liked")
 
-print(f"\n💡 Interpretation:")
-print(f"   • Of safe recommendations that users HAVE rated:")
-print(f"   • {df_p3['known_acceptance'].max()*100:.0f}% are acceptable (rating ≥3)")
-print(f"   • This measures: 'If it's safe, will they eat it?'")
 
-# Final summary
+# ============================================================
+# STEP 5.4: EVALUATE ALL ALGORITHMS
+# ============================================================
+
 print("\n" + "="*70)
-print("🎯 FINAL EVALUATION SUMMARY")
+print("STEP 5.4: EVALUATING ALL ALGORITHMS")
 print("="*70)
+
+all_results = {}
+
+for algo_name, user_recs in organized_recs.items():
+    print(f"\nEvaluating {algo_name}...")
+    
+    # Perspective 1
+    p1 = evaluate_liked_and_safe_rate(user_recs, test_df)
+    
+    # Perspective 2
+    p2 = evaluate_coverage_of_liked_foods(user_recs, test_df)
+    
+    # Perspective 3
+    p3 = evaluate_safety_first_acceptance(user_recs, test_df)
+    
+    all_results[algo_name] = {
+        'perspective_1': p1,
+        'perspective_2': p2,
+        'perspective_3': p3
+    }
+    
+    print(f"  Liked & Safe: {p1['liked_and_safe_recommendations']}/{p1['total_recommendations']} ({p1['liked_and_safe_rate']:.1f}%)")
+    print(f"  Coverage: {p2['found_safely']}/{p2['total_liked_foods_in_test']} ({p2['coverage_rate']:.1f}%)")
+    print(f"  Acceptance: {p3['liked_among_safe']}/{p3['total_safe_recommendations']} ({p3['acceptance_rate']:.1f}%)")
+
+
+# ============================================================
+# STEP 5.5: CREATE SUMMARY TABLES
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 5.5: SUMMARY TABLES")
+print("="*70)
+
+# Table 1: Liked & Safe Rate
+print("\n" + "="*70)
+print("PERSPECTIVE 1: LIKED & SAFE RATE")
+print("="*70)
+
+summary_p1 = []
+for algo, results in all_results.items():
+    p1 = results['perspective_1']
+    summary_p1.append({
+        'Algorithm': algo,
+        'Total Recs': p1['total_recommendations'],
+        'Liked & Safe': p1['liked_and_safe_recommendations'],
+        'Rate (%)': f"{p1['liked_and_safe_rate']:.1f}"
+    })
+
+df_p1 = pd.DataFrame(summary_p1)
+df_p1['Rate_numeric'] = df_p1['Rate (%)'].astype(float)
+df_p1 = df_p1.sort_values('Rate_numeric', ascending=False)
+df_p1 = df_p1.drop('Rate_numeric', axis=1)
+print()
+print(df_p1.to_string(index=False))
+print()
+
+
+# Table 2: Coverage
+print("\n" + "="*70)
+print("PERSPECTIVE 2: COVERAGE OF LIKED FOODS")
+print("="*70)
+
+summary_p2 = []
+for algo, results in all_results.items():
+    p2 = results['perspective_2']
+    summary_p2.append({
+        'Algorithm': algo,
+        'Liked Foods in Test': p2['total_liked_foods_in_test'],
+        'Found Safely': p2['found_safely'],
+        'Coverage (%)': f"{p2['coverage_rate']:.1f}"
+    })
+
+df_p2 = pd.DataFrame(summary_p2)
+df_p2['Coverage_numeric'] = df_p2['Coverage (%)'].astype(float)
+df_p2 = df_p2.sort_values('Coverage_numeric', ascending=False)
+df_p2 = df_p2.drop('Coverage_numeric', axis=1)
+print()
+print(df_p2.to_string(index=False))
+print()
+
+
+# Table 3: Safety-First Acceptance
+print("\n" + "="*70)
+print("PERSPECTIVE 3: SAFETY-FIRST ACCEPTANCE RATE")
+print("="*70)
+
+summary_p3 = []
+for algo, results in all_results.items():
+    p3 = results['perspective_3']
+    summary_p3.append({
+        'Algorithm': algo,
+        'Safe Recs': p3['total_safe_recommendations'],
+        'Liked': p3['liked_among_safe'],
+        'Acceptance (%)': f"{p3['acceptance_rate']:.1f}"
+    })
+
+df_p3 = pd.DataFrame(summary_p3)
+df_p3['Acceptance_numeric'] = df_p3['Acceptance (%)'].astype(float)
+df_p3 = df_p3.sort_values('Acceptance_numeric', ascending=False)
+df_p3 = df_p3.drop('Acceptance_numeric', axis=1)
+print()
+print(df_p3.to_string(index=False))
+print()
+
+
+# ============================================================
+# STEP 5.6: SELECTED VS ALL COMPARISON
+# ============================================================
+
+print("\n" + "="*70)
+print("COMPARISON: SELECTED (SAME CUISINE) VS ALL (ANY CUISINE)")
+print("="*70)
+
+algorithms = ['content_based', 'collaborative', 'hybrid', 'popularity']
+
+for algo in algorithms:
+    selected_key = f"{algo}_selected"
+    all_key = f"{algo}_all"
+    
+    if selected_key in all_results and all_key in all_results:
+        selected_rate = all_results[selected_key]['perspective_1']['liked_and_safe_rate']
+        all_rate = all_results[all_key]['perspective_1']['liked_and_safe_rate']
+        
+        print(f"\n{algo.upper()} - Liked & Safe Rate:")
+        print(f"  Selected (same cuisine): {selected_rate:.1f}%")
+        print(f"  All (any cuisine): {all_rate:.1f}%")
+        
+        if selected_rate > all_rate:
+            improvement = selected_rate - all_rate
+            print(f"  → Selected is BETTER by {improvement:.1f} percentage points")
+        elif all_rate > selected_rate:
+            improvement = all_rate - selected_rate
+            print(f"  → All is BETTER by {improvement:.1f} percentage points")
+        else:
+            print(f"  → TIE")
+
+
+# ============================================================
+# STEP 5.7: SAVE RESULTS
+# ============================================================
+
+print("\n" + "="*70)
+print("STEP 5.7: SAVING RESULTS")
+print("="*70)
+
+# Save all three perspectives
+df_p1.to_csv('stage5_perspective1_liked_and_safe.csv', index=False)
+print("✓ Saved: stage5_perspective1_liked_and_safe.csv")
+
+df_p2.to_csv('stage5_perspective2_coverage.csv', index=False)
+print("✓ Saved: stage5_perspective2_coverage.csv")
+
+df_p3.to_csv('stage5_perspective3_acceptance.csv', index=False)
+print("✓ Saved: stage5_perspective3_acceptance.csv")
+
+# Save detailed results
+with open('stage5_detailed_results.pkl', 'wb') as f:
+    pickle.dump(all_results, f)
+print("✓ Saved: stage5_detailed_results.pkl")
+
+
+# ============================================================
+# FINAL SUMMARY
+# ============================================================
+
+print("\n" + "="*70)
+print("STAGE 5 COMPLETE - FINAL RESULTS")
+print("="*70)
+
+# Find best in each perspective
+best_p1 = df_p1.iloc[0]
+best_p2 = df_p2.iloc[0]
+best_p3 = df_p3.iloc[0]
 
 print(f"""
-YOUR PKU RECOMMENDER SYSTEM PERFORMANCE:
+BEST ALGORITHMS BY PERSPECTIVE:
 
-1. RECOMMENDATION QUALITY:
-   Best: {df_p1.index[0].replace('_', ' ').title()}
-   • {df_p1.iloc[0]['liked_and_safe_rate']*100:.1f}% of all recommendations are liked & safe
-   • Challenge: Only {df_p1['in_test_rate'].mean()*100:.0f}% of recs can be evaluated (sparse data)
+1. LIKED & SAFE RATE (Primary Metric):
+   Winner: {best_p1['Algorithm']}
+   Rate: {best_p1['Rate (%)']}% ({best_p1['Liked & Safe']}/{best_p1['Total Recs']} recommendations)
 
 2. COVERAGE OF LIKED FOODS:
-   Best: {df_p2.index[0].replace('_', ' ').title()}
-   • Finds and safely recommends {df_p2.iloc[0]['coverage_rate']*100:.1f}% of user's liked foods
-   • Safety rate when found: {df_p2.iloc[0]['safety_rate_when_found']*100:.0f}%
+   Winner: {best_p2['Algorithm']}
+   Coverage: {best_p2['Coverage (%)']}% ({best_p2['Found Safely']}/{best_p2['Liked Foods in Test']} foods)
 
 3. SAFETY-FIRST ACCEPTANCE:
-   Best: {df_p3.index[0].replace('_', ' ').title()}
-   • Of safe recommendations user has tried: {df_p3.iloc[0]['known_acceptance']*100:.0f}% accepted
-   • This is your key metric for adherence
+   Winner: {best_p3['Algorithm']}
+   Acceptance: {best_p3['Acceptance (%)']}% ({best_p3['Liked']}/{best_p3['Safe Recs']} safe recs liked)
 
-🎓 FOR YOUR THESIS:
-
-The low absolute numbers (5-10%) reflect the PKU dietary challenge:
-  ✓ Strict nutritional constraints limit food options
-  ✓ Sparse user feedback (avg 8 ratings) limits evaluation coverage
-  ✓ Trade-off between safety and preference is inherent
-
-Your contribution:
-  ✓ Content-based filtering balances both better than baselines
-  ✓ Ingredient similarity captures user preferences while maintaining safety
-  ✓ In a real deployment, more user feedback would improve all metrics
-
-The fact that your system achieves ANY liked & safe recommendations
-demonstrates the feasibility of automated PKU dietary recommendation.
+EVALUATION COMPLETE
+All results saved to CSV files for analysis.
 """)
-
-# Save results
-summary = pd.concat([
-    df_p1[['liked_and_safe_rate']].rename(columns={'liked_and_safe_rate': 'Recommendation Quality'}),
-    df_p2[['coverage_rate']].rename(columns={'coverage_rate': 'Coverage of Liked'}),
-    df_p3[['known_acceptance']].rename(columns={'known_acceptance': 'Safety-First Acceptance'})
-], axis=1)
-
-summary.to_csv('stage5_revised_evaluation.csv')
-print(f"\n✓ Saved: stage5_revised_evaluation.csv")
