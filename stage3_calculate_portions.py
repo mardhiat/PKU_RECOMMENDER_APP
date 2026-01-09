@@ -15,7 +15,7 @@ print("\nSTEP 3.1: LOADING DATA")
 
 # Check if required files exist
 required_files = [
-    'recommendations_all_algorithms.pkl',
+    'recommendations_all_algorithms_TFIDF.pkl',
     'data_food_database.csv',
     'data_user_nutritional_limits.csv'
 ]
@@ -27,7 +27,7 @@ for file in required_files:
         exit()
 
 # Load recommendations
-with open('recommendations_all_algorithms.pkl', 'rb') as f:
+with open('recommendations_all_algorithms_TFIDF.pkl', 'rb') as f:
     recommendations_dict = pickle.load(f)
 
 # Load food database
@@ -351,10 +351,10 @@ for factor, count in limiting_factors.items():
 
 print("\nSTEP 3.5: SAVING RECOMMENDATIONS WITH PORTIONS")
 
-with open('recommendations_with_portions.pkl', 'wb') as f:
+with open('recommendations_with_portions_TFIDF.pkl', 'wb') as f:
     pickle.dump(recommendations_with_portions, f)
 
-print(f"\n✓ Saved: recommendations_with_portions.pkl")
+print(f"\n✓ Saved: recommendations_with_portions_TFIDF.pkl")
 
 
 # ============================================================
@@ -367,7 +367,7 @@ print("="*70)
 
 print(f"""
 FILES CREATED:
-  ✓ recommendations_with_portions.pkl
+  ✓ recommendations_with_portions_TFIDF.pkl
 
 PORTION CALCULATIONS:
   • Total recommendations processed: {processed}

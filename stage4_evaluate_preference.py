@@ -16,7 +16,7 @@ print("\nSTEP 4.1: LOADING DATA")
 
 # Check required files
 required_files = [
-    'recommendations_all_algorithms.pkl',
+    'recommendations_all_algorithms_TFIDF.pkl',
     'data_test_ratings.csv'
 ]
 
@@ -27,7 +27,7 @@ for file in required_files:
         exit()
 
 # Load recommendations
-with open('recommendations_all_algorithms.pkl', 'rb') as f:
+with open('recommendations_all_algorithms_TFIDF.pkl', 'rb') as f:
     all_recommendations = pickle.load(f)
 
 # Load test ratings
@@ -220,13 +220,13 @@ print("STEP 4.6: SAVING RESULTS")
 print("="*70)
 
 # Save summary CSV
-summary_df.to_csv('preference_evaluation_summary.csv', index=False)
-print("✓ Saved: preference_evaluation_summary.csv")
+summary_df.to_csv('preference_evaluation_summary_TFIDF.csv', index=False)
+print("✓ Saved: preference_evaluation_summary_TFIDF.csv")
 
 # Save detailed results
-with open('preference_evaluation_results.pkl', 'wb') as f:
+with open('preference_evaluation_results_TFIDF.pkl', 'wb') as f:
     pickle.dump(results, f)
-print("✓ Saved: preference_evaluation_results.pkl")
+print("✓ Saved: preference_evaluation_results_TFIDF.pkl")
 
 print("\n" + "="*70)
 print("STAGE 4 COMPLETE")
