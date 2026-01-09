@@ -15,7 +15,7 @@ print("="*70)
 print("\nSTEP 5.1: LOADING DATA")
 
 required_files = [
-    'recommendations_with_portions.pkl',
+    'recommendations_with_portions_TFIDF.pkl',
     'data_test_ratings.csv'
 ]
 
@@ -26,7 +26,7 @@ for file in required_files:
         exit()
 
 # Load recommendations with safety data
-with open('recommendations_with_portions.pkl', 'rb') as f:
+with open('recommendations_with_portions_TFIDF.pkl', 'rb') as f:
     recommendations_with_safety = pickle.load(f)
 
 # Load test ratings
@@ -371,19 +371,19 @@ print("STEP 5.7: SAVING RESULTS")
 print("="*70)
 
 # Save all three perspectives
-df_p1.to_csv('stage5_perspective1_liked_and_safe.csv', index=False)
-print("✓ Saved: stage5_perspective1_liked_and_safe.csv")
+df_p1.to_csv('stage5_perspective1_liked_and_safe_TFIDF.csv', index=False)
+print("✓ Saved: stage5_perspective1_liked_and_safe_TFIDF.csv")
 
-df_p2.to_csv('stage5_perspective2_coverage.csv', index=False)
-print("✓ Saved: stage5_perspective2_coverage.csv")
+df_p2.to_csv('stage5_perspective2_coverage_TFIDF.csv', index=False)
+print("✓ Saved: stage5_perspective2_coverage_TFIDF.csv")
 
-df_p3.to_csv('stage5_perspective3_acceptance.csv', index=False)
-print("✓ Saved: stage5_perspective3_acceptance.csv")
+df_p3.to_csv('stage5_perspective3_acceptance_TFIDF.csv', index=False)
+print("✓ Saved: stage5_perspective3_acceptance_TFIDF.csv")
 
 # Save detailed results
-with open('stage5_detailed_results.pkl', 'wb') as f:
+with open('stage5_detailed_results_TFIDF.pkl', 'wb') as f:
     pickle.dump(all_results, f)
-print("✓ Saved: stage5_detailed_results.pkl")
+print("✓ Saved: stage5_detailed_results_TFIDF.pkl")
 
 
 # ============================================================

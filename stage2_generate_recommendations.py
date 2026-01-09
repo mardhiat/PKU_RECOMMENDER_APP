@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle
 import os
 import random
 
 print("="*70)
-print("STAGE 2: GENERATE RECOMMENDATIONS (TWO-TIER: SELECTED + ALL)")
+print("STAGE 2: GENERATE RECOMMENDATIONS (TF-IDF INGREDIENT WEIGHTING)")
 print("="*70)
 
 
@@ -94,7 +95,37 @@ print(f"✓ Ingredient coverage: {rated_with_ingredients}/{len(all_rated_foods)}
 
 
 # ============================================================
-# STEP 2.3: RESTRICT RECOMMENDATION SPACE TO RATED FOODS
+# STEP 2.3: BUILD TF-IDF INGREDIENT VECTORS
+# ============================================================
+
+print("\n" + "="*70)
+print("🔧 BUILDING TF-IDF INGREDIENT VECTORS")
+print("="*70)
+
+# Create ingredient documents (each food's ingredients as a "document")
+food_names = []
+ingredient_documents = []
+
+for food_name, ingredients in meal_to_ingredients.items():
+    food_names.append(food_name)
+    # Join ingredients with spaces to create a document
+    ingredient_documents.append(' '.join(ingredients))
+
+print(f"✓ Created ingredient documents for {len(ingredient_documents)} foods")
+
+# Build TF-IDF vectorizer
+tfidf = TfidfVectorizer()
+tfidf_matrix = tfidf.fit_transform(ingredient_documents)
+
+print(f"✓ TF-IDF matrix shape: {tfidf_matrix.shape}")
+print(f"✓ Vocabulary size: {len(tfidf.vocabulary_)}")
+
+# Create food name to index mapping
+food_to_idx = {food: idx for idx, food in enumerate(food_names)}
+
+
+# ============================================================
+# STEP 2.4: RESTRICT RECOMMENDATION SPACE TO RATED FOODS
 # ============================================================
 
 print("\n" + "="*70)
@@ -110,7 +141,7 @@ print(f"✓ All algorithms will ONLY recommend from the {len(rated_foods_univers
 
 
 # ============================================================
-# STEP 2.4: HELPER FUNCTIONS
+# STEP 2.5: HELPER FUNCTIONS
 # ============================================================
 
 def get_ingredient_vector(meal_name):
@@ -125,21 +156,43 @@ def get_cuisine(meal_name):
     return meal_to_cuisine.get(clean_name, None)
 
 
+def get_tfidf_vector(meal_name):
+    """Get TF-IDF vector for a meal"""
+    clean_name = meal_name.lower().strip()
+    if clean_name in food_to_idx:
+        idx = food_to_idx[clean_name]
+        return tfidf_matrix[idx]
+    return None
+
+
+def calculate_tfidf_similarity(food1, food2):
+    """Calculate cosine similarity between two foods using TF-IDF vectors"""
+    vec1 = get_tfidf_vector(food1)
+    vec2 = get_tfidf_vector(food2)
+    
+    if vec1 is None or vec2 is None:
+        return 0.0
+    
+    # Calculate cosine similarity
+    similarity = cosine_similarity(vec1, vec2)[0][0]
+    return similarity
+
+
 # ============================================================
-# STEP 2.5: CONTENT-BASED FILTERING (TWO VERSIONS)
+# STEP 2.6: CONTENT-BASED FILTERING (TWO VERSIONS)
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.5: IMPLEMENTING CONTENT-BASED FILTERING")
+print("STEP 2.6: IMPLEMENTING CONTENT-BASED FILTERING (TF-IDF)")
 print("="*70)
 
-K = 10  # Top-K recommendations
+K = 15  # Top-K recommendations (optimized from parameter tuning)
 
 
 def content_based_recommendations_selected(user_name, train_df, K=10):
     """
     Recommend foods from USER'S PREFERRED CUISINES
-    Based on ingredient similarity to liked foods
+    Based on TF-IDF ingredient similarity to liked foods
     """
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
@@ -150,23 +203,17 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
     if not liked_foods:
         return []
     
-    # Get ingredient sets for liked foods
-    liked_ingredient_sets = []
+    # Get cuisines from liked foods
     liked_cuisines = set()
+    valid_liked_foods = []
     
     for food in liked_foods:
-        ingredients = get_ingredient_vector(food)
-        if ingredients:
-            liked_ingredient_sets.append(ingredients)
-        
         cuisine = get_cuisine(food)
         if cuisine:
             liked_cuisines.add(cuisine)
+            valid_liked_foods.append(food)
     
-    if not liked_ingredient_sets:
-        return []
-    
-    if not liked_cuisines:
+    if not liked_cuisines or not valid_liked_foods:
         return []
     
     # Get foods user has already rated
@@ -187,25 +234,17 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
     if not candidate_foods:
         return []
     
-    # Calculate ingredient similarity for each candidate
+    # Calculate TF-IDF similarity for each candidate
     food_scores = {}
     
     for candidate_food in candidate_foods:
-        candidate_ingredients = get_ingredient_vector(candidate_food)
-        
-        if not candidate_ingredients:
-            continue
-        
-        # Calculate Jaccard similarity to all liked foods
+        # Calculate TF-IDF similarity to all liked foods
         similarities = []
         
-        for liked_ingredients in liked_ingredient_sets:
-            intersection = len(candidate_ingredients & liked_ingredients)
-            union = len(candidate_ingredients | liked_ingredients)
-            
-            if union > 0:
-                jaccard_sim = intersection / union
-                similarities.append(jaccard_sim)
+        for liked_food in valid_liked_foods:
+            tfidf_sim = calculate_tfidf_similarity(candidate_food, liked_food)
+            if tfidf_sim > 0:
+                similarities.append(tfidf_sim)
         
         if similarities:
             avg_similarity = np.mean(similarities)
@@ -219,7 +258,7 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
 def content_based_recommendations_all(user_name, train_df, K=10):
     """
     Recommend foods from ALL CUISINES
-    Based on ingredient similarity to liked foods
+    Based on TF-IDF ingredient similarity to liked foods
     """
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
@@ -230,15 +269,10 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     if not liked_foods:
         return []
     
-    # Get ingredient sets for liked foods
-    liked_ingredient_sets = []
+    # Filter to foods with ingredient data
+    valid_liked_foods = [food for food in liked_foods if food.lower().strip() in meal_to_ingredients]
     
-    for food in liked_foods:
-        ingredients = get_ingredient_vector(food)
-        if ingredients:
-            liked_ingredient_sets.append(ingredients)
-    
-    if not liked_ingredient_sets:
+    if not valid_liked_foods:
         return []
     
     # Get foods user has already rated
@@ -255,25 +289,17 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     if not candidate_foods:
         return []
     
-    # Calculate ingredient similarity for each candidate
+    # Calculate TF-IDF similarity for each candidate
     food_scores = {}
     
     for candidate_food in candidate_foods:
-        candidate_ingredients = get_ingredient_vector(candidate_food)
-        
-        if not candidate_ingredients:
-            continue
-        
-        # Calculate Jaccard similarity to all liked foods
+        # Calculate TF-IDF similarity to all liked foods
         similarities = []
         
-        for liked_ingredients in liked_ingredient_sets:
-            intersection = len(candidate_ingredients & liked_ingredients)
-            union = len(candidate_ingredients | liked_ingredients)
-            
-            if union > 0:
-                jaccard_sim = intersection / union
-                similarities.append(jaccard_sim)
+        for liked_food in valid_liked_foods:
+            tfidf_sim = calculate_tfidf_similarity(candidate_food, liked_food)
+            if tfidf_sim > 0:
+                similarities.append(tfidf_sim)
         
         if similarities:
             avg_similarity = np.mean(similarities)
@@ -284,16 +310,16 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     return sorted_foods[:K]
 
 
-print("✓ Content-Based (Selected) implemented - recommends from user's cuisines")
-print("✓ Content-Based (All) implemented - recommends from any cuisine")
+print("✓ Content-Based (Selected) implemented - TF-IDF from user's cuisines")
+print("✓ Content-Based (All) implemented - TF-IDF from any cuisine")
 
 
 # ============================================================
-# STEP 2.6: COLLABORATIVE FILTERING (TWO VERSIONS)
+# STEP 2.7: COLLABORATIVE FILTERING (TWO VERSIONS)
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.6: IMPLEMENTING COLLABORATIVE FILTERING")
+print("STEP 2.7: IMPLEMENTING COLLABORATIVE FILTERING")
 print("="*70)
 
 
@@ -422,18 +448,19 @@ print("✓ Collaborative (All) implemented - recommends from any cuisine")
 
 
 # ============================================================
-# STEP 2.7: HYBRID FILTERING (TWO VERSIONS)
+# STEP 2.8: HYBRID FILTERING (TWO VERSIONS)
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.7: IMPLEMENTING HYBRID FILTERING")
+print("STEP 2.8: IMPLEMENTING HYBRID FILTERING")
 print("="*70)
 
 
-def hybrid_recommendations_selected(user_name, train_df, K=10, alpha=0.5):
+def hybrid_recommendations_selected(user_name, train_df, K=15, alpha=0.3):
     """
     Combine content-based and collaborative
     FILTERED to user's preferred cuisines
+    alpha=0.3 means 30% content-based, 70% collaborative (optimized)
     """
     cb_recs = content_based_recommendations_selected(user_name, train_df, K=20)
     collab_recs = collaborative_filtering_recommendations_selected(user_name, train_df, K=20)
@@ -463,10 +490,11 @@ def hybrid_recommendations_selected(user_name, train_df, K=10, alpha=0.5):
     return sorted_foods[:K]
 
 
-def hybrid_recommendations_all(user_name, train_df, K=10, alpha=0.5):
+def hybrid_recommendations_all(user_name, train_df, K=15, alpha=0.3):
     """
     Combine content-based and collaborative
     From ALL cuisines
+    alpha=0.3 means 30% content-based, 70% collaborative (optimized)
     """
     cb_recs = content_based_recommendations_all(user_name, train_df, K=20)
     collab_recs = collaborative_filtering_recommendations_all(user_name, train_df, K=20)
@@ -501,11 +529,11 @@ print("✓ Hybrid (All) implemented - recommends from any cuisine")
 
 
 # ============================================================
-# STEP 2.8: BASELINE ALGORITHMS (TWO VERSIONS)
+# STEP 2.9: BASELINE ALGORITHMS (TWO VERSIONS)
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.8: IMPLEMENTING BASELINE ALGORITHMS")
+print("STEP 2.9: IMPLEMENTING BASELINE ALGORITHMS")
 print("="*70)
 
 
@@ -600,11 +628,11 @@ print("✓ Random baseline implemented")
 
 
 # ============================================================
-# STEP 2.9: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
+# STEP 2.10: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.9: GENERATING RECOMMENDATIONS FOR ALL TEST USERS")
+print("STEP 2.10: GENERATING RECOMMENDATIONS FOR ALL TEST USERS")
 print("="*70)
 
 all_recommendations = {
@@ -655,7 +683,7 @@ print(f"\n✓ Generated recommendations for {len(test_users)} users")
 
 
 # ============================================================
-# STEP 2.10: SUMMARY STATISTICS
+# STEP 2.11: SUMMARY STATISTICS
 # ============================================================
 
 print("\n" + "="*70)
@@ -668,7 +696,7 @@ for algo_name, recs in all_recommendations.items():
     
     print(f"\n{algo_name.upper()}:")
     print(f"  Total recommendations: {total_recs}")
-    print(f"  Average per user: {avg_recs:.1f}/{K}")
+    print(f"  Average per user: {avg_recs:.1f}/15")
     
     # Count how many users got recommendations
     users_with_recs = sum(1 for user_recs in recs.values() if len(user_recs) > 0)
@@ -676,7 +704,7 @@ for algo_name, recs in all_recommendations.items():
 
 
 # ============================================================
-# STEP 2.11: SAVE RESULTS
+# STEP 2.12: SAVE RESULTS
 # ============================================================
 
 print("\n" + "="*70)
@@ -684,10 +712,10 @@ print("SAVING RECOMMENDATIONS")
 print("="*70)
 
 # Save to pickle
-with open('recommendations_all_algorithms.pkl', 'wb') as f:
+with open('recommendations_all_algorithms_TFIDF.pkl', 'wb') as f:
     pickle.dump(all_recommendations, f)
 
-print("✓ Saved: recommendations_all_algorithms.pkl")
+print("✓ Saved: recommendations_all_algorithms_TFIDF.pkl")
 
 # Create summary DataFrame
 summary_data = []
@@ -703,14 +731,14 @@ for algo_name, user_recs in all_recommendations.items():
             })
 
 summary_df = pd.DataFrame(summary_data)
-summary_df.to_csv('recommendations_summary.csv', index=False)
-print("✓ Saved: recommendations_summary.csv")
+summary_df.to_csv('recommendations_summary_TFIDF.csv', index=False)
+print("✓ Saved: recommendations_summary_TFIDF.csv")
 
 print("\n" + "="*70)
-print("STAGE 2 COMPLETE")
+print("STAGE 2 COMPLETE (TF-IDF VERSION)")
 print("="*70)
 print(f"""
-Generated {len(all_recommendations)} recommendation variants:
+Generated {len(all_recommendations)} recommendation variants using TF-IDF:
   1. Content-Based (Selected) - {sum(len(r) for r in all_recommendations['content_based_selected'].values())} recs
   2. Content-Based (All) - {sum(len(r) for r in all_recommendations['content_based_all'].values())} recs
   3. Collaborative (Selected) - {sum(len(r) for r in all_recommendations['collaborative_selected'].values())} recs
@@ -721,5 +749,5 @@ Generated {len(all_recommendations)} recommendation variants:
   8. Popularity (All) - {sum(len(r) for r in all_recommendations['popularity_all'].values())} recs
   9. Random - {sum(len(r) for r in all_recommendations['random'].values())} recs
 
-Next: Run Stage 3 to calculate safety constraints
+Next: Run Stage 3, 4, 5 to evaluate TF-IDF performance
 """)
