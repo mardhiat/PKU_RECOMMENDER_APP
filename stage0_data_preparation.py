@@ -19,7 +19,7 @@ try:
     secrets = toml.load(".streamlit/secrets.toml")
     USDA_API_KEY = secrets.get("USDA_API_KEY")
     if USDA_API_KEY:
-        print(f"✓ USDA API key loaded from secrets.toml: {USDA_API_KEY[:8]}...")
+        print("✓ USDA API key loaded from secrets.toml (value not logged)")
     else:
         print("⚠ No USDA_API_KEY in secrets.toml")
         USDA_API_KEY = None
