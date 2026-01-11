@@ -226,9 +226,25 @@ print("STEP 5.4: EVALUATING ALL ALGORITHMS")
 print("="*70)
 
 all_results = {}
+per_user_results = {}  # For statistical testing
 
 for algo_name, user_recs in organized_recs.items():
     print(f"\nEvaluating {algo_name}...")
+    
+    # Store per-user liked+safe rates
+    per_user_liked_safe = []
+    
+    for user_name, recs in user_recs.items():
+        # Get user's liked foods from test set
+        user_test = test_df[test_df['user_name'] == user_name]
+        liked_foods = set(user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist())
+        
+        total_recs = len(recs)
+        liked_and_safe = sum(1 for rec in recs if rec['food'] in liked_foods and rec['is_safe'])
+        rate = (liked_and_safe / total_recs * 100) if total_recs > 0 else 0
+        per_user_liked_safe.append(rate)
+    
+    per_user_results[algo_name] = per_user_liked_safe
     
     # Perspective 1
     p1 = evaluate_liked_and_safe_rate(user_recs, test_df)
@@ -242,7 +258,8 @@ for algo_name, user_recs in organized_recs.items():
     all_results[algo_name] = {
         'perspective_1': p1,
         'perspective_2': p2,
-        'perspective_3': p3
+        'perspective_3': p3,
+        'per_user_liked_safe': per_user_liked_safe  # Add for statistical testing
     }
     
     print(f"  Liked & Safe: {p1['liked_and_safe_recommendations']}/{p1['total_recommendations']} ({p1['liked_and_safe_rate']:.1f}%)")
