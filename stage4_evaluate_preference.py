@@ -135,7 +135,10 @@ for algo_name, user_recommendations in all_recommendations.items():
         'recall_avg': np.mean(algo_results['recall']) * 100,
         'f1_avg': np.mean(algo_results['f1']) * 100,
         'hit_rate_avg': np.mean(algo_results['hit_rate']) * 100,
-        'num_users': len(algo_results['precision'])
+        'num_users': len(algo_results['precision']),
+        'per_user_f1': [f * 100 for f in algo_results['f1']],  # For statistical testing
+        'per_user_precision': [p * 100 for p in algo_results['precision']],
+        'per_user_recall': [r * 100 for r in algo_results['recall']]
     }
     
     print(f"  F1@10: {results[algo_name]['f1_avg']:.1f}%")
