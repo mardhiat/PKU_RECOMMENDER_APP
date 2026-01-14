@@ -858,8 +858,6 @@ def main():
         st.error("❌ Could not load nutritional database. Please ensure Nutritional_Data.csv is in the app directory.")
         st.stop()
     
-    st.sidebar.success(f"✅ Loaded {len(nutritional_db)} foods from database")
-
     # ==========================================
     # PROFILE CREATION
     # ==========================================
