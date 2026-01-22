@@ -56,16 +56,16 @@ def load_cuisine_files():
     """Load all cuisine CSV files from current directory."""
     cuisine_data = {}
     cuisine_files = {
-        "African": "african_foods.csv",
-        "Central European": "central_european_foods.csv",
-        "Chinese": "chinese_foods.csv",
-        "Eastern European": "eastern_european_foods.csv",
-        "Indian": "indian_foods.csv",
-        "Italian": "italian_foods.csv",
-        "Japanese": "japanese_foods.csv",
-        "Mediterranean": "mediterranean_foods.csv",
-        "Mexican": "mexican_foods.csv",
-        "Scottish": "scottish_foods.csv",
+        "African": "African_Foods.csv",
+        "Central European": "Central_European_Foods.csv",
+        "Chinese": "Chinese_Foods.csv",
+        "Eastern European": "Eastern_European_Foods.csv",
+        "Indian": "Indian_Foods.csv",
+        "Italian": "Italian_Foods.csv",
+        "Japanese": "Japanese_Foods.csv",
+        "Mediterranean": "Mediterranean_Foods.csv",
+        "Mexican": "Mexican_Foods.csv",
+        "Scottish": "Scottish-Irish_Foods.csv",
     }
 
     for cuisine_name, filename in cuisine_files.items():
