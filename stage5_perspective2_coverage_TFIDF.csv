@@ -1,10 +1,10 @@
 Algorithm,Liked Foods in Test,Found Safely,Coverage (%)
-hybrid_selected,253,34,13.4
-collaborative_selected,253,33,13.0
-content_based_selected,253,27,10.7
-collaborative_all,253,27,10.7
-hybrid_all,253,27,10.7
-popularity_selected,253,23,9.1
-content_based_all,253,22,8.7
-random,253,3,1.2
-popularity_all,253,2,0.8
+hybrid_selected,700,89,12.7
+content_based_selected,700,84,12.0
+popularity_selected,700,78,11.1
+collaborative_selected,700,74,10.6
+hybrid_all,700,69,9.9
+collaborative_all,700,67,9.6
+content_based_all,700,59,8.4
+random,700,11,1.6
+popularity_all,700,6,0.9
