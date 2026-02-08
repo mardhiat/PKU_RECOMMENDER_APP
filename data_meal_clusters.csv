@@ -1,0 +1,639 @@
+meal_name,cluster,cuisine
+ugali (maize porridge) (african foods),8,African Foods
+plantain fufu (african foods),39,African Foods
+cassava fufu (african foods),8,African Foods
+matoke (boiled green bananas) (african foods),23,African Foods
+sweet potato porridge (african foods),6,African Foods
+boiled cassava (african foods),14,African Foods
+boiled plantains (african foods),39,African Foods
+roasted corn (african foods),10,African Foods
+steamed vegetables (african foods),29,African Foods
+kachumbari (fresh salad) (african foods),2,African Foods
+avocado salad (african foods),32,African Foods
+okra stew (without meat) (african foods),14,African Foods
+pumpkin leaves stew (african foods),14,African Foods
+baobab leaf stew  (african foods),19,African Foods
+coconut rice (african foods),20,African Foods
+fried plantains (african foods),39,African Foods
+sweet potato chips (african foods),6,African Foods
+boiled yam (african foods),47,African Foods
+boiled sweet potatoes (african foods),6,African Foods
+baked plantains (african foods),39,African Foods
+boiled cassava leaves (african foods),14,African Foods
+tomato and cucumber salad (african foods),48,African Foods
+steamed okra (african foods),26,African Foods
+pumpkin porridge (african foods),12,African Foods
+fried cassava (african foods),14,African Foods
+vegetable stir fry (african foods),29,African Foods
+garden egg stew (without meat) (african foods),2,African Foods
+okra and tomato salad (african foods),26,African Foods
+fried sweet potato balls (african foods),6,African Foods
+boiled green bananas (african foods),23,African Foods
+millet couscous (african foods),8,African Foods
+roasted pumpkin (african foods),12,African Foods
+boiled taro (african foods),31,African Foods
+grilled plantains (african foods),39,African Foods
+roasted sweet potatoes (african foods),6,African Foods
+boiled pumpkin leaves (african foods),12,African Foods
+fried sweet potato chips (african foods),6,African Foods
+yam porridge (african foods),47,African Foods
+baobab fruit drink (african foods),19,African Foods
+tamarind juice (african foods),42,African Foods
+watermelon salad (african foods),17,African Foods
+baobab leaf stew (no meat) (african foods),19,African Foods
+roasted yam (african foods),47,African Foods
+steamed waterleaf (african foods),33,African Foods
+cassava leaf soup (no meat) (african foods),14,African Foods
+baobab fruit smoothie (african foods),19,African Foods
+sweet potato leaves soup (african foods),14,African Foods
+okra salad (african foods),26,African Foods
+baobab leaf salad (african foods),19,African Foods
+millet stew (without meat) (african foods),8,African Foods
+roasted garden eggplant (african foods),0,African Foods
+flatbread (african foods),8,African Foods
+mashed pumpkin (african foods),12,African Foods
+cooked waterleaf (african foods),33,African Foods
+boiled sweet cassava (african foods),14,African Foods
+okra and tomato soup (african foods),14,African Foods
+steamed green beans (african foods),23,African Foods
+baobab leaf juice (african foods),19,African Foods
+rice and beans (low-protein beans or substituted) (african foods),8,African Foods
+ugali with vegetable stew (african foods),8,African Foods
+millet and spinach stew (african foods),8,African Foods
+porridge with baobab (african foods),19,African Foods
+plantain and tomato salad (african foods),45,African Foods
+cassava leaf and pumpkin soup (african foods),14,African Foods
+roasted maize with chili (african foods),21,African Foods
+okra and eggplant stew (african foods),26,African Foods
+sweet potato and peanut soup (using low-protein peanut substitute) (african foods),8,African Foods
+steamed waterleaf with tomatoes (african foods),33,African Foods
+millet flatbread with veggies (african foods),8,African Foods
+potato salad (central european foods),0,Central European Foods
+vegetable stew (central european foods),0,Central European Foods
+asparagus with potatoes (central european foods),0,Central European Foods
+potato goulash (central european foods),0,Central European Foods
+vegetable soup (central european foods),0,Central European Foods
+carrot and apples salad (central european foods),1,Central European Foods
+braised red cabbage (central european foods),0,Central European Foods
+cucumber fresh dill salad (central european foods),1,Central European Foods
+beet and horseradish slaw (central european foods),1,Central European Foods
+"potato and celery, raw root mash (central european foods)",1,Central European Foods
+sweet and sour raw turnips (central european foods),0,Central European Foods
+zucchini and pepper stir fry (central european foods),0,Central European Foods
+"apples-onions, raw slaw (central european foods)",0,Central European Foods
+roasted fennel and carrots (central european foods),4,Central European Foods
+pickled beet salad (central european foods),0,Central European Foods
+radish and cucumber salad (central european foods),1,Central European Foods
+potato leek mash (central european foods),0,Central European Foods
+caraway sauerkraut (central european foods),0,Central European Foods
+chilled beet and apples salad (central european foods),1,Central European Foods
+german cabbage medley (central european foods),23,Central European Foods
+"potato and onions, raw hash (central european foods)",0,Central European Foods
+marinated zucchini (central european foods),0,Central European Foods
+carrot parsnip gratin (central european foods),1,Central European Foods
+"celery, raw and apples slaw (central european foods)",1,Central European Foods
+"stewed kohlrabi, sliced, raw and carrots (central european foods)",9,Central European Foods
+beet and cucumber salad (central european foods),1,Central European Foods
+"roasted carrot and onions, raw (central european foods)",1,Central European Foods
+"apples-onions, raw chutney (central european foods)",0,Central European Foods
+sauteed red cabbage (central european foods),0,Central European Foods
+potato-carrot hash (central european foods),0,Central European Foods
+"pickled kohlrabi, sliced, raw (central european foods)",0,Central European Foods
+warm sauerkraut and apples salad (central european foods),0,Central European Foods
+cucumber and fennel salad (central european foods),1,Central European Foods
+carrot slaw with mustard (central european foods),0,Central European Foods
+bavarian turnip stir-fry (central european foods),0,Central European Foods
+stewed cabbage with tomatoes (central european foods),0,Central European Foods
+zucchini and apples salad (central european foods),1,Central European Foods
+radish and apples slaw (central european foods),1,Central European Foods
+potato and sauerkraut bake (central european foods),0,Central European Foods
+steamed kohlrabi with carrots (central european foods),9,Central European Foods
+"fried cabbage and onions, raws (central european foods)",0,Central European Foods
+sweet roasted apples (central european foods),1,Central European Foods
+swiss turnip gratin (central european foods),0,Central European Foods
+austrian red cabbage and apples (central european foods),0,Central European Foods
+garlic mashed potatoes (central european foods),0,Central European Foods
+tomato-cucumber salad (central european foods),0,Central European Foods
+rustic cabbage stew (central european foods),0,Central European Foods
+spiced apples slaw (central european foods),1,Central European Foods
+roasted garlic red beets (central european foods),1,Central European Foods
+mustard potato salad (central european foods),0,Central European Foods
+hungarian cabbage and peppers (central european foods),0,Central European Foods
+"pickled red onions, raws (central european foods)",0,Central European Foods
+celery root and apples puree (central european foods),1,Central European Foods
+fried turnip cakes (central european foods),0,Central European Foods
+steamed green beans and carrots (central european foods),23,Central European Foods
+zucchini and potato rã¶sti (central european foods),0,Central European Foods
+fried sauerkraut with apples (central european foods),0,Central European Foods
+sweet and sour vegetables (chinese foods),0,Chinese Foods
+vegetable low-protein fried rice (chinese foods),8,Chinese Foods
+steamed eggplant (chinese foods),16,Chinese Foods
+cabbage and apple slaw (chinese foods),46,Chinese Foods
+low-protein dumplings (chinese foods),46,Chinese Foods
+stir-fried peas (chinese foods),18,Chinese Foods
+pumpkin congee (chinese foods),8,Chinese Foods
+garlic bok choy stir-fry (chinese foods),4,Chinese Foods
+braised daikon with shitake mushrooms (chinese foods),0,Chinese Foods
+spicy pickled napa cabbage (simple kimchi-style) (chinese foods),46,Chinese Foods
+vegetarian winter melon soup (chinese foods),0,Chinese Foods
+dry-fried green beans (chinese foods),23,Chinese Foods
+lotus root stir-fry (chinese foods),0,Chinese Foods
+stir fry bean sprouts and garlic chives (chinese foods),9,Chinese Foods
+chinese cucumber salad  (chinese foods),5,Chinese Foods
+braised kabocha squash (chinese foods),4,Chinese Foods
+yu choy sum (chinese foods),4,Chinese Foods
+stir-fried celery & wood ear mushrooms (chinese foods),0,Chinese Foods
+chayote stir-fry with garlic (chinese foods),24,Chinese Foods
+chinese-style steamed zucchini (chinese foods),4,Chinese Foods
+stir-fried zucchini with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried cucumber with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried tomato with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried daikon radish with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried winter melon with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried chayote with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried napa cabbage with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried green cabbage with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried carrots with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried beets with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried bell pepper with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried celery with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried snow peas with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried wood ear mushroom with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried enoki mushroom with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried kabocha squash with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried eggplant with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried lettuce with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried chinese broccoli with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried garlic chives with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried spinach with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried okra with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried fuzzy melon with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried tatsoi with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried bok choy with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried bamboo shoots with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried water chestnut with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried lotus root with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried pumpkin with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried zha cai (preserved mustard) with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried scallion with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried parsley with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried yam with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried pickled radish with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried pickled cabbage with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried seaweed (rehydrated) with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried chinese leek with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried fennel with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried garlic sprouts with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried taro (limited) with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried cilantro with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried shanghai greens with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried kailan with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried sweet corn (limited) with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried pickled mustard greens with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried jicama with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried turnip with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried komatsuna with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried cabbage core shreds with garlic sauce (chinese foods),4,Chinese Foods
+stir-fried chinese celery with garlic sauce (chinese foods),4,Chinese Foods
+stuffed bell peppers with white rice (eastern european foods),0,Eastern European Foods
+vegan borscht (eastern european foods),0,Eastern European Foods
+korean style carrot salad (eastern european foods),32,Eastern European Foods
+braised cabbage with white rice (eastern european foods),0,Eastern European Foods
+veggie-stuffed potato cakes dough base (eastern european foods),0,Eastern European Foods
+veggie-stuffed potato cakes mushroom filling (eastern european foods),0,Eastern European Foods
+veggie-stuffed potato cakes satsibeli sauce (eastern european foods),0,Eastern European Foods
+baked apples (eastern european foods),1,Eastern European Foods
+stuffed cabage main (eastern european foods),23,Eastern European Foods
+stuffed cabbage filling (eastern european foods),0,Eastern European Foods
+pickled pumpkin main (eastern european foods),12,Eastern European Foods
+pickled pumpkin cherry dressing (eastern european foods),30,Eastern European Foods
+pickled pumpkin salad (eastern european foods),30,Eastern European Foods
+vinegret salad (eastern european foods),0,Eastern European Foods
+potato and fresh dill soup (eastern european foods),0,Eastern European Foods
+carrot and apple salad (eastern european foods),1,Eastern European Foods
+roasted root vegetables (eastern european foods),1,Eastern European Foods
+cabbage and apple slaw (eastern european foods),23,Eastern European Foods
+mashed potatoes with garlic oil (eastern european foods),0,Eastern European Foods
+beet and apple salad (eastern european foods),1,Eastern European Foods
+cabbage stew with caraway (eastern european foods),0,Eastern European Foods
+sweet braised red cabbage (eastern european foods),23,Eastern European Foods
+potato and cucumber salad (eastern european foods),1,Eastern European Foods
+herbed carrot mash (eastern european foods),0,Eastern European Foods
+polish apple beet slaw (eastern european foods),1,Eastern European Foods
+potato-cauliflower bake (eastern european foods),0,Eastern European Foods
+stewed green beans with tomato (eastern european foods),0,Eastern European Foods
+warm cabbage-apple sautââ© (eastern european foods),0,Eastern European Foods
+horseradish beet salad (eastern european foods),1,Eastern European Foods
+simple potato and pickle salad (eastern european foods),0,Eastern European Foods
+sauteed zucchini with fresh dill (eastern european foods),1,Eastern European Foods
+carrot-potato latkes (eastern european foods),0,Eastern European Foods
+beet and cabbage stir-fry (eastern european foods),0,Eastern European Foods
+apple-cabbage slaw (eastern european foods),1,Eastern European Foods
+mushroom-buckwheat pilaf (limited) (eastern european foods),0,Eastern European Foods
+cucumber-vinegar salad (eastern european foods),1,Eastern European Foods
+baked cauliflower with paprika (eastern european foods),1,Eastern European Foods
+sweet carrot pudding (eastern european foods),1,Eastern European Foods
+cabbage-potato mash (eastern european foods),0,Eastern European Foods
+caraway beet wedges (eastern european foods),0,Eastern European Foods
+stuffed apples with jam (eastern european foods),30,Eastern European Foods
+savory pumpkin mash (eastern european foods),12,Eastern European Foods
+zucchini and apple salad (eastern european foods),1,Eastern European Foods
+beetroot horseradish dip (eastern european foods),1,Eastern European Foods
+mashed pumpkin with carrots (eastern european foods),12,Eastern European Foods
+sauerkraut with carrot (eastern european foods),0,Eastern European Foods
+roasted cabbage steaks (eastern european foods),13,Eastern European Foods
+turnip and apple salad (eastern european foods),1,Eastern European Foods
+fried zucchini rounds (eastern european foods),0,Eastern European Foods
+potato and fresh dill patties (eastern european foods),0,Eastern European Foods
+mushroom-cabbage mix (eastern european foods),0,Eastern European Foods
+spiced apple slices (eastern european foods),1,Eastern European Foods
+cucumber beet salad (eastern european foods),1,Eastern European Foods
+sweet carrot and apple bake (eastern european foods),1,Eastern European Foods
+cold marinated vegetables (eastern european foods),0,Eastern European Foods
+polish celery root slaw (eastern european foods),1,Eastern European Foods
+"warm zucchini and onions, raw sautââ© (eastern european foods)",13,Eastern European Foods
+beet and radish salad (eastern european foods),1,Eastern European Foods
+pan-fried pumpkin slices (eastern european foods),12,Eastern European Foods
+tomato rasam (indian foods),42,Indian Foods
+vegetable stew (indian foods),20,Indian Foods
+sambar  (indian foods),42,Indian Foods
+masala dosa  (indian foods),7,Indian Foods
+dosa base (indian foods),5,Indian Foods
+lemon rice (indian foods),38,Indian Foods
+upma (indian foods),20,Indian Foods
+coconut chutney (indian foods),20,Indian Foods
+vegetable kurma (indian foods),20,Indian Foods
+aloo tamatar curry (indian foods),18,Indian Foods
+bhindi masala (indian foods),26,Indian Foods
+baingan bharta (indian foods),16,Indian Foods
+jeera aloo (indian foods),18,Indian Foods
+tinda sabzi (indian foods),18,Indian Foods
+gajar matar (indian foods),18,Indian Foods
+kachumber salad (indian foods),11,Indian Foods
+lauki sabzi (indian foods),18,Indian Foods
+tamarind potatoes (indian foods),18,Indian Foods
+aloo capsicum (indian foods),0,Indian Foods
+beetroot curry (indian foods),18,Indian Foods
+aloo methi (indian foods),18,Indian Foods
+aloo baingan (indian foods),18,Indian Foods
+simple dahi chawal (indian foods),11,Indian Foods
+bhindi stir fry (indian foods),38,Indian Foods
+vegetable pulao (indian foods),3,Indian Foods
+dal-free rasam (indian foods),42,Indian Foods
+chana-free chaat (indian foods),7,Indian Foods
+coconut rice (indian foods),20,Indian Foods
+cucumber raita (indian foods),11,Indian Foods
+vegetable curry (indian foods),29,Indian Foods
+tamarind rice (indian foods),42,Indian Foods
+bombay sandwich (indian foods),7,Indian Foods
+jaggery poha (indian foods),20,Indian Foods
+chilli potato (indian foods),0,Indian Foods
+masala french fries (indian foods),41,Indian Foods
+aloo gobhi (indian foods),7,Indian Foods
+gobhi masala (indian foods),18,Indian Foods
+vegetable tehri (indian foods),18,Indian Foods
+kadhi (mock) (indian foods),20,Indian Foods
+baingan tamatar (indian foods),18,Indian Foods
+cabbage poriyal (indian foods),20,Indian Foods
+lauki chana (mock) (indian foods),18,Indian Foods
+bharta with peas (indian foods),18,Indian Foods
+methi aloo (indian foods),18,Indian Foods
+tamarind aloo (indian foods),18,Indian Foods
+palak curry (indian foods),20,Indian Foods
+peas pulao (indian foods),18,Indian Foods
+chana aloo (mock) (indian foods),18,Indian Foods
+aloo shimla mirch (indian foods),0,Indian Foods
+aloo tamatar bhujia (indian foods),18,Indian Foods
+dry aloo matar (indian foods),18,Indian Foods
+tindora stir-fry (indian foods),18,Indian Foods
+ghee rice (indian foods),5,Indian Foods
+cabbage stir fry (indian foods),38,Indian Foods
+tomato upma (indian foods),38,Indian Foods
+spiced corn (indian foods),41,Indian Foods
+fried plantains (indian foods),45,Indian Foods
+plain khichdi (indian foods),5,Indian Foods
+potato capsicum fry (indian foods),7,Indian Foods
+plain uttapam (indian foods),43,Indian Foods
+papaya sabzi (indian foods),38,Indian Foods
+malai toast (indian foods),2,Indian Foods
+mint rice (indian foods),21,Indian Foods
+rice porridge (indian foods),20,Indian Foods
+sweet suji balls (indian foods),20,Indian Foods
+jeera aloo rice (indian foods),5,Indian Foods
+tomato sevai (indian foods),38,Indian Foods
+roti roll (indian foods),7,Indian Foods
+stuffed bell pepper (indian foods),0,Indian Foods
+bananass fritters (indian foods),35,Indian Foods
+carrot rice (indian foods),5,Indian Foods
+curry leaf rice (indian foods),38,Indian Foods
+bread upma (indian foods),13,Indian Foods
+masala idli fry (indian foods),25,Indian Foods
+tandoori potatoes (indian foods),41,Indian Foods
+lauki curry (indian foods),38,Indian Foods
+rice idli (indian foods),43,Indian Foods
+simple sweet rice (indian foods),5,Indian Foods
+minestrone (vegetable soup) (italian foods),2,Italian Foods
+panzanella (bread salad) (italian foods),2,Italian Foods
+"risotto al limone (lemon risotto, no cheese) (italian foods)",8,Italian Foods
+pasta al pomodoro (no cheese) (italian foods),2,Italian Foods
+caponata (eggplant stew) (italian foods),2,Italian Foods
+focaccia (plain) (italian foods),8,Italian Foods
+polenta (italian foods),8,Italian Foods
+verdure grigliate (grilled vegetables) (italian foods),16,Italian Foods
+bruschetta (no cheese) (italian foods),2,Italian Foods
+ribollita (tuscan vegetable soup) (italian foods),8,Italian Foods
+pomodori al forno (baked tomatoes) (italian foods),2,Italian Foods
+cicoria ripassata (sautã©ed chicory) (italian foods),28,Italian Foods
+ribollita (without beans) (italian foods),2,Italian Foods
+patate al rosmarino (italian foods),6,Italian Foods
+insalata di finocchi (italian foods),1,Italian Foods
+verdure al vapore (italian foods),40,Italian Foods
+pomodori e cipolle (italian foods),2,Italian Foods
+melanzane alla griglia (italian foods),16,Italian Foods
+zuppa di verdure (italian foods),29,Italian Foods
+insalata di rucola (italian foods),17,Italian Foods
+pasta aglio e olio (italian foods),8,Italian Foods
+fagiolini lessati (italian foods),23,Italian Foods
+patate bollite (italian foods),7,Italian Foods
+insalata di cetrioli (italian foods),48,Italian Foods
+carote al vapore (italian foods),25,Italian Foods
+minestra di zucca (italian foods),9,Italian Foods
+polenta con funghi (italian foods),0,Italian Foods
+cipolle al forno (italian foods),0,Italian Foods
+zucchine trifolate (italian foods),13,Italian Foods
+radicchio alla griglia (italian foods),49,Italian Foods
+carciofi alla romana (italian foods),37,Italian Foods
+finocchi al forno (italian foods),1,Italian Foods
+cipolline in agrodolce (italian foods),0,Italian Foods
+cavolfiore al vapore (italian foods),25,Italian Foods
+zuppa di lenticchie (without legumes if strict pku) (italian foods),2,Italian Foods
+fagioli lessati (green beans) (italian foods),23,Italian Foods
+pomodori secchi (italian foods),2,Italian Foods
+broccoli saltati (italian foods),40,Italian Foods
+peperoni arrostiti (italian foods),12,Italian Foods
+zucchini alla scapece (italian foods),13,Italian Foods
+insalata di pomodori (italian foods),2,Italian Foods
+brodetto di verdure (italian foods),29,Italian Foods
+patate al forno (italian foods),12,Italian Foods
+insalata di radicchio (italian foods),49,Italian Foods
+zucca al forno (italian foods),12,Italian Foods
+cicoria ripassata (italian foods),28,Italian Foods
+peperonata (italian foods),2,Italian Foods
+fagioli all'uccelletto (italian foods),13,Italian Foods
+insalata di carote (italian foods),1,Italian Foods
+zucchine al forno (italian foods),13,Italian Foods
+patate e cipolle (italian foods),0,Italian Foods
+fave e cicoria (italian foods),28,Italian Foods
+spinaci saltati (italian foods),22,Italian Foods
+pomodori ripieni (without cheese) (italian foods),2,Italian Foods
+insalata di radicchio e arance (italian foods),49,Italian Foods
+broccoli al forno (italian foods),40,Italian Foods
+carciofi alla giudia (italian foods),37,Italian Foods
+insalata di finocchi e arance (italian foods),1,Italian Foods
+cavolfiore al forno (italian foods),1,Italian Foods
+cicoria lessata (italian foods),28,Italian Foods
+insalata di pomodorini (italian foods),2,Italian Foods
+funghi trifolati (italian foods),0,Italian Foods
+insalata di cetrioli e menta (italian foods),48,Italian Foods
+insalata di carote e limone (italian foods),1,Italian Foods
+zucchine ripiene (without cheese) (italian foods),2,Italian Foods
+carciofi grigliati (italian foods),37,Italian Foods
+funghi al forno (italian foods),0,Italian Foods
+patate e rosmarino (italian foods),6,Italian Foods
+cavolfiore gratinate (italian foods),2,Italian Foods
+finocchi al limone (italian foods),1,Italian Foods
+stir-fried baby bok choy (japanese foods),4,Japanese Foods
+garlic snow peas (japanese foods),18,Japanese Foods
+sweet and sour bell peppers (japanese foods),5,Japanese Foods
+steamed eggplant with garlic sauce (japanese foods),16,Japanese Foods
+cucumber sesame salad (japanese foods),5,Japanese Foods
+vegetable stir-fry (japanese foods),13,Japanese Foods
+sauteed water spinach (japanese foods),22,Japanese Foods
+scallion oil rice (japanese foods),8,Japanese Foods
+spicy pickled cucumber (japanese foods),5,Japanese Foods
+japanese veggie hot pot (japanese foods),34,Japanese Foods
+cucumber sunomono salad (japanese foods),11,Japanese Foods
+steamed eggplant (japanese foods),16,Japanese Foods
+garlic komatsuna stir-fry (japanese foods),34,Japanese Foods
+daikon & carrot pickles (japanese foods),5,Japanese Foods
+peas garlic saute (japanese foods),18,Japanese Foods
+pumpkin soup (japanese foods),12,Japanese Foods
+chilled okra salad (japanese foods),26,Japanese Foods
+scallion oil rice (japanese foods),5,Japanese Foods
+spicy pickled cucumber (japanese foods),11,Japanese Foods
+daikon wakame salad (japanese foods),26,Japanese Foods
+zucchini garlic stir-fry (japanese foods),13,Japanese Foods
+sauteed water spinach (japanese foods),22,Japanese Foods
+sweet and sour cabbage (japanese foods),5,Japanese Foods
+okra and seaweed salad (japanese foods),26,Japanese Foods
+yuzu daikon salad (japanese foods),16,Japanese Foods
+garlic spinach saute (japanese foods),22,Japanese Foods
+cucumber miso slaw (japanese foods),11,Japanese Foods
+chilled tomato vinegar (japanese foods),11,Japanese Foods
+steamed komatsuna & daikon (japanese foods),34,Japanese Foods
+grilled eggplant with yuzu (japanese foods),16,Japanese Foods
+okra cucumber salad (japanese foods),26,Japanese Foods
+sweet carrot slaw (japanese foods),3,Japanese Foods
+tomato cucumber salad (japanese foods),11,Japanese Foods
+cabbage daikon stir-fry (japanese foods),34,Japanese Foods
+daikon spinach rice bowl (japanese foods),22,Japanese Foods
+pickled eggplant salad (japanese foods),16,Japanese Foods
+tomato garlic stir-fry (japanese foods),13,Japanese Foods
+okra carrot side dish (japanese foods),26,Japanese Foods
+snow peas daikon mix (japanese foods),34,Japanese Foods
+kinpira gobo (japanese foods),3,Japanese Foods
+nasu dengaku (japanese foods),3,Japanese Foods
+yaki imo (japanese foods),6,Japanese Foods
+oshitashi (japanese foods),4,Japanese Foods
+kabocha nimono (japanese foods),5,Japanese Foods
+umeboshi rice (japanese foods),5,Japanese Foods
+spiced zucchini slices (japanese foods),13,Japanese Foods
+lemon pepper bok choy (japanese foods),4,Japanese Foods
+quick pickled carrots (japanese foods),5,Japanese Foods
+daikon citrus salad (japanese foods),34,Japanese Foods
+simple tomato salad (japanese foods),13,Japanese Foods
+sweet pickled radish (japanese foods),11,Japanese Foods
+charred bell pepper mix (japanese foods),0,Japanese Foods
+carrot apple slaw (japanese foods),23,Japanese Foods
+warm spinach garlic sautã© (japanese foods),22,Japanese Foods
+steamed kabocha (japanese foods),5,Japanese Foods
+chili vinegar cucumber (japanese foods),11,Japanese Foods
+squash stir-fry (japanese foods),34,Japanese Foods
+zesty tomato cucumber (japanese foods),11,Japanese Foods
+garlic daikon stir-fry (japanese foods),34,Japanese Foods
+roasted sweet kabocha (japanese foods),5,Japanese Foods
+carrot cucumber salad (japanese foods),3,Japanese Foods
+pan-seared eggplant (japanese foods),16,Japanese Foods
+simple daikon miso soup (japanese foods),34,Japanese Foods
+cold garlic green beans (japanese foods),23,Japanese Foods
+quick kabocha pickles (japanese foods),5,Japanese Foods
+zucchini and mint salad (mediterranean foods),13,Mediterranean Foods
+roasted bell pepper dip  (mediterranean foods),13,Mediterranean Foods
+tomato and cucumber salad (mediterranean foods),11,Mediterranean Foods
+grilled eggplant with garlic and herbs  (mediterranean foods),1,Mediterranean Foods
+artichoke and lemon salad (mediterranean foods),15,Mediterranean Foods
+olive tapenade  (mediterranean foods),1,Mediterranean Foods
+roasted carrots with cumin (mediterranean foods),13,Mediterranean Foods
+herbed potato wedges (mediterranean foods),6,Mediterranean Foods
+marinated zucchini ribbons (mediterranean foods),13,Mediterranean Foods
+tomato and basil bruschetta topping (mediterranean foods),13,Mediterranean Foods
+fattoush salad (mediterranean foods),36,Mediterranean Foods
+grilled eggplant with herbs (mediterranean foods),17,Mediterranean Foods
+tomato basil salad (mediterranean foods),13,Mediterranean Foods
+watermelon and mint skewers (mediterranean foods),17,Mediterranean Foods
+baked cinnamon apples (mediterranean foods),27,Mediterranean Foods
+polenta with roasted veggies (mediterranean foods),8,Mediterranean Foods
+zaalouk(moroccan eggplant dip) (mediterranean foods),16,Mediterranean Foods
+roasted garlic carrots (mediterranean foods),13,Mediterranean Foods
+chickpea-free hummus (mediterranean foods),1,Mediterranean Foods
+stewed zucchini and tomatoes (mediterranean foods),13,Mediterranean Foods
+lemon roasted potatoes (mediterranean foods),36,Mediterranean Foods
+bulgur-free tabbouleh (mediterranean foods),11,Mediterranean Foods
+sauteed spinach with garlic (mediterranean foods),22,Mediterranean Foods
+avocado cucumber gazpacho (mediterranean foods),32,Mediterranean Foods
+sweet date and fig bites (mediterranean foods),27,Mediterranean Foods
+low-protein pasta with olive oil and basil (mediterranean foods),13,Mediterranean Foods
+roasted cauliflower with paprika (mediterranean foods),1,Mediterranean Foods
+grilled peach with balsamic (mediterranean foods),17,Mediterranean Foods
+apple and pomegranate salad (mediterranean foods),17,Mediterranean Foods
+minted melon bowl (mediterranean foods),17,Mediterranean Foods
+orange cinnamon compote (mediterranean foods),27,Mediterranean Foods
+cinnamon roasted pears (mediterranean foods),27,Mediterranean Foods
+sauteed green beans with lemon zest (mediterranean foods),23,Mediterranean Foods
+roasted fennel with citrus glaze (mediterranean foods),27,Mediterranean Foods
+garlic lemon roasted bell peppers (mediterranean foods),13,Mediterranean Foods
+cucumber and tomato olive salad (mediterranean foods),11,Mediterranean Foods
+roasted vegetable stack (mediterranean foods),13,Mediterranean Foods
+melon and cucumber salad with mint (mediterranean foods),17,Mediterranean Foods
+baked apples with pomegranate drizzle (mediterranean foods),27,Mediterranean Foods
+mediterranean beet salad (mediterranean foods),17,Mediterranean Foods
+eggplant with tomato garlic sauce (mediterranean foods),13,Mediterranean Foods
+citrus herb carrot ribbons (mediterranean foods),3,Mediterranean Foods
+grilled zucchini and tomato platter (mediterranean foods),13,Mediterranean Foods
+chilled tomato and watermelon soup (mediterranean foods),17,Mediterranean Foods
+olive oil roasted turnips (mediterranean foods),1,Mediterranean Foods
+date and coconut rolls (mediterranean foods),27,Mediterranean Foods
+baked zucchini fries (mediterranean foods),13,Mediterranean Foods
+apricot and orange salad (mediterranean foods),27,Mediterranean Foods
+carrot and orange smoothie (mediterranean foods),27,Mediterranean Foods
+grilled eggplant with lemon tahini (mediterranean foods),1,Mediterranean Foods
+lemon herb roasted artichokes  (mediterranean foods),1,Mediterranean Foods
+fresh fig and mint salad (mediterranean foods),17,Mediterranean Foods
+roasted red pepper puree (mediterranean foods),13,Mediterranean Foods
+stewed zucchini with tomato (mediterranean foods),13,Mediterranean Foods
+grape and mint fruit bowl (mediterranean foods),17,Mediterranean Foods
+olive oil and lemon roasted carrots (mediterranean foods),1,Mediterranean Foods
+chilled citrus melon soup (mediterranean foods),17,Mediterranean Foods
+cinnamon date pudding (mediterranean foods),27,Mediterranean Foods
+grilled fennel and orange salad (mediterranean foods),1,Mediterranean Foods
+cucumber yogurt dip (mediterranean foods),11,Mediterranean Foods
+lemony lentil-free tabbouleh (mediterranean foods),11,Mediterranean Foods
+roasted fig and walnut bites (mediterranean foods),27,Mediterranean Foods
+garlic sautã©ed greens (mediterranean foods),22,Mediterranean Foods
+baked spiced apple slices (mediterranean foods),27,Mediterranean Foods
+beet and orange salad (mediterranean foods),17,Mediterranean Foods
+roasted zucchini boats (mediterranean foods),13,Mediterranean Foods
+date and almond energy bites (mediterranean foods),27,Mediterranean Foods
+lemon basil quinoa-free pilaf (mediterranean foods),1,Mediterranean Foods
+baba ghanoush-style eggplant mash (mediterranean foods),1,Mediterranean Foods
+grilled peach and mint salad (mediterranean foods),17,Mediterranean Foods
+stuffed grape leaves (no rice) (mediterranean foods),1,Mediterranean Foods
+carrot and date salad (mediterranean foods),3,Mediterranean Foods
+fig and olive tapenade (mediterranean foods),1,Mediterranean Foods
+corn and veggie tacos (mexican foods),10,Mexican Foods
+chilled avocado cucumber soup (mexican foods),10,Mexican Foods
+mexican street corn salad (mexican foods),10,Mexican Foods
+stuffed bell peppers (mexican foods),24,Mexican Foods
+jicama tostadas with mango salsa (mexican foods),24,Mexican Foods
+chayote squash salad with lime and chili (mexican foods),24,Mexican Foods
+taco lettuce wraps with spiced veggies (mexican foods),10,Mexican Foods
+cactus and tomato salad (mexican foods),24,Mexican Foods
+sweet potato tacos with paprika aioli (mexican foods),10,Mexican Foods
+garlic and roasted plantains with cilantro dip (mexican foods),20,Mexican Foods
+roasted chili-lime carrots (mexican foods),1,Mexican Foods
+tomatillo salsa verde (mexican foods),0,Mexican Foods
+lettuce wrapped veggie tacos with pineapple slaw (mexican foods),10,Mexican Foods
+sweet corn and pepper hash (mexican foods),0,Mexican Foods
+mexican mashed sweet potato (mexican foods),6,Mexican Foods
+agua fresca (mexican foods),17,Mexican Foods
+cucumber-chili snack cups (mexican foods),11,Mexican Foods
+crispy potato tacos (mexican foods),10,Mexican Foods
+mango-cucumber lime salad (mexican foods),11,Mexican Foods
+low-protein breakfast burrito (mexican foods),10,Mexican Foods
+pickled vegetable mix (mexican foods),0,Mexican Foods
+grilled corn with lime and cilantro (mexican foods),10,Mexican Foods
+refried zucchini (mexican foods),13,Mexican Foods
+scottish neeps & tatties (scottish-irish foods),44,Scottish-Irish Foods
+irish colcannon (pku-friendly) (scottish-irish foods),44,Scottish-Irish Foods
+leek & potatoes soup (scottish-irish foods),9,Scottish-Irish Foods
+scottish oatcakes (low-protein mix) (scottish-irish foods),44,Scottish-Irish Foods
+irish root veggie stew (scottish-irish foods),9,Scottish-Irish Foods
+scottish raspberry cranachan (scottish-irish foods),27,Scottish-Irish Foods
+irish apple mash (scottish-irish foods),44,Scottish-Irish Foods
+irish carrots & ginger soup (scottish-irish foods),9,Scottish-Irish Foods
+sweet leek mash (scottish-irish foods),44,Scottish-Irish Foods
+irish vegetable boxty (scottish-irish foods),44,Scottish-Irish Foods
+scottish barley-free veggie broth (scottish-irish foods),9,Scottish-Irish Foods
+irish honey-glazed carrotss (scottish-irish foods),1,Scottish-Irish Foods
+crispy green cabbage and onion cakes (scottish-irish foods),44,Scottish-Irish Foods
+herb roasted raw turnips (scottish-irish foods),6,Scottish-Irish Foods
+irish sweet potatoes mash (scottish-irish foods),44,Scottish-Irish Foods
+simple scottish pea soup (scottish-irish foods),9,Scottish-Irish Foods
+"carrots and parsnip, raw mash (scottish-irish foods)",44,Scottish-Irish Foods
+oven-roasted swede wedges (scottish-irish foods),15,Scottish-Irish Foods
+irish herbed potatoes wedges (scottish-irish foods),6,Scottish-Irish Foods
+scottish honey-braised green cabbage (scottish-irish foods),23,Scottish-Irish Foods
+creamy leek and carrots mix (scottish-irish foods),44,Scottish-Irish Foods
+irish mustard mashed raw turnips (scottish-irish foods),44,Scottish-Irish Foods
+pan-fried zucchini fritters (scottish-irish foods),44,Scottish-Irish Foods
+stewed rhubarb & apples (scottish-irish foods),23,Scottish-Irish Foods
+irish root veggie chips (scottish-irish foods),15,Scottish-Irish Foods
+sweet potatoes and carrots patties (scottish-irish foods),44,Scottish-Irish Foods
+baked apple with cinnamon (scottish-irish foods),23,Scottish-Irish Foods
+mashed carrots and swede (scottish-irish foods),44,Scottish-Irish Foods
+crispy potatoes & leek cakes (scottish-irish foods),44,Scottish-Irish Foods
+"oven-baked spiced parsnip, raws (scottish-irish foods)",15,Scottish-Irish Foods
+honey-balsamic glazed root veggies (scottish-irish foods),15,Scottish-Irish Foods
+rustic irish onion gravy (scottish-irish foods),9,Scottish-Irish Foods
+crispy garlic green cabbage (scottish-irish foods),23,Scottish-Irish Foods
+irish spiced apple compote (scottish-irish foods),23,Scottish-Irish Foods
+simple herbed swede mash (scottish-irish foods),44,Scottish-Irish Foods
+roasted carrots & leek traybake (scottish-irish foods),6,Scottish-Irish Foods
+baked zucchini boats (scottish-irish foods),13,Scottish-Irish Foods
+baked cinnamon apples (scottish-irish foods),27,Scottish-Irish Foods
+green cabbage & potatoes dumplings (scottish-irish foods),44,Scottish-Irish Foods
+zesty roasted swede cubes (scottish-irish foods),15,Scottish-Irish Foods
+carrots & apple slaw (scottish-irish foods),23,Scottish-Irish Foods
+"golden mashed parsnip, raws (scottish-irish foods)",44,Scottish-Irish Foods
+crispy zucchini & potatoes patties (scottish-irish foods),44,Scottish-Irish Foods
+rhubarb & berry compote (scottish-irish foods),27,Scottish-Irish Foods
+honey-mustard roasted carrotss (scottish-irish foods),15,Scottish-Irish Foods
+creamy swede & leek bake (scottish-irish foods),44,Scottish-Irish Foods
+"parsnip, raw & carrots puree (scottish-irish foods)",44,Scottish-Irish Foods
+"roasted carrotss & parsnip, raws (scottish-irish foods)",15,Scottish-Irish Foods
+honey-glazed swede cubes (scottish-irish foods),44,Scottish-Irish Foods
+creamy raw turnip mash (scottish-irish foods),44,Scottish-Irish Foods
+oven-baked sweet potatoes cubes (scottish-irish foods),6,Scottish-Irish Foods
+rhubarb & strawberry stew (scottish-irish foods),27,Scottish-Irish Foods
+baked herbed potatoes wedges (scottish-irish foods),6,Scottish-Irish Foods
+zesty green cabbage & carrots salad (scottish-irish foods),23,Scottish-Irish Foods
+mashed carrots & swede (scottish-irish foods),44,Scottish-Irish Foods
+"carrots & parsnip, raw puree (scottish-irish foods)",44,Scottish-Irish Foods
+sweet potatoes & green cabbage bake (scottish-irish foods),44,Scottish-Irish Foods
+zesty roasted raw turnips (scottish-irish foods),15,Scottish-Irish Foods
+rhubarb apple compote (scottish-irish foods),27,Scottish-Irish Foods
+baked potatoes green cabbage cakes (scottish-irish foods),44,Scottish-Irish Foods
+honey mustard roasted carrotss (scottish-irish foods),15,Scottish-Irish Foods
+apple & green cabbage slaw (scottish-irish foods),23,Scottish-Irish Foods
+roasted swede wedges (scottish-irish foods),15,Scottish-Irish Foods
+crispy potatoes leek cakes (scottish-irish foods),44,Scottish-Irish Foods
+herbed roasted root medley (scottish-irish foods),15,Scottish-Irish Foods
+mashed potatoes & swede (scottish-irish foods),44,Scottish-Irish Foods
+"honey-balsamic glazed parsnip, raw (scottish-irish foods)",15,Scottish-Irish Foods
+roasted green cabbage steaks (scottish-irish foods),23,Scottish-Irish Foods
+carrots apple mash (scottish-irish foods),23,Scottish-Irish Foods
+crispy raw turnip chips (scottish-irish foods),15,Scottish-Irish Foods
+sweet carrots & apple stew (scottish-irish foods),27,Scottish-Irish Foods
+zucchini fritters (scottish-irish foods),44,Scottish-Irish Foods
+"steamed parsnip, raw with chive butter (scottish-irish foods)",44,Scottish-Irish Foods
+irish apple porridge (scottish-irish foods),23,Scottish-Irish Foods

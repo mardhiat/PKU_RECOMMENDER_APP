@@ -4,9 +4,9 @@ BEST ALGORITHM:
   Combined: hybrid_selected (Liked+Safe=6.3%)
 
 CUISINE FILTERING CONTRIBUTION:
-  content_based: +7.3% (p=0.0000)***
+  content_based: +7.0% (p=0.0000)***
   collaborative: +2.2% (p=0.0000)***
-  hybrid: +5.5% (p=0.0000)***
+  hybrid: +5.9% (p=0.0000)***
 
 STATISTICAL SIGNIFICANCE:
-  7/8 comparisons are significant (p<0.05)
+  6/8 comparisons are significant (p<0.05)

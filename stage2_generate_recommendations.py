@@ -7,7 +7,7 @@ import os
 import random
 
 print("="*70)
-print("STAGE 2: GENERATE RECOMMENDATIONS (TF-IDF INGREDIENT WEIGHTING)")
+print("STAGE 2: GENERATE RECOMMENDATIONS (IMPROVED WITH CLUSTERING)")
 print("="*70)
 
 
@@ -23,13 +23,17 @@ required_files = [
     'data_test_ratings.csv',
     'data_test_users.csv',
     'data_food_database.csv',
-    'data_meal_ingredients.csv'
+    'data_meal_ingredients.csv',
+    'data_meal_clusters.csv'  # NEW: Required cluster file
 ]
 
 for file in required_files:
     if not os.path.exists(file):
         print(f"\n❌ ERROR: {file} not found!")
-        print("Please run previous stages first.")
+        if file == 'data_meal_clusters.csv':
+            print("Please run stage2c_meal_clustering.py first!")
+        else:
+            print("Please run previous stages first.")
         exit()
 
 # Load data
@@ -38,6 +42,7 @@ test_df = pd.read_csv('data_test_ratings.csv')
 eligible_users_df = pd.read_csv('data_test_users.csv')
 food_db_df = pd.read_csv('data_food_database.csv')
 meal_ingredients_df = pd.read_csv('data_meal_ingredients.csv')
+meal_clusters_df = pd.read_csv('data_meal_clusters.csv')  # NEW
 
 print(f"\nLoaded data files:")
 print(f"  - Train ratings: {len(train_df)} ratings")
@@ -45,6 +50,7 @@ print(f"  - Test ratings: {len(test_df)} ratings")
 print(f"  - Eligible users: {len(eligible_users_df)} users")
 print(f"  - Food database: {len(food_db_df)} foods")
 print(f"  - Meal ingredients: {len(meal_ingredients_df)} meals")
+print(f"  - Meal clusters: {len(meal_clusters_df)} cluster assignments")  # NEW
 
 # Get list of test users
 test_users = test_df['user_name'].unique()
@@ -64,11 +70,11 @@ print(f"Food database ready with {len(food_db)} foods")
 
 
 # ============================================================
-# STEP 2.2: BUILD INGREDIENT-BASED LOOKUP
+# STEP 2.2: BUILD INGREDIENT-BASED LOOKUP + CLUSTERS
 # ============================================================
 
 print("\n" + "="*70)
-print("🔧 LOADING INGREDIENT & CUISINE DATA")
+print("🔧 LOADING INGREDIENT, CUISINE & CLUSTER DATA")
 print("="*70)
 
 # Create meal -> ingredients mapping
@@ -86,12 +92,23 @@ for _, row in meal_ingredients_df.iterrows():
 print(f"✓ Loaded ingredient data for {len(meal_to_ingredients)} meals")
 print(f"✓ Loaded cuisine data for {len(meal_to_cuisine)} meals")
 
+# NEW: Create meal -> cluster mapping
+meal_to_cluster = {}
+for _, row in meal_clusters_df.iterrows():
+    meal_name = row['meal_name'].lower().strip()
+    meal_to_cluster[meal_name] = row['cluster']
+
+print(f"✓ Loaded cluster assignments for {len(meal_to_cluster)} meals")
+
 # Get all rated foods and check ingredient coverage
 all_rated_foods = set(train_df['food'].unique()) | set(test_df['food'].unique())
 rated_with_ingredients = sum(1 for food in all_rated_foods 
                             if food.lower().strip() in meal_to_ingredients)
+rated_with_clusters = sum(1 for food in all_rated_foods 
+                         if food.lower().strip() in meal_to_cluster)
 
 print(f"✓ Ingredient coverage: {rated_with_ingredients}/{len(all_rated_foods)} rated foods ({rated_with_ingredients/len(all_rated_foods)*100:.1f}%)")
+print(f"✓ Cluster coverage: {rated_with_clusters}/{len(all_rated_foods)} rated foods ({rated_with_clusters/len(all_rated_foods)*100:.1f}%)")
 
 
 # ============================================================
@@ -156,6 +173,12 @@ def get_cuisine(meal_name):
     return meal_to_cuisine.get(clean_name, None)
 
 
+def get_cluster(meal_name):
+    """NEW: Get cluster ID for a meal"""
+    clean_name = meal_name.lower().strip()
+    return meal_to_cluster.get(clean_name, None)
+
+
 def get_tfidf_vector(meal_name):
     """Get TF-IDF vector for a meal"""
     clean_name = meal_name.lower().strip()
@@ -179,11 +202,11 @@ def calculate_tfidf_similarity(food1, food2):
 
 
 # ============================================================
-# STEP 2.6: CONTENT-BASED FILTERING (TWO VERSIONS)
+# STEP 2.6: CONTENT-BASED FILTERING (IMPROVED WITH CLUSTERING)
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.6: IMPLEMENTING CONTENT-BASED FILTERING (TF-IDF)")
+print("STEP 2.6: IMPLEMENTING CONTENT-BASED FILTERING (TF-IDF + CLUSTERING)")
 print("="*70)
 
 K = 15  # Top-K recommendations (optimized from parameter tuning)
@@ -191,8 +214,8 @@ K = 15  # Top-K recommendations (optimized from parameter tuning)
 
 def content_based_recommendations_selected(user_name, train_df, K=10):
     """
-    Recommend foods from USER'S PREFERRED CUISINES
-    Based on TF-IDF ingredient similarity to liked foods
+    IMPROVED: Recommend foods from USER'S PREFERRED CUISINES
+    Uses TF-IDF ingredient similarity + cluster-based boosting
     """
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
@@ -203,15 +226,20 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
     if not liked_foods:
         return []
     
-    # Get cuisines from liked foods
+    # Get cuisines and clusters from liked foods
     liked_cuisines = set()
     valid_liked_foods = []
+    liked_clusters = set()  # NEW: Track clusters of liked foods
     
     for food in liked_foods:
         cuisine = get_cuisine(food)
+        cluster = get_cluster(food)  # NEW
+        
         if cuisine:
             liked_cuisines.add(cuisine)
             valid_liked_foods.append(food)
+        if cluster is not None:  # NEW
+            liked_clusters.add(cluster)
     
     if not liked_cuisines or not valid_liked_foods:
         return []
@@ -238,6 +266,11 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
     food_scores = {}
     
     for candidate_food in candidate_foods:
+        candidate_cluster = get_cluster(candidate_food)
+        
+        # NEW: BOOST if candidate is in same cluster as a liked food
+        cluster_boost = 1.2 if candidate_cluster in liked_clusters else 1.0
+        
         # Calculate TF-IDF similarity to all liked foods
         similarities = []
         
@@ -247,7 +280,7 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
                 similarities.append(tfidf_sim)
         
         if similarities:
-            avg_similarity = np.mean(similarities)
+            avg_similarity = np.mean(similarities) * cluster_boost  # Apply boost
             food_scores[candidate_food] = avg_similarity
     
     # Sort by score and return top K
@@ -257,8 +290,8 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
 
 def content_based_recommendations_all(user_name, train_df, K=10):
     """
-    Recommend foods from ALL CUISINES
-    Based on TF-IDF ingredient similarity to liked foods
+    IMPROVED: Recommend foods from ALL CUISINES
+    Uses TF-IDF ingredient similarity + cluster-based boosting
     """
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
@@ -269,8 +302,16 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     if not liked_foods:
         return []
     
-    # Filter to foods with ingredient data
-    valid_liked_foods = [food for food in liked_foods if food.lower().strip() in meal_to_ingredients]
+    # Filter to foods with ingredient data and get clusters
+    valid_liked_foods = []
+    liked_clusters = set()  # NEW
+    
+    for food in liked_foods:
+        if food.lower().strip() in meal_to_ingredients:
+            valid_liked_foods.append(food)
+            cluster = get_cluster(food)  # NEW
+            if cluster is not None:
+                liked_clusters.add(cluster)
     
     if not valid_liked_foods:
         return []
@@ -293,6 +334,11 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     food_scores = {}
     
     for candidate_food in candidate_foods:
+        candidate_cluster = get_cluster(candidate_food)
+        
+        # NEW: BOOST if candidate is in same cluster as a liked food
+        cluster_boost = 1.2 if candidate_cluster in liked_clusters else 1.0
+        
         # Calculate TF-IDF similarity to all liked foods
         similarities = []
         
@@ -302,7 +348,7 @@ def content_based_recommendations_all(user_name, train_df, K=10):
                 similarities.append(tfidf_sim)
         
         if similarities:
-            avg_similarity = np.mean(similarities)
+            avg_similarity = np.mean(similarities) * cluster_boost  # Apply boost
             food_scores[candidate_food] = avg_similarity
     
     # Sort by score and return top K
@@ -310,8 +356,8 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     return sorted_foods[:K]
 
 
-print("✓ Content-Based (Selected) implemented - TF-IDF from user's cuisines")
-print("✓ Content-Based (All) implemented - TF-IDF from any cuisine")
+print("✓ Content-Based (Selected) implemented - TF-IDF + clustering from user's cuisines")
+print("✓ Content-Based (All) implemented - TF-IDF + clustering from any cuisine")
 
 
 # ============================================================
@@ -448,24 +494,43 @@ print("✓ Collaborative (All) implemented - recommends from any cuisine")
 
 
 # ============================================================
-# STEP 2.8: HYBRID FILTERING (TWO VERSIONS)
+# STEP 2.8: HYBRID FILTERING (IMPROVED WITH ADAPTIVE WEIGHTING)
 # ============================================================
 
 print("\n" + "="*70)
-print("STEP 2.8: IMPLEMENTING HYBRID FILTERING")
+print("STEP 2.8: IMPLEMENTING HYBRID FILTERING (ADAPTIVE WEIGHTING)")
 print("="*70)
 
 
-def hybrid_recommendations_selected(user_name, train_df, K=15, alpha=0.3):
+def hybrid_recommendations_selected(user_name, train_df, K=15):
     """
-    Combine content-based and collaborative
+    IMPROVED: Adaptive hybrid with user-experience-based weighting
+    - New users (< 20 ratings): More content-based (α=0.6)
+    - Medium users (20-50 ratings): Balanced (α=0.4)
+    - Experienced users (> 50 ratings): More collaborative (α=0.3)
+    
     FILTERED to user's preferred cuisines
-    alpha=0.3 means 30% content-based, 70% collaborative (optimized)
     """
+    # Count user's ratings to determine experience level
+    user_train = train_df[train_df['user_name'] == user_name]
+    num_ratings = len(user_train)
+    
+    # Adaptive alpha based on user experience
+    if num_ratings < 20:
+        # New user: trust ingredients/content more
+        alpha = 0.6  # 60% content-based, 40% collaborative
+    elif num_ratings < 50:
+        # Medium user: balanced approach
+        alpha = 0.4  # 40% content-based, 60% collaborative
+    else:
+        # Experienced user: trust collaborative filtering more
+        alpha = 0.3  # 30% content-based, 70% collaborative
+    
+    # Get recommendations from both approaches
     cb_recs = content_based_recommendations_selected(user_name, train_df, K=20)
     collab_recs = collaborative_filtering_recommendations_selected(user_name, train_df, K=20)
     
-    # Combine scores
+    # Combine scores with adaptive weighting
     combined_scores = {}
     
     # Normalize and weight content-based scores
@@ -490,16 +555,28 @@ def hybrid_recommendations_selected(user_name, train_df, K=15, alpha=0.3):
     return sorted_foods[:K]
 
 
-def hybrid_recommendations_all(user_name, train_df, K=15, alpha=0.3):
+def hybrid_recommendations_all(user_name, train_df, K=15):
     """
-    Combine content-based and collaborative
+    IMPROVED: Adaptive hybrid with user-experience-based weighting
     From ALL cuisines
-    alpha=0.3 means 30% content-based, 70% collaborative (optimized)
     """
+    # Count user's ratings to determine experience level
+    user_train = train_df[train_df['user_name'] == user_name]
+    num_ratings = len(user_train)
+    
+    # Adaptive alpha based on user experience
+    if num_ratings < 20:
+        alpha = 0.6  # 60% content-based, 40% collaborative
+    elif num_ratings < 50:
+        alpha = 0.4  # 40% content-based, 60% collaborative
+    else:
+        alpha = 0.3  # 30% content-based, 70% collaborative
+    
+    # Get recommendations from both approaches
     cb_recs = content_based_recommendations_all(user_name, train_df, K=20)
     collab_recs = collaborative_filtering_recommendations_all(user_name, train_df, K=20)
     
-    # Combine scores
+    # Combine scores with adaptive weighting
     combined_scores = {}
     
     # Normalize and weight content-based scores
@@ -524,8 +601,8 @@ def hybrid_recommendations_all(user_name, train_df, K=15, alpha=0.3):
     return sorted_foods[:K]
 
 
-print("✓ Hybrid (Selected) implemented - recommends from user's cuisines")
-print("✓ Hybrid (All) implemented - recommends from any cuisine")
+print("✓ Hybrid (Selected) implemented - adaptive weighting from user's cuisines")
+print("✓ Hybrid (All) implemented - adaptive weighting from any cuisine")
 
 
 # ============================================================
@@ -735,10 +812,17 @@ summary_df.to_csv('recommendations_summary_TFIDF.csv', index=False)
 print("✓ Saved: recommendations_summary_TFIDF.csv")
 
 print("\n" + "="*70)
-print("STAGE 2 COMPLETE (TF-IDF VERSION)")
+print("STAGE 2 COMPLETE (IMPROVED VERSION)")
 print("="*70)
 print(f"""
-Generated {len(all_recommendations)} recommendation variants using TF-IDF:
+IMPROVEMENTS APPLIED:
+  ✓ Ingredient-based clustering with 1.2x boost for same-cluster foods
+  ✓ Adaptive hybrid weighting based on user experience:
+    - New users (< 20 ratings): 60% content, 40% collaborative
+    - Medium users (20-50 ratings): 40% content, 60% collaborative  
+    - Experienced users (> 50 ratings): 30% content, 70% collaborative
+
+Generated {len(all_recommendations)} recommendation variants:
   1. Content-Based (Selected) - {sum(len(r) for r in all_recommendations['content_based_selected'].values())} recs
   2. Content-Based (All) - {sum(len(r) for r in all_recommendations['content_based_all'].values())} recs
   3. Collaborative (Selected) - {sum(len(r) for r in all_recommendations['collaborative_selected'].values())} recs
@@ -749,5 +833,5 @@ Generated {len(all_recommendations)} recommendation variants using TF-IDF:
   8. Popularity (All) - {sum(len(r) for r in all_recommendations['popularity_all'].values())} recs
   9. Random - {sum(len(r) for r in all_recommendations['random'].values())} recs
 
-Next: Run Stage 3, 4, 5 to evaluate TF-IDF performance
+Next: Run Stage 3, 4, 5, 6, 7 to evaluate improved performance
 """)
