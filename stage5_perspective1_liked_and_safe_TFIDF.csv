@@ -1,10 +1,10 @@
 Algorithm,Total Recs,Liked & Safe,Rate (%)
 hybrid_selected,1607,89,5.5
-content_based_selected,1607,84,5.2
+content_based_selected,1607,83,5.2
 collaborative_selected,1485,74,5.0
 popularity_selected,1597,78,4.9
 collaborative_all,1554,67,4.3
-hybrid_all,1695,69,4.1
-content_based_all,1695,59,3.5
-random,1695,11,0.6
+hybrid_all,1695,71,4.2
+content_based_all,1695,64,3.8
+random,1695,8,0.5
 popularity_all,1695,6,0.4
