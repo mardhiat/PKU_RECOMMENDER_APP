@@ -6,24 +6,20 @@ from sklearn.metrics import silhouette_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-print("="*70)
+ 
 print("STAGE 2C: INGREDIENT-BASED MEAL CLUSTERING")
-print("="*70)
+ 
 
-# ============================================================
-# LOAD DATA
-# ============================================================
-
+ # LOAD DATA
+ 
 print("\nSTEP 1: LOADING MEAL INGREDIENTS DATA")
 
 meal_ingredients_df = pd.read_csv('data_meal_ingredients.csv')
 
 print(f"✓ Loaded {len(meal_ingredients_df)} meals")
 
-# ============================================================
-# BUILD TF-IDF VECTORS
-# ============================================================
-
+ # BUILD TF-IDF VECTORS
+ 
 print("\nSTEP 2: BUILDING TF-IDF INGREDIENT VECTORS")
 
 # Create ingredient documents
@@ -58,10 +54,8 @@ tfidf_matrix = tfidf.fit_transform(ingredient_documents)
 print(f"✓ TF-IDF matrix shape: {tfidf_matrix.shape}")
 print(f"✓ Vocabulary size: {len(tfidf.vocabulary_)}")
 
-# ============================================================
-# DETERMINE OPTIMAL NUMBER OF CLUSTERS
-# ============================================================
-
+ # DETERMINE OPTIMAL NUMBER OF CLUSTERS
+ 
 print("\nSTEP 3: DETERMINING OPTIMAL NUMBER OF CLUSTERS")
 
 # Try different numbers of clusters
@@ -111,10 +105,8 @@ plt.savefig('meal_clustering_elbow.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: meal_clustering_elbow.png")
 plt.close()
 
-# ============================================================
-# PERFORM FINAL CLUSTERING
-# ============================================================
-
+ # PERFORM FINAL CLUSTERING
+ 
 print(f"\nSTEP 4: CLUSTERING WITH {optimal_n_clusters} CLUSTERS")
 
 final_clusterer = AgglomerativeClustering(
@@ -127,10 +119,8 @@ cluster_labels = final_clusterer.fit_predict(tfidf_matrix.toarray())
 
 print(f"✓ Assigned {len(cluster_labels)} meals to {optimal_n_clusters} clusters")
 
-# ============================================================
-# ANALYZE CLUSTERS
-# ============================================================
-
+ # ANALYZE CLUSTERS
+ 
 print("\nSTEP 5: ANALYZING CLUSTER QUALITY")
 
 # Add cluster labels to dataframe
@@ -162,10 +152,8 @@ for cluster_id in range(optimal_n_clusters):
 print(f"  Mean purity: {np.mean(cluster_purity)*100:.1f}%")
 print(f"  (Higher = clusters are more cuisine-specific)")
 
-# ============================================================
-# SAVE RESULTS
-# ============================================================
-
+ # SAVE RESULTS
+ 
 print("\nSTEP 6: SAVING CLUSTER ASSIGNMENTS")
 
 # Save cluster assignments
@@ -196,10 +184,8 @@ cluster_summary_df = pd.DataFrame(cluster_summary)
 cluster_summary_df.to_csv('cluster_summary.csv', index=False)
 print("✓ Saved: cluster_summary.csv")
 
-# ============================================================
-# VISUALIZE CLUSTERS
-# ============================================================
-
+ # VISUALIZE CLUSTERS
+ 
 print("\nSTEP 7: VISUALIZING CLUSTER DISTRIBUTION")
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
@@ -233,13 +219,11 @@ plt.savefig('meal_clustering_analysis.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: meal_clustering_analysis.png")
 plt.close()
 
-# ============================================================
-# FINAL SUMMARY
-# ============================================================
-
-print("\n" + "="*70)
+ # FINAL SUMMARY
+ 
+ 
 print("STAGE 2C COMPLETE")
-print("="*70)
+ 
 print(f"""
 CLUSTERING SUMMARY:
   • Total meals clustered: {len(clustering_results)}

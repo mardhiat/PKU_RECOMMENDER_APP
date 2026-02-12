@@ -4,14 +4,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pickle
 import os
 
-print("="*70)
+ 
 print("STAGE 2B: PARAMETER TUNING (K VALUES + ALPHA VALUES)")
-print("="*70)
+ 
 
-# ============================================================
-# LOAD BASE DATA
-# ============================================================
-
+ # LOAD BASE DATA
+ 
 print("\nLOADING BASE DATA...")
 
 train_df = pd.read_csv('data_train_ratings.csv')
@@ -28,10 +26,8 @@ print(f"✓ Loaded {len(train_df)} training ratings")
 print(f"✓ Loaded {len(test_df)} test ratings")
 print(f"✓ Will test on {len(test_users)} users")
 
-# ============================================================
-# PARAMETER GRIDS
-# ============================================================
-
+ # PARAMETER GRIDS
+ 
 K_VALUES = [5, 10, 15, 20]
 ALPHA_VALUES = [0.3, 0.4, 0.5, 0.6, 0.7]
 
@@ -40,10 +36,8 @@ print(f"  K values: {K_VALUES}")
 print(f"  Alpha values (hybrid): {ALPHA_VALUES}")
 print(f"  Total combinations: {len(K_VALUES)} K × {len(ALPHA_VALUES)} alpha = {len(K_VALUES) * len(ALPHA_VALUES)} tests")
 
-# ============================================================
-# IMPORT RECOMMENDATION FUNCTIONS FROM STAGE 2
-# ============================================================
-
+ # IMPORT RECOMMENDATION FUNCTIONS FROM STAGE 2
+ 
 # Create meal-to-ingredients mapping
 meal_to_ingredients = {}
 meal_to_cuisine = {}
@@ -95,13 +89,11 @@ def calculate_tfidf_similarity(food1, food2):
     similarity = cosine_similarity(vec1, vec2)[0][0]
     return similarity
 
-# ============================================================
-# RECOMMENDATION FUNCTIONS (PARAMETERIZED)
-# ============================================================
-
+ # RECOMMENDATION FUNCTIONS (PARAMETERIZED)
+ 
 def content_based_recommendations_selected(user_name, train_df, K=10):
     user_train = train_df[train_df['user_name'] == user_name]
-    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    liked_foods = user_train[user_train['rating'] >= 4]['food'].tolist()
     
     if not liked_foods:
         return []
@@ -153,7 +145,7 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
 
 def collaborative_filtering_recommendations_selected(user_name, train_df, K=10):
     user_train = train_df[train_df['user_name'] == user_name]
-    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    liked_foods = user_train[user_train['rating'] >= 4]['food'].tolist()
     
     liked_cuisines = set()
     for food in liked_foods:
@@ -188,7 +180,7 @@ def collaborative_filtering_recommendations_selected(user_name, train_df, K=10):
     for similar_user, similarity_score in similar_users.items():
         similar_user_ratings = train_df[
             (train_df['user_name'] == similar_user) & 
-            (train_df['rating'] >= 3)
+            (train_df['rating'] >= 4)
         ]
         
         for _, row in similar_user_ratings.iterrows():
@@ -232,10 +224,8 @@ def hybrid_recommendations_selected(user_name, train_df, K=10, alpha=0.5):
     sorted_foods = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)
     return sorted_foods[:K]
 
-# ============================================================
-# EVALUATION FUNCTION
-# ============================================================
-
+ # EVALUATION FUNCTION
+ 
 def evaluate_recommendations(recommendations, test_df, users):
     """
     Calculate F1, Precision, Recall for given recommendations
@@ -278,13 +268,11 @@ def evaluate_recommendations(recommendations, test_df, users):
         'n_users': len(precision_scores)
     }
 
-# ============================================================
-# RUN PARAMETER SWEEP
-# ============================================================
-
-print("\n" + "="*70)
+ # RUN PARAMETER SWEEP
+ 
+ 
 print("RUNNING PARAMETER SWEEP")
-print("="*70)
+ 
 
 results = []
 
@@ -349,16 +337,14 @@ for K in K_VALUES:
         })
         print(f" F1={hybrid_metrics['f1']:.1f}%")
 
-# ============================================================
-# SAVE AND DISPLAY RESULTS
-# ============================================================
-
+ # SAVE AND DISPLAY RESULTS
+ 
 results_df = pd.DataFrame(results)
 results_df.to_csv('parameter_tuning_results.csv', index=False)
 
-print("\n" + "="*70)
+ 
 print("PARAMETER TUNING RESULTS")
-print("="*70)
+ 
 
 # Best K for each algorithm
 print("\n📊 BEST K VALUE FOR EACH ALGORITHM:")
@@ -385,30 +371,30 @@ print(f"  Precision: {best_hybrid['precision']:.1f}%")
 print(f"  Recall: {best_hybrid['recall']:.1f}%")
 
 # Detailed tables
-print("\n" + "="*70)
+ 
 print("DETAILED RESULTS BY K (Content-Based)")
-print("="*70)
+ 
 cb_table = results_df[results_df['algorithm'] == 'content_based_selected'][['K', 'f1', 'precision', 'recall']]
 cb_table = cb_table.sort_values('K')
 print(cb_table.to_string(index=False))
 
-print("\n" + "="*70)
+ 
 print("DETAILED RESULTS BY K (Collaborative)")
-print("="*70)
+ 
 collab_table = results_df[results_df['algorithm'] == 'collaborative_selected'][['K', 'f1', 'precision', 'recall']]
 collab_table = collab_table.sort_values('K')
 print(collab_table.to_string(index=False))
 
-print("\n" + "="*70)
+ 
 print("DETAILED RESULTS BY K × ALPHA (Hybrid)")
-print("="*70)
+ 
 hybrid_table = results_df[results_df['algorithm'] == 'hybrid_selected'][['K', 'alpha', 'f1', 'precision', 'recall']]
 hybrid_table = hybrid_table.sort_values(['K', 'alpha'])
 print(hybrid_table.to_string(index=False))
 
-print("\n" + "="*70)
+ 
 print("STAGE 2B COMPLETE")
-print("="*70)
+ 
 print(f"""
 Tested {len(results)} parameter combinations:
   - {len(K_VALUES)} K values for content-based

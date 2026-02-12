@@ -6,14 +6,12 @@ import json
 from pathlib import Path
 import toml
 
-print("="*70)
+ 
 print("STAGE 0: DATA PREPARATION (WITH CACHING)")
-print("="*70)
+ 
 
-# ============================================================
-# CONFIGURATION & CACHING
-# ============================================================
-
+ # CONFIGURATION & CACHING
+ 
 # Read from Streamlit secrets file
 try:
     secrets = toml.load(".streamlit/secrets.toml")
@@ -42,10 +40,8 @@ def save_cache():
         json.dump(USDA_CACHE, f, indent=2)
 
 
-# ============================================================
-# USDA API FUNCTIONS
-# ============================================================
-
+ # USDA API FUNCTIONS
+ 
 def search_usda_foods(query):
     if not query or not USDA_API_KEY:
         return []
@@ -196,10 +192,8 @@ def search_usda_fallback(name):
     return result
 
 
-# ============================================================
-# CSV FALLBACK FUNCTIONS
-# ============================================================
-
+ # CSV FALLBACK FUNCTIONS
+ 
 def load_csv_databases():
     """Load BOTH CSV files for fallback"""
     databases = []
@@ -411,13 +405,11 @@ def compute_dish_nutrients(ingredients_list, weights_list, csv_databases):
     }
 
 
-# ============================================================
-# STEP 1: LOAD USER RATINGS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 1: LOAD USER RATINGS
+ 
+ 
 print("STEP 1: LOADING USER RATINGS")
-print("="*70)
+ 
 
 ratings_file = "ratingsappdata - Sheet1.csv"
 
@@ -470,13 +462,11 @@ user_food_df.to_csv('data_user_food_ratings.csv', index=False)
 print(f"✓ Saved: data_user_food_ratings.csv")
 
 
-# ============================================================
-# STEP 2: LOAD CUISINE FILES
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2: LOAD CUISINE FILES
+ 
+ 
 print("STEP 2: LOADING CUISINE FILES")
-print("="*70)
+ 
 
 cuisine_files = {
     'African Foods': 'African_Foods.csv',
@@ -561,13 +551,11 @@ meal_ingredients_df.to_csv('data_meal_ingredients.csv', index=False)
 print(f"✓ Saved: data_meal_ingredients.csv")
 
 
-# ============================================================
-# STEP 3: LOAD CSV DATABASES
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 3: LOAD CSV DATABASES
+ 
+ 
 print("STEP 3: LOADING CSV DATABASES")
-print("="*70)
+ 
 
 csv_databases = load_csv_databases()
 
@@ -578,13 +566,11 @@ if not csv_databases:
         exit()
 
 
-# ============================================================
-# STEP 4: CALCULATE MEAL NUTRITION
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 4: CALCULATE MEAL NUTRITION
+ 
+ 
 print("STEP 4: CALCULATING MEAL NUTRITION")
-print("="*70)
+ 
 
 meal_nutrition_list = []
 meals_complete = 0
@@ -659,13 +645,11 @@ if len(meals_with_issues) > 0:
     print(f"✓ Saved: data_missing_foods.csv ({len(meals_with_issues)} meals)")
 
 
-# ============================================================
-# STEP 5: USER PROFILES
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5: USER PROFILES
+ 
+ 
 print("STEP 5: USER PROFILES")
-print("="*70)
+ 
 
 def get_child_adult_daily_needs(age_months, weight_kg, sex):
     needs = {}
@@ -721,13 +705,11 @@ user_limits_df.to_csv('data_user_nutritional_limits.csv', index=False)
 print(f"✓ Saved: data_user_nutritional_limits.csv")
 
 
-# ============================================================
-# FINAL SUMMARY
-# ============================================================
-
-print("\n" + "="*70)
+ # FINAL SUMMARY
+ 
+ 
 print("STAGE 0 COMPLETE")
-print("="*70)
+ 
 
 print(f"""
 MEAL NUTRITION:
@@ -742,4 +724,4 @@ USDA CACHE:
 NEXT: Run Stages 1-5 to see evaluation results!
 """)
 
-print("="*70)
+ 
