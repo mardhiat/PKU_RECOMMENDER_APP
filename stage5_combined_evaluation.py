@@ -3,15 +3,13 @@ import numpy as np
 import pickle
 import os
 
-print("="*70)
+ 
 print("STAGE 5: COMBINED PREFERENCE + SAFETY EVALUATION")
-print("="*70)
+ 
 
 
-# ============================================================
-# STEP 5.1: LOAD DATA
-# ============================================================
-
+ # STEP 5.1: LOAD DATA
+ 
 print("\nSTEP 5.1: LOADING DATA")
 
 required_files = [
@@ -37,13 +35,11 @@ print(f"  - Recommendations with safety: {len(recommendations_with_safety)} entr
 print(f"  - Test ratings: {len(test_df)} ratings")
 
 
-# ============================================================
-# STEP 5.2: ORGANIZE BY ALGORITHM AND USER
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5.2: ORGANIZE BY ALGORITHM AND USER
+ 
+ 
 print("STEP 5.2: ORGANIZING RECOMMENDATIONS BY ALGORITHM")
-print("="*70)
+ 
 
 # recommendations_with_safety is already organized as:
 # {algorithm: {user: [list of recommendation dicts]}}
@@ -64,21 +60,17 @@ for algo, users in organized_recs.items():
     print(f"  {algo}: {total_recs} recommendations across {len(users)} users")
 
 
-# ============================================================
-# STEP 5.3: EVALUATION METRICS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5.3: EVALUATION METRICS
+ 
+ 
 print("STEP 5.3: EVALUATION METRICS")
-print("="*70)
+ 
 
-LIKE_THRESHOLD = 3  # Rating >= 3 is considered "liked"
+LIKE_THRESHOLD = 4  # Rating >= 4 is considered "liked"
 
 
-# ============================================================
-# PERSPECTIVE 1: Liked & Safe Rate
-# ============================================================
-
+ # PERSPECTIVE 1: Liked & Safe Rate
+ 
 def evaluate_liked_and_safe_rate(algo_recs, test_df):
     """
     Of ALL recommendations made, what % are BOTH liked AND safe?
@@ -122,10 +114,8 @@ def evaluate_liked_and_safe_rate(algo_recs, test_df):
     }
 
 
-# ============================================================
-# PERSPECTIVE 2: Coverage of Liked Foods
-# ============================================================
-
+ # PERSPECTIVE 2: Coverage of Liked Foods
+ 
 def evaluate_coverage_of_liked_foods(algo_recs, test_df):
     """
     Of all liked foods in test set, what % did we find safely?
@@ -163,10 +153,8 @@ def evaluate_coverage_of_liked_foods(algo_recs, test_df):
     }
 
 
-# ============================================================
-# PERSPECTIVE 3: Safety-First Acceptance Rate
-# ============================================================
-
+ # PERSPECTIVE 3: Safety-First Acceptance Rate
+ 
 def evaluate_safety_first_acceptance(algo_recs, test_df):
     """
     Of recommendations that ARE safe, what % are liked?
@@ -217,13 +205,11 @@ print("  2. Coverage: % of liked foods we found safely")
 print("  3. Safety-First Acceptance: % of safe recs that are liked")
 
 
-# ============================================================
-# STEP 5.4: EVALUATE ALL ALGORITHMS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5.4: EVALUATE ALL ALGORITHMS
+ 
+ 
 print("STEP 5.4: EVALUATING ALL ALGORITHMS")
-print("="*70)
+ 
 
 all_results = {}
 per_user_results = {}  # For statistical testing
@@ -267,18 +253,16 @@ for algo_name, user_recs in organized_recs.items():
     print(f"  Acceptance: {p3['liked_among_safe']}/{p3['total_safe_recommendations']} ({p3['acceptance_rate']:.1f}%)")
 
 
-# ============================================================
-# STEP 5.5: CREATE SUMMARY TABLES
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5.5: CREATE SUMMARY TABLES
+ 
+ 
 print("STEP 5.5: SUMMARY TABLES")
-print("="*70)
+ 
 
 # Table 1: Liked & Safe Rate
-print("\n" + "="*70)
+ 
 print("PERSPECTIVE 1: LIKED & SAFE RATE")
-print("="*70)
+ 
 
 summary_p1 = []
 for algo, results in all_results.items():
@@ -300,9 +284,9 @@ print()
 
 
 # Table 2: Coverage
-print("\n" + "="*70)
+ 
 print("PERSPECTIVE 2: COVERAGE OF LIKED FOODS")
-print("="*70)
+ 
 
 summary_p2 = []
 for algo, results in all_results.items():
@@ -324,9 +308,9 @@ print()
 
 
 # Table 3: Safety-First Acceptance
-print("\n" + "="*70)
+ 
 print("PERSPECTIVE 3: SAFETY-FIRST ACCEPTANCE RATE")
-print("="*70)
+ 
 
 summary_p3 = []
 for algo, results in all_results.items():
@@ -347,13 +331,11 @@ print(df_p3.to_string(index=False))
 print()
 
 
-# ============================================================
-# STEP 5.6: SELECTED VS ALL COMPARISON
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5.6: SELECTED VS ALL COMPARISON
+ 
+ 
 print("COMPARISON: SELECTED (SAME CUISINE) VS ALL (ANY CUISINE)")
-print("="*70)
+ 
 
 algorithms = ['content_based', 'collaborative', 'hybrid', 'popularity']
 
@@ -379,13 +361,11 @@ for algo in algorithms:
             print(f"  → TIE")
 
 
-# ============================================================
-# STEP 5.7: SAVE RESULTS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 5.7: SAVE RESULTS
+ 
+ 
 print("STEP 5.7: SAVING RESULTS")
-print("="*70)
+ 
 
 # Save all three perspectives
 df_p1.to_csv('stage5_perspective1_liked_and_safe_TFIDF.csv', index=False)
@@ -403,13 +383,11 @@ with open('stage5_detailed_results_TFIDF.pkl', 'wb') as f:
 print("✓ Saved: stage5_detailed_results_TFIDF.pkl")
 
 
-# ============================================================
-# FINAL SUMMARY
-# ============================================================
-
-print("\n" + "="*70)
+ # FINAL SUMMARY
+ 
+ 
 print("STAGE 5 COMPLETE - FINAL RESULTS")
-print("="*70)
+ 
 
 # Find best in each perspective
 best_p1 = df_p1.iloc[0]

@@ -3,23 +3,19 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import os
 
-print("="*70)
+ 
 print("STAGE 1: CREATE TRAIN/TEST SPLITS (FIXED)")
-print("="*70)
+ 
 
-# ============================================================
-# CONFIGURATION
-# ============================================================
-
+ # CONFIGURATION
+ 
 MIN_RATINGS_PER_USER = 10  # Minimum ratings to include user
 MIN_LIKED_FOODS = 3        # Minimum liked foods (rating ≥ 3)
 TEST_SIZE = 0.2            # 20% test, 80% train
 RANDOM_STATE = 42
 
-# ============================================================
-# STEP 1.1: LOAD DATA FROM STAGE 0
-# ============================================================
-
+ # STEP 1.1: LOAD DATA FROM STAGE 0
+ 
 print("\nSTEP 1.1: LOADING DATA FROM STAGE 0\n")
 
 try:
@@ -36,10 +32,8 @@ except FileNotFoundError as e:
     print("Please run stage0_data_preparation.py first")
     exit(1)
 
-# ============================================================
-# STEP 1.2: FILTER FOODS WITH NUTRITIONAL DATA (CASE-INSENSITIVE)
-# ============================================================
-
+ # STEP 1.2: FILTER FOODS WITH NUTRITIONAL DATA (CASE-INSENSITIVE)
+ 
 print("\nSTEP 1.2: FILTERING FOODS WITH NUTRITIONAL DATA\n")
 
 # CRITICAL FIX: Case-insensitive matching
@@ -79,10 +73,8 @@ if len(filtered_ratings) == 0:
         print(f"  - '{food}' → '{food.lower().strip()}'")
     exit(1)
 
-# ============================================================
-# STEP 1.3: FILTER USERS WITH SUFFICIENT DATA
-# ============================================================
-
+ # STEP 1.3: FILTER USERS WITH SUFFICIENT DATA
+ 
 print(f"\nSTEP 1.3: FILTERING USERS WITH SUFFICIENT DATA\n")
 
 print(f"Minimum requirements:")
@@ -91,7 +83,7 @@ print(f"  - At least {MIN_LIKED_FOODS} liked foods (rating ≥ 3)")
 
 # Calculate per-user statistics
 user_stats = filtered_ratings.groupby('user_name').agg({
-    'rating': ['count', lambda x: (x >= 3).sum()]  # FIXED: Changed from 4 to 3
+    'rating': ['count', lambda x: (x >= 4).sum()]  # FIXED: Changed from 4 to 3
 }).reset_index()
 
 user_stats.columns = ['user_name', 'total_ratings', 'liked_foods']
@@ -137,10 +129,8 @@ else:
 
 print(f"\nFinal dataset: {len(filtered_ratings)} ratings from {len(eligible_users)} users")
 
-# ============================================================
-# STEP 1.4: CREATE TRAIN/TEST SPLIT
-# ============================================================
-
+ # STEP 1.4: CREATE TRAIN/TEST SPLIT
+ 
 print(f"\nSTEP 1.4: CREATING TRAIN/TEST SPLIT\n")
 
 train_list = []
@@ -154,7 +144,7 @@ for user_name in eligible_users:
         train_list.append(user_ratings)
     else:
         # Stratified split (liked vs not-liked)
-        liked = user_ratings[user_ratings['rating'] >= 3]
+        liked = user_ratings[user_ratings['rating'] >= 4]
         not_liked = user_ratings[user_ratings['rating'] < 3]
         
         # Split each group
@@ -191,10 +181,8 @@ print(f"Train set: {len(train_df)} ratings from {train_df['user_name'].nunique()
 print(f"Test set: {len(test_df)} ratings from {test_df['user_name'].nunique()} users")
 print(f"Split ratio: {len(test_df)/(len(train_df)+len(test_df))*100:.1f}% test")
 
-# ============================================================
-# STEP 1.5: SAVE OUTPUTS
-# ============================================================
-
+ # STEP 1.5: SAVE OUTPUTS
+ 
 print(f"\nSTEP 1.5: SAVING OUTPUTS\n")
 
 # FIXED: Use data_ prefix to match Stage 2-5
@@ -208,11 +196,9 @@ print(f"✓ Saved: data_train_ratings.csv")
 print(f"✓ Saved: data_test_ratings.csv")
 print(f"✓ Saved: data_test_users.csv")
 
-# ============================================================
-# SUMMARY
-# ============================================================
-
-print(f"\n{'='*70}")
+ # SUMMARY
+ 
+  
 print("STAGE 1 COMPLETE - SUMMARY")
 print(f"{'='*70}\n")
 
@@ -232,6 +218,6 @@ print(train_df['rating'].value_counts().sort_index())
 print(f"\nRATING DISTRIBUTION (TEST):")
 print(test_df['rating'].value_counts().sort_index())
 
-print(f"\n{'='*70}")
+  
 print("NEXT: Run stage2_generate_recommendations.py")
-print(f"{'='*70}")
+  

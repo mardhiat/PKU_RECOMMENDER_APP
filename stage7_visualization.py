@@ -4,19 +4,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
 
-print("="*70)
+ 
 print("STAGE 7: VISUALIZATION")
-print("="*70)
+ 
 
 # Set style
 sns.set_style("whitegrid")
 plt.rcParams['figure.figsize'] = (12, 6)
 plt.rcParams['font.size'] = 11
 
-# ============================================================
-# LOAD DATA
-# ============================================================
-
+ # LOAD DATA
+ 
 print("\nLOADING DATA...")
 
 # Stage 4 - Preference results
@@ -33,10 +31,8 @@ stats_comb_df = pd.read_csv('stage6_statistical_tests_combined.csv')
 
 print("✓ Loaded all evaluation results")
 
-# ============================================================
-# FIGURE 1: MAIN RESULTS - PREFERENCE METRICS
-# ============================================================
-
+ # FIGURE 1: MAIN RESULTS - PREFERENCE METRICS
+ 
 print("\nCreating Figure 1: Preference Evaluation Results...")
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
@@ -92,10 +88,8 @@ plt.savefig('figure1_preference_metrics.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: figure1_preference_metrics.png")
 plt.close()
 
-# ============================================================
-# FIGURE 2: COMBINED EVALUATION - LIKED & SAFE
-# ============================================================
-
+ # FIGURE 2: COMBINED EVALUATION - LIKED & SAFE
+ 
 print("\nCreating Figure 2: Combined Evaluation (Liked & Safe)...")
 
 fig, ax = plt.subplots(figsize=(10, 6))
@@ -135,10 +129,8 @@ plt.savefig('figure2_liked_and_safe.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: figure2_liked_and_safe.png")
 plt.close()
 
-# ============================================================
-# FIGURE 3: CUISINE FILTERING EFFECT
-# ============================================================
-
+ # FIGURE 3: CUISINE FILTERING EFFECT
+ 
 print("\nCreating Figure 3: Cuisine Filtering Impact...")
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
@@ -273,10 +265,8 @@ plt.savefig('figure3_cuisine_filtering_effect.png', dpi=300, bbox_inches='tight'
 print("✓ Saved: figure3_cuisine_filtering_effect.png")
 plt.close()
 
-# ============================================================
-# FIGURE 4: THREE PERSPECTIVES COMPARISON
-# ============================================================
-
+ # FIGURE 4: THREE PERSPECTIVES COMPARISON
+ 
 print("\nCreating Figure 4: Three Evaluation Perspectives...")
 
 fig, axes = plt.subplots(1, 3, figsize=(16, 5))
@@ -341,10 +331,8 @@ plt.savefig('figure4_three_perspectives.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: figure4_three_perspectives.png")
 plt.close()
 
-# ============================================================
-# FIGURE 5: SUMMARY TABLE
-# ============================================================
-
+ # FIGURE 5: SUMMARY TABLE
+ 
 print("\nCreating Figure 5: Comprehensive Summary Table...")
 
 fig, ax = plt.subplots(figsize=(14, 8))
@@ -408,10 +396,8 @@ plt.savefig('figure5_summary_table.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: figure5_summary_table.png")
 plt.close()
 
-# ============================================================
-# CREATE README
-# ============================================================
-
+ # CREATE README
+ 
 print("\nCreating visualization guide...")
 
 readme = """# STAGE 7: VISUALIZATION OUTPUTS
@@ -474,9 +460,9 @@ with open('VISUALIZATION_GUIDE.md', 'w', encoding='utf-8') as f:
 
 print("✓ Saved: VISUALIZATION_GUIDE.md")
 
-print("\n" + "="*70)
+ 
 print("STAGE 7 COMPLETE")
-print("="*70)
+ 
 print(f"""
 Created 5 publication-ready figures:
 

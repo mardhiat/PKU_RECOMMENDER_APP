@@ -3,15 +3,13 @@ import numpy as np
 import pickle
 import os
 
-print("="*70)
+ 
 print("STAGE 4: EVALUATE PREFERENCE ALIGNMENT (SELECTED + ALL)")
-print("="*70)
+ 
 
 
-# ============================================================
-# STEP 4.1: LOAD DATA
-# ============================================================
-
+ # STEP 4.1: LOAD DATA
+ 
 print("\nSTEP 4.1: LOADING DATA")
 
 # Check required files
@@ -38,15 +36,13 @@ print(f"  - Algorithms: {len(all_recommendations)}")
 print(f"  - Test ratings: {len(test_df)} ratings")
 
 
-# ============================================================
-# STEP 4.2: EVALUATION METRICS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 4.2: EVALUATION METRICS
+ 
+ 
 print("STEP 4.2: EVALUATION METRICS")
-print("="*70)
+ 
 
-LIKE_THRESHOLD = 3  # Rating >= 3 is considered "liked"
+LIKE_THRESHOLD = 4  # Rating >= 4 is considered "liked"
 
 def precision_at_k(recommended_foods, liked_foods):
     """Precision@K: What fraction of recommendations were liked?"""
@@ -88,13 +84,11 @@ print("  - F1@K: Harmonic mean of precision and recall")
 print("  - Hit Rate: Whether at least one recommendation was liked")
 
 
-# ============================================================
-# STEP 4.3: EVALUATE ALL ALGORITHMS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 4.3: EVALUATE ALL ALGORITHMS
+ 
+ 
 print("STEP 4.3: EVALUATING ALL ALGORITHMS")
-print("="*70)
+ 
 
 results = {}
 
@@ -112,7 +106,7 @@ for algo_name, user_recommendations in all_recommendations.items():
         # Get test ratings for this user
         user_test = test_df[test_df['user_name'] == user_name]
         
-        # Get liked foods (rating >= 3)
+        # Get liked foods (rating >= 4)
         liked_foods = set(user_test[user_test['rating'] >= LIKE_THRESHOLD]['food'].tolist())
         
         # Get recommended foods (just the food names, not scores)
@@ -147,13 +141,11 @@ for algo_name, user_recommendations in all_recommendations.items():
     print(f"  Hit Rate: {results[algo_name]['hit_rate_avg']:.1f}%")
 
 
-# ============================================================
-# STEP 4.4: CREATE SUMMARY TABLE
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 4.4: CREATE SUMMARY TABLE
+ 
+ 
 print("STEP 4.4: SUMMARY TABLE")
-print("="*70)
+ 
 
 # Create summary DataFrame
 summary_data = []
@@ -174,21 +166,19 @@ summary_df['F1_numeric'] = summary_df['F1@10 (%)'].astype(float)
 summary_df = summary_df.sort_values('F1_numeric', ascending=False)
 summary_df = summary_df.drop('F1_numeric', axis=1)
 
-print("\n" + "="*70)
+ 
 print("PREFERENCE EVALUATION RESULTS (NO SAFETY CONSTRAINTS)")
-print("="*70)
+ 
 print()
 print(summary_df.to_string(index=False))
 print()
 
 
-# ============================================================
-# STEP 4.5: COMPARISON: SELECTED VS ALL
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 4.5: COMPARISON: SELECTED VS ALL
+ 
+ 
 print("COMPARISON: SELECTED (SAME CUISINE) VS ALL (ANY CUISINE)")
-print("="*70)
+ 
 
 algorithms = ['content_based', 'collaborative', 'hybrid', 'popularity']
 
@@ -214,13 +204,11 @@ for algo in algorithms:
             print(f"  → TIE")
 
 
-# ============================================================
-# STEP 4.6: SAVE RESULTS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 4.6: SAVE RESULTS
+ 
+ 
 print("STEP 4.6: SAVING RESULTS")
-print("="*70)
+ 
 
 # Save summary CSV
 summary_df.to_csv('preference_evaluation_summary_TFIDF.csv', index=False)
@@ -231,9 +219,9 @@ with open('preference_evaluation_results_TFIDF.pkl', 'wb') as f:
     pickle.dump(results, f)
 print("✓ Saved: preference_evaluation_results_TFIDF.pkl")
 
-print("\n" + "="*70)
+ 
 print("STAGE 4 COMPLETE")
-print("="*70)
+ 
 print(f"""
 KEY FINDINGS:
 - Best Overall Algorithm: {summary_df.iloc[0]['Algorithm']}

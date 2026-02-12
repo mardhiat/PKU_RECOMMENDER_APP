@@ -1,10 +1,10 @@
 Algorithm,F1@10 (%),Precision@10 (%),Recall@10 (%),Hit Rate (%),Users
-hybrid_selected,19.2,14.1,36.1,77.0,113
-collaborative_selected,18.6,15.1,30.6,74.3,113
-collaborative_all,16.4,13.2,27.5,69.0,113
-popularity_selected,15.5,11.0,32.5,75.2,113
-content_based_selected,15.2,10.8,31.0,69.9,113
-hybrid_all,13.3,9.7,27.1,67.3,113
-content_based_all,8.2,5.6,18.8,52.2,113
-random,1.2,1.1,1.9,12.4,113
-popularity_all,0.6,0.4,1.9,6.2,113
+collaborative_selected,14.8,11.0,30.7,53.8,93
+hybrid_selected,13.6,9.7,31.9,52.7,93
+collaborative_all,12.8,9.2,30.3,54.8,93
+content_based_selected,11.1,7.4,27.7,50.5,93
+popularity_selected,11.0,7.2,29.4,51.6,93
+hybrid_all,10.7,7.6,26.5,49.5,93
+content_based_all,5.8,3.9,14.5,36.6,93
+popularity_all,0.6,0.4,1.2,4.3,93
+random,0.5,0.4,0.6,4.3,93

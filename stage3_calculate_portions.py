@@ -3,14 +3,12 @@ import numpy as np
 import pickle
 import os
 
-print("="*70)
+ 
 print("STAGE 3: CALCULATE SAFE PORTIONS (FIXED)")
-print("="*70)
+ 
 
-# ============================================================
-# STEP 3.1: LOAD DATA FROM PREVIOUS STAGES
-# ============================================================
-
+ # STEP 3.1: LOAD DATA FROM PREVIOUS STAGES
+ 
 print("\nSTEP 3.1: LOADING DATA")
 
 # Check if required files exist
@@ -68,10 +66,8 @@ for _, row in user_limits_df.iterrows():
 print(f"User limits ready for {len(user_limits)} users")
 
 
-# ============================================================
-# STEP 3.2: IMPLEMENT IMPROVED PORTION CALCULATION
-# ============================================================
-
+ # STEP 3.2: IMPLEMENT IMPROVED PORTION CALCULATION
+ 
 print("\nSTEP 3.2: IMPLEMENTING PORTION CALCULATION")
 
 # Configuration parameters
@@ -199,10 +195,8 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
 print("✓ Portion calculation function implemented")
 
 
-# ============================================================
-# STEP 3.3: CALCULATE PORTIONS FOR ALL RECOMMENDATIONS
-# ============================================================
-
+ # STEP 3.3: CALCULATE PORTIONS FOR ALL RECOMMENDATIONS
+ 
 print("\nSTEP 3.3: CALCULATING PORTIONS FOR ALL RECOMMENDATIONS")
 
 # Count total recommendations to process
@@ -283,10 +277,8 @@ print(f"  Skipped (no nutrition data): {skipped} recommendations")
 print(f"  Skipped (no user limits): {no_user_limits} recommendations")
 
 
-# ============================================================
-# STEP 3.4: ANALYZE PORTION STATISTICS
-# ============================================================
-
+ # STEP 3.4: ANALYZE PORTION STATISTICS
+ 
 print("\nSTEP 3.4: ANALYZING PORTION STATISTICS")
 
 if processed == 0:
@@ -345,10 +337,8 @@ for factor, count in limiting_factors.items():
     print(f"  {factor}: {count}/{total_limiting} ({pct:.1f}%)")
 
 
-# ============================================================
-# STEP 3.5: SAVE RECOMMENDATIONS WITH PORTIONS
-# ============================================================
-
+ # STEP 3.5: SAVE RECOMMENDATIONS WITH PORTIONS
+ 
 print("\nSTEP 3.5: SAVING RECOMMENDATIONS WITH PORTIONS")
 
 with open('recommendations_with_portions_TFIDF.pkl', 'wb') as f:
@@ -357,13 +347,11 @@ with open('recommendations_with_portions_TFIDF.pkl', 'wb') as f:
 print(f"\n✓ Saved: recommendations_with_portions_TFIDF.pkl")
 
 
-# ============================================================
-# FINAL SUMMARY
-# ============================================================
-
-print("\n" + "="*70)
+ # FINAL SUMMARY
+ 
+ 
 print("STAGE 3 COMPLETE - SUMMARY")
-print("="*70)
+ 
 
 print(f"""
 FILES CREATED:

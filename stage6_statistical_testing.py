@@ -3,14 +3,12 @@ import numpy as np
 from scipy import stats
 import pickle
 
-print("="*70)
+ 
 print("STAGE 6: STATISTICAL SIGNIFICANCE TESTING")
-print("="*70)
+ 
 
-# ============================================================
-# LOAD RESULTS FROM STAGE 4 AND 5
-# ============================================================
-
+ # LOAD RESULTS FROM STAGE 4 AND 5
+ 
 print("\nLOADING EVALUATION RESULTS...")
 
 # Load Stage 4 results (preference)
@@ -24,13 +22,11 @@ with open('stage5_detailed_results_TFIDF.pkl', 'rb') as f:
 print(f"✓ Loaded Stage 4 results (preference evaluation)")
 print(f"✓ Loaded Stage 5 results (combined evaluation)")
 
-# ============================================================
-# PREPARE PER-USER METRICS
-# ============================================================
-
-print("\n" + "="*70)
+ # PREPARE PER-USER METRICS
+ 
+ 
 print("PREPARING PER-USER METRICS")
-print("="*70)
+ 
 
 algorithms = [
     'content_based_selected',
@@ -63,10 +59,8 @@ for algo in algorithms:
 
 print(f"✓ Extracted liked+safe rates for {len(stage5_per_user)} algorithms")
 
-# ============================================================
-# STATISTICAL TESTING FUNCTIONS
-# ============================================================
-
+ # STATISTICAL TESTING FUNCTIONS
+ 
 def paired_t_test(scores1, scores2, name1, name2):
     """
     Perform paired t-test between two algorithms
@@ -122,13 +116,11 @@ def cohens_d(scores1, scores2):
     return d, interpretation
 
 
-# ============================================================
-# STAGE 4: PREFERENCE EVALUATION SIGNIFICANCE
-# ============================================================
-
-print("\n" + "="*70)
+ # STAGE 4: PREFERENCE EVALUATION SIGNIFICANCE
+ 
+ 
 print("STAGE 4: PREFERENCE EVALUATION - STATISTICAL TESTS")
-print("="*70)
+ 
 
 # Key comparisons for Stage 4
 comparisons_stage4 = [
@@ -186,13 +178,11 @@ stage4_df.to_csv('stage6_statistical_tests_preference.csv', index=False)
 print(f"\n✓ Saved: stage6_statistical_tests_preference.csv")
 
 
-# ============================================================
-# STAGE 5: COMBINED EVALUATION SIGNIFICANCE
-# ============================================================
-
-print("\n" + "="*70)
+ # STAGE 5: COMBINED EVALUATION SIGNIFICANCE
+ 
+ 
 print("STAGE 5: COMBINED EVALUATION - STATISTICAL TESTS")
-print("="*70)
+ 
 
 # Key comparisons for Stage 5 (same as Stage 4)
 comparisons_stage5 = comparisons_stage4
@@ -241,13 +231,11 @@ stage5_df.to_csv('stage6_statistical_tests_combined.csv', index=False)
 print(f"\n✓ Saved: stage6_statistical_tests_combined.csv")
 
 
-# ============================================================
-# SUMMARY OF KEY FINDINGS
-# ============================================================
-
-print("\n" + "="*70)
+ # SUMMARY OF KEY FINDINGS
+ 
+ 
 print("KEY STATISTICAL FINDINGS")
-print("="*70)
+ 
 
 print("\n1. BEST ALGORITHM COMPARISONS (PREFERENCE):")
 print("-" * 70)
@@ -325,13 +313,11 @@ for baseline in ['popularity_selected', 'random']:
             print(f"  ✓ SIGNIFICANTLY better than baseline")
 
 
-# ============================================================
-# WRITE SUMMARY FOR THESIS
-# ============================================================
-
-print("\n" + "="*70)
+ # WRITE SUMMARY FOR THESIS
+ 
+ 
 print("THESIS-READY SUMMARY")
-print("="*70)
+ 
 
 summary = []
 
@@ -373,9 +359,9 @@ with open('stage6_thesis_summary.txt', 'w') as f:
 print(f"\n✓ Saved: stage6_thesis_summary.txt")
 
 
-print("\n" + "="*70)
+ 
 print("STAGE 6 COMPLETE")
-print("="*70)
+ 
 print(f"""
 Statistical testing complete!
 

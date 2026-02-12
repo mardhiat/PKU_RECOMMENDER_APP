@@ -6,15 +6,13 @@ import pickle
 import os
 import random
 
-print("="*70)
+ 
 print("STAGE 2: GENERATE RECOMMENDATIONS (IMPROVED WITH CLUSTERING)")
-print("="*70)
+ 
 
 
-# ============================================================
-# STEP 2.1: LOADING DATA
-# ============================================================
-
+ # STEP 2.1: LOADING DATA
+ 
 print("\nSTEP 2.1: LOADING DATA")
 
 # Check if required files exist
@@ -69,13 +67,11 @@ for _, row in food_db_df.iterrows():
 print(f"Food database ready with {len(food_db)} foods")
 
 
-# ============================================================
-# STEP 2.2: BUILD INGREDIENT-BASED LOOKUP + CLUSTERS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.2: BUILD INGREDIENT-BASED LOOKUP + CLUSTERS
+ 
+ 
 print("🔧 LOADING INGREDIENT, CUISINE & CLUSTER DATA")
-print("="*70)
+ 
 
 # Create meal -> ingredients mapping
 meal_to_ingredients = {}
@@ -111,13 +107,11 @@ print(f"✓ Ingredient coverage: {rated_with_ingredients}/{len(all_rated_foods)}
 print(f"✓ Cluster coverage: {rated_with_clusters}/{len(all_rated_foods)} rated foods ({rated_with_clusters/len(all_rated_foods)*100:.1f}%)")
 
 
-# ============================================================
-# STEP 2.3: BUILD TF-IDF INGREDIENT VECTORS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.3: BUILD TF-IDF INGREDIENT VECTORS
+ 
+ 
 print("🔧 BUILDING TF-IDF INGREDIENT VECTORS")
-print("="*70)
+ 
 
 # Create ingredient documents (each food's ingredients as a "document")
 food_names = []
@@ -141,13 +135,11 @@ print(f"✓ Vocabulary size: {len(tfidf.vocabulary_)}")
 food_to_idx = {food: idx for idx, food in enumerate(food_names)}
 
 
-# ============================================================
-# STEP 2.4: RESTRICT RECOMMENDATION SPACE TO RATED FOODS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.4: RESTRICT RECOMMENDATION SPACE TO RATED FOODS
+ 
+ 
 print("⚠️  RESTRICTING RECOMMENDATION SPACE")
-print("="*70)
+ 
 
 # CRITICAL: Only recommend foods that have been rated by SOMEONE
 rated_foods_universe = set(all_rated_foods)
@@ -157,10 +149,8 @@ print(f"Foods rated by users: {len(rated_foods_universe)}")
 print(f"✓ All algorithms will ONLY recommend from the {len(rated_foods_universe)} rated foods")
 
 
-# ============================================================
-# STEP 2.5: HELPER FUNCTIONS
-# ============================================================
-
+ # STEP 2.5: HELPER FUNCTIONS
+ 
 def get_ingredient_vector(meal_name):
     """Get ingredient set for a meal"""
     clean_name = meal_name.lower().strip()
@@ -201,15 +191,13 @@ def calculate_tfidf_similarity(food1, food2):
     return similarity
 
 
-# ============================================================
-# STEP 2.6: CONTENT-BASED FILTERING (IMPROVED WITH CLUSTERING)
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.6: CONTENT-BASED FILTERING (IMPROVED WITH CLUSTERING)
+ 
+ 
 print("STEP 2.6: IMPLEMENTING CONTENT-BASED FILTERING (TF-IDF + CLUSTERING)")
-print("="*70)
+ 
 
-K = 15  # Top-K recommendations (optimized from parameter tuning)
+K = 10  # Top-K recommendations (optimized from parameter tuning)
 
 
 def content_based_recommendations_selected(user_name, train_df, K=10):
@@ -220,8 +208,8 @@ def content_based_recommendations_selected(user_name, train_df, K=10):
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
     
-    # Get foods user liked (rating >= 3)
-    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    # Get foods user liked (rating >= 4)
+    liked_foods = user_train[user_train['rating'] >= 4]['food'].tolist()
     
     if not liked_foods:
         return []
@@ -296,8 +284,8 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     # Get user's training data
     user_train = train_df[train_df['user_name'] == user_name]
     
-    # Get foods user liked (rating >= 3)
-    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    # Get foods user liked (rating >= 4)
+    liked_foods = user_train[user_train['rating'] >= 4]['food'].tolist()
     
     if not liked_foods:
         return []
@@ -360,13 +348,11 @@ print("✓ Content-Based (Selected) implemented - TF-IDF + clustering from user'
 print("✓ Content-Based (All) implemented - TF-IDF + clustering from any cuisine")
 
 
-# ============================================================
-# STEP 2.7: COLLABORATIVE FILTERING (TWO VERSIONS)
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.7: COLLABORATIVE FILTERING (TWO VERSIONS)
+ 
+ 
 print("STEP 2.7: IMPLEMENTING COLLABORATIVE FILTERING")
-print("="*70)
+ 
 
 
 def collaborative_filtering_recommendations_selected(user_name, train_df, K=10):
@@ -376,7 +362,7 @@ def collaborative_filtering_recommendations_selected(user_name, train_df, K=10):
     """
     # Get user's preferred cuisines
     user_train = train_df[train_df['user_name'] == user_name]
-    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    liked_foods = user_train[user_train['rating'] >= 4]['food'].tolist()
     
     liked_cuisines = set()
     for food in liked_foods:
@@ -415,7 +401,7 @@ def collaborative_filtering_recommendations_selected(user_name, train_df, K=10):
     for similar_user, similarity_score in similar_users.items():
         similar_user_ratings = train_df[
             (train_df['user_name'] == similar_user) & 
-            (train_df['rating'] >= 3)
+            (train_df['rating'] >= 4)
         ]
         
         for _, row in similar_user_ratings.iterrows():
@@ -471,7 +457,7 @@ def collaborative_filtering_recommendations_all(user_name, train_df, K=10):
     for similar_user, similarity_score in similar_users.items():
         similar_user_ratings = train_df[
             (train_df['user_name'] == similar_user) & 
-            (train_df['rating'] >= 3)
+            (train_df['rating'] >= 4)
         ]
         
         for _, row in similar_user_ratings.iterrows():
@@ -493,16 +479,14 @@ print("✓ Collaborative (Selected) implemented - recommends from user's cuisine
 print("✓ Collaborative (All) implemented - recommends from any cuisine")
 
 
-# ============================================================
-# STEP 2.8: HYBRID FILTERING (IMPROVED WITH ADAPTIVE WEIGHTING)
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.8: HYBRID FILTERING (IMPROVED WITH ADAPTIVE WEIGHTING)
+ 
+ 
 print("STEP 2.8: IMPLEMENTING HYBRID FILTERING (ADAPTIVE WEIGHTING)")
-print("="*70)
+ 
 
 
-def hybrid_recommendations_selected(user_name, train_df, K=15):
+def hybrid_recommendations_selected(user_name, train_df, K=10):
     """
     IMPROVED: Adaptive hybrid with user-experience-based weighting
     - New users (< 20 ratings): More content-based (α=0.6)
@@ -555,7 +539,7 @@ def hybrid_recommendations_selected(user_name, train_df, K=15):
     return sorted_foods[:K]
 
 
-def hybrid_recommendations_all(user_name, train_df, K=15):
+def hybrid_recommendations_all(user_name, train_df, K=10):
     """
     IMPROVED: Adaptive hybrid with user-experience-based weighting
     From ALL cuisines
@@ -605,13 +589,11 @@ print("✓ Hybrid (Selected) implemented - adaptive weighting from user's cuisin
 print("✓ Hybrid (All) implemented - adaptive weighting from any cuisine")
 
 
-# ============================================================
-# STEP 2.9: BASELINE ALGORITHMS (TWO VERSIONS)
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.9: BASELINE ALGORITHMS (TWO VERSIONS)
+ 
+ 
 print("STEP 2.9: IMPLEMENTING BASELINE ALGORITHMS")
-print("="*70)
+ 
 
 
 def popularity_recommendations_selected(user_name, train_df, K=10):
@@ -621,7 +603,7 @@ def popularity_recommendations_selected(user_name, train_df, K=10):
     """
     # Get user's preferred cuisines
     user_train = train_df[train_df['user_name'] == user_name]
-    liked_foods = user_train[user_train['rating'] >= 3]['food'].tolist()
+    liked_foods = user_train[user_train['rating'] >= 4]['food'].tolist()
     
     liked_cuisines = set()
     for food in liked_foods:
@@ -704,13 +686,11 @@ print("✓ Popularity (All) implemented")
 print("✓ Random baseline implemented")
 
 
-# ============================================================
-# STEP 2.10: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.10: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
+ 
+ 
 print("STEP 2.10: GENERATING RECOMMENDATIONS FOR ALL TEST USERS")
-print("="*70)
+ 
 
 all_recommendations = {
     'content_based_selected': {},
@@ -759,13 +739,11 @@ for i, user_name in enumerate(test_users, 1):
 print(f"\n✓ Generated recommendations for {len(test_users)} users")
 
 
-# ============================================================
-# STEP 2.11: SUMMARY STATISTICS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.11: SUMMARY STATISTICS
+ 
+ 
 print("RECOMMENDATION STATISTICS")
-print("="*70)
+ 
 
 for algo_name, recs in all_recommendations.items():
     total_recs = sum(len(user_recs) for user_recs in recs.values())
@@ -780,13 +758,11 @@ for algo_name, recs in all_recommendations.items():
     print(f"  Users with recommendations: {users_with_recs}/{len(test_users)}")
 
 
-# ============================================================
-# STEP 2.12: SAVE RESULTS
-# ============================================================
-
-print("\n" + "="*70)
+ # STEP 2.12: SAVE RESULTS
+ 
+ 
 print("SAVING RECOMMENDATIONS")
-print("="*70)
+ 
 
 # Save to pickle
 with open('recommendations_all_algorithms_TFIDF.pkl', 'wb') as f:
@@ -811,9 +787,9 @@ summary_df = pd.DataFrame(summary_data)
 summary_df.to_csv('recommendations_summary_TFIDF.csv', index=False)
 print("✓ Saved: recommendations_summary_TFIDF.csv")
 
-print("\n" + "="*70)
+ 
 print("STAGE 2 COMPLETE (IMPROVED VERSION)")
-print("="*70)
+ 
 print(f"""
 IMPROVEMENTS APPLIED:
   ✓ Ingredient-based clustering with 1.2x boost for same-cluster foods
