@@ -47,6 +47,20 @@ Aiden Velez,aidenvelez047@gmail.com,Zucca al Forno (Italian Foods),1.0
 Aiden Velez,aidenvelez047@gmail.com,Pomodori e Cipolle (Italian Foods),1.0
 Aiden Velez,aidenvelez047@gmail.com,Fagiolini lessati (Italian Foods),2.0
 Aiden Velez,aidenvelez047@gmail.com,Carciofi Grigliati (Italian Foods),2.0
+Alla,allan@gmail.com,"Potato and onions, raw Hash (Central European Foods)",4.0
+Alla,allan@gmail.com,Potato goulash (Central European Foods),4.0
+Alla,allan@gmail.com,"celery, raw and apples Slaw (Central European Foods)",4.0
+Alla,allan@gmail.com,Beet and Horseradish Slaw (Central European Foods),4.0
+Alla,allan@gmail.com,Potato Salad (Central European Foods),5.0
+Alla,allan@gmail.com,celery Root and apples Puree (Central European Foods),4.0
+Alla,allan@gmail.com,Fried Turnip Cakes (Central European Foods),4.0
+Alla,allan@gmail.com,Potato and Sauerkraut Bake (Central European Foods),4.0
+Alla,allan@gmail.com,Steamed Green Beans and Carrots (Central European Foods),1.0
+Alla,allan@gmail.com,Hungarian Cabbage and Peppers (Central European Foods),1.0
+Alla,allan@gmail.com,Roasted Fennel and Carrots (Central European Foods),2.0
+Alla,allan@gmail.com,Pickled Beet Salad (Central European Foods),2.0
+Alla,allan@gmail.com,Carrot Slaw with Mustard (Central European Foods),2.0
+Alla,allan@gmail.com,Bavarian Turnip Stir-Fry (Central European Foods),2.0
 Allison Dillon,adillon0425@gmail.com,Mango-Cucumber Lime Salad (Mexican Foods),4.0
 Allison Dillon,adillon0425@gmail.com,Chilled Avocado Cucumber Soup (Mexican Foods),4.0
 Allison Dillon,adillon0425@gmail.com,Crispy Potato Tacos (Mexican Foods),4.0
@@ -283,12 +297,53 @@ Anthony Escobar,escobant@kean.edu,Zucchini alla Scapece (Italian Foods),2.0
 Anthony Escobar,escobant@kean.edu,Cucumber-Chili Snack Cups (Mexican Foods),2.0
 Anthony Escobar,escobant@kean.edu,Pickled Vegetable Mix (Mexican Foods),2.0
 Anthony Escobar,escobant@kean.edu,Zucca al Forno (Italian Foods),2.0
-Ashley Davila,davilaas@kean.edu,Tomatillo Salsa Verde (Mexican Foods),4.0
-Ashley Davila,davilaas@kean.edu,Crispy Potato Tacos (Mexican Foods),5.0
-Ashley Davila,davilaas@kean.edu,Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),4.0
 Ashley Davila,davilaas@kean.edu,Agua Fresca (Mexican Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Water Chestnut with Garlic Sauce (Chinese Foods),5.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Snow Peas with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Tomato Cucumber Salad (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Tomato with Garlic Sauce (Chinese Foods),4.0
 Ashley Davila,davilaas@kean.edu,Cucumber-Chili Snack Cups (Mexican Foods),4.0
+Ashley Davila,davilaas@kean.edu,Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),4.0
+Ashley Davila,davilaas@kean.edu,Ribollita (without beans) (Italian Foods),5.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Enoki Mushroom with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Insalata di Radicchio e Arance (Italian Foods),4.0
+Ashley Davila,davilaas@kean.edu,Peperonata (Italian Foods),4.0
+Ashley Davila,davilaas@kean.edu,Okra Cucumber Salad (Japanese Foods),5.0
+Ashley Davila,davilaas@kean.edu,Insalata di Pomodorini (Italian Foods),5.0
+Ashley Davila,davilaas@kean.edu,Yaki Imo (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Shanghai Greens with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Pomodori al Forno (baked tomatoes) (Italian Foods),5.0
+Ashley Davila,davilaas@kean.edu,Vegetarian Winter Melon Soup (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),5.0
+Ashley Davila,davilaas@kean.edu,Cucumber Sunomono Salad (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Grilled Corn with Lime and Cilantro (Mexican Foods),5.0
+Ashley Davila,davilaas@kean.edu,Roasted Sweet Kabocha (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Corn and Veggie Tacos (Mexican Foods),5.0
+Ashley Davila,davilaas@kean.edu,Fave e Cicoria (Italian Foods),4.0
+Ashley Davila,davilaas@kean.edu,Cucumber Miso Slaw (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Garlic and Roasted Plantains with Cilantro Dip (Mexican Foods),4.0
+Ashley Davila,davilaas@kean.edu,Cabbage and Apple Slaw (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Crispy Potato Tacos (Mexican Foods),5.0
+Ashley Davila,davilaas@kean.edu,Quick Pickled Carrots (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Sweet Carrot Slaw (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Mexican Mashed Sweet Potato (Mexican Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Tatsoi with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Pomodori Ripieni (without cheese) (Italian Foods),4.0
+Ashley Davila,davilaas@kean.edu,Garlic Daikon Stir-Fry (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Garlic Bok Choy Stir-Fry (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Winter Melon with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Simple Tomato Salad (Japanese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Kailan with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Mexican Street Corn Salad (Mexican Foods),4.0
+Ashley Davila,davilaas@kean.edu,Stir-Fried Seaweed (rehydrated) with Garlic Sauce (Chinese Foods),4.0
+Ashley Davila,davilaas@kean.edu,Insalata di Finocchi (Italian Foods),4.0
+Ashley Davila,davilaas@kean.edu,Verdure al Vapore (Italian Foods),4.0
+Ashley Davila,davilaas@kean.edu,vegetable stir-fry (Japanese Foods),5.0
+Ashley Davila,davilaas@kean.edu,Patate al Forno (Italian Foods),5.0
 Ashley Davila,davilaas@kean.edu,Mango-Cucumber Lime Salad (Mexican Foods),2.0
+Ashley Davila,davilaas@kean.edu,Roasted Chili-Lime Carrots (Mexican Foods),2.0
+Ashley Davila,davilaas@kean.edu,Cavolfiore Gratinate (Italian Foods),2.0
 Ashley Davila,davilaas@kean.edu,Jicama Tostadas with Mango Salsa (Mexican Foods),2.0
 Ashley Davila,davilaas@kean.edu,Refried Zucchini (Mexican Foods),2.0
 Ashley Davila,davilaas@kean.edu,Chilled Avocado Cucumber Soup (Mexican Foods),2.0
@@ -659,6 +714,32 @@ Deepta Tejasa Vuppalapaty,vuppalad@kean.edu,Stir-Fried Pickled Radish with Garli
 Deepta Tejasa Vuppalapaty,vuppalad@kean.edu,Cucumber-Chili Snack Cups (Mexican Foods),4.0
 Deepta Tejasa Vuppalapaty,vuppalad@kean.edu,Simple Sweet Rice (Indian Foods),5.0
 Deepta Tejasa Vuppalapaty,vuppalad@kean.edu,Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),1.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Vegetable Pulao (Indian Foods),4.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Low-Protein Breakfast Burrito (Mexican Foods),4.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Gobhi Masala (Indian Foods),4.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Sweet and Sour Cabbage (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),1.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Tomato Sevai (Indian Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Stir-Fried Fuzzy Melon with Garlic Sauce (Chinese Foods),1.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Mango-Cucumber Lime Salad (Mexican Foods),1.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Stir-Fried Beets with Garlic Sauce (Chinese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Pickled Eggplant Salad (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Sweet Potato Tacos with Paprika Aioli (Mexican Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Malai Toast (Indian Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Jeera Aloo (Indian Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Jicama Tostadas with Mango Salsa (Mexican Foods),1.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Kachumber Salad (Indian Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Pumpkin Soup (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Okra Carrot Side Dish (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Chilled Okra Salad (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Quick Kabocha Pickles (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Aloo Gobhi (Indian Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Sweet Pickled Radish (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Stir-Fried Bamboo Shoots with Garlic Sauce (Chinese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Chinese Cucumber Salad  (Chinese Foods),1.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Cucumber-Chili Snack Cups (Mexican Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Sweet Carrot Slaw (Japanese Foods),2.0
+Deepta Vuppalapaty,deeptatejasa@gmail.com,Kadhi (Mock) (Indian Foods),2.0
 Destiny ,dubreidd@kean.edu,Insalata di Cetrioli (Italian Foods),5.0
 Destiny ,dubreidd@kean.edu,Insalata di Carote (Italian Foods),4.0
 Destiny ,dubreidd@kean.edu,Insalata di Pomodorini (Italian Foods),4.0
@@ -670,6 +751,21 @@ Destiny ,dubreidd@kean.edu,Funghi trifolati (Italian Foods),2.0
 Destiny ,dubreidd@kean.edu,Minestra di Zucca (Italian Foods),1.0
 Destiny ,dubreidd@kean.edu,Zucca al Forno (Italian Foods),1.0
 Destiny ,dubreidd@kean.edu,Panzanella (bread salad) (Italian Foods),2.0
+Edward,edward@gmail.com,lemony lentil-free tabbouleh (Mediterranean Foods),5.0
+Edward,edward@gmail.com,roasted cauliflower with paprika (Mediterranean Foods),4.0
+Edward,edward@gmail.com,lemon basil quinoa-free pilaf (Mediterranean Foods),5.0
+Edward,edward@gmail.com,garlic lemon roasted bell peppers (Mediterranean Foods),4.0
+Edward,edward@gmail.com,date and almond energy bites (Mediterranean Foods),4.0
+Edward,edward@gmail.com,grilled peach with balsamic (Mediterranean Foods),4.0
+Edward,edward@gmail.com,orange cinnamon compote (Mediterranean Foods),4.0
+Edward,edward@gmail.com,Tomato and basil bruschetta topping (Mediterranean Foods),5.0
+Edward,edward@gmail.com,sauteed spinach with garlic (Mediterranean Foods),4.0
+Edward,edward@gmail.com,baked apples with pomegranate drizzle (Mediterranean Foods),5.0
+Edward,edward@gmail.com,date and coconut rolls (Mediterranean Foods),5.0
+Edward,edward@gmail.com,stewed zucchini and tomatoes (Mediterranean Foods),4.0
+Edward,edward@gmail.com,chilled tomato and watermelon soup (Mediterranean Foods),5.0
+Edward,edward@gmail.com,roasted fig and walnut bites (Mediterranean Foods),5.0
+Edward,edward@gmail.com,roasted red pepper puree (Mediterranean Foods),2.0
 Eljesa Maliqi,maliqie@kean.edu,sauteed green beans with lemon zest (Mediterranean Foods),4.0
 Eljesa Maliqi,maliqie@kean.edu,Turnip and Apple Salad (Eastern European Foods),4.0
 Eljesa Maliqi,maliqie@kean.edu,Stuffed Apples with Jam (Eastern European Foods),4.0
@@ -1033,6 +1129,18 @@ Jhony Pellicer,pellicej@kean.edu,Carciofi alla Romana (Italian Foods),2.0
 Jhony Pellicer,pellicej@kean.edu,Finocchi al Limone (Italian Foods),2.0
 Jhony Pellicer,pellicej@kean.edu,Fagiolini lessati (Italian Foods),2.0
 Jhony Pellicer,pellicej@kean.edu,Insalata di Carote e Limone (Italian Foods),2.0
+Jiayi Lin,linjiay@kean.edu,Yu Choy Sum (Chinese Foods),4.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Taro (limited) with Garlic Sauce (Chinese Foods),5.0
+Jiayi Lin,linjiay@kean.edu,Steamed Eggplant (Chinese Foods),4.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Enoki Mushroom with Garlic Sauce (Chinese Foods),5.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Pumpkin with Garlic Sauce (Chinese Foods),4.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),2.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Pickled Radish with Garlic Sauce (Chinese Foods),2.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Chayote with Garlic Sauce (Chinese Foods),2.0
+Jiayi Lin,linjiay@kean.edu,Stir-Fried Winter Melon with Garlic Sauce (Chinese Foods),0.0
+Jiayi Lin,linjiay@kean.edu,Cabbage and Apple Slaw (Chinese Foods),1.0
+Jiayi Lin,linjiay@kean.edu,Spicy Pickled Napa Cabbage (Simple Kimchi-style) (Chinese Foods),1.0
+Jiayi Lin,linjiay@kean.edu,Chinese Cucumber Salad  (Chinese Foods),0.0
 Jonathan Valentin,vajonath@kean.edu,Insalata di Radicchio e Arance (Italian Foods),4.0
 Jonathan Valentin,vajonath@kean.edu,Cicoria Lessata (Italian Foods),4.0
 Jonathan Valentin,vajonath@kean.edu,Grilled Corn with Lime and Cilantro (Mexican Foods),4.0
@@ -1417,6 +1525,31 @@ Layla Muhammad,muhamlay@kean.edu,Spicy Pickled Napa Cabbage (Simple Kimchi-style
 Layla Muhammad,muhamlay@kean.edu,Braised Daikon with Shitake Mushrooms (Chinese Foods),1.0
 Layla Muhammad,muhamlay@kean.edu,Minestra di Zucca (Italian Foods),0.0
 Layla Muhammad,muhamlay@kean.edu,Melanzane alla Griglia (Italian Foods),1.0
+Le' Ziya James- Coney,jamescle@kean.edu,Corn and Veggie Tacos (Mexican Foods),4.0
+Le' Ziya James- Coney,jamescle@kean.edu,Boiled Sweet Potatoes (African Foods),5.0
+Le' Ziya James- Coney,jamescle@kean.edu,Sweet Potato Chips (African Foods),4.0
+Le' Ziya James- Coney,jamescle@kean.edu,Steamed Vegetables (African Foods),5.0
+Le' Ziya James- Coney,jamescle@kean.edu,Plantain and Tomato Salad (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Roasted Garden Eggplant (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Mexican Street Corn Salad (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Mango-Cucumber Lime Salad (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Tomato and Cucumber Salad (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Stuffed Bell peppers (Mexican Foods),1.0
+Le' Ziya James- Coney,jamescle@kean.edu,Garlic and Roasted Plantains with Cilantro Dip (Mexican Foods),2.0
+Le' Ziya James- Coney,jamescle@kean.edu,Sweet Corn and Pepper Hash (Mexican Foods),2.0
+Le' Ziya James- Coney,jamescle@kean.edu,Boiled Pumpkin Leaves (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Avocado Salad (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Grilled Corn with Lime and Cilantro (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Chayote Squash Salad with Lime and Chili (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Cucumber-Chili Snack Cups (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Baked Plantains (African Foods),2.0
+Le' Ziya James- Coney,jamescle@kean.edu,Pickled Vegetable Mix (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Okra and Eggplant Stew (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Agua Fresca (Mexican Foods),1.0
+Le' Ziya James- Coney,jamescle@kean.edu,Cooked Waterleaf (African Foods),0.0
+Le' Ziya James- Coney,jamescle@kean.edu,Baobab Fruit Drink (African Foods),1.0
+Le' Ziya James- Coney,jamescle@kean.edu,Roasted Chili-Lime Carrots (Mexican Foods),0.0
 Liana Thompson,thomplia@kean.edu,Agua Fresca (Mexican Foods),5.0
 Liana Thompson,thomplia@kean.edu,Lettuce Wrapped Veggie Tacos with Pineapple Slaw (Mexican Foods),5.0
 Liana Thompson,thomplia@kean.edu,Chilled Avocado Cucumber Soup (Mexican Foods),5.0
@@ -1524,6 +1657,43 @@ Ofoegbu Bernice ,ofoegbub@kean.edu,Watermelon Salad (African Foods),5.0
 Ofoegbu Bernice ,ofoegbub@kean.edu,Matoke (boiled green Bananas) (African Foods),1.0
 Ofoegbu Bernice ,ofoegbub@kean.edu,Cooked Waterleaf (African Foods),2.0
 Ofoegbu Bernice ,ofoegbub@kean.edu,Boiled Pumpkin Leaves (African Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Potato and fresh dill Patties (Eastern European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Potato and fresh dill Soup (Eastern European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Low-Protein Breakfast Burrito (Mexican Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Chilled Avocado Cucumber Soup (Mexican Foods),5.0
+Olivia Tirso,tirsoo@kean.edu,Mexican Street Corn Salad (Mexican Foods),5.0
+Olivia Tirso,tirsoo@kean.edu,"Roasted Carrot and onions, raw (Central European Foods)",4.0
+Olivia Tirso,tirsoo@kean.edu,Roasted Garlic Red beets (Central European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Korean Style Carrot Salad (Eastern European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,"Potato and onions, raw Hash (Central European Foods)",4.0
+Olivia Tirso,tirsoo@kean.edu,Agua Fresca (Mexican Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Mexican Mashed Sweet Potato (Mexican Foods),5.0
+Olivia Tirso,tirsoo@kean.edu,Carrot and Apple Salad (Eastern European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Cold Marinated Vegetables (Eastern European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Corn and Veggie Tacos (Mexican Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Zucchini and Pepper Stir Fry (Central European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Rustic Cabbage Stew (Central European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,Beet and Radish Salad (Eastern European Foods),4.0
+Olivia Tirso,tirsoo@kean.edu,celery Root and apples Puree (Central European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Cactus and Tomato Salad (Mexican Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Stewed Green Beans with Tomato (Eastern European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Braised Red Cabbage (Central European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Fried Turnip Cakes (Central European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Bavarian Turnip Stir-Fry (Central European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Refried Zucchini (Mexican Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Fried Sauerkraut with Apples (Central European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Spiced Apple Slices (Eastern European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Spiced apples Slaw (Central European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Potato Salad (Central European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Hungarian Cabbage and Peppers (Central European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Cucumber Beet Salad (Eastern European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Potato and Sauerkraut Bake (Central European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Cucumber-Chili Snack Cups (Mexican Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Potato-Carrot Hash (Central European Foods),2.0
+Olivia Tirso,tirsoo@kean.edu,Pickled Vegetable Mix (Mexican Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Stuffed Cabbage Filling (Eastern European Foods),1.0
+Olivia Tirso,tirsoo@kean.edu,Tomatillo Salsa Verde (Mexican Foods),1.0
 Olivia Tirso ,tirsoo@kean.edu,Patate e Cipolle (Italian Foods),4.0
 Olivia Tirso ,tirsoo@kean.edu,Roasted Chili-Lime Carrots (Mexican Foods),5.0
 Olivia Tirso ,tirsoo@kean.edu,Grilled Corn with Lime and Cilantro (Mexican Foods),5.0
@@ -1741,6 +1911,20 @@ Sebastian Fuentes,fuentseb@kean.edu,Stir-Fried Bamboo Shoots with Garlic Sauce (
 Sebastian Fuentes,fuentseb@kean.edu,Stir-Fried Taro (limited) with Garlic Sauce (Chinese Foods),2.0
 Sebastian Fuentes,fuentseb@kean.edu,Stir-Fried Fuzzy Melon with Garlic Sauce (Chinese Foods),2.0
 Sebastian Fuentes,fuentseb@kean.edu,Melanzane alla Griglia (Italian Foods),0.0
+Selina Ding,13338000433@163.com,Stir-Fried Chinese Broccoli with Garlic Sauce (Chinese Foods),4.0
+Selina Ding,13338000433@163.com,Stir-Fried Bamboo Shoots with Garlic Sauce (Chinese Foods),5.0
+Selina Ding,13338000433@163.com,Stir-Fried Kailan with Garlic Sauce (Chinese Foods),4.0
+Selina Ding,13338000433@163.com,Stir-Fried Garlic Sprouts with Garlic Sauce (Chinese Foods),5.0
+Selina Ding,13338000433@163.com,Stir-Fried Okra with Garlic Sauce (Chinese Foods),5.0
+Selina Ding,13338000433@163.com,Spicy Pickled Napa Cabbage (Simple Kimchi-style) (Chinese Foods),5.0
+Selina Ding,13338000433@163.com,Stir-Fried Tatsoi with Garlic Sauce (Chinese Foods),4.0
+Selina Ding,13338000433@163.com,Stir-Fried Beets with Garlic Sauce (Chinese Foods),4.0
+Selina Ding,13338000433@163.com,Stir-Fried Eggplant with Garlic Sauce (Chinese Foods),4.0
+Selina Ding,13338000433@163.com,Stir-Fried Cabbage Core Shreds with Garlic Sauce (Chinese Foods),4.0
+Selina Ding,13338000433@163.com,Stir-Fried Pumpkin with Garlic Sauce (Chinese Foods),1.0
+Selina Ding,13338000433@163.com,Braised Kabocha Squash (Chinese Foods),2.0
+Selina Ding,13338000433@163.com,Stir-Fried Daikon Radish with Garlic Sauce (Chinese Foods),2.0
+Selina Ding,13338000433@163.com,Stir-Fried Fennel with Garlic Sauce (Chinese Foods),1.0
 Sharmaine J. Pearson,pearshar@kean.edu,Stir-Fried Okra with Garlic Sauce (Chinese Foods),5.0
 Sharmaine J. Pearson,pearshar@kean.edu,Garlic Bok Choy Stir-Fry (Chinese Foods),4.0
 Sharmaine J. Pearson,pearshar@kean.edu,Insalata di Pomodori (Italian Foods),5.0
@@ -1770,6 +1954,18 @@ Sharmaine J. Pearson,pearshar@kean.edu,Stir-Fried Jicama with Garlic Sauce (Chin
 Sharmaine J. Pearson,pearshar@kean.edu,Stir-Fried Enoki Mushroom with Garlic Sauce (Chinese Foods),1.0
 Sharmaine J. Pearson,pearshar@kean.edu,Mexican Mashed Sweet Potato (Mexican Foods),2.0
 Sharmaine J. Pearson,pearshar@kean.edu,Chilled Avocado Cucumber Soup (Mexican Foods),2.0
+Silu Yang,yangsil@kean.edu,Stir-Fried Shanghai Greens with Garlic Sauce (Chinese Foods),4.0
+Silu Yang,1243106356@qq.com,Stir-Fried Celery with Garlic Sauce (Chinese Foods),4.0
+Silu Yang,yangsil@kean.edu,Stir-Fried Sweet Corn (limited) with Garlic Sauce (Chinese Foods),4.0
+Silu Yang,yangsil@kean.edu,Stir-Fried Daikon Radish with Garlic Sauce (Chinese Foods),4.0
+Silu Yang,yangsil@kean.edu,Stir-Fried Lettuce with Garlic Sauce (Chinese Foods),4.0
+Silu Yang,1243106356@qq.com,Stir-Fried Parsley with Garlic Sauce (Chinese Foods),4.0
+Silu Yang,yangsil@kean.edu,Stir-Fried Green Cabbage with Garlic Sauce (Chinese Foods),2.0
+Silu Yang,1243106356@qq.com,Stir-Fried Turnip with Garlic Sauce (Chinese Foods),2.0
+Silu Yang,yangsil@kean.edu,Low-Protein Dumplings (Chinese Foods),2.0
+Silu Yang,1243106356@qq.com,Vegetable Low-Protein Fried Rice (Chinese Foods),2.0
+Silu Yang,yangsil@kean.edu,Yu Choy Sum (Chinese Foods),2.0
+Silu Yang,1243106356@qq.com,Stir-Fried Water Chestnut with Garlic Sauce (Chinese Foods),2.0
 Sofia Lopez ,Sofielopez.7337@gmail.com,Mexican Street Corn Salad (Mexican Foods),4.0
 Sofia Lopez ,Sofielopez.7337@gmail.com,Taco Lettuce Wraps with Spiced Veggies (Mexican Foods),5.0
 Sofia Lopez ,Sofielopez.7337@gmail.com,Sweet Potato Tacos with Paprika Aioli (Mexican Foods),4.0
@@ -2075,21 +2271,24 @@ Yuchen Zhou,zhouyuch@kean.edu,Stir-Fried Fuzzy Melon with Garlic Sauce (Chinese 
 Yuchen Zhou,zhouyuch@kean.edu,Stir Fry Bean Sprouts and Garlic Chives (Chinese Foods),2.0
 Yuchen Zhou,zhouyuch@kean.edu,Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),2.0
 Yuchen Zhou,zhouyuch@kean.edu,Stir-Fried Peas (Chinese Foods),2.0
-Yuexi Ding,dingyuex@kean.edu,Yu Choy Sum (Chinese Foods),4.0
-Yuexi Ding,dingyuex@kean.edu,Stir-Fried Bok Choy with Garlic Sauce (Chinese Foods),4.0
-Yuexi Ding,dingyuex@kean.edu,Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),4.0
-Yuexi Ding,dingyuex@kean.edu,Stir-Fried Green Cabbage with Garlic Sauce (Chinese Foods),4.0
-Yuexi Ding,dingyuex@kean.edu,Pumpkin Congee (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Stir-Fried Eggplant with Garlic Sauce (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Celery with Garlic Sauce (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Stir-Fried Celery & Wood Ear Mushrooms (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Yu Choy Sum (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Stir-Fried Green Cabbage with Garlic Sauce (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Dry-Fried Green Beans (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Stir-Fried Chinese Leek with Garlic Sauce (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Garlic Bok Choy Stir-Fry (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Daikon Radish with Garlic Sauce (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Spinach with Garlic Sauce (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Shanghai Greens with Garlic Sauce (Chinese Foods),4.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Tatsoi with Garlic Sauce (Chinese Foods),4.0
+Yuexi Ding,dingyuex@kean.edu,Stir-Fried Jicama with Garlic Sauce (Chinese Foods),2.0
 Yuexi Ding,dingyuex@kean.edu,Braised Kabocha Squash (Chinese Foods),2.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Cilantro with Garlic Sauce (Chinese Foods),2.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Fennel with Garlic Sauce (Chinese Foods),1.0
+Yuexi Ding,dingyuex@kean.edu,Steamed Eggplant (Chinese Foods),2.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Yam with Garlic Sauce (Chinese Foods),2.0
 Yuexi Ding,dingyuex@kean.edu,Chinese-Style Steamed Zucchini (Chinese Foods),2.0
 Yuexi Ding,dingyuex@kean.edu,Stir-Fried Tomato with Garlic Sauce (Chinese Foods),2.0
@@ -2245,6 +2444,21 @@ mikarla Portuondo,portuonm@kean.edu,Aloo Baingan (Indian Foods),4.0
 mikarla Portuondo,portuonm@kean.edu,Jicama Tostadas with Mango Salsa (Mexican Foods),5.0
 mikarla Portuondo,portuonm@kean.edu,Masala French Fries (Indian Foods),2.0
 mikarla Portuondo,portuonm@kean.edu,Cucumber-Chili Snack Cups (Mexican Foods),2.0
+nazi moara,nazi.moara@gmail.com,Simple Dahi Chawal (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Lemon Rice (Indian Foods),5.0
+nazi moara,nazi.moara@gmail.com,Jaggery Poha (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Tomato Rasam (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Dry Aloo Matar (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Aloo Gobhi (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Aloo Baingan (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Potato Capsicum Fry (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Plain Khichdi (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Tinda Sabzi (Indian Foods),5.0
+nazi moara,nazi.moara@gmail.com,Tamarind Potatoes (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Gajar Matar (Indian Foods),4.0
+nazi moara,nazi.moara@gmail.com,Tomato Upma (Indian Foods),2.0
+nazi moara,nazi.moara@gmail.com,Spiced Corn (Indian Foods),2.0
+nazi moara,nazi.moara@gmail.com,Dosa Base (Indian Foods),1.0
 zach ,marcheschi,Patate e Cipolle (Italian Foods),5.0
 zach ,marcheschi,Insalata di Finocchi (Italian Foods),5.0
 zach ,marcheschi,Patate al Forno (Italian Foods),4.0
