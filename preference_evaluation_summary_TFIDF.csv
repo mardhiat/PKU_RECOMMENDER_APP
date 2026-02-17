@@ -2,9 +2,9 @@ Algorithm,F1@10 (%),Precision@10 (%),Recall@10 (%),Hit Rate (%),Users
 collaborative_selected,13.0,9.5,27.3,50.0,102
 hybrid_selected,12.8,8.9,30.3,52.0,102
 collaborative_all,11.7,8.2,27.7,51.0,102
-content_based_selected,11.0,7.4,27.4,50.0,102
+content_based_selected,10.9,7.3,27.1,49.0,102
 popularity_selected,10.5,6.9,28.1,49.0,102
 hybrid_all,9.9,6.9,25.3,48.0,102
 content_based_all,5.8,3.8,14.3,35.3,102
-random,1.4,1.0,2.6,8.8,102
+random,1.7,1.2,4.1,11.8,102
 popularity_all,0.5,0.4,1.1,3.9,102

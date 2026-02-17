@@ -129,7 +129,7 @@ plt.savefig('figure2_liked_and_safe.png', dpi=300, bbox_inches='tight')
 print("✓ Saved: figure2_liked_and_safe.png")
 plt.close()
 
- # FIGURE 3: CUISINE FILTERING EFFECT
+ # FIGURE 3: CUISINE FILTERING EFFECT - NOW WITH HORIZONTAL BARS
  
 print("\nCreating Figure 3: Cuisine Filtering Impact...")
 
@@ -160,37 +160,38 @@ def get_pvalue(algo_base, stats_df):
         return row.iloc[0]['p_value']
     return None
 
-# Plot 1: Preference (F1)
+# Plot 1: Preference (F1) - NOW HORIZONTAL
 ax1 = axes[0]
 algos = list(cuisine_comparison.keys())
 selected_scores = [float(cuisine_comparison[a]['Selected']) for a in algos]
 all_scores = [float(cuisine_comparison[a]['All']) for a in algos]
 
-x = np.arange(len(algos))
-width = 0.35
+y = np.arange(len(algos))
+height = 0.35
 
-bars1 = ax1.bar(x - width/2, selected_scores, width, 
+# Changed from ax1.bar to ax1.barh for horizontal bars
+bars1 = ax1.barh(y + height/2, selected_scores, height, 
                 label='Cuisine-Filtered (Selected)', color='#2ecc71', alpha=0.9)
-bars2 = ax1.bar(x + width/2, all_scores, width, 
+bars2 = ax1.barh(y - height/2, all_scores, height, 
                 label='Cross-Cuisine (All)', color='#95a5a6', alpha=0.9)
 
-ax1.set_ylabel('F1@10 Score (%)', fontsize=12, fontweight='bold')
+ax1.set_xlabel('F1@10 Score (%)', fontsize=12, fontweight='bold')
 ax1.set_title('A) Cuisine Filtering Effect on Preference', fontsize=13, fontweight='bold')
-ax1.set_xticks(x)
-ax1.set_xticklabels(algos, fontsize=11)
-ax1.legend(fontsize=10)
-ax1.set_ylim(0, 25)
+ax1.set_yticks(y)
+ax1.set_yticklabels(algos, fontsize=11)
+ax1.legend(fontsize=10, loc='lower right')
+ax1.set_xlim(0, 25)
 
-# Add value labels and significance stars
+# Add value labels and significance stars - adjusted for horizontal bars
 for i, algo in enumerate(algos):
-    # Selected bars
-    ax1.text(i - width/2, selected_scores[i] + 0.5, f"{selected_scores[i]:.1f}%", 
-             ha='center', fontsize=9, fontweight='bold')
-    # All bars
-    ax1.text(i + width/2, all_scores[i] + 0.5, f"{all_scores[i]:.1f}%", 
-             ha='center', fontsize=9)
+    # Selected bars (now on right side)
+    ax1.text(selected_scores[i] + 0.5, i + height/2, f"{selected_scores[i]:.1f}%", 
+             va='center', fontsize=9, fontweight='bold')
+    # All bars (now on right side)
+    ax1.text(all_scores[i] + 0.5, i - height/2, f"{all_scores[i]:.1f}%", 
+             va='center', fontsize=9)
     
-    # Add significance stars
+    # Add significance stars - now to the right of bars
     p_val = get_pvalue(algo.lower().replace('-', '_'), stats_pref_df)
     if p_val is not None:
         if p_val < 0.001:
@@ -202,10 +203,10 @@ for i, algo in enumerate(algos):
         else:
             stars = 'ns'
         
-        max_height = max(selected_scores[i], all_scores[i])
-        ax1.text(i, max_height + 1.5, stars, ha='center', fontsize=12, fontweight='bold')
+        max_score = max(selected_scores[i], all_scores[i])
+        ax1.text(max_score + 2.0, i, stars, va='center', fontsize=12, fontweight='bold')
 
-# Plot 2: Combined (Liked & Safe)
+# Plot 2: Combined (Liked & Safe) - NOW HORIZONTAL
 ax2 = axes[1]
 
 cuisine_comparison_combined = {
@@ -226,26 +227,27 @@ cuisine_comparison_combined = {
 selected_scores_comb = [cuisine_comparison_combined[a]['Selected'] for a in algos]
 all_scores_comb = [cuisine_comparison_combined[a]['All'] for a in algos]
 
-bars3 = ax2.bar(x - width/2, selected_scores_comb, width, 
+# Changed from ax2.bar to ax2.barh for horizontal bars
+bars3 = ax2.barh(y + height/2, selected_scores_comb, height, 
                 label='Cuisine-Filtered (Selected)', color='#27ae60', alpha=0.9)
-bars4 = ax2.bar(x + width/2, all_scores_comb, width, 
+bars4 = ax2.barh(y - height/2, all_scores_comb, height, 
                 label='Cross-Cuisine (All)', color='#7f8c8d', alpha=0.9)
 
-ax2.set_ylabel('Liked & Safe Rate (%)', fontsize=12, fontweight='bold')
+ax2.set_xlabel('Liked & Safe Rate (%)', fontsize=12, fontweight='bold')
 ax2.set_title('B) Cuisine Filtering Effect on Combined Metric', fontsize=13, fontweight='bold')
-ax2.set_xticks(x)
-ax2.set_xticklabels(algos, fontsize=11)
-ax2.legend(fontsize=10)
-ax2.set_ylim(0, 8)
+ax2.set_yticks(y)
+ax2.set_yticklabels(algos, fontsize=11)
+ax2.legend(fontsize=10, loc='lower right')
+ax2.set_xlim(0, 8)
 
-# Add value labels and significance stars
+# Add value labels and significance stars - adjusted for horizontal bars
 for i, algo in enumerate(algos):
-    ax2.text(i - width/2, selected_scores_comb[i] + 0.15, f"{selected_scores_comb[i]:.1f}%", 
-             ha='center', fontsize=9, fontweight='bold')
-    ax2.text(i + width/2, all_scores_comb[i] + 0.15, f"{all_scores_comb[i]:.1f}%", 
-             ha='center', fontsize=9)
+    ax2.text(selected_scores_comb[i] + 0.15, i + height/2, f"{selected_scores_comb[i]:.1f}%", 
+             va='center', fontsize=9, fontweight='bold')
+    ax2.text(all_scores_comb[i] + 0.15, i - height/2, f"{all_scores_comb[i]:.1f}%", 
+             va='center', fontsize=9)
     
-    # Add significance stars
+    # Add significance stars - now to the right of bars
     p_val = get_pvalue(algo.lower().replace('-', '_'), stats_comb_df)
     if p_val is not None:
         if p_val < 0.001:
@@ -257,8 +259,8 @@ for i, algo in enumerate(algos):
         else:
             stars = 'ns'
         
-        max_height = max(selected_scores_comb[i], all_scores_comb[i])
-        ax2.text(i, max_height + 0.3, stars, ha='center', fontsize=12, fontweight='bold')
+        max_score = max(selected_scores_comb[i], all_scores_comb[i])
+        ax2.text(max_score + 0.5, i, stars, va='center', fontsize=12, fontweight='bold')
 
 plt.tight_layout()
 plt.savefig('figure3_cuisine_filtering_effect.png', dpi=300, bbox_inches='tight')
@@ -406,23 +408,23 @@ readme = """# STAGE 7: VISUALIZATION OUTPUTS
 
 ### Figure 1: Preference Evaluation Results
 **File:** `figure1_preference_metrics.png`
-**Description:** Shows F1, Precision, and Recall scores for all algorithms
+**Description:** Shows F1, Precision, and Recall scores for all algorithms (horizontal bars)
 **Use in thesis:** Section on recommendation quality / preference alignment
 
 ### Figure 2: Liked & Safe Rate
 **File:** `figure2_liked_and_safe.png`
-**Description:** Combined preference + safety evaluation
+**Description:** Combined preference + safety evaluation (horizontal bars)
 **Use in thesis:** Main results section - this is your PRIMARY metric
 
 ### Figure 3: Cuisine Filtering Effect
 **File:** `figure3_cuisine_filtering_effect.png`
-**Description:** Side-by-side comparison of Selected vs All cuisines with p-values
+**Description:** Side-by-side comparison of Selected vs All cuisines with p-values (horizontal bars)
 **Use in thesis:** This demonstrates your MAIN CONTRIBUTION (cuisine filtering)
 **Key insight:** Shows highly significant improvements (p<0.001) from cuisine filtering
 
 ### Figure 4: Three Perspectives
 **File:** `figure4_three_perspectives.png`
-**Description:** Liked & Safe, Coverage, and Acceptance rates side-by-side
+**Description:** Liked & Safe, Coverage, and Acceptance rates side-by-side (horizontal bars)
 **Use in thesis:** Comprehensive evaluation section
 
 ### Figure 5: Summary Table
@@ -432,7 +434,7 @@ readme = """# STAGE 7: VISUALIZATION OUTPUTS
 
 ## Statistical Significance Notation
 
-In Figure 3, the stars above bars indicate:
+In Figure 3, the stars to the right of bars indicate:
 - `***` p < 0.001 (highly significant)
 - `**`  p < 0.01  (very significant)
 - `*`   p < 0.05  (significant)
@@ -452,7 +454,7 @@ In Figure 3, the stars above bars indicate:
 4. Include Figure 5 in appendix for complete comparison
 5. Reference statistical significance from Stage 6 results
 
-All figures are 300 DPI, publication-ready quality.
+All figures are 300 DPI, publication-ready quality with consistent horizontal bar orientation.
 """
 
 with open('VISUALIZATION_GUIDE.md', 'w', encoding='utf-8') as f:
@@ -464,21 +466,13 @@ print("✓ Saved: VISUALIZATION_GUIDE.md")
 print("STAGE 7 COMPLETE")
  
 print(f"""
-Created 5 publication-ready figures:
+Created 5 publication-ready figures (ALL WITH HORIZONTAL BARS):
 
-  1. figure1_preference_metrics.png - F1, Precision, Recall
-  2. figure2_liked_and_safe.png - Primary metric (Liked & Safe)
-  3. figure3_cuisine_filtering_effect.png - Main contribution with p-values
-  4. figure4_three_perspectives.png - All three evaluation perspectives
+  1. figure1_preference_metrics.png - F1, Precision, Recall (horizontal)
+  2. figure2_liked_and_safe.png - Primary metric (horizontal)
+  3. figure3_cuisine_filtering_effect.png - Main contribution with p-values (horizontal)
+  4. figure4_three_perspectives.png - All three evaluation perspectives (horizontal)
   5. figure5_summary_table.png - Comprehensive comparison table
 
 All figures are 300 DPI and ready for thesis inclusion.
-
-NEXT STEPS:
-- Review all figures
-- Insert into thesis document
-- Use Figure 3 to highlight your cuisine filtering contribution
-- Reference statistical significance (p-values shown on charts)
-
-Stage 8: Write the report/thesis
 """)

@@ -4,23 +4,23 @@
 
 ### Figure 1: Preference Evaluation Results
 **File:** `figure1_preference_metrics.png`
-**Description:** Shows F1, Precision, and Recall scores for all algorithms
+**Description:** Shows F1, Precision, and Recall scores for all algorithms (horizontal bars)
 **Use in thesis:** Section on recommendation quality / preference alignment
 
 ### Figure 2: Liked & Safe Rate
 **File:** `figure2_liked_and_safe.png`
-**Description:** Combined preference + safety evaluation
+**Description:** Combined preference + safety evaluation (horizontal bars)
 **Use in thesis:** Main results section - this is your PRIMARY metric
 
 ### Figure 3: Cuisine Filtering Effect
 **File:** `figure3_cuisine_filtering_effect.png`
-**Description:** Side-by-side comparison of Selected vs All cuisines with p-values
+**Description:** Side-by-side comparison of Selected vs All cuisines with p-values (horizontal bars)
 **Use in thesis:** This demonstrates your MAIN CONTRIBUTION (cuisine filtering)
 **Key insight:** Shows highly significant improvements (p<0.001) from cuisine filtering
 
 ### Figure 4: Three Perspectives
 **File:** `figure4_three_perspectives.png`
-**Description:** Liked & Safe, Coverage, and Acceptance rates side-by-side
+**Description:** Liked & Safe, Coverage, and Acceptance rates side-by-side (horizontal bars)
 **Use in thesis:** Comprehensive evaluation section
 
 ### Figure 5: Summary Table
@@ -30,7 +30,7 @@
 
 ## Statistical Significance Notation
 
-In Figure 3, the stars above bars indicate:
+In Figure 3, the stars to the right of bars indicate:
 - `***` p < 0.001 (highly significant)
 - `**`  p < 0.01  (very significant)
 - `*`   p < 0.05  (significant)
@@ -50,4 +50,4 @@ In Figure 3, the stars above bars indicate:
 4. Include Figure 5 in appendix for complete comparison
 5. Reference statistical significance from Stage 6 results
 
-All figures are 300 DPI, publication-ready quality.
+All figures are 300 DPI, publication-ready quality with consistent horizontal bar orientation.
