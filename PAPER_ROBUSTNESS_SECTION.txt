@@ -1,0 +1,52 @@
+================================================================================
+SUGGESTED TEXT FOR PAPER: ROBUSTNESS EXPERIMENT (5-FOLD CROSS-VALIDATION)
+================================================================================
+Add this as a new subsection under "F. EXPERIMENTAL SETUP" or "III. RESULTS"
+after the single-split evaluation. Replace the placeholder table with the
+actual numbers from cross_validation_5fold_results.csv after running
+run_5fold_cross_validation.py.
+
+--------------------------------------------------------------------------------
+Subsection: Robustness Evaluation (5-Fold Cross-Validation)
+--------------------------------------------------------------------------------
+
+To assess the stability of the reported results, we performed 5-fold
+cross-validation in addition to the primary 80/20 single split. In this
+setup, each user's ratings were split into five folds (stratified by
+liked vs. not-liked); in each fold, 80% of ratings were used for training
+and 20% for testing, with every sample used as test data exactly once
+across the five folds. This yields a more stable estimate of performance
+and reduces dependence on a single random split.
+
+Recommendation models were retrained and evaluated separately for each
+fold. We report the mean and standard deviation of Precision@10, Recall@10,
+F1@10, and Hit Rate across the five folds for all algorithm variants
+(Table X). Results are consistent with the single-split evaluation:
+cuisine-filtered collaborative and hybrid models achieve the highest
+F1@10 (mean ± std), with standard deviations indicating stable
+performance across folds. The 5-fold estimates support the main conclusions
+drawn from the primary 80/20 evaluation.
+
+--------------------------------------------------------------------------------
+Table caption (e.g. Table X)
+--------------------------------------------------------------------------------
+Preference evaluation under 5-fold cross-validation: Precision@10, Recall@10,
+F1@10, and Hit Rate (%, mean ± std over 5 folds). Each sample is used for
+testing exactly once. K = 10.
+
+--------------------------------------------------------------------------------
+Table body (fill from cross_validation_5fold_results.csv)
+--------------------------------------------------------------------------------
+Algorithm                    | Precision@10 (%) | Recall@10 (%) | F1@10 (%)    | Hit Rate (%)
+-----------------------------|------------------|----------------|--------------|-------------
+[Copy rows from CSV; format as mean ± std for each cell]
+
+--------------------------------------------------------------------------------
+Optional sentence for Methods (F. Experimental Setup)
+--------------------------------------------------------------------------------
+"In addition to the primary 80/20 split, we report 5-fold cross-validation
+results (mean ± standard deviation across folds) for all preference metrics
+to assess robustness; in the 5-fold setup, every rating is used for testing
+exactly once."
+
+================================================================================

@@ -27,7 +27,7 @@ required_files = [
 
 for file in required_files:
     if not os.path.exists(file):
-        print(f"\n❌ ERROR: {file} not found!")
+        print(f"\nERROR: {file} not found!")
         if file == 'data_meal_clusters.csv':
             print("Please run stage2c_meal_clustering.py first!")
         else:
@@ -70,7 +70,7 @@ print(f"Food database ready with {len(food_db)} foods")
  # STEP 2.2: BUILD INGREDIENT-BASED LOOKUP + CLUSTERS
  
  
-print("🔧 LOADING INGREDIENT, CUISINE & CLUSTER DATA")
+print("LOADING INGREDIENT, CUISINE & CLUSTER DATA")
  
 
 # Create meal -> ingredients mapping
@@ -85,8 +85,8 @@ for _, row in meal_ingredients_df.iterrows():
     meal_to_ingredients[meal_name] = set(ingredients)
     meal_to_cuisine[meal_name] = row['cuisine']
 
-print(f"✓ Loaded ingredient data for {len(meal_to_ingredients)} meals")
-print(f"✓ Loaded cuisine data for {len(meal_to_cuisine)} meals")
+print(f"OK Loaded ingredient data for {len(meal_to_ingredients)} meals")
+print(f"OK Loaded cuisine data for {len(meal_to_cuisine)} meals")
 
 # NEW: Create meal -> cluster mapping
 meal_to_cluster = {}
@@ -94,7 +94,7 @@ for _, row in meal_clusters_df.iterrows():
     meal_name = row['meal_name'].lower().strip()
     meal_to_cluster[meal_name] = row['cluster']
 
-print(f"✓ Loaded cluster assignments for {len(meal_to_cluster)} meals")
+print(f"OK Loaded cluster assignments for {len(meal_to_cluster)} meals")
 
 # Get all rated foods and check ingredient coverage
 all_rated_foods = set(train_df['food'].unique()) | set(test_df['food'].unique())
@@ -103,14 +103,14 @@ rated_with_ingredients = sum(1 for food in all_rated_foods
 rated_with_clusters = sum(1 for food in all_rated_foods 
                          if food.lower().strip() in meal_to_cluster)
 
-print(f"✓ Ingredient coverage: {rated_with_ingredients}/{len(all_rated_foods)} rated foods ({rated_with_ingredients/len(all_rated_foods)*100:.1f}%)")
-print(f"✓ Cluster coverage: {rated_with_clusters}/{len(all_rated_foods)} rated foods ({rated_with_clusters/len(all_rated_foods)*100:.1f}%)")
+print(f"OK Ingredient coverage: {rated_with_ingredients}/{len(all_rated_foods)} rated foods ({rated_with_ingredients/len(all_rated_foods)*100:.1f}%)")
+print(f"OK Cluster coverage: {rated_with_clusters}/{len(all_rated_foods)} rated foods ({rated_with_clusters/len(all_rated_foods)*100:.1f}%)")
 
 
  # STEP 2.3: BUILD TF-IDF INGREDIENT VECTORS
  
  
-print("🔧 BUILDING TF-IDF INGREDIENT VECTORS")
+print("BUILDING TF-IDF INGREDIENT VECTORS")
  
 
 # Create ingredient documents (each food's ingredients as a "document")
@@ -122,14 +122,14 @@ for food_name, ingredients in meal_to_ingredients.items():
     # Join ingredients with spaces to create a document
     ingredient_documents.append(' '.join(ingredients))
 
-print(f"✓ Created ingredient documents for {len(ingredient_documents)} foods")
+print(f"OK Created ingredient documents for {len(ingredient_documents)} foods")
 
 # Build TF-IDF vectorizer
 tfidf = TfidfVectorizer()
 tfidf_matrix = tfidf.fit_transform(ingredient_documents)
 
-print(f"✓ TF-IDF matrix shape: {tfidf_matrix.shape}")
-print(f"✓ Vocabulary size: {len(tfidf.vocabulary_)}")
+print(f"OK TF-IDF matrix shape: {tfidf_matrix.shape}")
+print(f"OK Vocabulary size: {len(tfidf.vocabulary_)}")
 
 # Create food name to index mapping
 food_to_idx = {food: idx for idx, food in enumerate(food_names)}
@@ -138,7 +138,7 @@ food_to_idx = {food: idx for idx, food in enumerate(food_names)}
  # STEP 2.4: RESTRICT RECOMMENDATION SPACE TO RATED FOODS
  
  
-print("⚠️  RESTRICTING RECOMMENDATION SPACE")
+print("RESTRICTING RECOMMENDATION SPACE")
  
 
 # CRITICAL: Only recommend foods that have been rated by SOMEONE
@@ -146,7 +146,7 @@ rated_foods_universe = set(all_rated_foods)
 
 print(f"Total foods in database: {len(food_db)}")
 print(f"Foods rated by users: {len(rated_foods_universe)}")
-print(f"✓ All algorithms will ONLY recommend from the {len(rated_foods_universe)} rated foods")
+print(f"OK All algorithms will ONLY recommend from the {len(rated_foods_universe)} rated foods")
 
 
  # STEP 2.5: HELPER FUNCTIONS
@@ -344,8 +344,8 @@ def content_based_recommendations_all(user_name, train_df, K=10):
     return sorted_foods[:K]
 
 
-print("✓ Content-Based (Selected) implemented - TF-IDF + clustering from user's cuisines")
-print("✓ Content-Based (All) implemented - TF-IDF + clustering from any cuisine")
+print("OK Content-Based (Selected) implemented - TF-IDF + clustering from user's cuisines")
+print("OK Content-Based (All) implemented - TF-IDF + clustering from any cuisine")
 
 
  # STEP 2.7: COLLABORATIVE FILTERING (TWO VERSIONS)
@@ -475,8 +475,8 @@ def collaborative_filtering_recommendations_all(user_name, train_df, K=10):
     return sorted_foods[:K]
 
 
-print("✓ Collaborative (Selected) implemented - recommends from user's cuisines")
-print("✓ Collaborative (All) implemented - recommends from any cuisine")
+print("OK Collaborative (Selected) implemented - recommends from user's cuisines")
+print("OK Collaborative (All) implemented - recommends from any cuisine")
 
 
  # STEP 2.8: HYBRID FILTERING (IMPROVED WITH ADAPTIVE WEIGHTING)
@@ -585,8 +585,8 @@ def hybrid_recommendations_all(user_name, train_df, K=10):
     return sorted_foods[:K]
 
 
-print("✓ Hybrid (Selected) implemented - adaptive weighting from user's cuisines")
-print("✓ Hybrid (All) implemented - adaptive weighting from any cuisine")
+print("OK Hybrid (Selected) implemented - adaptive weighting from user's cuisines")
+print("OK Hybrid (All) implemented - adaptive weighting from any cuisine")
 
 
  # STEP 2.9: BASELINE ALGORITHMS (TWO VERSIONS)
@@ -681,9 +681,9 @@ def random_recommendations(user_name, train_df, K=10):
     return [(food, 1.0) for food in sampled]
 
 
-print("✓ Popularity (Selected) implemented")
-print("✓ Popularity (All) implemented")
-print("✓ Random baseline implemented")
+print("OK Popularity (Selected) implemented")
+print("OK Popularity (All) implemented")
+print("OK Random baseline implemented")
 
 
  # STEP 2.10: GENERATE RECOMMENDATIONS FOR ALL TEST USERS
@@ -736,7 +736,7 @@ for i, user_name in enumerate(test_users, 1):
     all_recommendations['random'][user_name] = \
         random_recommendations(user_name, train_df, K=K)
 
-print(f"\n✓ Generated recommendations for {len(test_users)} users")
+print(f"\nOK Generated recommendations for {len(test_users)} users")
 
 
  # STEP 2.11: SUMMARY STATISTICS
@@ -768,7 +768,7 @@ print("SAVING RECOMMENDATIONS")
 with open('recommendations_all_algorithms_TFIDF.pkl', 'wb') as f:
     pickle.dump(all_recommendations, f)
 
-print("✓ Saved: recommendations_all_algorithms_TFIDF.pkl")
+print("OK Saved: recommendations_all_algorithms_TFIDF.pkl")
 
 # Create summary DataFrame
 summary_data = []
@@ -785,15 +785,15 @@ for algo_name, user_recs in all_recommendations.items():
 
 summary_df = pd.DataFrame(summary_data)
 summary_df.to_csv('recommendations_summary_TFIDF.csv', index=False)
-print("✓ Saved: recommendations_summary_TFIDF.csv")
+print("OK Saved: recommendations_summary_TFIDF.csv")
 
  
 print("STAGE 2 COMPLETE (IMPROVED VERSION)")
  
 print(f"""
 IMPROVEMENTS APPLIED:
-  ✓ Ingredient-based clustering with 1.2x boost for same-cluster foods
-  ✓ Adaptive hybrid weighting based on user experience:
+  OK Ingredient-based clustering with 1.2x boost for same-cluster foods
+  OK Adaptive hybrid weighting based on user experience:
     - New users (< 20 ratings): 60% content, 40% collaborative
     - Medium users (20-50 ratings): 40% content, 60% collaborative  
     - Experienced users (> 50 ratings): 30% content, 70% collaborative

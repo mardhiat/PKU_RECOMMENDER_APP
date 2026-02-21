@@ -29,7 +29,7 @@ acceptance_df = pd.read_csv('stage5_perspective3_acceptance_TFIDF.csv')
 stats_pref_df = pd.read_csv('stage6_statistical_tests_preference.csv')
 stats_comb_df = pd.read_csv('stage6_statistical_tests_combined.csv')
 
-print("✓ Loaded all evaluation results")
+print("OK Loaded all evaluation results")
 
  # FIGURE 1: MAIN RESULTS - PREFERENCE METRICS
  
@@ -85,7 +85,7 @@ ax2.set_xlim(0, 40)
 
 plt.tight_layout()
 plt.savefig('figure1_preference_metrics.png', dpi=300, bbox_inches='tight')
-print("✓ Saved: figure1_preference_metrics.png")
+print("OK Saved: figure1_preference_metrics.png")
 plt.close()
 
  # FIGURE 2: COMBINED EVALUATION - LIKED & SAFE
@@ -126,7 +126,7 @@ ax.legend(fontsize=10)
 
 plt.tight_layout()
 plt.savefig('figure2_liked_and_safe.png', dpi=300, bbox_inches='tight')
-print("✓ Saved: figure2_liked_and_safe.png")
+print("OK Saved: figure2_liked_and_safe.png")
 plt.close()
 
  # FIGURE 3: CUISINE FILTERING EFFECT - NOW WITH HORIZONTAL BARS
@@ -264,7 +264,7 @@ for i, algo in enumerate(algos):
 
 plt.tight_layout()
 plt.savefig('figure3_cuisine_filtering_effect.png', dpi=300, bbox_inches='tight')
-print("✓ Saved: figure3_cuisine_filtering_effect.png")
+print("OK Saved: figure3_cuisine_filtering_effect.png")
 plt.close()
 
  # FIGURE 4: THREE PERSPECTIVES COMPARISON
@@ -330,7 +330,7 @@ for i, (idx, row) in enumerate(p3_data.iterrows()):
 
 plt.tight_layout()
 plt.savefig('figure4_three_perspectives.png', dpi=300, bbox_inches='tight')
-print("✓ Saved: figure4_three_perspectives.png")
+print("OK Saved: figure4_three_perspectives.png")
 plt.close()
 
  # FIGURE 5: SUMMARY TABLE
@@ -395,7 +395,7 @@ for i in range(1, len(summary_data) + 1):
 plt.title('Comprehensive Algorithm Comparison: All Metrics', 
           fontsize=14, fontweight='bold', pad=20)
 plt.savefig('figure5_summary_table.png', dpi=300, bbox_inches='tight')
-print("✓ Saved: figure5_summary_table.png")
+print("OK Saved: figure5_summary_table.png")
 plt.close()
 
  # CREATE README
@@ -460,7 +460,7 @@ All figures are 300 DPI, publication-ready quality with consistent horizontal ba
 with open('VISUALIZATION_GUIDE.md', 'w', encoding='utf-8') as f:
     f.write(readme)
 
-print("✓ Saved: VISUALIZATION_GUIDE.md")
+print("OK Saved: VISUALIZATION_GUIDE.md")
 
  
 print("STAGE 7 COMPLETE")

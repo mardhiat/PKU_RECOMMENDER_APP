@@ -1,0 +1,13 @@
+# Minimal dependencies for the evaluation pipeline only (Stage 0–7 + 5-fold).
+# Use this if "pip install -r requirements.txt" fails (e.g. Rust/pydantic build on Python 3.14).
+# Install: pip install -r requirements-pipeline.txt
+# For the full app (Streamlit, Google APIs, etc.) use requirements.txt with Python 3.11 or 3.12.
+
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.2
+scipy>=1.10
+matplotlib>=3.6
+seaborn>=0.12
+requests>=2.28
+toml>=0.10

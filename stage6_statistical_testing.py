@@ -19,8 +19,8 @@ with open('preference_evaluation_results_TFIDF.pkl', 'rb') as f:
 with open('stage5_detailed_results_TFIDF.pkl', 'rb') as f:
     stage5_results = pickle.load(f)
 
-print(f"✓ Loaded Stage 4 results (preference evaluation)")
-print(f"✓ Loaded Stage 5 results (combined evaluation)")
+print(f"OK Loaded Stage 4 results (preference evaluation)")
+print(f"OK Loaded Stage 5 results (combined evaluation)")
 
  # PREPARE PER-USER METRICS
  
@@ -47,7 +47,7 @@ for algo in algorithms:
     if algo in stage4_results and 'per_user_f1' in stage4_results[algo]:
         stage4_per_user[algo] = stage4_results[algo]['per_user_f1']
 
-print(f"✓ Extracted F1 scores for {len(stage4_per_user)} algorithms")
+print(f"OK Extracted F1 scores for {len(stage4_per_user)} algorithms")
 
 # Extract per-user liked+safe rates from Stage 5
 print("\nExtracting per-user liked+safe rates (preference + safety)...")
@@ -57,7 +57,7 @@ for algo in algorithms:
     if algo in stage5_results and 'per_user_liked_safe' in stage5_results[algo]:
         stage5_per_user[algo] = stage5_results[algo]['per_user_liked_safe']
 
-print(f"✓ Extracted liked+safe rates for {len(stage5_per_user)} algorithms")
+print(f"OK Extracted liked+safe rates for {len(stage5_per_user)} algorithms")
 
  # STATISTICAL TESTING FUNCTIONS
  
@@ -168,14 +168,14 @@ for algo1, algo2 in comparisons_stage4:
         print(f"  Cohen's d: {result['cohens_d']:.3f} ({result['effect_size']})")
         if result['significant']:
             winner = algo1 if result['mean_difference'] > 0 else algo2
-            print(f"  → {winner} is SIGNIFICANTLY better")
+            print(f"  -> {winner} is SIGNIFICANTLY better")
         else:
-            print(f"  → No significant difference")
+            print(f"  -> No significant difference")
 
 # Save Stage 4 results
 stage4_df = pd.DataFrame(stage4_test_results)
 stage4_df.to_csv('stage6_statistical_tests_preference.csv', index=False)
-print(f"\n✓ Saved: stage6_statistical_tests_preference.csv")
+print(f"\nOK Saved: stage6_statistical_tests_preference.csv")
 
 
  # STAGE 5: COMBINED EVALUATION SIGNIFICANCE
@@ -221,14 +221,14 @@ for algo1, algo2 in comparisons_stage5:
         print(f"  Cohen's d: {result['cohens_d']:.3f} ({result['effect_size']})")
         if result['significant']:
             winner = algo1 if result['mean_difference'] > 0 else algo2
-            print(f"  → {winner} is SIGNIFICANTLY better")
+            print(f"  -> {winner} is SIGNIFICANTLY better")
         else:
-            print(f"  → No significant difference")
+            print(f"  -> No significant difference")
 
 # Save Stage 5 results
 stage5_df = pd.DataFrame(stage5_test_results)
 stage5_df.to_csv('stage6_statistical_tests_combined.csv', index=False)
-print(f"\n✓ Saved: stage6_statistical_tests_combined.csv")
+print(f"\nOK Saved: stage6_statistical_tests_combined.csv")
 
 
  # SUMMARY OF KEY FINDINGS
@@ -247,10 +247,10 @@ hvc_pref = next((r for r in stage4_test_results if
 if hvc_pref:
     if hvc_pref['significant']:
         winner = 'Hybrid' if hvc_pref['mean_difference'] > 0 else 'Collaborative'
-        print(f"✓ {winner} is SIGNIFICANTLY better (p={hvc_pref['p_value']:.4f})")
+        print(f"OK {winner} is SIGNIFICANTLY better (p={hvc_pref['p_value']:.4f})")
         print(f"  Effect size: {hvc_pref['effect_size']} (d={hvc_pref['cohens_d']:.3f})")
     else:
-        print(f"✗ No significant difference between Hybrid and Collaborative")
+        print(f"No significant difference between Hybrid and Collaborative")
         print(f"  (p={hvc_pref['p_value']:.4f}, difference too small)")
 
 print("\n2. BEST ALGORITHM COMPARISONS (COMBINED):")
@@ -263,10 +263,10 @@ hvc_comb = next((r for r in stage5_test_results if
 if hvc_comb:
     if hvc_comb['significant']:
         winner = 'Hybrid' if hvc_comb['mean_difference'] > 0 else 'Collaborative'
-        print(f"✓ {winner} is SIGNIFICANTLY better (p={hvc_comb['p_value']:.4f})")
+        print(f"OK {winner} is SIGNIFICANTLY better (p={hvc_comb['p_value']:.4f})")
         print(f"  Effect size: {hvc_comb['effect_size']} (d={hvc_comb['cohens_d']:.3f})")
     else:
-        print(f"✗ No significant difference between Hybrid and Collaborative")
+        print(f"No significant difference between Hybrid and Collaborative")
         print(f"  (p={hvc_comb['p_value']:.4f}, difference too small)")
 
 print("\n3. CUISINE FILTERING EFFECT:")
@@ -310,7 +310,7 @@ for baseline in ['popularity_selected', 'random']:
         print(f"  p-value: {pref_result['p_value']:.4f}")
         print(f"  Effect size: {pref_result['effect_size']} (d={pref_result['cohens_d']:.3f})")
         if pref_result['significant']:
-            print(f"  ✓ SIGNIFICANTLY better than baseline")
+            print(f"  OK SIGNIFICANTLY better than baseline")
 
 
  # WRITE SUMMARY FOR THESIS
@@ -356,7 +356,7 @@ print("\n".join(summary))
 # Save summary
 with open('stage6_thesis_summary.txt', 'w') as f:
     f.write("\n".join(summary))
-print(f"\n✓ Saved: stage6_thesis_summary.txt")
+print(f"\nOK Saved: stage6_thesis_summary.txt")
 
 
  
@@ -366,21 +366,21 @@ print(f"""
 Statistical testing complete!
 
 FILES CREATED:
-  ✓ stage6_statistical_tests_preference.csv
-  ✓ stage6_statistical_tests_combined.csv
-  ✓ stage6_thesis_summary.txt
+  OK stage6_statistical_tests_preference.csv
+  OK stage6_statistical_tests_combined.csv
+  OK stage6_thesis_summary.txt
 
 KEY FINDINGS:
-  • Tested {len(stage4_test_results)} algorithm comparisons
-  • Evaluated both preference and combined metrics
-  • Calculated p-values and effect sizes (Cohen's d)
-  • Identified statistically significant differences
+  - Tested {len(stage4_test_results)} algorithm comparisons
+  - Evaluated both preference and combined metrics
+  - Calculated p-values and effect sizes (Cohen's d)
+  - Identified statistically significant differences
 
 SIGNIFICANCE LEVELS:
   *** p < 0.001 (highly significant)
   **  p < 0.01  (very significant)
   *   p < 0.05  (significant)
-  ns  p ≥ 0.05  (not significant)
+  ns  p >= 0.05  (not significant)
 
 NEXT: Use these results in your thesis to justify algorithm selection
 """)
