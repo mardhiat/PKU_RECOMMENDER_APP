@@ -22,13 +22,24 @@ Data: USDA nutritional database (900+ foods across 12 cuisines)
 pip install -r requirements.txt
 streamlit run app.py
 ```
+**Pipeline only (Stage 0–7 + 5-fold), or if full install fails (e.g. Python 3.14 / Rust):**
+`pip install -r requirements-pipeline.txt` then `python run_full_pipeline.py`
 
 ### System Architecture
 + Stage 0: Data preparation and cleaning from USDA database
-+ Stage 1: Train-test split of user rating data
++ Stage 2c: Meal clustering (ingredient-based)
++ Stage 1: Train-test split of user rating data (80/20)
 + Stage 2: Generate recommendations using hybrid algorithm
 + Stage 3: Calculate portions based on nutritional limits
-+ Stage 4: Evaluate performance using precision, recall, and NDCG metrics
++ Stage 4: Evaluate performance (precision, recall, F1, hit rate)
++ Stage 5–7: Combined evaluation, statistical tests, visualization
++ **5-fold cross-validation** (robustness): runs after Stage 1; reports mean ± std over 5 folds, then restores 80/20 and re-runs Stages 2–7.
+
+**Run everything in order (Stage 0 → 2c → 1 → 5-fold, then 2–7 inside 5-fold):**
+```bash
+python run_full_pipeline.py
+```
+Or run stages manually; for 5-fold only (after 0 and 2c): `python run_5fold_cross_validation.py`.
 
 ### Algorithms
 Five recommendation approaches implemented:

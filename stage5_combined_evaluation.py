@@ -19,7 +19,7 @@ required_files = [
 
 for file in required_files:
     if not os.path.exists(file):
-        print(f"\n❌ ERROR: {file} not found!")
+        print(f"\nERROR: {file} not found!")
         print("Please run Stage 3 first.")
         exit()
 
@@ -54,7 +54,7 @@ for algo_name, users_dict in recommendations_with_safety.items():
         # 'food', 'score', 'portion_g', 'is_safe', etc.
         organized_recs[algo_name][user_name] = recs_list
 
-print(f"✓ Organized {len(organized_recs)} algorithms")
+print(f"OK Organized {len(organized_recs)} algorithms")
 for algo, users in organized_recs.items():
     total_recs = sum(len(recs) for recs in users.values())
     print(f"  {algo}: {total_recs} recommendations across {len(users)} users")
@@ -199,7 +199,7 @@ def evaluate_safety_first_acceptance(algo_recs, test_df):
     }
 
 
-print("✓ Three evaluation perspectives defined:")
+print("OK Three evaluation perspectives defined:")
 print("  1. Liked & Safe Rate: % of all recommendations that are both")
 print("  2. Coverage: % of liked foods we found safely")
 print("  3. Safety-First Acceptance: % of safe recs that are liked")
@@ -353,12 +353,12 @@ for algo in algorithms:
         
         if selected_rate > all_rate:
             improvement = selected_rate - all_rate
-            print(f"  → Selected is BETTER by {improvement:.1f} percentage points")
+            print(f"  -> Selected is BETTER by {improvement:.1f} percentage points")
         elif all_rate > selected_rate:
             improvement = all_rate - selected_rate
-            print(f"  → All is BETTER by {improvement:.1f} percentage points")
+            print(f"  -> All is BETTER by {improvement:.1f} percentage points")
         else:
-            print(f"  → TIE")
+            print(f"  -> TIE")
 
 
  # STEP 5.7: SAVE RESULTS
@@ -369,18 +369,18 @@ print("STEP 5.7: SAVING RESULTS")
 
 # Save all three perspectives
 df_p1.to_csv('stage5_perspective1_liked_and_safe_TFIDF.csv', index=False)
-print("✓ Saved: stage5_perspective1_liked_and_safe_TFIDF.csv")
+print("OK Saved: stage5_perspective1_liked_and_safe_TFIDF.csv")
 
 df_p2.to_csv('stage5_perspective2_coverage_TFIDF.csv', index=False)
-print("✓ Saved: stage5_perspective2_coverage_TFIDF.csv")
+print("OK Saved: stage5_perspective2_coverage_TFIDF.csv")
 
 df_p3.to_csv('stage5_perspective3_acceptance_TFIDF.csv', index=False)
-print("✓ Saved: stage5_perspective3_acceptance_TFIDF.csv")
+print("OK Saved: stage5_perspective3_acceptance_TFIDF.csv")
 
 # Save detailed results
 with open('stage5_detailed_results_TFIDF.pkl', 'wb') as f:
     pickle.dump(all_results, f)
-print("✓ Saved: stage5_detailed_results_TFIDF.pkl")
+print("OK Saved: stage5_detailed_results_TFIDF.pkl")
 
 
  # FINAL SUMMARY

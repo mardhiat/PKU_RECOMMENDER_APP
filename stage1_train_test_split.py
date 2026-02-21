@@ -10,7 +10,7 @@ print("STAGE 1: CREATE TRAIN/TEST SPLITS (FIXED)")
  # CONFIGURATION
  
 MIN_RATINGS_PER_USER = 10  # Minimum ratings to include user
-MIN_LIKED_FOODS = 3        # Minimum liked foods (rating ≥ 3)
+MIN_LIKED_FOODS = 3        # Minimum liked foods (rating >= 3)
 TEST_SIZE = 0.2            # 20% test, 80% train
 RANDOM_STATE = 42
 
@@ -28,7 +28,7 @@ try:
     print(f"  - User limits: {len(user_limits_df)} users")
     print(f"  - Food database: {len(food_db)} foods")
 except FileNotFoundError as e:
-    print(f"❌ ERROR: Missing file - {e}")
+    print(f"ERROR: Missing file - {e}")
     print("Please run stage0_data_preparation.py first")
     exit(1)
 
@@ -63,14 +63,14 @@ print(f"After filtering: {len(filtered_ratings)} ratings")
 print(f"Removed: {len(ratings_df) - len(filtered_ratings)} ratings without nutrition data")
 
 if len(filtered_ratings) == 0:
-    print("\n❌ ERROR: No ratings remain after filtering!")
+    print("\nERROR: No ratings remain after filtering!")
     print("\nDEBUGGING INFO:")
     print(f"Sample food names from ratings (first 5):")
     for food in ratings_df['food'].head():
-        print(f"  - '{food}' → '{food.lower().strip()}'")
+        print(f"  - '{food}' -> '{food.lower().strip()}'")
     print(f"\nSample food names from database (first 5):")
     for food in food_db['food_name'].head():
-        print(f"  - '{food}' → '{food.lower().strip()}'")
+        print(f"  - '{food}' -> '{food.lower().strip()}'")
     exit(1)
 
  # STEP 1.3: FILTER USERS WITH SUFFICIENT DATA
@@ -79,7 +79,7 @@ print(f"\nSTEP 1.3: FILTERING USERS WITH SUFFICIENT DATA\n")
 
 print(f"Minimum requirements:")
 print(f"  - At least {MIN_RATINGS_PER_USER} ratings (with nutrition data)")
-print(f"  - At least {MIN_LIKED_FOODS} liked foods (rating ≥ 3)")
+print(f"  - At least {MIN_LIKED_FOODS} liked foods (rating >= 3)")
 
 # Calculate per-user statistics
 user_stats = filtered_ratings.groupby('user_name').agg({
@@ -103,7 +103,7 @@ print(f"\nEligible users: {len(eligible_users)}")
 print(f"  Removed users: {len(user_stats) - len(eligible_users)}")
 
 if len(eligible_users) == 0:
-    print("\n❌ ERROR: No users meet the minimum requirements!")
+    print("\nERROR: No users meet the minimum requirements!")
     print(f"Try lowering MIN_RATINGS_PER_USER or MIN_LIKED_FOODS")
     
     # Show distribution
@@ -192,9 +192,9 @@ test_df.to_csv('data_test_ratings.csv', index=False)
 eligible_users_df = pd.DataFrame({'user_name': eligible_users})
 eligible_users_df.to_csv('data_test_users.csv', index=False)
 
-print(f"✓ Saved: data_train_ratings.csv")
-print(f"✓ Saved: data_test_ratings.csv")
-print(f"✓ Saved: data_test_users.csv")
+print(f"OK Saved: data_train_ratings.csv")
+print(f"OK Saved: data_test_ratings.csv")
+print(f"OK Saved: data_test_users.csv")
 
  # SUMMARY
  

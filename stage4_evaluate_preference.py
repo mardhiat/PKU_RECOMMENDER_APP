@@ -20,7 +20,7 @@ required_files = [
 
 for file in required_files:
     if not os.path.exists(file):
-        print(f"\n❌ ERROR: {file} not found!")
+        print(f"\nERROR: {file} not found!")
         print("Please run Stage 2 first.")
         exit()
 
@@ -77,7 +77,7 @@ def hit_rate(recommended_foods, liked_foods):
     return 1.0 if any(food in liked_foods for food in recommended_foods) else 0.0
 
 
-print("✓ Evaluation metrics defined:")
+print("OK Evaluation metrics defined:")
 print("  - Precision@K: Fraction of recommendations that were liked")
 print("  - Recall@K: Fraction of liked foods that were recommended")
 print("  - F1@K: Harmonic mean of precision and recall")
@@ -196,12 +196,12 @@ for algo in algorithms:
         
         if selected_f1 > all_f1:
             improvement = selected_f1 - all_f1
-            print(f"  → Selected is BETTER by {improvement:.1f} percentage points")
+            print(f"  -> Selected is BETTER by {improvement:.1f} percentage points")
         elif all_f1 > selected_f1:
             improvement = all_f1 - selected_f1
-            print(f"  → All is BETTER by {improvement:.1f} percentage points")
+            print(f"  -> All is BETTER by {improvement:.1f} percentage points")
         else:
-            print(f"  → TIE")
+            print(f"  -> TIE")
 
 
  # STEP 4.6: SAVE RESULTS
@@ -212,12 +212,12 @@ print("STEP 4.6: SAVING RESULTS")
 
 # Save summary CSV
 summary_df.to_csv('preference_evaluation_summary_TFIDF.csv', index=False)
-print("✓ Saved: preference_evaluation_summary_TFIDF.csv")
+print("OK Saved: preference_evaluation_summary_TFIDF.csv")
 
 # Save detailed results
 with open('preference_evaluation_results_TFIDF.pkl', 'wb') as f:
     pickle.dump(results, f)
-print("✓ Saved: preference_evaluation_results_TFIDF.pkl")
+print("OK Saved: preference_evaluation_results_TFIDF.pkl")
 
  
 print("STAGE 4 COMPLETE")

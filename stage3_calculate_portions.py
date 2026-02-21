@@ -20,7 +20,7 @@ required_files = [
 
 for file in required_files:
     if not os.path.exists(file):
-        print(f"\n❌ ERROR: {file} not found!")
+        print(f"\nERROR: {file} not found!")
         print("Please run previous stages first.")
         exit()
 
@@ -192,7 +192,7 @@ def calculate_safe_portion(food_nutrients, user_daily_limits,
         'energy_match': abs(actual_energy - meal_energy_target) / meal_energy_target if meal_energy_target > 0 else 0
     }
 
-print("✓ Portion calculation function implemented")
+print("OK Portion calculation function implemented")
 
 
  # STEP 3.3: CALCULATE PORTIONS FOR ALL RECOMMENDATIONS
@@ -271,7 +271,7 @@ for algorithm in recommendations_dict:
         
         recommendations_with_portions[algorithm][user_name] = recs_with_portions
 
-print(f"\n✓ Processing complete!")
+print(f"\nOK Processing complete!")
 print(f"  Processed: {processed} recommendations")
 print(f"  Skipped (no nutrition data): {skipped} recommendations")
 print(f"  Skipped (no user limits): {no_user_limits} recommendations")
@@ -282,7 +282,7 @@ print(f"  Skipped (no user limits): {no_user_limits} recommendations")
 print("\nSTEP 3.4: ANALYZING PORTION STATISTICS")
 
 if processed == 0:
-    print("\n❌ ERROR: No recommendations were processed!")
+    print("\nERROR: No recommendations were processed!")
     print("This indicates a name-matching problem between Stage 2 and Stage 3.")
     print("\nDEBUGGING:")
     print(f"Sample food names in database (first 5):")
@@ -295,7 +295,7 @@ if processed == 0:
         if sample_recs:
             print(f"\nSample food names from recommendations (first 5):")
             for food, score in sample_recs[:5]:
-                print(f"  - '{food}' → '{food.lower().strip()}'")
+                print(f"  - '{food}' -> '{food.lower().strip()}'")
     exit(1)
 
 # Collect statistics
@@ -312,7 +312,7 @@ for algorithm in recommendations_with_portions:
             all_safe.append(rec['is_safe'])
             limiting_factors[rec['limiting_factor']] += 1
 
-print(f"\n✓ Portion size statistics (across all recommendations):")
+print(f"\nOK Portion size statistics (across all recommendations):")
 print(f"  Mean: {np.mean(all_portions):.1f}g")
 print(f"  Median: {np.median(all_portions):.1f}g")
 print(f"  Min: {np.min(all_portions):.1f}g")
@@ -322,15 +322,15 @@ print(f"  Std: {np.std(all_portions):.1f}g")
 practical_pct = (sum(all_practical) / len(all_practical)) * 100
 safe_pct = (sum(all_safe) / len(all_safe)) * 100
 
-print(f"\n✓ Practicality:")
-print(f"  Practical portions (≥{MIN_PRACTICAL_PORTION}g): {sum(all_practical)}/{len(all_practical)} ({practical_pct:.1f}%)")
+print(f"\nOK Practicality:")
+print(f"  Practical portions (>={MIN_PRACTICAL_PORTION}g): {sum(all_practical)}/{len(all_practical)} ({practical_pct:.1f}%)")
 print(f"  Too small (<{MIN_PRACTICAL_PORTION}g): {len(all_practical) - sum(all_practical)}/{len(all_practical)} ({100-practical_pct:.1f}%)")
 
-print(f"\n✓ Safety:")
+print(f"\nOK Safety:")
 print(f"  Safe portions: {sum(all_safe)}/{len(all_safe)} ({safe_pct:.1f}%)")
 print(f"  Unsafe portions: {len(all_safe) - sum(all_safe)}/{len(all_safe)} ({100-safe_pct:.1f}%)")
 
-print(f"\n✓ Limiting factors:")
+print(f"\nOK Limiting factors:")
 total_limiting = sum(limiting_factors.values())
 for factor, count in limiting_factors.items():
     pct = (count / total_limiting) * 100 if total_limiting > 0 else 0
@@ -344,7 +344,7 @@ print("\nSTEP 3.5: SAVING RECOMMENDATIONS WITH PORTIONS")
 with open('recommendations_with_portions_TFIDF.pkl', 'wb') as f:
     pickle.dump(recommendations_with_portions, f)
 
-print(f"\n✓ Saved: recommendations_with_portions_TFIDF.pkl")
+print(f"\nOK Saved: recommendations_with_portions_TFIDF.pkl")
 
 
  # FINAL SUMMARY
@@ -355,18 +355,18 @@ print("STAGE 3 COMPLETE - SUMMARY")
 
 print(f"""
 FILES CREATED:
-  ✓ recommendations_with_portions_TFIDF.pkl
+  OK recommendations_with_portions_TFIDF.pkl
 
 PORTION CALCULATIONS:
-  • Total recommendations processed: {processed}
-  • Mean safe portion: {np.mean(all_portions):.1f}g
-  • Practical portions (≥{MIN_PRACTICAL_PORTION}g): {practical_pct:.1f}%
-  • Safe portions: {safe_pct:.1f}%
-  • Main limiting factor: {max(limiting_factors, key=limiting_factors.get)}
+  - Total recommendations processed: {processed}
+  - Mean safe portion: {np.mean(all_portions):.1f}g
+  - Practical portions (>={MIN_PRACTICAL_PORTION}g): {practical_pct:.1f}%
+  - Safe portions: {safe_pct:.1f}%
+  - Main limiting factor: {max(limiting_factors, key=limiting_factors.get)}
   
 KEY FIX APPLIED:
-  ✓ Case-insensitive food name matching
-  ✓ PHE minimum relaxed to {PHE_MIN_RELAXATION*100:.0f}% for individual meals
+  OK Case-insensitive food name matching
+  OK PHE minimum relaxed to {PHE_MIN_RELAXATION*100:.0f}% for individual meals
 
 NEXT: python stage4_evaluate_preference.py
 """)
