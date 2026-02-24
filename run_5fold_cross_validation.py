@@ -80,20 +80,16 @@ def create_5fold_splits_simple(filtered_ratings, eligible_users):
 
         liked_idx = np.where(user_ratings['rating'].values >= 4)[0]
         not_liked_idx = np.where(user_ratings['rating'].values < 3)[0]
+        neutral_idx = np.where(user_ratings['rating'].values == 3)[0]
         fold_assign = np.zeros(n, dtype=int)
 
-        # Stratified: assign liked and not-liked to folds 0..4 separately (shuffled)
-        if len(liked_idx) > 0:
-            shuffled = np.array(liked_idx)
-            np.random.shuffle(shuffled)
-            for i, pos in enumerate(shuffled):
-                fold_assign[pos] = i % N_FOLDS
-        if len(not_liked_idx) > 0:
-            shuffled = np.array(not_liked_idx)
-            np.random.shuffle(shuffled)
-            for i, pos in enumerate(shuffled):
-                fold_assign[pos] = i % N_FOLDS
-        # (rating == 3 if any: remain in fold 0)
+        # Stratified: assign liked, not-liked, and neutral to folds 0..4 separately (shuffled)
+        for idx_list in (liked_idx, not_liked_idx, neutral_idx):
+            if len(idx_list) > 0:
+                shuffled = np.array(idx_list)
+                np.random.shuffle(shuffled)
+                for i, pos in enumerate(shuffled):
+                    fold_assign[pos] = i % N_FOLDS
 
         for i in range(n):
             row = user_ratings.iloc[i].copy()
@@ -181,6 +177,16 @@ def extract_metrics_from_pkl():
             for algo, res in results.items()}
 
 
+def extract_liked_safe_from_stage5():
+    """Load stage5_detailed_results_TFIDF.pkl and return dict algo -> liked_and_safe_rate (%)."""
+    if not os.path.exists('stage5_detailed_results_TFIDF.pkl'):
+        return {}
+    with open('stage5_detailed_results_TFIDF.pkl', 'rb') as f:
+        results = pickle.load(f)
+    return {algo: results[algo]['perspective_1']['liked_and_safe_rate']
+            for algo in results if 'perspective_1' in results[algo]}
+
+
 def main():
     print("=" * 70)
     print("5-FOLD CROSS-VALIDATION (Robustness Experiment)")
@@ -204,9 +210,10 @@ def main():
     for i, (tr, te) in enumerate(folds):
         print(f"  Fold {i+1}: train={len(tr)}, test={len(te)}")
 
-    # Collect metrics per fold
+    # Collect metrics per fold (preference + Liked & Safe)
     algo_names = None
     fold_metrics = []  # list of dict algo -> {precision_avg, recall_avg, f1_avg, hit_rate_avg}
+    fold_liked_safe = []  # list of dict algo -> liked_and_safe_rate (%)
 
     for fold_i, (train_df, test_df) in enumerate(folds):
         print(f"\n--- Fold {fold_i + 1}/{N_FOLDS} ---")
@@ -222,6 +229,16 @@ def main():
             algo_names = list(metrics.keys())
         fold_metrics.append(metrics)
 
+        # Stage 3 + Stage 5 for Liked & Safe rate (with std for Table 3)
+        if run_stage('stage3_calculate_portions.py', 'Stage 3 (portions)'):
+            if run_stage('stage5_combined_evaluation.py', 'Stage 5 (combined)'):
+                liked_safe = extract_liked_safe_from_stage5()
+                fold_liked_safe.append(liked_safe)
+            else:
+                fold_liked_safe.append({algo: 0.0 for algo in algo_names})
+        else:
+            fold_liked_safe.append({algo: 0.0 for algo in algo_names})
+
     # Aggregate: mean and std across folds
     print("\n" + "=" * 70)
     print("5-FOLD CROSS-VALIDATION RESULTS (Mean ± Std)")
@@ -233,12 +250,14 @@ def main():
         rec = [fold_metrics[f][algo]['recall_avg'] for f in range(N_FOLDS)]
         f1 = [fold_metrics[f][algo]['f1_avg'] for f in range(N_FOLDS)]
         hr = [fold_metrics[f][algo]['hit_rate_avg'] for f in range(N_FOLDS)]
+        liked_safe_list = [fold_liked_safe[f].get(algo, 0.0) for f in range(N_FOLDS)]
         summary_rows.append({
             'Algorithm': algo,
             'Precision@10 (%)': f"{np.mean(prec):.1f} ± {np.std(prec):.1f}",
             'Recall@10 (%)': f"{np.mean(rec):.1f} ± {np.std(rec):.1f}",
             'F1@10 (%)': f"{np.mean(f1):.1f} ± {np.std(f1):.1f}",
             'Hit Rate (%)': f"{np.mean(hr):.1f} ± {np.std(hr):.1f}",
+            'Liked & Safe (%)': f"{np.mean(liked_safe_list):.1f} ± {np.std(liked_safe_list):.1f}" if liked_safe_list else "—",
             'F1_mean': np.mean(f1),
             'F1_std': np.std(f1),
         })
@@ -252,6 +271,18 @@ def main():
     out_csv = 'cross_validation_5fold_results.csv'
     summary_df.to_csv(out_csv, index=False)
     print(f"\nOK Saved: {out_csv}")
+
+    # Table 3 style: F1@10 and Liked & Safe with std (for paper)
+    table3_algos = ['collaborative_selected', 'hybrid_selected', 'content_based_selected']
+    table3_df = summary_df[summary_df['Algorithm'].isin(table3_algos)][['Algorithm', 'F1@10 (%)', 'Liked & Safe (%)']].copy()
+    table3_df['Algorithm'] = table3_df['Algorithm'].replace({
+        'collaborative_selected': 'Collaborative (Cuisine-Filtered)',
+        'hybrid_selected': 'Hybrid (Cuisine-Filtered)',
+        'content_based_selected': 'Content-Based (Cuisine-Filtered)',
+    })
+    table3_csv = 'cross_validation_5fold_table3.csv'
+    table3_df.to_csv(table3_csv, index=False)
+    print(f"OK Saved: {table3_csv} (Table 3: F1@10 and Liked & Safe with mean ± std)")
 
     # Restore original 80/20 split and re-run all main pipeline stages so everything is updated
     print("\n" + "=" * 70)

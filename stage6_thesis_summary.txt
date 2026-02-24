@@ -4,7 +4,7 @@ BEST ALGORITHM:
   Combined: collaborative_selected (Liked+Safe=3.7%)
 
 CUISINE FILTERING CONTRIBUTION:
-  content_based: +5.1% (p=0.0000)***
+  content_based: +5.3% (p=0.0000)***
   collaborative: +1.3% (p=0.0583)
   hybrid: +2.9% (p=0.0018)**
 
