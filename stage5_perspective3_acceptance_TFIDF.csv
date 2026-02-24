@@ -1,10 +1,10 @@
 Algorithm,Safe Recs,Liked,Acceptance (%)
 collaborative_selected,449,35,7.8
 collaborative_all,449,33,7.3
-hybrid_selected,511,36,7.0
-content_based_selected,564,33,5.9
-hybrid_all,509,30,5.9
+hybrid_selected,512,36,7.0
 popularity_selected,575,34,5.9
+hybrid_all,509,30,5.9
+content_based_selected,565,33,5.8
 content_based_all,538,21,3.9
+random,575,5,0.9
 popularity_all,559,2,0.4
-random,567,1,0.2

@@ -57,15 +57,13 @@ def run_script(script_name, description):
 def main():
     check_dependencies()
 
-    print("\n" + "="*60)
-    print("FULL PIPELINE: Stage 0 → 2c → 1 → 5-fold (then 2–7 inside 5-fold)")
-    print("="*60)
+    print("FULL PIPELINE: Stage 0 -> 2c -> 1 -> 5-fold (then 2-7 inside 5-fold)")
 
     steps = [
-        ("stage0_data_preparation.py", "Stage 0 – Data preparation"),
-        ("stage2c_meal_clustering.py", "Stage 2c – Meal clustering"),
-        ("stage1_train_test_split.py", "Stage 1 – Train/test split (80/20)"),
-        ("run_5fold_cross_validation.py", "5-fold CV + restore 80/20 + Stages 2–7"),
+        ("stage0_data_preparation.py", "Stage 0 - Data preparation"),
+        ("stage2c_meal_clustering.py", "Stage 2c - Meal clustering"),
+        ("stage1_train_test_split.py", "Stage 1 - Train/test split (80/20)"),
+        ("run_5fold_cross_validation.py", "5-fold CV + restore 80/20 + Stages 2-7"),
     ]
 
     for script, desc in steps:
