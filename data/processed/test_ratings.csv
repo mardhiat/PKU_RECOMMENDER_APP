@@ -1,0 +1,68 @@
+user_id,food,rating
+demo-01,Cucumber Miso Slaw (Japanese Foods),5
+demo-01,Vegetable Stir Fry (African Foods),4
+demo-01,Warm Cabbage-Apple SautâÂ© (Eastern European Foods),2
+demo-01,Baked Herbed Potatoes Wedges (Scottish-Irish Foods),2
+demo-01,Chana-Free Chaat (Indian Foods),2
+demo-02,Broccoli al Forno (Italian Foods),4
+demo-02,Stir-Fried Spinach with Garlic Sauce (Chinese Foods),4
+demo-02,Irish Apple Mash (Scottish-Irish Foods),2
+demo-02,Baobab Leaf Juice (African Foods),2
+demo-02,Vegetable Curry (Indian Foods),2
+demo-03,Dry Aloo Matar (Indian Foods),4
+demo-03,fresh fig and mint salad (Mediterranean Foods),5
+demo-03,Corn and Veggie Tacos (Mexican Foods),5
+demo-03,Baked Apples (Eastern European Foods),1
+demo-03,Baked Potatoes Green Cabbage Cakes (Scottish-Irish Foods),2
+demo-03,Okra Stew (without meat) (African Foods),1
+demo-04,minted melon bowl (Mediterranean Foods),4
+demo-04,Tomato and Cucumber Salad (African Foods),4
+demo-04,Potato Salad (Central European Foods),2
+demo-04,grilled fennel and orange salad (Mediterranean Foods),2
+demo-04,Beet and Radish Salad (Eastern European Foods),2
+demo-05,Ugali with Vegetable Stew (African Foods),5
+demo-05,Aloo Shimla Mirch (Indian Foods),5
+demo-05,Stir-Fried Bok Choy with Garlic Sauce (Chinese Foods),5
+demo-05,Broccoli al Forno (Italian Foods),2
+demo-05,Daikon & Carrot Pickles (Japanese Foods),1
+demo-05,Scottish Raspberry Cranachan (Scottish-Irish Foods),2
+demo-06,Tomato Upma (Indian Foods),5
+demo-06,Spiced Zucchini Slices (Japanese Foods),5
+demo-06,Carrot and apples Salad (Central European Foods),5
+demo-06,Stir-Fried Kabocha Squash with Garlic Sauce (Chinese Foods),1
+demo-06,Gobhi Masala (Indian Foods),1
+demo-06,Zucchini and mint salad (Mediterranean Foods),2
+demo-07,Fried Sweet Potato Chips (African Foods),4
+demo-07,Tomato Rasam (Indian Foods),5
+demo-07,Tomato-cucumber Salad (Central European Foods),2
+demo-07,Stir-Fried Napa Cabbage with Garlic Sauce (Chinese Foods),1
+demo-07,Irish Colcannon (PKU-friendly) (Scottish-Irish Foods),2
+demo-07,Daikon & Carrot Pickles (Japanese Foods),2
+demo-08,Snow Peas Daikon Mix (Japanese Foods),5
+demo-08,Veggie-Stuffed Potato Cakes Mushroom Filling (Eastern European Foods),4
+demo-08,"Parsnip, raw & Carrots Puree (Scottish-Irish Foods)",5
+demo-08,Focaccia (plain) (Italian Foods),2
+demo-08,Zucchini alla Scapece (Italian Foods),2
+demo-08,Tamarind Juice (African Foods),2
+demo-09,Braised Cabbage with White Rice (Eastern European Foods),5
+demo-09,sauteed water spinach (Japanese Foods),4
+demo-09,Mint Rice (Indian Foods),4
+demo-09,Tomato Cucumber Salad (Japanese Foods),2
+demo-09,Okra Salad (African Foods),2
+demo-10,Sauteed Water Spinach (Japanese Foods),5
+demo-10,Braised Kabocha Squash (Chinese Foods),4
+demo-10,Chilled Tomato Vinegar (Japanese Foods),5
+demo-10,Sweet Potatoes and Carrots Patties (Scottish-Irish Foods),2
+demo-10,Simple Herbed Swede Mash (Scottish-Irish Foods),1
+demo-10,Bread Upma (Indian Foods),2
+demo-11,Beet and Radish Salad (Eastern European Foods),4
+demo-11,Roasted Pumpkin (African Foods),4
+demo-11,Simple Daikon Miso Soup (Japanese Foods),5
+demo-11,Fried Zucchini Rounds (Eastern European Foods),1
+demo-11,Stir-Fried Bell Pepper with Garlic Sauce (Chinese Foods),1
+demo-11,Panzanella (bread salad) (Italian Foods),2
+demo-12,Crispy Zucchini & Potatoes Patties (Scottish-Irish Foods),4
+demo-12,Chilled Tomato Vinegar (Japanese Foods),5
+demo-12,Beetroot Curry (Indian Foods),2
+demo-12,German Cabbage Medley (Central European Foods),2
+demo-12,Steamed Kohlrabi with Carrots (Central European Foods),2

@@ -1,0 +1,13 @@
+phe_mg_min,phe_mg_max,protein_g,energy_kcal,age_group,phe_mg_target,weight_kg,user_id,age_years,sex
+220,700,60,2100,19+ years,460.0,62.0,demo-01,28.0,Female
+290,1200,70,2900,19+ years,745.0,78.0,demo-02,34.0,Male
+220,700,60,2100,19+ years,460.0,55.0,demo-03,22.0,Female
+290,1200,70,2900,19+ years,745.0,84.0,demo-04,41.0,Male
+220,700,60,2100,19+ years,460.0,58.0,demo-05,19.0,Female
+290,1200,70,2900,19+ years,745.0,90.0,demo-06,45.0,Male
+220,700,60,2100,19+ years,460.0,67.0,demo-07,31.0,Female
+290,1200,70,2900,19+ years,745.0,73.0,demo-08,26.0,Male
+220,700,60,2100,19+ years,460.0,64.0,demo-09,37.0,Female
+290,1200,70,2900,19+ years,745.0,81.0,demo-10,29.0,Male
+220,700,60,2100,19+ years,460.0,70.0,demo-11,52.0,Female
+290,1200,70,2900,19+ years,745.0,76.0,demo-12,24.0,Male

@@ -1,0 +1,16 @@
+food_name,phe_mg_per_100g,protein_g_per_100g,energy_kcal_per_100g,serving_size_g,ingredients_found,ingredients_missing,data_quality
+Garden Egg Stew (without meat) (African Foods),0.0034473684210526317,0.1273684210526316,3.4844558947368416,380.0,3,1,partial
+Baobab Fruit Smoothie (African Foods),24.6,0.492,33.301502666666664,300.0,2,1,partial
+Roasted Garden Eggplant (African Foods),0.0,0.0,88.4083194,300.0,1,1,partial
+Beet and Horseradish Slaw (Central European Foods),4.9565217391304355,0.09913043478260869,291.63233395652173,690.0,4,1,partial
+Vegan Borscht (Eastern European Foods),5.238022584692597,0.18504767879548306,23.949521301713247,1992.5,12,1,partial
+Vinegret Salad (Eastern European Foods),0.003695788812067882,0.14079195474544312,50.10562079907813,1591.0,8,1,partial
+Dal-Free Rasam (Indian Foods),0.010799999999999999,0.35200000000000004,33.556442399999995,250.0,3,1,partial
+Chana-Free Chaat (Indian Foods),0.0548,1.342,109.7874061,200.0,3,1,partial
+Bananas Fritters (Indian Foods),0.0,0.0,0.0,240.0,1,1,partial
+polenta with roasted veggies (Mediterranean Foods),64.94579054054054,3.4230067567567573,77.90695713513513,296.0,4,1,partial
+roasted garlic carrots (Mediterranean Foods),68.54132352941177,1.9262499999999998,93.07965652205883,272.0,4,1,partial
+cinnamon date pudding (Mediterranean Foods),7.338377162629757,0.8677162629757786,208.03441540484425,578.0,8,2,partial
+Mexican Street Corn Salad (Mexican Foods),35.3010752688172,0.7060215053763441,34.90362334869431,93.0,4,1,partial
+Tomatillo Salsa Verde (Mexican Foods),7.544724770642203,0.30220183486238533,8.716044495412843,109.0,5,1,partial
+Simple Scottish Pea Soup (Scottish-Irish Foods),0.010731707317073172,0.2926829268292683,23.638317886914617,410.0,3,1,partial

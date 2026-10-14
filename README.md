@@ -1,62 +1,76 @@
-# PKU Dietary Recommender System
-AI-powered meal recommendation system for Phenylketonuria (PKU) patients using hybrid collaborative and content-based filtering.
+# PKU meal planner and recommender evaluation
 
-### Overview
-Web application that provides personalized dietary recommendations for PKU patients based on nutritional constraints, user preferences, and collaborative filtering from community ratings. Built as part of research at Kean University's School of Integrative Science and Technology.
+A Streamlit meal planner for phenylketonuria (PKU) diet planning, plus an offline evaluation of cuisine-aware recommenders. The work was done at Kean University's School of Integrative Science and Technology. The manuscript is in preparation for BMC Medical Informatics and Decision Making.
 
-### Tech Stack
-Language: Python  
-Framework: Streamlit  
-ML Libraries: Scikit-learn, Pandas, NumPy  
-Data: USDA nutritional database (900+ foods across 12 cuisines)  
+The app supports planning. It does not replace a metabolic clinic.
 
-### Features
-+ Personalized nutrition calculations based on age, weight, and diet type
-+ Hybrid recommendation algorithm combining content-based and collaborative filtering
-+ User rating system for adaptive learning
-+ Meal planning with CSV export
-+ Nutrition visualization and tracking
+## Run the app
 
-### Setup
-```
+Python 3.11 or 3.12.
+
+```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
-**Pipeline only (Stage 0–7 + 5-fold), or if full install fails (e.g. Python 3.14 / Rust):**
-`pip install -r requirements-pipeline.txt` then `python run_full_pipeline.py`
 
-### System Architecture
-+ Stage 0: Data preparation and cleaning from USDA database
-+ Stage 2c: Meal clustering (ingredient-based)
-+ Stage 1: Train-test split of user rating data (80/20)
-+ Stage 2: Generate recommendations using hybrid algorithm
-+ Stage 3: Calculate portions based on nutritional limits
-+ Stage 4: Evaluate performance (precision, recall, F1, hit rate)
-+ Stage 5–7: Combined evaluation, statistical tests, visualization
-+ **5-fold cross-validation** (robustness): runs after Stage 1; reports mean ± std over 5 folds, then restores 80/20 and re-runs Stages 2–7.
+The planner loads `data/nutrition/Nutritional_Data.csv` and the cuisine tables in `data/cuisines/`. A profile stores nothing on a server. The meal plan can be downloaded as CSV.
 
-**Run everything in order (Stage 0 → 2c → 1 → 5-fold, then 2–7 inside 5-fold):**
+## Run the evaluation
+
 ```bash
-python run_full_pipeline.py
+pip install -r requirements-pipeline.txt
+python pipeline/run_pipeline.py
 ```
-Or run stages manually; for 5-fold only (after 0 and 2c): `python run_5fold_cross_validation.py`.
 
-### Algorithms
-Five recommendation approaches implemented:
+That command uses `data/fixtures/synthetic_ratings.csv` (fictional `demo-` users). It does not call the USDA API unless you pass `--refresh-nutrition` to `pipeline/prepare_data.py` and set `USDA_API_KEY` (see `.env.example`).
 
-1. Hybrid (content-based + collaborative filtering)
-2. Content-based (nutrient similarity)
-3. Collaborative filtering (user preferences)
-4. Popularity-based (most-rated foods)
-5. Random (baseline)
+Optional parameter search, after recommendations exist:
 
-Hybrid approach demonstrates best overall performance across evaluation metrics.
+```bash
+python pipeline/tune_parameters.py
+```
 
-### Research Status
-Manuscript in preparation for submission to BMC Medical Informatics and Decision Making.
+### Pipeline order
 
-### Contact  
+1. `prepare_data.py` reads the fixture and the cuisine tables.
+2. `cluster_meals.py` clusters the meal catalog. Clusters describe foods, so this runs before any user split.
+3. `split_ratings.py` makes an 80/20 user-wise split. A liked food is a rating of 4 or 5. A rating of 3 is left out of that split. A user needs at least 10 ratings and 3 liked foods.
+4. `cross_validate.py` runs a 5-fold check, restores the 80/20 split, and then recommends, scores portions, evaluates, tests, and draws figures.
+
+## What the study found
+
+These numbers are the published aggregates in `docs/results/`. They are not the output of the synthetic fixture.
+
+On the 80/20 split (102 users), cuisine-filtered collaborative filtering leads:
+
+| Algorithm | F1@10 (%) | Precision@10 (%) | Recall@10 (%) | Hit rate (%) |
+| --- | ---: | ---: | ---: | ---: |
+| Collaborative, cuisine-filtered | 13.0 | 9.5 | 27.3 | 50.0 |
+| Hybrid, cuisine-filtered | 12.8 | 8.9 | 30.3 | 52.0 |
+| Content-based, cuisine-filtered | 11.0 | 7.4 | 27.4 | 50.0 |
+| Popularity, cuisine-filtered | 10.5 | 6.9 | 28.1 | 49.0 |
+| Random | 0.5 | 0.5 | 0.7 | 3.9 |
+
+Liked-and-safe (liked, and a portion that stays inside the phenylalanine limit) is 3.7% for cuisine-filtered collaborative filtering. Scores are modest because each user has rated only a small set of foods.
+
+Every algorithm in that evaluation recommends only from foods someone has already rated. It is not a cold-start score over the full catalog. There are 10 cuisine tables, about 640 composed meals, and about 800 ingredient rows in the nutrition table.
+
+Five-fold means and the per-comparison p-values are in [docs/research/cross_validation.md](docs/research/cross_validation.md). Cuisine filtering helps content-based filtering (p < 0.001) and hybrid (p = 0.0018). The collaborative comparison is p = 0.058.
+
+## Repository map
+
+| Path | Role |
+| --- | --- |
+| `app.py` | Meal planner |
+| `pipeline/` | Evaluation scripts |
+| `pku/` | Shared age, phenylalanine, and path helpers |
+| `data/` | Food tables and the synthetic rating fixture |
+| `docs/results/` | Study metrics |
+| `docs/figures/` | Study figures |
+| `DATA.md` | What is safe to publish |
+
+## Contact
+
 Mardhiat Ajetunmobi  
 mardhiata@gmail.com  
-[LinkedIn](www.linkedin.com/in/mardhiat-ajetunmobi)
-
+[LinkedIn](https://www.linkedin.com/in/mardhiat-ajetunmobi)

@@ -1,5 +1,5 @@
 # =============================================================================
-# SENSITIVE / RESEARCH - Do not push to public repo
+# Secrets and generated model files
 # =============================================================================
 .streamlit/secrets.toml
 *.secrets.toml
@@ -7,19 +7,9 @@
 .env.*
 !.env.example
 usda_cache.json
-# Participant / user-level data (identifiable or research data)
-data_user_food_ratings.csv
-data_user_nutritional_limits.csv
-data_train_ratings.csv
-data_test_ratings.csv
-data_test_users.csv
-# Optional: uncomment to also keep derived outputs private until publication
-# data_food_database.csv
-# data_meal_ingredients.csv
-# data_meal_clusters.csv
-# recommendations_*.pkl
-# *_evaluation*.csv
-# cross_validation_5fold_results.csv
+data/processed/usda_cache.json
+data/processed/*.pkl
+*.pkl
 
 # =============================================================================
 # Python
