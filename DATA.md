@@ -25,6 +25,6 @@ Some ingredient matches have no measured phenylalanine. When protein is present 
 
 `docs/results/` is the study result. Running `python pipeline/run_pipeline.py` uses the synthetic fixture, so the new metrics will differ. That run checks that the code works. It does not recreate the manuscript table.
 
-## If you cloned an older commit
+## If you cloned an older copy
 
-Older commits on `main` may still contain the participant export, because deleting a file in a new commit does not erase history. Before this repository is shared, the history has to be rewritten and the remote updated, and any API keys that ever sat in the sheet or in secrets should be rotated. This branch removes the files from the tree. It has not rewritten `origin/main`.
+The history on `main` was rewritten, so the participant export is not in these commits. A clone from before that rewrite still has the old files on disk. Re-clone, and rotate any API key that was ever in the sheet or in a secrets file.
