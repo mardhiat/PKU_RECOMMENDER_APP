@@ -13,7 +13,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The planner loads `data/nutrition/Nutritional_Data.csv` and the cuisine tables in `data/cuisines/`. A profile stores nothing on a server. The meal plan can be downloaded as CSV.
+The planner loads `data/nutrition/Nutritional_Data.csv` and the cuisine tables in `data/cuisines/`. A profile stays in the current session and is not written to disk. The meal plan can be downloaded as CSV.
 
 ## Run the evaluation
 
@@ -39,9 +39,9 @@ python pipeline/tune_parameters.py
 
 ## What the study found
 
-These numbers are the published aggregates in `docs/results/`. They are not the output of the synthetic fixture.
+These numbers are the study aggregates in `docs/results/`. They are not the output of the synthetic fixture.
 
-On the 80/20 split (102 users), cuisine-filtered collaborative filtering leads:
+On the 80/20 split (102 users), cuisine-filtered collaborative filtering leads on F1@10:
 
 | Algorithm | F1@10 (%) | Precision@10 (%) | Recall@10 (%) | Hit rate (%) |
 | --- | ---: | ---: | ---: | ---: |
@@ -51,9 +51,9 @@ On the 80/20 split (102 users), cuisine-filtered collaborative filtering leads:
 | Popularity, cuisine-filtered | 10.5 | 6.9 | 28.1 | 49.0 |
 | Random | 0.5 | 0.5 | 0.7 | 3.9 |
 
-Liked-and-safe (liked, and a portion that stays inside the phenylalanine limit) is 3.7% for cuisine-filtered collaborative filtering. Scores are modest because each user has rated only a small set of foods.
+Liked-and-safe (liked, and a portion that stays inside the phenylalanine limit) is 3.7% for cuisine-filtered collaborative filtering, the highest rate in that file. Hybrid is higher on recall@10 (30.3%) and hit rate (52.0%).
 
-Every algorithm in that evaluation recommends only from foods someone has already rated. It is not a cold-start score over the full catalog. There are 10 cuisine tables, about 640 composed meals, and about 800 ingredient rows in the nutrition table.
+Every algorithm in that evaluation recommends only from foods someone has already rated. It is not a cold-start score over the full catalog. There are 10 cuisine tables, 638 composed meals, and 803 ingredient rows in the nutrition table.
 
 Five-fold means and the per-comparison p-values are in [docs/research/cross_validation.md](docs/research/cross_validation.md). Cuisine filtering helps content-based filtering (p < 0.001) and hybrid (p = 0.0018). The collaborative comparison is p = 0.058.
 
@@ -63,7 +63,7 @@ Five-fold means and the per-comparison p-values are in [docs/research/cross_vali
 | --- | --- |
 | `app.py` | Meal planner |
 | `pipeline/` | Evaluation scripts |
-| `pku/` | Shared age, phenylalanine, and path helpers |
+| `pku/` | Shared age, phenylalanine, rating, and path helpers |
 | `data/` | Food tables and the synthetic rating fixture |
 | `docs/results/` | Study metrics |
 | `docs/figures/` | Study figures |
@@ -78,7 +78,7 @@ Dr. Malihe Aliasgari served as a co-author and research supervisor for the PKU F
 
 As a faculty research supervisor, Dr. Aliasgari provided academic oversight, research guidance, and mentorship throughout the project. Her involvement contributed to the research direction and academic foundation of this work, which explores the application of computational recommendation techniques to dietary challenges associated with Phenylketonuria (PKU).
 
-The project investigates hybrid recommendation approaches for personalized food recommendations, using a dataset of approximately 900 food items across 12 cuisines. The resulting system achieved an F1 score of 0.767.
+The project investigates cuisine-aware recommendation approaches, including a hybrid model, on 10 cuisine tables, 638 composed meals, and 803 ingredient rows. On the 80/20 study split, cuisine-filtered collaborative filtering leads with an F1@10 of 13.0%.
 
 Dr. Aliasgari is recognized as a co-author of this research in acknowledgment of her scholarly contributions and as the faculty supervisor overseeing the undergraduate research project.
 
