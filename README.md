@@ -69,6 +69,21 @@ Five-fold means and the per-comparison p-values are in [docs/research/cross_vali
 | `docs/figures/` | Study figures |
 | `DATA.md` | What is safe to publish |
 
+## Research Team & Acknowledgments
+
+### Dr. Malihe Aliasgari
+**Co-Author | Research Supervisor**
+
+Dr. Malihe Aliasgari served as a co-author and research supervisor for the PKU Food Recommendation System project.
+
+As a faculty research supervisor, Dr. Aliasgari provided academic oversight, research guidance, and mentorship throughout the project. Her involvement contributed to the research direction and academic foundation of this work, which explores the application of computational recommendation techniques to dietary challenges associated with Phenylketonuria (PKU).
+
+The project investigates hybrid recommendation approaches for personalized food recommendations, using a dataset of approximately 900 food items across 12 cuisines. The resulting system achieved an F1 score of 0.767.
+
+Dr. Aliasgari is recognized as a co-author of this research in acknowledgment of her scholarly contributions and as the faculty supervisor overseeing the undergraduate research project.
+
+**We gratefully acknowledge Dr. Malihe Aliasgari for her research contributions, academic supervision, and mentorship.**
+
 ## Contact
 
 Mardhiat Ajetunmobi  
