@@ -1,6 +1,6 @@
 # PKU meal planner and recommender evaluation
 
-A Streamlit meal planner for phenylketonuria (PKU) diet planning, plus an offline evaluation of cuisine-aware recommenders. The work was done at Kean University's School of Integrative Science and Technology. The manuscript is in preparation for BMC Medical Informatics and Decision Making.
+A Streamlit meal planner for phenylketonuria (PKU) diet planning, plus an offline evaluation of cuisine-aware recommenders. The work was done at Kean University's School of Integrative Science and Technology.
 
 The app supports planning. It does not replace a metabolic clinic.
 
